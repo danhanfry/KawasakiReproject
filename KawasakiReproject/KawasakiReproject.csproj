@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{37D9C1C5-DDEE-41D3-8C5B-D913B81883B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gulpfile.js" />
+    <Content Include="KawasakiNinja650\assets\close_white_btn.svg" />
+    <Content Include="KawasakiNinja650\assets\green_hr.png" />
+    <Content Include="KawasakiNinja650\assets\logo_2017.svg" />
+    <Content Include="KawasakiNinja650\assets\logo_ninja.svg" />
+    <Content Include="KawasakiNinja650\assets\slide1\mobile-landing-bkgd.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide1\playButton_ActionImg.svg" />
+    <Content Include="KawasakiNinja650\assets\slide1\tablet-landing-bkgd.jpg" />
+    <Content Include="KawasakiNinja650\css\commercial.css">
+      <DependentUpon>commercial.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\commercial.min.css">
+      <DependentUpon>commercial.css</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\fonts.css">
+      <DependentUpon>fonts.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\fonts.min.css">
+      <DependentUpon>fonts.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\styles.css">
+      <DependentUpon>styles.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\styles.min.css">
+      <DependentUpon>styles.css</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo1-webfont.svg" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.svg" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.svg" />
+    <Content Include="KawasakiNinja650\index.html" />
+    <Content Include="KawasakiNinja650\js\commonjs.js">
+      <DependentUpon>commonjs.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\commonjs.js.map">
+      <DependentUpon>commonjs.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\models\commercialmodel.js">
+      <DependentUpon>commercialModel.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\ninjarequiremain.js" />
+    <Content Include="KawasakiNinja650\js\sections\commercial\commercial.js">
+      <DependentUpon>commercial.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\commercial.js.map">
+      <DependentUpon>commercial.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialcontent.js">
+      <DependentUpon>commercialcontent.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.js">
+      <DependentUpon>commercialvideo.tsx</DependentUpon>
+    </Content>
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\react-dom.js" />
+    <Content Include="scripts\react.js" />
+    <Content Include="scripts\require.js" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo1-webfont.eot" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo1-webfont.ttf" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo1-webfont.woff" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.eot" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.ttf" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.woff" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.eot" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.ttf" />
+    <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.woff" />
+    <Content Include="KawasakiNinja650\fonts\dense\321524_0_0.eot" />
+    <Content Include="KawasakiNinja650\fonts\dense\321524_0_0.ttf" />
+    <Content Include="KawasakiNinja650\fonts\dense\321524_0_0.woff" />
+    <Content Include="KawasakiNinja650\fonts\dense\321524_0_0.woff2" />
+    <Content Include="KawasakiNinja650\fonts\dinnextheavy\DINNextLTPro-Heavy.eot" />
+    <Content Include="KawasakiNinja650\fonts\dinnextheavy\DINNextLTPro-Heavy.ttf" />
+    <Content Include="KawasakiNinja650\fonts\dinnextheavy\DINNextLTPro-Heavy.woff" />
+    <Content Include="KawasakiNinja650\fonts\dinnextregular\DINNextLTPro-Regular.eot" />
+    <Content Include="KawasakiNinja650\fonts\dinnextregular\DINNextLTPro-Regular.ttf" />
+    <Content Include="KawasakiNinja650\fonts\dinnextregular\DINNextLTPro-Regular.woff" />
+    <Content Include="KawasakiNinja650\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="KawasakiNinja650\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="KawasakiNinja650\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="KawasakiNinja650\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="KawasakiNinja650\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="KawasakiNinja650\css\fonts.scss" />
+    <Content Include="KawasakiNinja650\css\global-variables.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="tsconfig.json" />
+    <Content Include="KawasakiNinja650\css\commercial.scss" />
+    <Content Include="KawasakiNinja650\css\styles.scss" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialcontent.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.tsx" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-linked-state-mixin.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-perf.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-pure-render-mixin.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-shallow-compare.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-test-utils.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-transition-group.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-addons-update.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-dom.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-global.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>KawasakiReproject</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53130</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53130/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

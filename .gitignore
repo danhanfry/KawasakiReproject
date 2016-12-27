@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/artifacts
+/KawasakiReproject/bin
+/KawasakiReproject/obj
+/KawasakiReproject/node_modules
+/KawasakiReproject/bower_components
+/KawasakiReproject/.vs

@@ -1,0 +1,37 @@
+﻿
+$ninjaGreen: #66cc33;
+$white: #fff;
+
+@mixin ellipsisCreator($font-size: 16px, $line-height: 1.4, $lines-to-show: 7) {
+	display: block;
+	display: -webkit-box;
+	line-height: $line-height;
+	-webkit-line-clamp: $lines-to-show;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-height: $font-size*$line-height*$lines-to-show;
+
+	@-moz-document url-prefix() {
+		overflow: hidden;
+		position: relative;
+
+		&:before {
+			bottom: 0;
+			position: absolute;
+			right: 0;
+			float: right;
+			content: '\2026';
+			margin-left: -3rem;
+			width: 3rem;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			height: 50px;
+			width: 100%;
+			z-index: 1;
+		}
+	}
+}

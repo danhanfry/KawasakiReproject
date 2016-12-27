@@ -1,0 +1,18 @@
+﻿html {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  /*prevent font size being too big then too small or vice versa when changing orientation*/ }
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+

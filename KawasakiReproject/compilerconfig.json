@@ -1,0 +1,14 @@
+﻿[
+	{
+		"outputFile": "KawasakiNinja650/css/fonts.css",
+		"inputFile": "KawasakiNinja650/css/fonts.scss"
+	},
+	{
+		"outputFile": "KawasakiNinja650/css/styles.css",
+		"inputFile": "KawasakiNinja650/css/styles.scss"
+	},
+	{
+		"outputFile": "KawasakiNinja650/css/commercial.css",
+		"inputFile": "KawasakiNinja650/css/commercial.scss"
+	}
+]
