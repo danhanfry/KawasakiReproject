@@ -7,6 +7,15 @@
 	height: string;
 }
 
+interface IWidthHeight {
+	width: number;
+	height: number;
+	outerWidth: number;
+	outerHeight: number;
+	outerWidthWithMargin: number;
+	outerHeightWithMargin: number;
+}
+
 interface IEmptyProperties {
 }
 

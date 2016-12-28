@@ -16,16 +16,16 @@ export class CommercialContent extends React.Component<ICommercialContentModel, 
 			<div>
 				<div id="commericialContainerId" className="commerical-container scale-to-window">
 					<div id="commericalNinjaNameYearId" className="commerical-text-year ">
-						<img className="hide" src={Model.YearModelImgUrl} />
+						<img src={Model.YearModelImgUrl} />
 					</div>
 
 					<div id="commericalNinjaNameId" className="commerical-logo ">
-						<img className="hide" src={Model.YearLogoImgUrl} />
+						<img src={Model.YearLogoImgUrl} />
 					</div>
 
 					<div id="commericalNinjaLifeGreenHrId" className="commerical-hr">
 						<div>
-							<img className="hide" src={Model.GreenHorizontalLineImgUrl} />
+							<img src={Model.GreenHorizontalLineImgUrl} />
 						</div>
 					</div>
 
@@ -37,8 +37,8 @@ export class CommercialContent extends React.Component<ICommercialContentModel, 
 
 					<div id="commericalNinjaLifePlayArrow" className="commerical-life-arrow">
 						<div id="playArrowMask" className="playArrow">
-							<span className="hide" dangerouslySetInnerHTML={{ __html: svgPlayBtnAsString }} />
-							<img id="PlayButtonGloss" className="PlayButtonGloss hide" src={Model.PlayButtonGlossImgUrl} />
+							<span className="" dangerouslySetInnerHTML={{ __html: svgPlayBtnAsString }} />
+							<img id="PlayButtonGloss" className="play-button-gloss" src={Model.PlayButtonGlossImgUrl} />
 						</div>
 					</div>
 

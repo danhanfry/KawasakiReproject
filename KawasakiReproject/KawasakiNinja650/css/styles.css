@@ -16,3 +16,31 @@ body {
 .show {
   display: block; }
 
+.close-btn {
+  cursor: pointer;
+  padding-left: 35px; }
+
+.cirlce-r {
+  display: inline-block;
+  font-size: 10px;
+  vertical-align: top;
+  margin-top: -4px; }
+
+.scroll-indicator {
+  position: absolute;
+  z-index: 4;
+  opacity: 1;
+  border-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  height: 50px;
+  cursor: pointer;
+  margin-top: -100px; }
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #4CBA41; }
+

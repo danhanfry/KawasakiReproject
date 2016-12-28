@@ -41,3 +41,9 @@ gulp.task('copy-reactdom', function () {
 	.pipe(concat(paths.externaljs + "/react-dom.js"))
 	.pipe(gulp.dest("."));
 });
+
+gulp.task('copy-tweenmax', function () {
+	gulp.src(['./bower_components/gsap/src/minified/tweenmax.min.js'])
+	.pipe(concat(paths.externaljs + "/tweenmax.js"))
+	.pipe(gulp.dest("."));
+});

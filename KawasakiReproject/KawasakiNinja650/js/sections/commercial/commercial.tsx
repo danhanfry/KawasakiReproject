@@ -1,26 +1,27 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../interfaces/commercial.d.ts" />
 /// <reference path="../../models/commercialmodel.ts" />
-
 /// <reference path="../../commonjs.ts" />
+/// <reference path="commercial-index.ts" />
 
 import { CommercialVideo } from "./components/commercialvideo";
 import { CommercialContent } from "./components/commercialcontent";
+import { CommercialScroller } from "./components/commercialscroller";
 
 export class Commercial extends React.Component<ICommercialModel, any> {
 
-	public componentDidMount() {
+	private CommercialIndex: Kawasaki.NinjaSixFifty.Commercial = new Kawasaki.NinjaSixFifty.Commercial(1, 1);
 
-		//var contentContainerElement: HTMLElement = document.getElementById('commericialContainerId');
-		//var allImgsInContent: NodeListOf<HTMLImageElement> = contentContainerElement.querySelectorAll('img');
-		//if (allImgsInContent.length > 0) {
-		//	for (var i = 0; i < allImgsInContent.length; i++) {
-		//		var currentImg = allImgsInContent[i];
-		//		if (currentImg !== undefined && currentImg !== null) {
-		//			currentImg.classList.remove('hide');
-		//		}
-		//	}
-		//}
+	public componentDidMount() {
+		window.addEventListener("resize", this.commercialResizeEvent);
+	}
+
+	public componentWillMount() {
+		this.commercialResizeEvent();
+	}
+
+	public componentWillUnmount() {
+		window.removeEventListener("resize", this.commercialResizeEvent);
 	}
 
 	render() {
@@ -31,9 +32,14 @@ export class Commercial extends React.Component<ICommercialModel, any> {
 			<div>
 				<CommercialVideo Model={CommercialVideoProp} />
 				<CommercialContent Model={CommercialContentProp} />
+				<CommercialScroller />
 			</div>
 		);
 
+	}
+
+	private commercialResizeEvent() {
+		this.CommercialIndex.calculation();
 	}
 }
 

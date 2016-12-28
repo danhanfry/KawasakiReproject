@@ -22,7 +22,8 @@
 	"files": [
 		"KawasakiNinja650/js/sections/commercial/commercial.tsx",
 		"KawasakiNinja650/js/sections/commercial/components/commercialvideo.tsx",
-		"KawasakiNinja650/js/sections/commercial/components/commercialcontent.tsx"
+		"KawasakiNinja650/js/sections/commercial/components/commercialcontent.tsx",
+		"KawasakiNinja650/js/sections/commercial/components/commercialscroller.tsx"
 	],
 	"exclude": [ ]
 }

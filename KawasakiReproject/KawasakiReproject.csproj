@@ -71,6 +71,9 @@
     <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialcontent.js">
       <DependentUpon>commercialcontent.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialscroller.js">
+      <DependentUpon>commercialscroller.tsx</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.js">
       <DependentUpon>commercialvideo.tsx</DependentUpon>
     </Content>
@@ -78,6 +81,7 @@
     <Content Include="scripts\react-dom.js" />
     <Content Include="scripts\react.js" />
     <Content Include="scripts\require.js" />
+    <Content Include="scripts\tweenmax.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -128,8 +132,10 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialcontent.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialscroller.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.tsx" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />
@@ -143,6 +149,7 @@
     <TypeScriptCompile Include="scripts\typings\react\react-dom.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-global.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\tweenmax.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

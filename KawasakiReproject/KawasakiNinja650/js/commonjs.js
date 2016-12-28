@@ -13,6 +13,23 @@ var Kawasaki;
             this.isTouch = function () {
                 return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
             };
+            this.elementDimensions = function (element) {
+                var computedElement = window.getComputedStyle(element);
+                var computedHeight = parseInt(computedElement.height.replace('px', ''), 10);
+                var computedWidth = parseInt(computedElement.width.replace('px', ''), 10);
+                var computedOuterHeight = element.offsetHeight;
+                var computedOuterWidth = element.offsetWidth;
+                var computedOuterHeightWithMargin = computedOuterHeight + parseInt(computedElement.marginTop) + parseInt(computedElement.marginBottom);
+                var computedOuterWidthWithMargin = computedOuterWidth + parseInt(computedElement.marginLeft) + parseInt(computedElement.marginRight);
+                return {
+                    width: computedWidth,
+                    height: computedHeight,
+                    outerHeight: computedOuterHeight,
+                    outerWidth: computedOuterWidth,
+                    outerWidthWithMargin: computedOuterWidthWithMargin,
+                    outerHeightWithMargin: computedOuterHeightWithMargin
+                };
+            };
             this.createSVGElement = function (kawasakiSvgModel) {
                 var xyWidthHeight = (kawasakiSvgModel.x.replace('px', '') + " " +
                     kawasakiSvgModel.y.replace('px', '') + " " +

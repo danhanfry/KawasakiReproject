@@ -20,6 +20,25 @@ namespace Kawasaki {
 			return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 		}
 
+		public elementDimensions = (element: HTMLElement): IWidthHeight => {
+			const computedElement:CSSStyleDeclaration = window.getComputedStyle(element);
+			const computedHeight = parseInt(computedElement.height.replace('px', ''), 10);
+			const computedWidth = parseInt(computedElement.width.replace('px', ''), 10);
+			const computedOuterHeight = element.offsetHeight;
+			const computedOuterWidth = element.offsetWidth;
+			const computedOuterHeightWithMargin = computedOuterHeight + parseInt(computedElement.marginTop) + parseInt(computedElement.marginBottom);
+			const computedOuterWidthWithMargin = computedOuterWidth + parseInt(computedElement.marginLeft) + parseInt(computedElement.marginRight);
+
+			return {
+				width: computedWidth,
+				height: computedHeight,
+				outerHeight: computedOuterHeight,
+				outerWidth: computedOuterWidth,
+				outerWidthWithMargin: computedOuterWidthWithMargin,
+				outerHeightWithMargin: computedOuterHeightWithMargin
+			};
+		}
+
 		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElement): SVGSVGElement => {
 
 			var xyWidthHeight: string = (kawasakiSvgModel.x.replace('px', '') + " " +

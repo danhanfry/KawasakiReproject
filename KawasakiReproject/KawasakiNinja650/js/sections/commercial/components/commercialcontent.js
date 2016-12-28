@@ -17,14 +17,14 @@ define(["require", "exports"], function (require, exports) {
             return (React.createElement("div", null, 
                 React.createElement("div", {id: "commericialContainerId", className: "commerical-container scale-to-window"}, 
                     React.createElement("div", {id: "commericalNinjaNameYearId", className: "commerical-text-year "}, 
-                        React.createElement("img", {className: "hide", src: Model.YearModelImgUrl})
+                        React.createElement("img", {src: Model.YearModelImgUrl})
                     ), 
                     React.createElement("div", {id: "commericalNinjaNameId", className: "commerical-logo "}, 
-                        React.createElement("img", {className: "hide", src: Model.YearLogoImgUrl})
+                        React.createElement("img", {src: Model.YearLogoImgUrl})
                     ), 
                     React.createElement("div", {id: "commericalNinjaLifeGreenHrId", className: "commerical-hr"}, 
                         React.createElement("div", null, 
-                            React.createElement("img", {className: "hide", src: Model.GreenHorizontalLineImgUrl})
+                            React.createElement("img", {src: Model.GreenHorizontalLineImgUrl})
                         )
                     ), 
                     React.createElement("div", {id: "commericalNinjaLifeDescriptionId", className: "commerical-life-description"}, 
@@ -34,8 +34,8 @@ define(["require", "exports"], function (require, exports) {
                     ), 
                     React.createElement("div", {id: "commericalNinjaLifePlayArrow", className: "commerical-life-arrow"}, 
                         React.createElement("div", {id: "playArrowMask", className: "playArrow"}, 
-                            React.createElement("span", {className: "hide", dangerouslySetInnerHTML: { __html: svgPlayBtnAsString }}), 
-                            React.createElement("img", {id: "PlayButtonGloss", className: "PlayButtonGloss hide", src: Model.PlayButtonGlossImgUrl}))
+                            React.createElement("span", {className: "", dangerouslySetInnerHTML: { __html: svgPlayBtnAsString }}), 
+                            React.createElement("img", {id: "PlayButtonGloss", className: "play-button-gloss", src: Model.PlayButtonGlossImgUrl}))
                     ))
             ));
         };

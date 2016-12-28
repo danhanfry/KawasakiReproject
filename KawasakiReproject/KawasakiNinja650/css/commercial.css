@@ -27,3 +27,50 @@
   min-height: 50%;
   min-width: 50%; }
 
+.commerical-hr img {
+  float: left;
+  transform-origin: 100% 0%; }
+
+.commerical-life-description {
+  color: white;
+  font-family: Helvetica;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: normal;
+  width: 425px;
+  line-height: 30px; }
+
+.commerical-life-arrow {
+  cursor: pointer;
+  width: auto; }
+
+.slide-one-gloss {
+  position: absolute;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  /* For IE8 and earlier */ }
+
+.play-button-gloss {
+  z-index: 90;
+  height: 115px;
+  width: 115px;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  transform: skewX(-20deg); }
+
+.close-button-container {
+  padding: 20px;
+  z-index: 101;
+  position: absolute;
+  cursor: pointer;
+  display: none;
+  top: 10px; }
+
+.scroll-indicator-mask {
+  height: 48px;
+  width: 48px;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  z-index: 500; }
+

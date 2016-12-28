@@ -3,30 +3,32 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "./components/commercialvideo", "./components/commercialcontent"], function (require, exports, commercialvideo_1, commercialcontent_1) {
+define(["require", "exports", "./components/commercialvideo", "./components/commercialcontent", "./components/commercialscroller"], function (require, exports, commercialvideo_1, commercialcontent_1, commercialscroller_1) {
     "use strict";
     var Commercial = (function (_super) {
         __extends(Commercial, _super);
         function Commercial() {
             _super.apply(this, arguments);
+            this.CommercialIndex = new Kawasaki.NinjaSixFifty.Commercial(1, 1);
         }
         Commercial.prototype.componentDidMount = function () {
-            var contentContainerElement = document.getElementById('commericialContainerId');
-            var allImgsInContent = contentContainerElement.querySelectorAll('img');
-            if (allImgsInContent.length > 0) {
-                for (var i = 0; i < allImgsInContent.length; i++) {
-                    var currentImg = allImgsInContent[i];
-                    if (currentImg !== undefined && currentImg !== null) {
-                        currentImg.classList.remove('hide');
-                    }
-                }
-            }
+            window.addEventListener("resize", this.commercialResizeEvent);
+        };
+        Commercial.prototype.componentWillMount = function () {
+            this.commercialResizeEvent();
+        };
+        Commercial.prototype.componentWillUnmount = function () {
+            window.removeEventListener("resize", this.commercialResizeEvent);
         };
         Commercial.prototype.render = function () {
             var _a = this.props.CommercialProperties, CommercialVideoProp = _a.CommercialVideoProp, CommercialContentProp = _a.CommercialContentProp;
             return (React.createElement("div", null, 
                 React.createElement(commercialvideo_1.CommercialVideo, {Model: CommercialVideoProp}), 
-                React.createElement(commercialcontent_1.CommercialContent, {Model: CommercialContentProp})));
+                React.createElement(commercialcontent_1.CommercialContent, {Model: CommercialContentProp}), 
+                React.createElement(commercialscroller_1.CommercialScroller, null)));
+        };
+        Commercial.prototype.commercialResizeEvent = function () {
+            this.CommercialIndex.calculation();
         };
         return Commercial;
     }(React.Component));
