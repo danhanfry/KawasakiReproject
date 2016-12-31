@@ -10,13 +10,16 @@ import { CommercialScroller } from "./components/commercialscroller";
 
 export class Commercial extends React.Component<ICommercialModel, any> {
 
-	private CommercialIndex: Kawasaki.NinjaSixFifty.Commercial = new Kawasaki.NinjaSixFifty.Commercial(1, 1);
+	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private CommercialIndex: Kawasaki.NinjaSixFifty.Commercial = new Kawasaki.NinjaSixFifty.Commercial();
 
-	public componentDidMount() {
-		window.addEventListener("resize", this.commercialResizeEvent);
+	/*before the render*/
+	public componentWillMount() {
 	}
 
-	public componentWillMount() {
+	/*after the render*/
+	public componentDidMount() {
+		window.addEventListener("resize", this.commercialResizeEvent);
 		this.commercialResizeEvent();
 	}
 

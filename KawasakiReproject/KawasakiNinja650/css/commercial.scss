@@ -1,5 +1,11 @@
 ﻿@import 'global-variables';
 
+.common-commerical-props, .commerical-text-year, .commerical-logo, .commerical-hr, .commerical-life-description, .commerical-life-arrow {
+	position: absolute;
+	padding: 20px;
+	opacity: 1;
+}
+
 .first-slide {
 	background: #000;
 	position: relative;

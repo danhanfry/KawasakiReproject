@@ -15,12 +15,12 @@ export class CommercialContent extends React.Component<ICommercialContentModel, 
 		return (
 			<div>
 				<div id="commericialContainerId" className="commerical-container scale-to-window">
-					<div id="commericalNinjaNameYearId" className="commerical-text-year ">
-						<img src={Model.YearModelImgUrl} />
+					<div id="commericalNinjaNameYearId" className="commerical-text-year">
+						<img src={Model.YearLogoImgUrl} />
 					</div>
 
 					<div id="commericalNinjaNameId" className="commerical-logo ">
-						<img src={Model.YearLogoImgUrl} />
+						<img src={Model.YearModelImgUrl} />
 					</div>
 
 					<div id="commericalNinjaLifeGreenHrId" className="commerical-hr">

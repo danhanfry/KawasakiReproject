@@ -16,11 +16,11 @@ define(["require", "exports"], function (require, exports) {
             var svgPlayBtnAsString = xmlSerializer.serializeToString(Model.PlayButtonImgSvg);
             return (React.createElement("div", null, 
                 React.createElement("div", {id: "commericialContainerId", className: "commerical-container scale-to-window"}, 
-                    React.createElement("div", {id: "commericalNinjaNameYearId", className: "commerical-text-year "}, 
-                        React.createElement("img", {src: Model.YearModelImgUrl})
+                    React.createElement("div", {id: "commericalNinjaNameYearId", className: "commerical-text-year"}, 
+                        React.createElement("img", {src: Model.YearLogoImgUrl})
                     ), 
                     React.createElement("div", {id: "commericalNinjaNameId", className: "commerical-logo "}, 
-                        React.createElement("img", {src: Model.YearLogoImgUrl})
+                        React.createElement("img", {src: Model.YearModelImgUrl})
                     ), 
                     React.createElement("div", {id: "commericalNinjaLifeGreenHrId", className: "commerical-hr"}, 
                         React.createElement("div", null, 

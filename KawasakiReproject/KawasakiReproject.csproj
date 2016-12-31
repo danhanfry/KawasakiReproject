@@ -62,6 +62,9 @@
       <DependentUpon>commercialModel.ts</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\ninjarequiremain.js" />
+    <Content Include="KawasakiNinja650\js\sections\commercial\commercial-index.js">
+      <DependentUpon>commercial-index.ts</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\commercial.js">
       <DependentUpon>commercial.tsx</DependentUpon>
     </Content>

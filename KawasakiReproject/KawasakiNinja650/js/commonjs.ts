@@ -2,6 +2,9 @@
 
 namespace Kawasaki {
 	export class Common {
+
+		private root: RegExp = new RegExp(/^(?:body|html)$/i);
+
 		constructor() {
 
 		}
@@ -20,22 +23,68 @@ namespace Kawasaki {
 			return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 		}
 
-		public elementDimensions = (element: HTMLElement): IWidthHeight => {
-			const computedElement:CSSStyleDeclaration = window.getComputedStyle(element);
-			const computedHeight = parseInt(computedElement.height.replace('px', ''), 10);
-			const computedWidth = parseInt(computedElement.width.replace('px', ''), 10);
-			const computedOuterHeight = element.offsetHeight;
-			const computedOuterWidth = element.offsetWidth;
-			const computedOuterHeightWithMargin = computedOuterHeight + parseInt(computedElement.marginTop) + parseInt(computedElement.marginBottom);
-			const computedOuterWidthWithMargin = computedOuterWidth + parseInt(computedElement.marginLeft) + parseInt(computedElement.marginRight);
+		public elementDimensions = (element: HTMLElement | Window | Document): IDimensionPosition => {
+
+			let width: number = 0, height: number = 0, outerHeight: number = 0, outerWidth: number = 0,
+				outerHeightWithMargin: number = 0, outerWidthWithMargin: number = 0,
+				elementPositions: IElementPosition = { positionLeft: 0, positionTop: 0 };
+
+			if (element instanceof Window) {
+				const currentWindow: Window = (element as Window);
+				width = outerWidth = outerWidthWithMargin = currentWindow.document.documentElement["clientWidth"];
+				height = outerHeight = outerHeightWithMargin = currentWindow.document.documentElement["clientHeight"];
+			}
+			else if (element instanceof Document) {
+				const currentDocument: Document = (element as Document);
+				const currentDocElement: HTMLElement = currentDocument.documentElement;
+				const currentBody: HTMLElement = currentDocument.body;
+
+				width = outerWidth = outerWidthWithMargin = Math.max(currentBody["scrollWidth"],
+					currentDocElement["scrollWidth"], currentBody["offsetWidth"],
+					currentDocElement["offsetWidth"], currentDocElement["clientWidth"]);
+
+				height = outerHeight = outerHeightWithMargin = Math.max(currentBody["scrollHeight"],
+					currentDocElement["scrollHeight"], currentBody["offsetHeight"],
+					currentDocElement["offsetHeight"], currentDocElement["clientHeight"]);
+			}
+			else {
+				const currentElement: HTMLElement = (element as HTMLElement);
+				const elementWidth = currentElement.offsetWidth;
+				const elementHeight = currentElement.offsetHeight;
+
+				const computedCssElement: CSSStyleDeclaration = this.getComputerStyleByElement(currentElement);
+				const supportBoxSizing: boolean = ('box-sizing' in document.body.style) &&
+					((computedCssElement.boxSizing || computedCssElement.webkitBoxSizing) === 'border-box');
+
+				width = elementWidth + parseInt(computedCssElement.paddingLeft) +
+					parseInt(computedCssElement.paddingRight) + parseInt(computedCssElement.borderLeftWidth) +
+					parseInt(computedCssElement.borderRightWidth);
+
+				height = elementHeight + parseInt(computedCssElement.paddingTop) +
+					parseInt(computedCssElement.paddingBottom) + parseInt(computedCssElement.borderTopWidth) +
+					parseInt(computedCssElement.borderBottomWidth);
+
+				outerHeight = elementHeight;
+				outerWidth = elementWidth;
+
+				outerHeightWithMargin = elementHeight + parseInt(computedCssElement.marginTop) +
+					parseInt(computedCssElement.marginBottom);
+
+				outerWidthWithMargin = elementWidth + parseInt(computedCssElement.marginLeft) +
+					parseInt(computedCssElement.marginRight);
+
+				elementPositions = this.getPositionOfElement(currentElement, computedCssElement);
+			}
 
 			return {
-				width: computedWidth,
-				height: computedHeight,
-				outerHeight: computedOuterHeight,
-				outerWidth: computedOuterWidth,
-				outerWidthWithMargin: computedOuterWidthWithMargin,
-				outerHeightWithMargin: computedOuterHeightWithMargin
+				width: width,
+				height: height,
+				outerWidth: outerWidth,
+				outerHeight: outerHeight,
+				outerWidthWithMargin: outerWidthWithMargin,
+				outerHeightWithMargin: outerHeightWithMargin,
+				positionLeft: elementPositions.positionLeft,
+				positionTop: elementPositions.positionTop
 			};
 		}
 
@@ -83,8 +132,7 @@ namespace Kawasaki {
 		public createPointList = (points: string[]): SVGPointList => {
 
 			var pointsList: SVGPointList = new SVGPointList();
-			for (let i = 0; i < points.length; i++)
-			{
+			for (let i = 0; i < points.length; i++) {
 				var point: SVGPoint = new SVGPoint();
 				let pointArray: string[] = points[i].split(',');
 				if (pointArray.length === 2) {
@@ -96,6 +144,101 @@ namespace Kawasaki {
 			}
 
 			return pointsList;
+		}
+
+		public scaleProportionally = (srcwidth: number, srcheight: number, targetwidth: number,
+			targetheight: number, fLetterBox: boolean): IScaleProportional => {
+
+			var result: IScaleProportional = { width: 0, height: 0, scaleToTargetWidth: true, targetleft: 0, targettop: 0 };
+
+			if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
+				return result;
+			}
+
+			/* scale to the target width*/
+			let scaleX1 = targetwidth;
+			let scaleY1 = (srcheight * targetwidth) / srcwidth;
+
+			/* scale to the target height*/
+			let scaleX2 = (srcwidth * targetheight) / srcheight;
+			let scaleY2 = targetheight;
+
+			/* now figure out which one we should use*/
+			let fScaleOnWidth = (scaleX2 > targetwidth);
+			if (fScaleOnWidth) {
+				fScaleOnWidth = fLetterBox;
+			}
+			else {
+				fScaleOnWidth = !fLetterBox;
+			}
+
+			if (fScaleOnWidth) {
+				result.width = Math.floor(scaleX1);
+				result.height = Math.floor(scaleY1);
+				result.scaleToTargetWidth = true;
+			}
+			else {
+				result.width = Math.floor(scaleX2);
+				result.height = Math.floor(scaleY2);
+				result.scaleToTargetWidth = false;
+			}
+
+			result.targetleft = Math.floor((targetwidth - result.width) / 2);
+			result.targettop = Math.floor((targetheight - result.height) / 2);
+
+			return result;
+		}
+
+
+		private getComputerStyleByElement = (element: HTMLElement): CSSStyleDeclaration => {
+			return window.getComputedStyle(element, null);
+		}
+
+		private getPositionOfElement = (element: HTMLElement, elementComputedStyle: CSSStyleDeclaration): IElementPosition => {
+
+			const currentElement: HTMLElement = (element as HTMLElement);
+			var offsetParent: Element = currentElement.offsetParent || document.body;
+
+			while (offsetParent && (!this.root.test(offsetParent.nodeName) && elementComputedStyle.position === "static")) {
+				offsetParent = (<HTMLElement>offsetParent).offsetParent;
+			}
+
+			const finalOffsetParent: HTMLElement = (<HTMLElement>offsetParent) || document.body;
+			const finalOffsetParentCssDeclr: CSSStyleDeclaration = this.getComputerStyleByElement(finalOffsetParent);
+
+			let offset: IElementPosition = this.getElementOffset(currentElement);
+			let parentOffset: IElementPosition = this.root.test(finalOffsetParent.nodeName) ?
+				{ positionLeft: 0, positionTop: 0 } : this.getElementOffset(finalOffsetParent);
+
+			offset.positionTop -= parseFloat(elementComputedStyle.marginTop) || 0;
+			offset.positionLeft -= parseFloat(elementComputedStyle.marginLeft) || 0;
+
+			parentOffset.positionTop += parseFloat(finalOffsetParentCssDeclr.borderTopWidth) || 0;
+			parentOffset.positionLeft += parseFloat(finalOffsetParentCssDeclr.borderLeftWidth) || 0;
+
+			return {
+				positionLeft: offset.positionTop - parentOffset.positionTop,
+				positionTop: offset.positionLeft - parentOffset.positionLeft
+			};
+		}
+
+		private getElementOffset = (currentElement: HTMLElement): IElementPosition => {
+			const doc: Document = currentElement && currentElement.ownerDocument;
+			const docElement: HTMLElement = doc.documentElement;
+
+			const rectBox: ClientRect = currentElement.getBoundingClientRect();
+			const windowOfElement: Window = doc.defaultView;
+
+			const clientTop: number = docElement.clientTop || doc.body.clientTop || 0;
+			const clientLeft: number = docElement.clientLeft || doc.body.clientLeft || 0;
+			const scrollTop: number = windowOfElement.pageYOffset || docElement.scrollTop;
+			const scrollLeft: number = windowOfElement.pageXOffset || docElement.scrollLeft;
+
+			return {
+				positionLeft: rectBox.top + scrollTop - clientTop,
+				positionTop: rectBox.left + scrollLeft - clientLeft
+			};
+
 		}
 	}
 }

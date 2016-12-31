@@ -9,12 +9,13 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
         __extends(Commercial, _super);
         function Commercial() {
             _super.apply(this, arguments);
-            this.CommercialIndex = new Kawasaki.NinjaSixFifty.Commercial(1, 1);
+            this.Common = new Kawasaki.Common();
+            this.CommercialIndex = new Kawasaki.NinjaSixFifty.Commercial();
         }
+        Commercial.prototype.componentWillMount = function () {
+        };
         Commercial.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.commercialResizeEvent);
-        };
-        Commercial.prototype.componentWillMount = function () {
             this.commercialResizeEvent();
         };
         Commercial.prototype.componentWillUnmount = function () {
