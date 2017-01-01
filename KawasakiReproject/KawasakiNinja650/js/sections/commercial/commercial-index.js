@@ -10,71 +10,15 @@ var Kawasaki;
                 this.desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";
                 this.tabletMobileCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_720.mp4";
                 this.calculation = function () {
-                    var videoPlay = document.getElementById('videoPlayer');
-                    videoPlay.controls = false;
-                    videoPlay.play();
-                    videoPlay.style.display = 'block';
-                    var thirdOfWindowHeight = _this.windowDimensions.height / 3;
-                    var fourthOfWindowHeight = _this.windowDimensions.height / 4;
-                    var thirdOfWindowWidth = _this.windowDimensions.width / 3;
-                    var halfOfWindowWidth = _this.windowDimensions.width / 2;
-                    var ninjaLogoYear = $('#commericalNinjaNameYearId');
-                    var ninjaLogoName = $('#commericalNinjaNameId');
-                    var ninjaDescriptionElement = $('#commericalNinjaLifeDescriptionId');
-                    var commercialNinjaNameHeight = ninjaLogoName.height();
-                    var commercialNinjaHrOuterHeight = $('#commericalNinjaLifeGreenHrId').outerHeight();
-                    var commercialNinjaNameWidth = ninjaLogoName.width();
-                    TweenMax.set("#firstSlideCloseContainerId", {
-                        left: (_this.windowDimensions.width / 2) - ($('#firstSlideCloseContainerId').width() / 2)
-                    });
-                    $('#commercial').height(_this.windowDimensions.height).width(_this.windowDimensions.width);
-                    var scaledVideo = _this.Common.scaleProportionally(1388, 780, _this.windowDimensions.width, _this.windowDimensions.height, false);
-                    $('#videoPlayer').height(scaledVideo.height).width(scaledVideo.width);
-                    var topOfHeightToUse = thirdOfWindowHeight;
-                    if (_this.windowDimensions.height < 750) {
-                        topOfHeightToUse = fourthOfWindowHeight;
+                    var deviceLayout;
+                    if (_this.Common.isMobile()) {
                     }
-                    TweenMax.set("#commericalNinjaNameYearId", {
-                        top: topOfHeightToUse, left: (_this.windowDimensions.width / 2) - (ninjaLogoYear.width() / 2)
-                    });
-                    if (_this.Common.isSafari() && !_this.Common.isMobile()) {
-                        TweenMax.set("#commericalNinjaNameYearId img", {
-                            width: '135%'
-                        });
+                    else if (_this.Common.isTablet()) {
                     }
-                    TweenMax.set("#commericalNinjaNameId", {
-                        top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-                        left: (_this.windowDimensions.width / 2) - (ninjaLogoName.width() / 2)
-                    });
-                    var leftGreenHr = halfOfWindowWidth - 10;
-                    if (_this.windowDimensions.width < 1280) {
-                        leftGreenHr = leftGreenHr - ($('#commericalNinjaLifeGreenHrId').width() / 2);
+                    else {
+                        deviceLayout = new CommercialDesktop();
                     }
-                    TweenMax.set("#commericalNinjaLifeGreenHrId", {
-                        top: ninjaLogoName.position().top + ninjaLogoName.height(),
-                        left: leftGreenHr
-                    });
-                    var leftDescription = halfOfWindowWidth - 10;
-                    if (_this.windowDimensions.width < 1280) {
-                        leftDescription = leftDescription - (ninjaDescriptionElement.width() / 2);
-                    }
-                    TweenMax.set("#commericalNinjaLifeDescriptionId", {
-                        top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
-                        left: leftDescription
-                    });
-                    TweenMax.set("#commericalNinjaLifePlayArrow", {
-                        top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
-                        left: (ninjaDescriptionElement.position().left + ninjaDescriptionElement.width() + 50)
-                    });
-                    var floatingBottom = $('#commercial').height() / 10 * 9;
-                    var bottom = ninjaDescriptionElement.offset().top + ninjaDescriptionElement.outerHeight() + 100;
-                    if (floatingBottom < bottom) {
-                        floatingBottom = bottom;
-                    }
-                    TweenMax.set("#slideOneScroller", {
-                        top: floatingBottom,
-                        left: (_this.windowDimensions.width / 2) - ($('#slideOneScroller').width() / 2)
-                    });
+                    deviceLayout.calculation(_this.windowDimensions.width, _this.windowDimensions.height);
                     _this.setTweenMechanism();
                     _this.commercialEventInitialize();
                 };

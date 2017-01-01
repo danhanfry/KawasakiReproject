@@ -1,6 +1,7 @@
 ﻿/// <reference path="../../commonjs.ts" />
 /// <reference path="../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../scripts/typings/tweenmax.d.ts" />
+/// <reference path="devicetypes/commercial-desktop.ts" />
 
 namespace Kawasaki.NinjaSixFifty {
 	export class Commercial {
@@ -18,100 +19,18 @@ namespace Kawasaki.NinjaSixFifty {
 
 		public calculation = (): void => {
 
-			const videoPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayer'));
-			videoPlay.controls = false;
-			videoPlay.play();
-			videoPlay.style.display = 'block';
+			let deviceLayout: CommercialSlide;
+			if (this.Common.isMobile()) {
 
-			let thirdOfWindowHeight = this.windowDimensions.height / 3;
-			let fourthOfWindowHeight = this.windowDimensions.height / 4;
+			}
+			else if (this.Common.isTablet()) {
 
-			let thirdOfWindowWidth = this.windowDimensions.width / 3;
-			let halfOfWindowWidth = this.windowDimensions.width / 2;
-
-			const ninjaLogoYear: JQuery = $('#commericalNinjaNameYearId');
-			const ninjaLogoName: JQuery = $('#commericalNinjaNameId');
-			const ninjaDescriptionElement: JQuery = $('#commericalNinjaLifeDescriptionId');
-
-			let commercialNinjaNameHeight: number = ninjaLogoName.height();
-			let commercialNinjaHrOuterHeight:number = $('#commericalNinjaLifeGreenHrId').outerHeight();
-			let commercialNinjaNameWidth: number = ninjaLogoName.width();
-
-			TweenMax.set("#firstSlideCloseContainerId", {
-				left: (this.windowDimensions.width / 2) - ($('#firstSlideCloseContainerId').width() / 2)
-			});
-
-			/*set first slide width and height*/
-			$('#commercial').height(this.windowDimensions.height).width(this.windowDimensions.width);
-
-			/*calculate scaled video and set the width and height, 550 is a number and just put any number to make it look good*/
-			var scaledVideo = this.Common.scaleProportionally(1388, 780, this.windowDimensions.width, this.windowDimensions.height, false);
-			
-			$('#videoPlayer').height(scaledVideo.height).width(scaledVideo.width);
-
-			/*use height for desktop and tablet use a different height*/
-			var topOfHeightToUse = thirdOfWindowHeight;
-			if (this.windowDimensions.height < 750) {
-				topOfHeightToUse = fourthOfWindowHeight;
+			}
+			else {
+				deviceLayout = new CommercialDesktop();
 			}
 
-			/*mostly everything below is setting positioning based on window dimensions and other containers*/
-
-			/*2017 image*/
-			TweenMax.set("#commericalNinjaNameYearId", {
-				top: topOfHeightToUse, left: (this.windowDimensions.width / 2) - (ninjaLogoYear.width() / 2)
-			});
-
-			if (this.Common.isSafari() && !this.Common.isMobile()) {
-				TweenMax.set("#commericalNinjaNameYearId img", {
-					width: '135%'
-				});
-			}
-
-			/*ninja 650 image*/
-			TweenMax.set("#commericalNinjaNameId", {
-				top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-				left: (this.windowDimensions.width / 2) - (ninjaLogoName.width() / 2)
-			});
-
-			var leftGreenHr = halfOfWindowWidth - 10;
-			if (this.windowDimensions.width < 1280) {
-				leftGreenHr = leftGreenHr - ($('#commericalNinjaLifeGreenHrId').width() / 2);
-			}
-			/*green line image under ninja image*/
-			TweenMax.set("#commericalNinjaLifeGreenHrId", {
-				top: ninjaLogoName.position().top + ninjaLogoName.height(),
-				left: leftGreenHr
-			});
-
-			var leftDescription = halfOfWindowWidth - 10;
-			if (this.windowDimensions.width < 1280) {
-				leftDescription = leftDescription - (ninjaDescriptionElement.width() / 2);
-			}
-			/*the description*/
-			TweenMax.set("#commericalNinjaLifeDescriptionId", {
-				top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
-				left: leftDescription
-			});
-
-			/*the play image icon*/
-			TweenMax.set("#commericalNinjaLifePlayArrow", {
-				top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
-				left: (ninjaDescriptionElement.position().left + ninjaDescriptionElement.width() + 50)
-			});
-
-			var floatingBottom = $('#commercial').height() / 10 * 9;
-			var bottom = ninjaDescriptionElement.offset().top + ninjaDescriptionElement.outerHeight() + 100;
-
-			if (floatingBottom < bottom) {
-				floatingBottom = bottom
-			}
-
-			/*scroll image at the bottom*/
-			TweenMax.set("#slideOneScroller", {
-				top: floatingBottom,
-				left: (this.windowDimensions.width / 2) - ($('#slideOneScroller').width() / 2)
-			});
+			deviceLayout.calculation(this.windowDimensions.width, this.windowDimensions.height);
 
 			this.setTweenMechanism();
 			this.commercialEventInitialize();

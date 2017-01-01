@@ -1,4 +1,5 @@
-﻿/// <reference path="../interfaces/commercial.d.ts" />
+﻿/// <reference path="../interfaces/interfaces.d.ts" />
+/// <reference path="../interfaces/commercial.d.ts" />
 
 class CommercialVideoModel implements ICommercialVideo {
 

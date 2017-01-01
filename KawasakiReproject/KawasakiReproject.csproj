@@ -59,6 +59,9 @@
     <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.svg" />
     <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.svg" />
     <Content Include="KawasakiNinja650\index.html" />
+    <Content Include="KawasakiNinja650\js\abstractions\commercial.abstraction.js">
+      <DependentUpon>commercial.abstraction.ts</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\commonjs.js">
       <DependentUpon>commonjs.ts</DependentUpon>
     </Content>
@@ -86,6 +89,9 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.js">
       <DependentUpon>commercialvideo.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-desktop.js">
+      <DependentUpon>commercial-desktop.ts</DependentUpon>
     </Content>
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\react-dom.js" />
@@ -140,14 +146,19 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\commercial.abstraction.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialcontent.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialscroller.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\components\commercialvideo.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-desktop.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />

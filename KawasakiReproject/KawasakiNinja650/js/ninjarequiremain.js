@@ -10,17 +10,39 @@
 	}
 });
 
-requirejs(['js/commonjs', 'js/sections/commercial/commercial-index'], function () {
+
+/*'js/sections/commercial/devicetypes/commercial-desktop'*/
+
+requirejs(['js/models/commercialmodel.js', 'js/commonjs', 'js/abstractions/commercial.abstraction'], function () {
 	var common = new Kawasaki.Common();
-	var currentMobile = common.isMobile();
-	//if (currentMobile) {
-	requirejs([
-			'js/sections/commercial/components/commercialvideo',
-			'js/sections/commercial/components/commercialcontent',
-			'js/sections/commercial/components/commercialscroller',
-			'js/sections/commercial/commercial']);
-	//}
-	//else {
-		//requirejs(['js/sections/virtual']);
-	//}
+	if (common.isMobile()) {
+		
+	}
+	else if (common.isTablet()) {
+
+	}
+	else {
+		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', 'js/sections/commercial/commercial-index'], function () {
+			requirejs([
+				'js/sections/commercial/components/commercialvideo',
+				'js/sections/commercial/components/commercialcontent',
+				'js/sections/commercial/components/commercialscroller',
+				'js/sections/commercial/commercial']);
+		});
+	}
 });
+
+//requirejs(['js/commonjs', 'js/sections/commercial/commercial-index'], function () {
+//	var common = new Kawasaki.Common();
+//	var currentMobile = common.isMobile();
+//	//if (currentMobile) {
+//	requirejs([
+//			'js/sections/commercial/components/commercialvideo',
+//			'js/sections/commercial/components/commercialcontent',
+//			'js/sections/commercial/components/commercialscroller',
+//			'js/sections/commercial/commercial']);
+//	//}
+//	//else {
+//		//requirejs(['js/sections/virtual']);
+//	//}
+//});

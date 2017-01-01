@@ -1,4 +1,4 @@
-﻿/// <reference path="interfaces/commercial.d.ts" />
+﻿/// <reference path="interfaces/interfaces.d.ts" />
 
 namespace Kawasaki {
 	export class Common {
