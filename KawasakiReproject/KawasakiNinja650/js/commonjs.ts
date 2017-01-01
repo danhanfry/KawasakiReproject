@@ -3,6 +3,9 @@
 namespace Kawasaki {
 	export class Common {
 
+		public kawasakiGreen: string = '#66cc33';
+		public kawasakiWhite: string = '#fff';
+
 		private root: RegExp = new RegExp(/^(?:body|html)$/i);
 
 		constructor() {
@@ -23,69 +26,34 @@ namespace Kawasaki {
 			return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 		}
 
-		public elementDimensions = (element: HTMLElement | Window | Document): IDimensionPosition => {
+		public isFirefoxBrowser = (): boolean => {
+			return !!navigator.userAgent.match(/firefox/i);
+		}
 
-			let width: number = 0, height: number = 0, outerHeight: number = 0, outerWidth: number = 0,
-				outerHeightWithMargin: number = 0, outerWidthWithMargin: number = 0,
-				elementPositions: IElementPosition = { positionLeft: 0, positionTop: 0 };
+		public isSafari = (): boolean => {
+			return (navigator.userAgent.toLowerCase().indexOf('safari') > 0 && navigator.userAgent.toLowerCase().indexOf('chrome') < 0);
+		}
 
-			if (element instanceof Window) {
-				const currentWindow: Window = (element as Window);
-				width = outerWidth = outerWidthWithMargin = currentWindow.document.documentElement["clientWidth"];
-				height = outerHeight = outerHeightWithMargin = currentWindow.document.documentElement["clientHeight"];
-			}
-			else if (element instanceof Document) {
-				const currentDocument: Document = (element as Document);
-				const currentDocElement: HTMLElement = currentDocument.documentElement;
-				const currentBody: HTMLElement = currentDocument.body;
-
-				width = outerWidth = outerWidthWithMargin = Math.max(currentBody["scrollWidth"],
-					currentDocElement["scrollWidth"], currentBody["offsetWidth"],
-					currentDocElement["offsetWidth"], currentDocElement["clientWidth"]);
-
-				height = outerHeight = outerHeightWithMargin = Math.max(currentBody["scrollHeight"],
-					currentDocElement["scrollHeight"], currentBody["offsetHeight"],
-					currentDocElement["offsetHeight"], currentDocElement["clientHeight"]);
+		public preventScrolling = (): void => {
+			if (this.isMobile() || this.isTablet()) {
+				document.ontouchmove = function (event) {
+					event.preventDefault();
+				}
 			}
 			else {
-				const currentElement: HTMLElement = (element as HTMLElement);
-				const elementWidth = currentElement.offsetWidth;
-				const elementHeight = currentElement.offsetHeight;
-
-				const computedCssElement: CSSStyleDeclaration = this.getComputerStyleByElement(currentElement);
-				const supportBoxSizing: boolean = ('box-sizing' in document.body.style) &&
-					((computedCssElement.boxSizing || computedCssElement.webkitBoxSizing) === 'border-box');
-
-				width = elementWidth + parseInt(computedCssElement.paddingLeft) +
-					parseInt(computedCssElement.paddingRight) + parseInt(computedCssElement.borderLeftWidth) +
-					parseInt(computedCssElement.borderRightWidth);
-
-				height = elementHeight + parseInt(computedCssElement.paddingTop) +
-					parseInt(computedCssElement.paddingBottom) + parseInt(computedCssElement.borderTopWidth) +
-					parseInt(computedCssElement.borderBottomWidth);
-
-				outerHeight = elementHeight;
-				outerWidth = elementWidth;
-
-				outerHeightWithMargin = elementHeight + parseInt(computedCssElement.marginTop) +
-					parseInt(computedCssElement.marginBottom);
-
-				outerWidthWithMargin = elementWidth + parseInt(computedCssElement.marginLeft) +
-					parseInt(computedCssElement.marginRight);
-
-				elementPositions = this.getPositionOfElement(currentElement, computedCssElement);
+				document.getElementsByTagName("html")[0].style.overflowY = 'hidden';
 			}
+		}
 
-			return {
-				width: width,
-				height: height,
-				outerWidth: outerWidth,
-				outerHeight: outerHeight,
-				outerWidthWithMargin: outerWidthWithMargin,
-				outerHeightWithMargin: outerHeightWithMargin,
-				positionLeft: elementPositions.positionLeft,
-				positionTop: elementPositions.positionTop
-			};
+		public allowScrolling = (): void => {
+			if (this.isMobile() || this.isTablet()) {
+				document.ontouchmove = function (event) {
+					return true;
+				}
+			}
+			else {
+				document.getElementsByTagName("html")[0].style.overflowY = '';
+			}
 		}
 
 		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElement): SVGSVGElement => {
@@ -97,7 +65,7 @@ namespace Kawasaki {
 
 			var svgElement: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 			svgElement.id = kawasakiSvgModel.id;
-			svgElement.className = kawasakiSvgModel.className;
+			svgElement.classList.add(kawasakiSvgModel.className);
 
 			svgElement.setAttribute('version', '1.1');
 			svgElement.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
@@ -189,6 +157,70 @@ namespace Kawasaki {
 			return result;
 		}
 
+		public elementDimensions = (element: HTMLElement | Window | Document): IDimensionPosition => {
+
+			let width: number = 0, height: number = 0, outerHeight: number = 0, outerWidth: number = 0,
+				outerHeightWithMargin: number = 0, outerWidthWithMargin: number = 0,
+				elementPositions: IElementPosition = { positionLeft: 0, positionTop: 0 };
+
+			if (element instanceof Window) {
+				const currentWindow: Window = (element as Window);
+				width = outerWidth = outerWidthWithMargin = currentWindow.document.documentElement["clientWidth"];
+				height = outerHeight = outerHeightWithMargin = currentWindow.document.documentElement["clientHeight"];
+			}
+			else if (element instanceof Document) {
+				const currentDocument: Document = (element as Document);
+				const currentDocElement: HTMLElement = currentDocument.documentElement;
+				const currentBody: HTMLElement = currentDocument.body;
+
+				width = outerWidth = outerWidthWithMargin = Math.max(currentBody["scrollWidth"],
+					currentDocElement["scrollWidth"], currentBody["offsetWidth"],
+					currentDocElement["offsetWidth"], currentDocElement["clientWidth"]);
+
+				height = outerHeight = outerHeightWithMargin = Math.max(currentBody["scrollHeight"],
+					currentDocElement["scrollHeight"], currentBody["offsetHeight"],
+					currentDocElement["offsetHeight"], currentDocElement["clientHeight"]);
+			}
+			else {
+				const currentElement: HTMLElement = (element as HTMLElement);
+				const elementWidth = currentElement.offsetWidth;
+				const elementHeight = currentElement.offsetHeight;
+
+				const computedCssElement: CSSStyleDeclaration = this.getComputerStyleByElement(currentElement);
+				const supportBoxSizing: boolean = ('box-sizing' in document.body.style) &&
+					((computedCssElement.boxSizing || computedCssElement.webkitBoxSizing) === 'border-box');
+
+				width = elementWidth + parseInt(computedCssElement.paddingLeft) +
+					parseInt(computedCssElement.paddingRight) + parseInt(computedCssElement.borderLeftWidth) +
+					parseInt(computedCssElement.borderRightWidth);
+
+				height = elementHeight + parseInt(computedCssElement.paddingTop) +
+					parseInt(computedCssElement.paddingBottom) + parseInt(computedCssElement.borderTopWidth) +
+					parseInt(computedCssElement.borderBottomWidth);
+
+				outerHeight = elementHeight;
+				outerWidth = elementWidth;
+
+				outerHeightWithMargin = elementHeight + parseInt(computedCssElement.marginTop) +
+					parseInt(computedCssElement.marginBottom);
+
+				outerWidthWithMargin = elementWidth + parseInt(computedCssElement.marginLeft) +
+					parseInt(computedCssElement.marginRight);
+
+				elementPositions = this.getPositionOfElement(currentElement, computedCssElement);
+			}
+
+			return {
+				width: width,
+				height: height,
+				outerWidth: outerWidth,
+				outerHeight: outerHeight,
+				outerWidthWithMargin: outerWidthWithMargin,
+				outerHeightWithMargin: outerHeightWithMargin,
+				positionLeft: elementPositions.positionLeft,
+				positionTop: elementPositions.positionTop
+			};
+		}
 
 		private getComputerStyleByElement = (element: HTMLElement): CSSStyleDeclaration => {
 			return window.getComputedStyle(element, null);

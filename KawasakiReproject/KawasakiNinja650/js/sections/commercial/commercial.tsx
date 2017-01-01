@@ -56,7 +56,7 @@ var polygonPlayBtnSvgElement: SVGPolygonElement = Common.createPolygonElement('#
 	'4', 'round', 'round', '10', ["0,-0.163", "25.32,20.333", "0,40.23"]);
 
 var kawasakiSvgElement: IKawasakiSvgElement = {
-	id: "PlayButtonAction", className: "PlayButtonAction",
+	id: "PlayButtonAction", className: "play-button-action",
 	x: "0px", y: "0px", width: "25.32px", height: "40.23px"
 };
 

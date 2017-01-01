@@ -3,10 +3,10 @@
 .common-commerical-props, .commerical-text-year, .commerical-logo, .commerical-hr, .commerical-life-description, .commerical-life-arrow {
 	position: absolute;
 	padding: 20px;
-	opacity: 1;
+	opacity: 0
 }
 
-.first-slide {
+.commercial-slide {
 	background: #000;
 	position: relative;
 	z-index: 1;
@@ -39,6 +39,11 @@
 	min-width: 50%;
 }
 
+.commerical-text-year img {
+	width: 45%;
+	margin-left: 14%;
+}
+
 .commerical-hr img {
 	float: left;
 	transform-origin: 100% 0%;
@@ -65,6 +70,21 @@
 	filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
+.playArrow {
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	border-radius: 6px;
+	border: 1px solid #fff;
+	z-index: 500;
+}
+
+.play-button-action {
+	position: absolute;
+	padding-left: 28%;
+	padding-top: 22%;
+}
+
 .play-button-gloss {
 	z-index: 90;
 	height: 115px;
@@ -72,6 +92,21 @@
 	-webkit-transform: skewX(-20deg);
 	-moz-transform: skewX(-20deg);
 	transform: skewX(-20deg);
+}
+
+.scroll-indicator-mask {
+	height: 48px;
+	width: 48px;
+	overflow: hidden;
+	border-radius: 3px;
+	border: 1px solid #fff;
+	z-index: 500;
+}
+
+.commercial-slide .arrow-down {
+	z-index: 100;
+	position: absolute;
+	margin-left: 16px;
 }
 
 .close-button-container {
@@ -83,11 +118,20 @@
 	top: 10px;
 }
 
-.scroll-indicator-mask {
-	height:48px;
-	width:48px;
-	overflow: hidden;
-	border-radius:3px;
-	border:1px solid #fff;
-	z-index:500
+@media (max-width: 1921px) {
+
+
+	.commerical-text-year img {
+		width: 45%;
+		margin-left: 14%;
+	}
+
+	.commerical-life-description {
+		font-size: 14px;
+	}
+
+	.commerical-logo img, .commerical-logo svg {
+		width: 75%;
+		margin-left: 14%;
+	}
 }

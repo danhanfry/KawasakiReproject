@@ -38,7 +38,7 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
     var commercialVideolModel = new CommercialVideoModel('https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4', 'assets/slide1/mobile-landing-bkgd.jpg', 'assets/slide1/tablet-landing-bkgd.jpg', 'assets/close_white_btn.svg');
     var polygonPlayBtnSvgElement = Common.createPolygonElement('#FFFFFF', '#FFFFFF', '4', 'round', 'round', '10', ["0,-0.163", "25.32,20.333", "0,40.23"]);
     var kawasakiSvgElement = {
-        id: "PlayButtonAction", className: "PlayButtonAction",
+        id: "PlayButtonAction", className: "play-button-action",
         x: "0px", y: "0px", width: "25.32px", height: "40.23px"
     };
     var playBtnSvgElement = Common.createSVGElement(kawasakiSvgElement);
