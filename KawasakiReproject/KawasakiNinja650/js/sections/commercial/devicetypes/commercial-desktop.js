@@ -14,6 +14,10 @@ var CommercialDesktop = (function (_super) {
         this.desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";
         this.Common = new Kawasaki.Common();
         this.calculation = function () {
+            var ninjaLogoYear = $('#commericalNinjaNameYearId');
+            var ninjaLogoName = $('#commericalNinjaNameId');
+            var ninjaDescriptionElement = $('#commericalNinjaLifeDescriptionId');
+            var ninjaGreenLine = $('#commericalNinjaLifeGreenHrId');
             var videoPlay = document.getElementById('videoPlayer');
             videoPlay.controls = false;
             videoPlay.play();
@@ -22,10 +26,6 @@ var CommercialDesktop = (function (_super) {
             var fourthOfWindowHeight = _this.windowHeight / 4;
             var thirdOfWindowWidth = _this.windowWidth / 3;
             var halfOfWindowWidth = _this.windowWidth / 2;
-            var ninjaLogoYear = $('#commericalNinjaNameYearId');
-            var ninjaLogoName = $('#commericalNinjaNameId');
-            var ninjaDescriptionElement = $('#commericalNinjaLifeDescriptionId');
-            var ninjaGreenLine = $('#commericalNinjaLifeGreenHrId');
             TweenMax.set("#firstSlideCloseContainerId", {
                 left: (_this.windowWidth / 2) - ($('#firstSlideCloseContainerId').width() / 2)
             });

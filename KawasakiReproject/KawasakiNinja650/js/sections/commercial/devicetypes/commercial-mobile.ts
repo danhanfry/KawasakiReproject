@@ -21,6 +21,7 @@ class CommercialMobile extends CommercialSlide {
 		const ninjaPlayArrow: JQuery = $('#commericalNinjaLifePlayArrow');
 		const ninjaGreenLine: JQuery = $('#commericalNinjaLifeGreenHrId');
 		const mobileTabletStaticImgContainer: HTMLElement = document.getElementById('mobileTabletStaticImgId');
+		const ninjaPlayButtonSvg: JQuery = $('#PlayButtonAction');
 
 		const videoPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayer'));
 		videoPlay.controls = false;
@@ -95,14 +96,14 @@ class CommercialMobile extends CommercialSlide {
 
 		if (this.Common.isAndroid()) {
 			TweenMax.set("#PlayButtonAction", {
-				top: (ninjaPlayArrow.height() / 2) - ($('#PlayButtonAction').height() / 2) + 5,
-				left: (ninjaPlayArrow.width() / 2) - ($('#PlayButtonAction').width() / 2)
+				top: (ninjaPlayArrow.height() / 2) - (ninjaPlayButtonSvg.height() / 2) + 5,
+				left: (ninjaPlayArrow.width() / 2) - (ninjaPlayButtonSvg.width() / 2)
 			});
 		}
 		else {
 			TweenMax.set("#PlayButtonAction", {
-				top: (ninjaPlayArrow.height() / 2) - ($('#PlayButtonAction').height() / 2) + 15,
-				left: (ninjaPlayArrow.width() / 2) - ($('#PlayButtonAction').width() / 2) + 15
+				top: (ninjaPlayArrow.height() / 2) - (ninjaPlayButtonSvg.height() / 2) + 15,
+				left: (ninjaPlayArrow.width() / 2) - (ninjaPlayButtonSvg.width() / 2) + 15
 			});
 		}
 

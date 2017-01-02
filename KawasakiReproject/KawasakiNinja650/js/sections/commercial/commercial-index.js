@@ -15,6 +15,7 @@ var Kawasaki;
                         deviceLayout = new CommercialMobile(_this.windowDimensions.width, _this.windowDimensions.height);
                     }
                     else if (_this.Common.isTablet()) {
+                        deviceLayout = new CommercialTablet(_this.windowDimensions.width, _this.windowDimensions.height);
                     }
                     else {
                         deviceLayout = new CommercialDesktop(_this.windowDimensions.width, _this.windowDimensions.height);

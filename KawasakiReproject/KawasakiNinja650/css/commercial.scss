@@ -136,6 +136,50 @@
 	}
 }
 
+/*ipad mostly*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+	/*first slide*/
+	.mobile-tablet-static-img {
+		position: absolute;
+		min-height: 490px;
+		top: 65px;
+		overflow: hidden;
+		width: 100%;
+	}
+
+		.mobile-tablet-static-img img {
+			position: absolute;
+			min-height: 504px;
+			width: 100%;
+		}
+
+	.commerical-text-year img {
+		width: 100%;
+	}
+
+	#commercial .mobile-tablet-static-img img {
+	}
+
+	.commerical-life-description {
+		width: 300px;
+		font-size: 13px;
+		line-height: 26px;
+	}
+
+	#slideOneScroller {
+		top: initial !important;
+		bottom: 25px;
+	}
+
+	.video_contain {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
 /*iphone 5 and above portrait*/
 @media (min-width: 320px) and (max-width: 736px) and (orientation: portrait) {
 

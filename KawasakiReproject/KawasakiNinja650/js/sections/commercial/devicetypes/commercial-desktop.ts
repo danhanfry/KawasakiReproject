@@ -16,6 +16,11 @@ class CommercialDesktop extends CommercialSlide {
 
 	calculation = (): void => {
 
+		const ninjaLogoYear: JQuery = $('#commericalNinjaNameYearId');
+		const ninjaLogoName: JQuery = $('#commericalNinjaNameId');
+		const ninjaDescriptionElement: JQuery = $('#commericalNinjaLifeDescriptionId');
+		const ninjaGreenLine: JQuery = $('#commericalNinjaLifeGreenHrId');
+
 		const videoPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayer'));
 		videoPlay.controls = false;
 		videoPlay.play();
@@ -26,11 +31,6 @@ class CommercialDesktop extends CommercialSlide {
 
 		let thirdOfWindowWidth = this.windowWidth / 3;
 		let halfOfWindowWidth = this.windowWidth / 2;
-
-		const ninjaLogoYear: JQuery = $('#commericalNinjaNameYearId');
-		const ninjaLogoName: JQuery = $('#commericalNinjaNameId');
-		const ninjaDescriptionElement: JQuery = $('#commericalNinjaLifeDescriptionId');
-		const ninjaGreenLine: JQuery = $('#commericalNinjaLifeGreenHrId');
 
 		TweenMax.set("#firstSlideCloseContainerId", {
 			left: (this.windowWidth / 2) - ($('#firstSlideCloseContainerId').width() / 2)

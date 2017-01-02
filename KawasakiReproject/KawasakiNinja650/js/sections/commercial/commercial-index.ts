@@ -2,6 +2,7 @@
 /// <reference path="../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../scripts/typings/tweenmax.d.ts" />
 /// <reference path="devicetypes/commercial-desktop.ts" />
+/// <reference path="devicetypes/commercial-tablet.ts" />
 /// <reference path="devicetypes/commercial-mobile.ts" />
 
 namespace Kawasaki.NinjaSixFifty {
@@ -25,7 +26,7 @@ namespace Kawasaki.NinjaSixFifty {
 				deviceLayout = new CommercialMobile(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else if (this.Common.isTablet()) {
-
+				deviceLayout = new CommercialTablet(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else {
 				deviceLayout = new CommercialDesktop(this.windowDimensions.width, this.windowDimensions.height);
