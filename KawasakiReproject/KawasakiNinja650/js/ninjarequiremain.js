@@ -16,7 +16,13 @@
 requirejs(['js/models/commercialmodel.js', 'js/commonjs', 'js/abstractions/commercial.abstraction'], function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
-		
+		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/commercial/commercial-index'], function () {
+			requirejs([
+				'js/sections/commercial/components/commercialvideo',
+				'js/sections/commercial/components/commercialcontent',
+				'js/sections/commercial/components/commercialscroller',
+				'js/sections/commercial/commercial']);
+		});
 	}
 	else if (common.isTablet()) {
 

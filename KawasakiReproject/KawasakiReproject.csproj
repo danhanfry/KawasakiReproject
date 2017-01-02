@@ -49,6 +49,12 @@
     <Content Include="KawasakiNinja650\css\fonts.min.css">
       <DependentUpon>fonts.scss</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\css\mobile.css">
+      <DependentUpon>mobile.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\mobile.min.css">
+      <DependentUpon>mobile.css</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\css\styles.css">
       <DependentUpon>styles.scss</DependentUpon>
     </Content>
@@ -92,6 +98,9 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-desktop.js">
       <DependentUpon>commercial-desktop.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.js">
+      <DependentUpon>commercial-mobile.ts</DependentUpon>
     </Content>
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\react-dom.js" />
@@ -137,6 +146,7 @@
     <Content Include="KawasakiNinja650\css\commercial.scss" />
     <Content Include="KawasakiNinja650\css\styles.scss" />
     <Content Include="KawasakiNinja650\css\browserhacks.scss" />
+    <Content Include="KawasakiNinja650\css\mobile.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

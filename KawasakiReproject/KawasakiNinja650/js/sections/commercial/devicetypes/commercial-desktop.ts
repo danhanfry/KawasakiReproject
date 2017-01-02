@@ -10,46 +10,43 @@ class CommercialDesktop extends CommercialSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
 
-	constructor() {
+	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
 	}
 
-	calculation = (windowWidth: number, windowHeight: number): void => {
+	calculation = (): void => {
 
 		const videoPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayer'));
 		videoPlay.controls = false;
 		videoPlay.play();
 		videoPlay.style.display = 'block';
 
-		let thirdOfWindowHeight = windowHeight / 3;
-		let fourthOfWindowHeight = windowHeight / 4;
+		let thirdOfWindowHeight = this.windowHeight / 3;
+		let fourthOfWindowHeight = this.windowHeight / 4;
 
-		let thirdOfWindowWidth = windowWidth / 3;
-		let halfOfWindowWidth = windowWidth / 2;
+		let thirdOfWindowWidth = this.windowWidth / 3;
+		let halfOfWindowWidth = this.windowWidth / 2;
 
 		const ninjaLogoYear: JQuery = $('#commericalNinjaNameYearId');
 		const ninjaLogoName: JQuery = $('#commericalNinjaNameId');
 		const ninjaDescriptionElement: JQuery = $('#commericalNinjaLifeDescriptionId');
-
-		let commercialNinjaNameHeight: number = ninjaLogoName.height();
-		let commercialNinjaHrOuterHeight: number = $('#commericalNinjaLifeGreenHrId').outerHeight();
-		let commercialNinjaNameWidth: number = ninjaLogoName.width();
+		const ninjaGreenLine: JQuery = $('#commericalNinjaLifeGreenHrId');
 
 		TweenMax.set("#firstSlideCloseContainerId", {
-			left: (windowWidth / 2) - ($('#firstSlideCloseContainerId').width() / 2)
+			left: (this.windowWidth / 2) - ($('#firstSlideCloseContainerId').width() / 2)
 		});
 
 		/*set first slide width and height*/
-		$('#commercial').height(windowHeight).width(windowWidth);
+		$('#commercial').height(this.windowHeight).width(this.windowWidth);
 
 		/*calculate scaled video and set the width and height, 550 is a number and just put any number to make it look good*/
-		var scaledVideo = this.Common.scaleProportionally(1388, 780, windowWidth, windowHeight, false);
+		var scaledVideo = this.Common.scaleProportionally(1388, 780, this.windowWidth, this.windowHeight, false);
 
 		$('#videoPlayer').height(scaledVideo.height).width(scaledVideo.width);
 
 		/*use height for desktop and tablet use a different height*/
 		var topOfHeightToUse = thirdOfWindowHeight;
-		if (windowHeight < 750) {
+		if (this.windowHeight < 750) {
 			topOfHeightToUse = fourthOfWindowHeight;
 		}
 
@@ -57,7 +54,7 @@ class CommercialDesktop extends CommercialSlide {
 
 		/*2017 image*/
 		TweenMax.set("#commericalNinjaNameYearId", {
-			top: topOfHeightToUse, left: (windowWidth / 2) - (ninjaLogoYear.width() / 2)
+			top: topOfHeightToUse, left: (this.windowWidth / 2) - (ninjaLogoYear.width() / 2)
 		});
 
 		if (this.Common.isSafari() && !this.Common.isMobile()) {
@@ -69,12 +66,12 @@ class CommercialDesktop extends CommercialSlide {
 		/*ninja 650 image*/
 		TweenMax.set("#commericalNinjaNameId", {
 			top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-			left: (windowWidth / 2) - (ninjaLogoName.width() / 2)
+			left: (this.windowWidth / 2) - (ninjaLogoName.width() / 2)
 		});
 
 		var leftGreenHr = halfOfWindowWidth - 10;
-		if (windowWidth < 1280) {
-			leftGreenHr = leftGreenHr - ($('#commericalNinjaLifeGreenHrId').width() / 2);
+		if (this.windowWidth < 1280) {
+			leftGreenHr = leftGreenHr - (ninjaGreenLine.width() / 2);
 		}
 		/*green line image under ninja image*/
 		TweenMax.set("#commericalNinjaLifeGreenHrId", {
@@ -83,18 +80,18 @@ class CommercialDesktop extends CommercialSlide {
 		});
 
 		var leftDescription = halfOfWindowWidth - 10;
-		if (windowWidth < 1280) {
+		if (this.windowWidth < 1280) {
 			leftDescription = leftDescription - (ninjaDescriptionElement.width() / 2);
 		}
 		/*the description*/
 		TweenMax.set("#commericalNinjaLifeDescriptionId", {
-			top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
+			top: ninjaGreenLine.position().top + ninjaGreenLine.outerHeight(),
 			left: leftDescription
 		});
 
 		/*the play image icon*/
 		TweenMax.set("#commericalNinjaLifePlayArrow", {
-			top: $('#commericalNinjaLifeGreenHrId').position().top + commercialNinjaHrOuterHeight,
+			top: ninjaGreenLine.position().top + ninjaGreenLine.outerHeight(),
 			left: (ninjaDescriptionElement.position().left + ninjaDescriptionElement.width() + 50)
 		});
 
@@ -108,7 +105,185 @@ class CommercialDesktop extends CommercialSlide {
 		/*scroll image at the bottom*/
 		TweenMax.set("#slideOneScroller", {
 			top: floatingBottom,
-			left: (windowWidth / 2) - ($('#slideOneScroller').width() / 2)
+			left: (this.windowWidth / 2) - ($('#slideOneScroller').width() / 2)
 		});
+
+		this.setTweenMechanism();
+	}
+
+	setTweenMechanism = (): void => {
+		TweenMax.set(".fixed-nav-bar", { y: -100 });
+		TweenMax.set("#commericalNinjaNameYearId", { x: 20 });
+		TweenMax.set("#commericalNinjaNameId", { x: 0 });
+		TweenMax.set("#commericalNinjaLifeGreenHrId", { x: -50 });
+		TweenMax.set("#commericalNinjaLifeDescriptionId", { x: -50 });
+		TweenMax.set("#commercialGreenScrollImg", { y: 0 });
+		TweenMax.set("#commericalNinjaLifePlayArrow", { x: -25 });
+		TweenMax.set("#PlayButtonAction", { x: -50, opacity: 0 });
+		TweenMax.set("#PlayButtonGloss", { x: -70, opacity: 0, scaleX: 0.1 });
+		TweenMax.set("#slideOneScroller.scroll-indicator", { y: -50, opacity: 0 });
+		TweenMax.set("#slideOneArrow", { y: 0 });
+		TweenMax.set("#slideOneGloss", { y: 50 });
+
+		new TimelineMax()
+			.to('#commericalNinjaNameYearId', .4, { x: 0, ease: Linear.easeOut, autoAlpha: 1 })
+			.to('#commericalNinjaNameId', 1, { x: 0, ease: Linear.easeOut, autoAlpha: 1, delay: -.4 })
+			.to("#commericalNinjaLifeGreenHrId", .35, { x: 0, ease: Linear.easeInOut, autoAlpha: 1, delay: -.5 })
+			.to("#commericalNinjaLifeDescriptionId", .35, { x: 0, ease: Linear.easeInOut, autoAlpha: 1, delay: -.25 })
+			.to("#slideOneScroller.scroll-indicator", .5, { y: 0, ease: Linear.easeInOut, autoAlpha: 1, delay: -.5 })
+			.to("#commericalNinjaLifePlayArrow", .5, {
+				x: 0, ease: Linear.easeInOut, autoAlpha: 1, onComplete: function () {
+					new TimelineMax().to(".play-button-gloss", .3, { x: 120, ease: Linear.easeIn, scaleX: 1, autoAlpha: 1, repeat: 0 });
+					new TimelineMax().to(".play-button-action", .3, { x: 0, ease: Linear.easeInOut, autoAlpha: 1, delay: -.5 })
+				}
+			});
+
+		new TimelineMax().to("#slideOneArrow", .5, { y: 50, ease: Linear.easeInOut, repeat: 3, onComplete: this.setArrow });
+
+		new TimelineMax().to("#slideOneGloss", .5, { y: -100, ease: Linear.easeOut, autoAlpha: .7, repeat: 3 })
+			.to("#slideOneGloss", 1, { y: -100, ease: Linear.easeInOut, repeat: 0 });
+
+		setTimeout(this.repeatScrollIndicatorAnimation, 6000);
+		setTimeout(this.repeatPlayButtonGlossAnimation, 5000);
+	}
+
+	eventInitialize = (): void => {
+		const playButtonElement: HTMLElement = document.getElementById('playArrowMask');
+		const playButtonArrowElement: HTMLElement = document.getElementById('PlayButtonAction');
+
+
+		document.getElementById('commericalNinjaLifePlayArrow').addEventListener('click', () => {
+			TweenMax.set("#commericalNinjaNameYearId", { opacity: 0, display: "none" });
+			TweenMax.set("#commericalNinjaNameId", { opacity: 0, display: "none" });
+			TweenMax.set("#commericalNinjaLifeGreenHrId", { opacity: 0, display: "none" });
+			TweenMax.set("#commericalNinjaLifeDescriptionId", { opacity: 0, display: "none" });
+			TweenMax.set("#commericalNinjaLifePlayArrow", { opacity: 0, display: "none" });
+
+			TweenMax.to("#firstSlideCloseContainerId", 1, { opacity: 1, display: "block" });
+
+			TweenMax.to("#slideOneScroller", 1, { opacity: 0, display: "none" });
+			TweenMax.set(".fixed-nav-bar", { opacity: 0, display: "none" });
+
+			var video = (<HTMLVideoElement>document.getElementById('videoPlayer'));
+			video.src = this.desktopCommercialVideoUrl;
+			video.removeAttribute("loop");
+			video.setAttribute("controls", "controls");
+
+			var newScaledVideo = this.Common.scaleProportionally(1920, 1080, this.windowWidth, this.windowHeight, false);
+			var finalNewScaledVideo = newScaledVideo.height;
+			if (this.Common.isFirefoxBrowser()) {
+				finalNewScaledVideo -= 30;
+			}
+
+			this.commercialResize(video, this.windowWidth, this.windowHeight);
+			
+
+			/*prevent scrolling*/
+			this.Common.preventScrolling();
+
+			video.play();
+		});
+
+
+		document.getElementById('firstSlideCloseContainerId').addEventListener('click', () => {
+			TweenMax.set("#commericalNinjaNameYearId", { opacity: 1, display: "block" });
+			TweenMax.set("#commericalNinjaNameId", { opacity: 1, display: "block" });
+			TweenMax.set("#commericalNinjaLifeGreenHrId", { opacity: 1, display: "block" });
+			TweenMax.set("#commericalNinjaLifeDescriptionId", { opacity: 1, display: "block" });
+			TweenMax.set("#commericalNinjaLifePlayArrow", { opacity: 1, display: "block" });
+
+			TweenMax.to("#firstSlideCloseContainerId", 1, { opacity: 0, display: "none" });
+
+			TweenMax.to("#slideOneScroller", 1, { opacity: 1, display: "block" });
+			TweenMax.to(".fixed-nav-bar", 1, { opacity: 1, display: "block" });
+			TweenMax.to("#commercialGreenPageTransition", 1, { opacity: 1, display: "block" });
+
+			let video = (<HTMLVideoElement>document.getElementById('videoPlayer'));
+			video.src = this.desktopCommercialSplitVideoUrl;
+			video.removeAttribute("controls");
+			video.setAttribute('loop', 'true');
+			video.play();
+
+			/*allow scrolling again*/
+			this.Common.allowScrolling();
+
+			this.resize();
+		});
+
+		playButtonElement.addEventListener('mouseenter', () => {
+			playButtonElement.style.borderColor = this.Common.kawasakiGreen;
+			document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
+			let polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
+			if (polygonInPlayBtn.length > 0) {
+				let polygonInSvg = polygonInPlayBtn[0];
+				polygonInSvg.style.fill = this.Common.kawasakiGreen;
+				polygonInSvg.style.stroke = this.Common.kawasakiGreen;
+			}
+		});
+
+		playButtonElement.addEventListener('mouseleave', () => {
+			playButtonElement.style.borderColor = this.Common.kawasakiWhite;
+			document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
+			let polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
+			if (polygonInPlayBtn.length > 0) {
+				let polygonInSvg = polygonInPlayBtn[0];
+				polygonInSvg.style.fill = this.Common.kawasakiWhite;
+				polygonInSvg.style.stroke = this.Common.kawasakiWhite;
+			}
+		});
+
+		document.getElementById('slideOneScroller').addEventListener('click', () => {
+			TweenMax.to(window, 1, { scrollTo: { y: $('#virtual').offset().top - 65 } });
+		});
+	}
+
+	resize = (): void => {
+		this.calculation();
+		let videoElement: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayer'));
+		const isCommercialPlaying = (videoElement.currentTime > 0 && !videoElement.paused && !videoElement.ended && videoElement.readyState > 2);
+		if (isCommercialPlaying) {
+			this.commercialResize(videoElement, $(window).width(), $(window).height());
+		}
+	}
+
+	private commercialResize = (video: HTMLVideoElement, windowWidth: number, windowHeight: number): void => {
+		var newScaledVideo = this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
+		var finalNewScaledVideo = newScaledVideo.height;
+		if (this.Common.isFirefoxBrowser()) {
+			finalNewScaledVideo -= 30;
+		}
+
+		if (windowWidth <= 1360) {
+			$(video).width(windowWidth - 70);
+		}
+		else {
+			$(video).width(newScaledVideo.width - 70);
+		}
+
+		if (windowHeight <= 770) {
+			$(video).height(windowHeight);
+		}
+		else {
+			$(video).height(finalNewScaledVideo);
+		}
+	}
+
+	private repeatPlayButtonGlossAnimation = (): void => {
+		TweenMax.set(".play-button-gloss", { x: -120, opacity: .6, scaleX: .3 });
+		new TimelineMax().to(".play-button-gloss", .5, { x: 120, ease: Linear.easeInOut, scaleX: .3, autoAlpha: .6, repeat: 0 });
+		setTimeout(this.repeatPlayButtonGlossAnimation, 4000)
+	}
+
+	private repeatScrollIndicatorAnimation = (): void => {
+		TweenMax.set("#slideOneArrow", { y: 0 });
+		TweenMax.set("#slideOneGloss", { y: 50 });
+		TweenMax.to("#slideOneArrow", 1, { y: 50, ease: Linear.easeInOut, repeat: 0, onComplete: this.setArrow });
+		TweenMax.to("#slideOneGloss", 1, { y: -100, ease: Linear.easeOut, autoAlpha: 1, repeat: 0 });
+		setTimeout(this.repeatScrollIndicatorAnimation, 4500);
+	}
+
+	private setArrow = (): void => {
+		TweenMax.set("#slideOneArrow", { y: -50 });
+		new TimelineMax().to("#slideOneArrow", .4, { y: 23, ease: Linear.easeIn, repeat: 0, delay: -.5 });
 	}
 }

@@ -1,11 +1,25 @@
 ﻿interface ICommercialSlide {
-	calculation(windowWidth: number, windowHeight: number):void;
+	calculation(): void;
+	setTweenMechanism(): void;
+	eventInitialize(): void;
+	resize(): void;
 }
 
 class CommercialSlide implements ICommercialSlide {
 
-	calculation = (windowWidth:number, windowHeight:number): void => {
+	calculation = (): void => {
 
 	}
 
+	setTweenMechanism = (): void => {
+
+	}
+
+	eventInitialize = (): void => {
+
+	}
+
+	resize = (): void => {
+
+	}
 }

@@ -111,3 +111,64 @@
     width: 75%;
     margin-left: 14%; } }
 
+/*iphone 5 and above portrait*/
+@media (min-width: 320px) and (max-width: 736px) and (orientation: portrait) {
+  /*first slide*/
+  .commerical-text-year img {
+    width: 100%; }
+  #commercial .mobile-tablet-static-img {
+    position: absolute;
+    min-height: 504px;
+    top: 65px; }
+  .mobile-tablet-static-img img {
+    position: absolute;
+    width: 100%;
+    top: -60px; }
+  .commerical-logo img, .commerical-logo svg {
+    width: 100%;
+    margin: 0; }
+  .commerical-life-description {
+    width: 270px;
+    line-height: 20px;
+    font-size: 3vw;
+    text-align: center; }
+  .commerical-life-arrow {
+    transform: scale(0.55); }
+  .close-button-container {
+    transform: scale(0.5);
+    top: 40px; }
+  #commercialGreenPageTransition {
+    height: 20px;
+    opacity: 1;
+    margin: 0; }
+  #slideOneScroller.scroll-indicator {
+    transform: scale(0.7);
+    width: auto; }
+  .video_contain {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; } }
+
+/**********************************specific iphone sizes portrait*********************************************/
+/*iphone 5*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .commerical-life-description {
+    width: 270px; }
+  .close-button-container {
+    left: 34vw; } }
+
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .close-button-container {
+    left: 36vw; }
+  .commerical-life-description {
+    width: 330px; } }
+
+/*iphone 6 plus*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .close-button-container {
+    left: 38vw; }
+  .commerical-life-description {
+    width: 350px; } }
+
