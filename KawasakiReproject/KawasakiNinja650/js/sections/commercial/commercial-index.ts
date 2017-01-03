@@ -21,7 +21,7 @@ namespace Kawasaki.NinjaSixFifty {
 
 		public calculation = (): void => {
 
-			let deviceLayout: CommercialSlide;
+			let deviceLayout: ExperienceSlide;
 			if (this.Common.isMobile()) {
 				deviceLayout = new CommercialMobile(this.windowDimensions.width, this.windowDimensions.height);
 			}

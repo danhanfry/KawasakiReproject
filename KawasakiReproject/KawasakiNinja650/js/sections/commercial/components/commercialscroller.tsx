@@ -1,5 +1,5 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
-/// <reference path="../../../interfaces/commercial.d.ts" />
+/// <reference path="../../../interfaces/interfaces.d.ts" />
 
 export class CommercialScroller extends React.Component<IEmptyProperties, any> {
 	render() {

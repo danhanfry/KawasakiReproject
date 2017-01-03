@@ -1,11 +1,11 @@
-﻿interface ICommercialSlide {
+﻿interface IExperienceSlide {
 	calculation(): void;
 	setTweenMechanism(): void;
 	eventInitialize(): void;
 	resize(): void;
 }
 
-class CommercialSlide implements ICommercialSlide {
+class ExperienceSlide implements IExperienceSlide {
 
 	calculation = (): void => {
 

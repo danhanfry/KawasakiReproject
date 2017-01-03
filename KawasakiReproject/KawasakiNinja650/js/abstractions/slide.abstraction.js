@@ -1,5 +1,5 @@
-var CommercialSlide = (function () {
-    function CommercialSlide() {
+var ExperienceSlide = (function () {
+    function ExperienceSlide() {
         this.calculation = function () {
         };
         this.setTweenMechanism = function () {
@@ -9,5 +9,5 @@ var CommercialSlide = (function () {
         this.resize = function () {
         };
     }
-    return CommercialSlide;
+    return ExperienceSlide;
 }());

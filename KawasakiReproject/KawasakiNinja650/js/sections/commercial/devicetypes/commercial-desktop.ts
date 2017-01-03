@@ -1,9 +1,9 @@
 ﻿/// <reference path="../../../commonjs.ts" />
-/// <reference path="../../../abstractions/commercial.abstraction.ts" />
+/// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
 
-class CommercialDesktop extends CommercialSlide {
+class CommercialDesktop extends ExperienceSlide {
 
 	private desktopCommercialSplitVideoUrl = "https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4";
 	private desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";

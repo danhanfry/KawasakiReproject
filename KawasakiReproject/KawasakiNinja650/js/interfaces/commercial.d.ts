@@ -1,7 +1,4 @@
-﻿interface IEmptyProperties {
-}
-
-interface ICommercialVideo {
+﻿interface ICommercialVideo {
 	VideoUrl: string;
 	FallbackMobileUrl: string;
 	FallbackTabletUrl: string;

@@ -222,4 +222,4 @@ var CommercialDesktop = (function (_super) {
         };
     }
     return CommercialDesktop;
-}(CommercialSlide));
+}(ExperienceSlide));

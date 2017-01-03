@@ -1,9 +1,9 @@
 ﻿/// <reference path="../../../commonjs.ts" />
-/// <reference path="../../../abstractions/commercial.abstraction.ts" />
+/// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
 
-class CommercialTablet extends CommercialSlide {
+class CommercialTablet extends ExperienceSlide {
 
 	private tabletMobileCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_720.mp4";
 

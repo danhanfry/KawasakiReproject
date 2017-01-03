@@ -30,3 +30,6 @@ interface IScaleProportional {
 	targetleft: number;
 	targettop: number;
 }
+
+interface IEmptyProperties {
+}

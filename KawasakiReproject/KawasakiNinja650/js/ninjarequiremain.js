@@ -13,7 +13,7 @@
 
 /*'js/sections/commercial/devicetypes/commercial-desktop'*/
 
-requirejs(['js/models/commercialmodel.js', 'js/commonjs', 'js/abstractions/commercial.abstraction'], function () {
+requirejs(['js/models/commercialmodel.js', 'js/commonjs', 'js/abstractions/slide.abstraction'], function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/commercial/commercial-index'], function () {

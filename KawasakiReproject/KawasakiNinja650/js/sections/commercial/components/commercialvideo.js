@@ -16,17 +16,12 @@ define(["require", "exports"], function (require, exports) {
             var IsMobile = Common.isMobile();
             var IsTablet = Common.isTablet();
             var IsTouchDevice = IsMobile || IsTablet;
-            var testVideoStyle = {
-                height: '758px',
-                width: '1349px',
-                display: 'block'
-            };
             return (React.createElement("div", null, 
                 React.createElement("div", {className: "close-button-container hide", id: "firstSlideCloseContainerId"}, 
                     React.createElement("img", {src: Model.CloseImg, alt: "close button"})
                 ), 
                 React.createElement("div", {className: "video_contain"}, 
-                    React.createElement("video", {id: "videoPlayer", style: testVideoStyle, className: "video-container video_main", poster: "", src: Model.VideoUrl, loop: true, width: "100%", height: "auto"})
+                    React.createElement("video", {id: "videoPlayer", className: "video-container video_main", poster: "", src: Model.VideoUrl, loop: true, width: "100%", height: "auto"})
                 ), 
                 IsTouchDevice &&
                     React.createElement("div", {id: "mobileTabletStaticImgId", className: "mobile-tablet-static-img"}, 

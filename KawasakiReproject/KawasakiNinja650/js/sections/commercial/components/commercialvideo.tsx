@@ -14,19 +14,13 @@ export class CommercialVideo extends React.Component<ICommercialVideoModel, any>
 		const IsTablet: boolean = Common.isTablet();
 		const IsTouchDevice: boolean = IsMobile || IsTablet;
 
-		var testVideoStyle = {
-			height: '758px',
-			width: '1349px',
-			display: 'block'
-		};
-
 		return (
 			<div>
 				<div className="close-button-container hide" id="firstSlideCloseContainerId">
 					<img src={Model.CloseImg} alt="close button" />
 				</div>
 				<div className="video_contain">
-					<video id="videoPlayer" style={testVideoStyle} className="video-container video_main" poster="" src={Model.VideoUrl} loop width="100%" height="auto"></video>
+					<video id="videoPlayer" className="video-container video_main" poster="" src={Model.VideoUrl} loop width="100%" height="auto"></video>
 				</div>
 
 				{

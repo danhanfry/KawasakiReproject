@@ -236,4 +236,4 @@ var CommercialMobile = (function (_super) {
         };
     }
     return CommercialMobile;
-}(CommercialSlide));
+}(ExperienceSlide));

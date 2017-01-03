@@ -65,8 +65,8 @@
     <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo2-webfont.svg" />
     <Content Include="KawasakiNinja650\fonts\alternate\AlternateGothicNo3-webfont.svg" />
     <Content Include="KawasakiNinja650\index.html" />
-    <Content Include="KawasakiNinja650\js\abstractions\commercial.abstraction.js">
-      <DependentUpon>commercial.abstraction.ts</DependentUpon>
+    <Content Include="KawasakiNinja650\js\abstractions\slide.abstraction.js">
+      <DependentUpon>slide.abstraction.ts</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\commonjs.js">
       <DependentUpon>commonjs.ts</DependentUpon>
@@ -104,6 +104,12 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.js">
       <DependentUpon>commercial-tablet.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.js">
+      <DependentUpon>vtrcontent.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.js">
+      <DependentUpon>vtrvideo.tsx</DependentUpon>
     </Content>
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\react-dom.js" />
@@ -159,10 +165,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\commercial.abstraction.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\vtr.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
@@ -172,6 +179,8 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.tsx" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />

@@ -189,4 +189,4 @@ var CommercialTablet = (function (_super) {
         };
     }
     return CommercialTablet;
-}(CommercialSlide));
+}(ExperienceSlide));
