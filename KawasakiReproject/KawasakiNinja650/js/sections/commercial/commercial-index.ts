@@ -1,4 +1,5 @@
-﻿/// <reference path="../../commonjs.ts" />
+﻿/// <reference path="../../interfaces/interfaces.d.ts" />
+/// <reference path="../../commonjs.ts" />
 /// <reference path="../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../scripts/typings/tweenmax.d.ts" />
 /// <reference path="devicetypes/commercial-desktop.ts" />

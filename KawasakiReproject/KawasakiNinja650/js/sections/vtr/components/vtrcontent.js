@@ -12,7 +12,44 @@ define(["require", "exports"], function (require, exports) {
         }
         VTRContent.prototype.render = function () {
             var Model = this.props.Model;
-            return (React.createElement("div", null));
+            var xmlSerializer = new XMLSerializer();
+            var svgLeftPlayButton = xmlSerializer.serializeToString(Model.VirtualRideLeft);
+            var svgRightPlayButton = xmlSerializer.serializeToString(Model.VirtualRideRight);
+            return (React.createElement("div", null, 
+                React.createElement("div", {id: "testVRContainerId", className: "textvr-container"}, 
+                    React.createElement("div", {id: "testVRExperience", className: "testvr-experience"}, 
+                        React.createElement("div", null, 
+                            React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.GreenExperienceText }})
+                        )
+                    ), 
+                    React.createElement("div", {id: "testVRTestRide", className: "testvr-testride"}, 
+                        React.createElement("div", null, 
+                            React.createElement("span", {id: "testVRTestRideBackgroundId"}, Model.MainTextDisplay)
+                        )
+                    ), 
+                    React.createElement("div", {id: "testVRDescription", className: "testvr-description"}, 
+                        React.createElement("div", null, 
+                            React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.Description }})
+                        )
+                    ), 
+                    React.createElement("div", {id: "vrTestRideSelection", className: "vr-test-ride-selection"}, 
+                        React.createElement("div", {id: "leftTextForVRVideoHoverId", className: "text-vr-hover-txt"}, 
+                            React.createElement("div", {className: "vr-video-green-line"}), 
+                            React.createElement("div", {className: "interactive-ride-img"}, 
+                                React.createElement("span", {className: "", dangerouslySetInnerHTML: { __html: svgLeftPlayButton }})
+                            ), 
+                            React.createElement("span", null, "INTERACTIVE RIDE")), 
+                        React.createElement("div", {id: "rightTextForVRVideoHoverId", className: "text-vr-hover-txt"}, 
+                            React.createElement("div", {className: "vr-video-green-line"}), 
+                            React.createElement("div", {className: "free-ride-img"}, 
+                                React.createElement("span", {className: "", dangerouslySetInnerHTML: { __html: svgRightPlayButton }})
+                            ), 
+                            React.createElement("span", null, "FREE RIDE")))), 
+                React.createElement("div", {id: "slideTwoScroller", className: "scroll-indicator"}, 
+                    React.createElement("div", null, 
+                        React.createElement("img", {src: "assets/green_arrown_down.svg"})
+                    )
+                )));
         };
         return VTRContent;
     }(React.Component));
