@@ -1,4 +1,5 @@
 ﻿/// <reference path="interfaces/interfaces.d.ts" />
+/// <reference path="models/enums/svg-enums.d.ts" />
 
 namespace Kawasaki {
 	export class Common {
@@ -70,7 +71,7 @@ namespace Kawasaki {
 				kawasakiSvgModel.width.replace('px', '') + " " +
 				kawasakiSvgModel.height.replace('px', ''));
 
-			var svgElement: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			var svgElement: SVGSVGElement = <SVGSVGElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Svg.toString());
 			svgElement.id = kawasakiSvgModel.id;
 			svgElement.classList.add(kawasakiSvgModel.className);
 
@@ -92,7 +93,7 @@ namespace Kawasaki {
 		public createPolygonElement = (fill: string, stroke: string, strokeWidth: string, strokeLinecap: string,
 			strokeLinejoin: string, strokeMiterlimit: string, points: string[]): SVGPolygonElement => {
 
-			var polygonSvgElement: SVGPolygonElement = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+			var polygonSvgElement: SVGPolygonElement = <SVGPolygonElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Polygon.toString());
 			polygonSvgElement.style.fill = fill;
 			polygonSvgElement.style.stroke = stroke;
 			polygonSvgElement.style.strokeWidth = strokeWidth;
@@ -119,6 +120,12 @@ namespace Kawasaki {
 			}
 
 			return pointsList;
+		}
+
+		public createSVGDefintion = (): void => {
+
+			let definition: SVGDefsElement = <SVGDefsElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString());
+
 		}
 
 		public scaleProportionally = (srcwidth: number, srcheight: number, targetwidth: number,

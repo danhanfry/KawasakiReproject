@@ -24,7 +24,8 @@ var vtrPartialViews = [
 				'js/sections/vtr/components/vtrcontent',
 				'js/sections/vtr/vtr'];
 
-requirejs(['js/models/commercialmodel.js', 'js/commonjs', 'js/abstractions/slide.abstraction'], function () {
+requirejs(['js/models/enums/svgenums.js', 'js/models/commercialmodel.js',
+			'js/commonjs', 'js/abstractions/slide.abstraction'], function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', commercialIndex], function () {

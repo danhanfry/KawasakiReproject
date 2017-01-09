@@ -23,12 +23,15 @@ export class VTRVideo extends React.Component<IVTRVideoModel, any> {
 
 		return (
 			<div>
-				<div id="clipperIdVRVideoId" style={vtrContainerStyle}>
-					<div className="video_contain_vtr">
-						<video id="videoPlayerVR" className="video_vtr" poster=""
-							src={Model.VideoUrl} loop></video>
+				{
+					!IsTouchDevice && !IsLessThanIE11 &&
+					<div id="clipperIdVRVideoId" style={vtrContainerStyle}>
+						<div className="video_contain_vtr">
+							<video id="videoPlayerVR" className="video_vtr" poster=""
+								src={Model.VideoUrl} loop></video>
+						</div>
 					</div>
-				</div>
+				}
 
 				{
 					IsLessThanIE11 && 
@@ -42,7 +45,7 @@ export class VTRVideo extends React.Component<IVTRVideoModel, any> {
 								<img src="assets/logo_ninja.svg" />
 							</div>
 							<div id="failOverMessage" className="failover-vr-message">
-								<span>{Model.FallbackLessThanIE11Description}</span>
+								<span dangerouslySetInnerHTML={{ __html: Model.FallbackLessThanIE11Description }} />
 							</div>
 						</div>
 					</div>

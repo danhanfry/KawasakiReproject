@@ -77,6 +77,7 @@
     <Content Include="KawasakiNinja650\js\models\commercialmodel.js">
       <DependentUpon>commercialModel.ts</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\models\enums\svgenums.js" />
     <Content Include="KawasakiNinja650\js\models\vtrmodel.js">
       <DependentUpon>vtrModel.ts</DependentUpon>
     </Content>
@@ -172,9 +173,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="KawasakiNinja650\js\sections\vtr\devicetypes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
@@ -182,6 +181,7 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\vtr.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\models\enums\svg-enums.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\vtrModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
@@ -193,6 +193,9 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-desktop.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-mobile.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr.tsx" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />

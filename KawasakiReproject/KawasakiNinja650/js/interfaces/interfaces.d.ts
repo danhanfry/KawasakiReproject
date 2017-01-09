@@ -1,4 +1,16 @@
-﻿interface IKawasakiSvgElement {
+﻿/// <reference path="../models/enums/svg-enums.d.ts" />
+
+interface IKawasakiSvgElement {
+	id: string;
+	className: string;
+	x: string;
+	y: string;
+	width: string;
+	height: string;
+	useDefinition?: boolean;
+}
+
+interface ISvgShapeElement {
 	id: string;
 	className: string;
 	x: string;

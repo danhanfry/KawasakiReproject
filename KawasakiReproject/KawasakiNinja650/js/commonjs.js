@@ -68,7 +68,7 @@ var Kawasaki;
                 return svgElement;
             };
             this.createPolygonElement = function (fill, stroke, strokeWidth, strokeLinecap, strokeLinejoin, strokeMiterlimit, points) {
-                var polygonSvgElement = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                var polygonSvgElement = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Polygon.toString().toLowerCase());
                 polygonSvgElement.style.fill = fill;
                 polygonSvgElement.style.stroke = stroke;
                 polygonSvgElement.style.strokeWidth = strokeWidth;
@@ -91,6 +91,9 @@ var Kawasaki;
                     }
                 }
                 return pointsList;
+            };
+            this.createSVGDefintion = function () {
+                var definition = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString().toLowerCase());
             };
             this.scaleProportionally = function (srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
                 var result = { width: 0, height: 0, scaleToTargetWidth: true, targetleft: 0, targettop: 0 };

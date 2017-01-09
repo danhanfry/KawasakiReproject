@@ -2,6 +2,10 @@
 /// <reference path="../../commonjs.ts" />
 /// <reference path="../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../scripts/typings/tweenmax.d.ts" />
+/// <reference path="devicetypes/vtr-desktop.ts" />
+/// <reference path="devicetypes/vtr-mobile.ts" />
+/// <reference path="devicetypes/vtr-tablet.ts" />
+
 
 namespace Kawasaki.NinjaSixFifty {
 	export class VTR {
@@ -15,7 +19,19 @@ namespace Kawasaki.NinjaSixFifty {
 
 		public calculation = (): void => {
 
-			
+			let deviceLayout: ExperienceSlide;
+			if (this.Common.isMobile()) {
+				
+			}
+			else if (this.Common.isTablet()) {
+				
+			}
+			else {
+				
+			}
+
+			deviceLayout.calculation();
+			deviceLayout.eventInitialize();
 		}
 	}
 }
