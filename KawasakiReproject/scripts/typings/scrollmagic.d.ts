@@ -1,0 +1,157 @@
+﻿
+declare enum SCROLL_DIRECTION {
+	SCROLL_DIRECTION_FORWARD,
+	SCROLL_DIRECTION_REVERSE,
+	SCROLL_DIRECTION_PAUSED
+	/*SCROLL_DIRECTION_FORWARD = 'FORWARD',
+        SCROLL_DIRECTION_REVERSE = 'REVERSE',
+        SCROLL_DIRECTION_PAUSED = 'PAUSED',*/
+}
+
+declare enum SCENE_STATE {
+	SCENE_BEFORE,
+	SCENE_DURING,
+	SCENE_AFTER
+	/*"BEFORE", "DURING" or "AFTER"*/
+}
+
+interface IControllerOptions {
+
+	container?: string | HTMLElement;
+	vertical?: boolean;
+	globalSceneOptions?: ISceneOptions;
+	loglevel?: number;
+	refreshInterval?: number;
+
+}
+
+interface ISceneOptions {
+
+	duration?: number | Function;
+	offset?: number;
+	triggerElement?: string | HTMLElement;
+	triggerHook?: number | string;
+	reverse?: boolean;
+	loglevel?: number;
+
+}
+
+interface ISetPinSettings {
+	pushFollowers?: boolean;
+	spacerClass?: string;
+}
+
+interface ICommonEventProperties {
+	type: string;
+	target: ScrollMagic.Scene;
+}
+
+interface IAddSceneEventProperties extends ICommonEventProperties {
+	controller: boolean;
+}
+
+interface IChangeScenceEventProperties extends ICommonEventProperties {
+	what: string;
+	newval: any;
+}
+
+interface IDestroySceneEventProperties extends ICommonEventProperties {
+	reset: boolean;
+}
+
+interface ISceneDirectionEventProperties extends ICommonEventProperties {
+	progress: number;
+	state: string;
+	scrollDirection: string;
+}
+
+interface IShiftSceneEventProperties extends ICommonEventProperties {
+	reason: string;
+}
+
+interface IUpdateSceneEventProperties extends ICommonEventProperties {
+	startPos: number;
+	endPos: number;
+	scrollPos: number;
+}
+
+interface ISceneAboutProperties {
+	size: number;
+	vertical: boolean;
+	scrollPos: number;
+	scrollDirection: string;
+	container: HTMLElement;
+	isDocument: boolean;
+}
+
+declare namespace ScrollMagic {
+
+	export class Controller {
+		constructor(options?: IControllerOptions);
+		addScene(newScene: Scene | Array<Scene>): Controller;
+		destroy(resetScenes?: boolean): void;
+		removeScene(scene: Scene | Array<Scene>): Controller;
+		scrollTo(scrollTarget: number | string | HTMLElement | Function | Scene, additionalParameter?: any): Controller;
+		update(immediately?: boolean): Controller;
+		updateScene(scene: Scene, immediately?: boolean): Controller;
+
+		enabled(newState?: boolean): boolean | Controller;
+		loglevel(newLogLevel?: number): number | Controller;
+		scrollPos(scrollPosMethod?: Function): number | Controller;
+
+
+		info(about?: string): ISceneAboutProperties | number | string | boolean | HTMLElement;
+	}
+
+	export class Scene {
+		constructor(options?: ISceneOptions);
+
+		addTo(controller: Controller): Scene;
+		controller(): Controller;
+		destroy(reset?: boolean): void;
+		progress(progress?: number): number;
+		refresh(): Scene;
+		remove(): Scene;
+		removeClassToggle(reset?: boolean): Scene;
+		removePin(reset?: boolean): Scene;
+		setClassToggle(element: string | HTMLElement, classes: string): Scene;
+		setPin(element: string | HTMLElement, settings?: ISetPinSettings): Scene;
+		update(immediately?: boolean): Scene;
+
+		duration(newDuration?: number | Function): number;
+		enabled(newState?: boolean): boolean | Scene;
+		loglevel(newLogLevel?: number): number;
+		offset(newOffset?: number): number;
+		reverse(newReverse?: boolean): boolean;
+		triggerElement(newTriggerElement?: string | HTMLElement): string | HTMLElement;
+		triggerHook(newTriggerHook?: number | string): number;
+
+		scrollOffset(): number;
+		state(): string;
+		triggerPosition(): number;
+
+		off(names: string, callback?: (event: ICommonEventProperties | IAddSceneEventProperties |
+			IChangeScenceEventProperties | IDestroySceneEventProperties | ISceneDirectionEventProperties |
+			IShiftSceneEventProperties | IUpdateSceneEventProperties) => void): Scene;
+
+		on(names: string, callback: (event: ICommonEventProperties | IAddSceneEventProperties |
+			IChangeScenceEventProperties | IDestroySceneEventProperties | ISceneDirectionEventProperties |
+			IShiftSceneEventProperties | IUpdateSceneEventProperties) => void): Scene;
+
+		trigger(name: string, vars?: any): Scene;
+
+		/*fix below*/
+		//add(event: IAddSceneEventProperties): void;
+		//change(event: IChangeScenceEventProperties): void;
+		//destroy(event: IDestroySceneEventProperties): void;
+		//end(event: ISceneDirectionEventProperties): void;
+		//enter(event: ISceneDirectionEventProperties): void;
+		//leave(event: ISceneDirectionEventProperties): void;
+		//progress(event: ISceneDirectionEventProperties): void;
+		//remove(event: ICommonEventProperties): void;
+		//shift(event: IShiftSceneEventProperties): void;
+		//start(event: ISceneDirectionEventProperties): void;
+		//update(event: IUpdateSceneEventProperties): void;
+	}
+
+}

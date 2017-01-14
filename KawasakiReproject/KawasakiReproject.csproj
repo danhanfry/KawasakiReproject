@@ -125,6 +125,8 @@
     <Content Include="scripts\react-dom.js" />
     <Content Include="scripts\react.js" />
     <Content Include="scripts\require.js" />
+    <Content Include="scripts\scrollmagic-plugins.js" />
+    <Content Include="scripts\scrollmagic.js" />
     <Content Include="scripts\tweenmax.js" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -211,6 +213,7 @@
     <TypeScriptCompile Include="scripts\typings\react\react-dom.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-global.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\scrollmagic.d.ts" />
     <TypeScriptCompile Include="scripts\typings\tweenmax.d.ts" />
   </ItemGroup>
   <PropertyGroup>

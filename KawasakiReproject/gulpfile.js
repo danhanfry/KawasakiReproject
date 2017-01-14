@@ -47,3 +47,17 @@ gulp.task('copy-tweenmax', function () {
 	.pipe(concat(paths.externaljs + "/tweenmax.js"))
 	.pipe(gulp.dest("."));
 });
+
+gulp.task('copy-scrollmagic', function () {
+	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/scrollmagic.min.js'])
+	.pipe(concat(paths.externaljs + "/scrollmagic.js"))
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-scrollmagic-plugins', function () {
+	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',
+	'./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.velocity.min.js'])
+	.pipe(concat(paths.externaljs + "/scrollmagic-plugins.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
