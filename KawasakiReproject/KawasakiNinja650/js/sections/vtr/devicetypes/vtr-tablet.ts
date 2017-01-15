@@ -126,4 +126,8 @@ class VTRTablet extends ExperienceSlide {
 	resize = (): void => {
 
 	}
+
+	setScrollMagicMechanism = (): void => {
+
+	}
 }

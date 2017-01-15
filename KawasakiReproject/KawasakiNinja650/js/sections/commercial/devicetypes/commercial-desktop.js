@@ -185,6 +185,8 @@ var CommercialDesktop = (function (_super) {
                 _this.commercialResize(videoElement, $(window).width(), $(window).height());
             }
         };
+        this.setScrollMagicMechanism = function () {
+        };
         this.commercialResize = function (video, windowWidth, windowHeight) {
             var newScaledVideo = _this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
             var finalNewScaledVideo = newScaledVideo.height;

@@ -3,6 +3,7 @@
 	setTweenMechanism(): void;
 	eventInitialize(): void;
 	resize(): void;
+	setScrollMagicMechanism(): void;
 }
 
 class ExperienceSlide implements IExperienceSlide {
@@ -20,6 +21,10 @@ class ExperienceSlide implements IExperienceSlide {
 	}
 
 	resize = (): void => {
+
+	}
+
+	setScrollMagicMechanism = (): void => {
 
 	}
 }

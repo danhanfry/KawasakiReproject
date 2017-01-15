@@ -53,7 +53,7 @@ export class VTRContent extends React.Component<IVTRContentModel, any> {
 							</div>
 						</div>
 						<div id="slideTwoScroller" className="scroll-indicator">
-							<div><img src="assets/green_arrown_down.svg" /></div>
+							<div><img src="assets/green_arrow_down.svg" /></div>
 						</div>
 					</div>
 				}

@@ -40,7 +40,7 @@ export class VTR extends React.Component<IVTRlModel, any> {
 	}
 
 	private vtrResizeEvent() {
-		//this.CommercialIndex.calculation();
+		this.VTRIndex.calculation();
 	}
 }
 
@@ -52,11 +52,133 @@ var vtrVideoModel = new VTRVideoModel('https://media.kawasaki.com/contentstorage
 	'assets/slide2/desktop-failover.jpg',
 	'Along the way you’ll learn about the exciting features that make the Ninja<span class="cirlce-r">®</span> 650 motorcycle a perfect combination of sporty performance and everyday comfort. <br> <span id="dragExperienceId" class="drag-experience-threesixty">Click and drag your mouse to experience 360-degree views');
 
+var interactivePlayBtnSvgElement = createInteractivePlayButton();
+var freePlayBtnSvgElement = createFreeRidePlayButton();
 
 var vtrContentModel = new VTRContentViewModel('experience the 2017 ninja<span class="sup">®</span> 650',
 	'take a virtual test ride', 'Along the way you’ll learn about the exciting features that make the Ninja<span class="cirlce-r">®</span> 650motorcycle a perfect combination of sporty performance and everyday comfort.',
-	null, null);
+	interactivePlayBtnSvgElement, freePlayBtnSvgElement);
 
 var vtrModel = new VTRProperties(vtrVideoModel, vtrContentModel);
 
-ReactDOM.render(<VTR VTRProperties={vtrModel} />, document.getElementById('vtr'));
+ReactDOM.render(<VTR VTRProperties={vtrModel} />, document.getElementById('virtual'));
+
+function createCommonSvgDefinition() {
+	var vtrDefRectProperties: ISVGRectTagProperties = {
+		id: "path-1", x: "0", y: "0", width: "108", height: "108", rx: "8"
+	};
+
+	var vtrDefMaskProperties: ISVGMaskTagProperties = {
+		id: "mask-2", maskContentUnits: "userSpaceOnUse", maskUnits: "objectBoundingBox",
+		x: "0", y: "0", width: "108", height: "108", fill: "white"
+	};
+
+	var vtrDefMaskUsesProperties: ISVGUseTagProperties = {
+		id: "", mask: "", stroke: "", strokeWidth: "", usesId: "#path-1"
+	};
+
+	var vtrDefRectElement = Common.createSVGRect(vtrDefRectProperties);
+	var vtrDefMaskElement = Common.createSVGMask(vtrDefMaskProperties);
+	vtrDefMaskElement.appendChild(Common.createSVGUses(vtrDefMaskUsesProperties));
+
+	var vtrDef = Common.createSVGDefintion();
+	vtrDef.appendChild(vtrDefRectElement);
+	vtrDef.appendChild(vtrDefMaskElement);
+
+	return vtrDef;
+}
+
+function createInteractivePlayButton() {
+
+	var vtrMainProperties: ISVGGTagProperties = {
+		id: "", transform: "", stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd"
+	};
+
+	var vtrTierTwoProperties: ISVGGTagProperties = {
+		id: "01-HOME-1080", transform: "translate(-1466.000000, -652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
+	};
+
+	var vtrTierThreeProperties: ISVGGTagProperties = {
+		id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
+	};
+
+	var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
+	var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
+	var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+
+
+	var vtrInteractiveRideGUsesProperties: ISVGUseTagProperties = {
+		id: "interactivePlayId", mask: "url(#mask-2)", stroke: "#FFFFFF", strokeWidth: "4", usesId: "#path-1"
+	};
+
+	var vtrInteractiveRideGPathProperties: ISVGPathTagProperties = {
+		id: "interactiveBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
+	};
+
+	var vtrPathTag = Common.createSVGPath(vtrInteractiveRideGPathProperties);
+	var vtrGUsesTag = Common.createSVGUses(vtrInteractiveRideGUsesProperties);
+
+	vtrTierThreeGDTag.appendChild(vtrPathTag);
+	vtrTierThreeGDTag.appendChild(vtrGUsesTag);
+
+	vtrTierTwoGDTag.appendChild(vtrTierThreeGDTag);
+	vtrMainGDTag.appendChild(vtrTierTwoGDTag);
+
+	var vtrInteractivePlayButtonSvgElement: IKawasakiSvgElementProperties = {
+		id: "interactivePlayBtn", className: "",
+		x: "0px", y: "0px", width: "108px", height: "108px"
+	};
+
+	var interactivePlayBtnSvgElement: SVGSVGElement = Common.createSVGElement(vtrInteractivePlayButtonSvgElement);
+	interactivePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
+	interactivePlayBtnSvgElement.appendChild(vtrMainGDTag);
+
+	return interactivePlayBtnSvgElement;
+}
+
+function createFreeRidePlayButton() {
+	
+	var vtrMainProperties: ISVGGTagProperties = {
+		id: "", transform: "", stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd"
+	};
+
+	var vtrTierTwoProperties: ISVGGTagProperties = {
+		id: "01-HOME-1080", transform: "translate(-1466.000000, -652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
+	};
+
+	var vtrTierThreeProperties: ISVGGTagProperties = {
+		id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
+	};
+
+	var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
+	var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
+	var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+
+	var vtrFreeRideGUsesProperties: ISVGUseTagProperties = {
+		id: "freePlayId", mask: "url(#mask-2)", stroke: "#FFFFFF", strokeWidth: "4", usesId: "#path-1"
+	};
+
+	var vtrGFreeRidePathProperties: ISVGPathTagProperties = {
+		id: "freeBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
+	};
+
+	var vtrPathTag = Common.createSVGPath(vtrGFreeRidePathProperties);
+	var vtrGUsesTag = Common.createSVGUses(vtrFreeRideGUsesProperties);
+
+	vtrTierThreeGDTag.appendChild(vtrPathTag);
+	vtrTierThreeGDTag.appendChild(vtrGUsesTag);
+
+	vtrTierTwoGDTag.appendChild(vtrTierThreeGDTag);
+	vtrMainGDTag.appendChild(vtrTierTwoGDTag);
+
+	var vtrFreePlayButtonSvgElement: IKawasakiSvgElementProperties = {
+		id: "freeRidePlayBtn", className: "",
+		x: "0px", y: "0px", width: "108px", height: "108px"
+	};
+
+	var freePlayBtnSvgElement: SVGSVGElement = Common.createSVGElement(vtrFreePlayButtonSvgElement);
+	freePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
+	freePlayBtnSvgElement.appendChild(vtrMainGDTag);
+
+	return freePlayBtnSvgElement
+}

@@ -53,9 +53,11 @@ var Kawasaki;
                     kawasakiSvgModel.y.replace('px', '') + " " +
                     kawasakiSvgModel.width.replace('px', '') + " " +
                     kawasakiSvgModel.height.replace('px', ''));
-                var svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                var svgElement = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Svg.toString());
                 svgElement.id = kawasakiSvgModel.id;
-                svgElement.classList.add(kawasakiSvgModel.className);
+                if (kawasakiSvgModel.className.trim() !== "") {
+                    svgElement.classList.add(kawasakiSvgModel.className);
+                }
                 svgElement.setAttribute('version', '1.1');
                 svgElement.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
                 svgElement.setAttribute('xml:space', 'preserve');
@@ -67,8 +69,8 @@ var Kawasaki;
                 svgElement.setAttribute('enable-background', xyWidthHeight);
                 return svgElement;
             };
-            this.createPolygonElement = function (fill, stroke, strokeWidth, strokeLinecap, strokeLinejoin, strokeMiterlimit, points) {
-                var polygonSvgElement = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Polygon.toString().toLowerCase());
+            this.createSVGPolygon = function (fill, stroke, strokeWidth, strokeLinecap, strokeLinejoin, strokeMiterlimit, points) {
+                var polygonSvgElement = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Polygon.toString());
                 polygonSvgElement.style.fill = fill;
                 polygonSvgElement.style.stroke = stroke;
                 polygonSvgElement.style.strokeWidth = strokeWidth;
@@ -78,6 +80,58 @@ var Kawasaki;
                 polygonSvgElement.style.strokeMiterlimit = strokeMiterlimit;
                 polygonSvgElement.setAttribute('points', points.join(' '));
                 return polygonSvgElement;
+            };
+            this.createSVGDefintion = function () {
+                var definition = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString());
+                return definition;
+            };
+            this.createSVGUses = function (prop) {
+                var usesTag = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Use.toString());
+                usesTag.id = prop.id;
+                usesTag.style.stroke = prop.stroke;
+                usesTag.style.mask = prop.mask;
+                usesTag.style.strokeWidth = prop.strokeWidth;
+                usesTag.setAttribute('xlink:href', prop.usesId);
+                return usesTag;
+            };
+            this.createSVGG = function (prop) {
+                var gTag = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.G.toString());
+                gTag.id = prop.id;
+                gTag.style.stroke = prop.stroke;
+                gTag.style.strokeWidth = prop.strokeWidth;
+                gTag.style.fill = prop.fill;
+                gTag.style.fillRule = prop.fillRule;
+                gTag.setAttribute('transform', prop.transform);
+                return gTag;
+            };
+            this.createSVGPath = function (prop) {
+                var pathTag = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Path.toString());
+                pathTag.id = prop.id;
+                pathTag.style.fill = prop.fill;
+                pathTag.setAttribute('d', prop.d);
+                return pathTag;
+            };
+            this.createSVGRect = function (prop) {
+                var rectTag = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Rect.toString());
+                rectTag.id = prop.id;
+                rectTag.setAttribute('x', prop.x);
+                rectTag.setAttribute('y', prop.y);
+                rectTag.setAttribute('width', prop.width);
+                rectTag.setAttribute('height', prop.height);
+                rectTag.setAttribute('rx', prop.rx);
+                return rectTag;
+            };
+            this.createSVGMask = function (prop) {
+                var maskTag = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Mask.toString());
+                maskTag.id = prop.id;
+                maskTag.style.fill = prop.fill;
+                maskTag.setAttribute('x', prop.x);
+                maskTag.setAttribute('y', prop.y);
+                maskTag.setAttribute('width', prop.width);
+                maskTag.setAttribute('height', prop.height);
+                maskTag.setAttribute('maskContentUnits', prop.maskContentUnits);
+                maskTag.setAttribute('maskUnits', prop.maskUnits);
+                return maskTag;
             };
             this.createPointList = function (points) {
                 var pointsList = new SVGPointList();
@@ -91,9 +145,6 @@ var Kawasaki;
                     }
                 }
                 return pointsList;
-            };
-            this.createSVGDefintion = function () {
-                var definition = document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString().toLowerCase());
             };
             this.scaleProportionally = function (srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
                 var result = { width: 0, height: 0, scaleToTargetWidth: true, targetleft: 0, targettop: 0 };

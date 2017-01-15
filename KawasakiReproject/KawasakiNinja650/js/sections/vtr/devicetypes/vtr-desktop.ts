@@ -2,6 +2,9 @@
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
+/// <reference path="../../../../../scripts/typings/scrollmagic.d.ts" />
+
+declare var controller:ScrollMagic.Controller;
 
 class VTRDesktop extends ExperienceSlide {
 
@@ -101,18 +104,13 @@ class VTRDesktop extends ExperienceSlide {
 		});
 
 		this.setTweenMechanism();
+
+		const videoVTRPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayerVR'));
+		videoVTRPlay.controls = false;
+		videoVTRPlay.play();
 	}
 
 	setTweenMechanism = (): void => {
-		new TimelineMax()
-			.to('.testvr-experience', 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.6")
-			.to(".testvr-description", 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.4")
-			.to("#leftTextForVRVideoHoverId", 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut })
-			.to('#rightTextForVRVideoHoverId', 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.1");
-
-		new TimelineMax()
-			.to("#testVRTestRide", 1.5, { opacity: 1 })
-			.to("#testVRTestRideBackgroundId", 1.5, { scrambleText: { text: "TAKE A VIRTUAL TEST RIDE", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0");
 
 	}
 
@@ -190,6 +188,31 @@ class VTRDesktop extends ExperienceSlide {
 		this.calculation();
 	}
 
+	setScrollMagicMechanism = (): void => {
+
+		var vtrScene = new ScrollMagic.Scene({
+			triggerElement: "#virtual",
+			offset: 100
+		})
+		.setTween(this.tweenTextByScroll())
+		.addTo(controller);
+
+		var scrambleTxtScene = new ScrollMagic.Scene({
+			triggerElement: "#virtual",
+			offset: 100
+		})
+		.setTween(this.tweenScrambleTextByScroll())
+		.addTo(controller);
+
+		var scene = new ScrollMagic.Scene({
+			triggerElement: "#testVRDescription",
+			triggerHook: 1,
+			duration: 1
+		})
+		.setTween("#slideTwoScroller", 1, { y: 65, duration: .5, ease: Linear.easeOut })
+		.addTo(controller);
+	}
+
 	private prepareIFrameVRTestRide = (): void => {
 		var vrIFrame: HTMLIFrameElement = document.createElement('iframe');
 		vrIFrame.width = "100%";
@@ -211,4 +234,19 @@ class VTRDesktop extends ExperienceSlide {
 		/*prevent scrolling*/
 		this.Common.preventScrolling();
 	};
+
+	private tweenTextByScroll = (): Timeline => {
+		return new TimelineMax()
+			.to('.testvr-experience', 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.6")
+			.to(".testvr-description", 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.4")
+			.to("#leftTextForVRVideoHoverId", 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut })
+			.to('#rightTextForVRVideoHoverId', 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.1");
+	}
+
+	private tweenScrambleTextByScroll = (): Timeline => {
+		return new TimelineMax()
+			.to("#testVRTestRide", 1.5, { opacity: 1 })
+			.to("#testVRTestRideBackgroundId", 1.5, { scrambleText: { text: "TAKE A VIRTUAL TEST RIDE", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0");
+
+	}
 }

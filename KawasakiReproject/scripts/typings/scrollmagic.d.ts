@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="tweenmax.d.ts" />
+
 declare enum SCROLL_DIRECTION {
 	SCROLL_DIRECTION_FORWARD,
 	SCROLL_DIRECTION_REVERSE,
@@ -75,6 +76,15 @@ interface IUpdateSceneEventProperties extends ICommonEventProperties {
 	scrollPos: number;
 }
 
+interface ISceneAddIndicatorOptions {
+	parent?: string | HTMLElement;
+	name?: number;
+	indent?: number;
+	colorStart?: string;
+	colorEnd?: string;
+	colorTrigger?: string;
+}
+
 interface ISceneAboutProperties {
 	size: number;
 	vertical: boolean;
@@ -140,18 +150,16 @@ declare namespace ScrollMagic {
 
 		trigger(name: string, vars?: any): Scene;
 
-		/*fix below*/
-		//add(event: IAddSceneEventProperties): void;
-		//change(event: IChangeScenceEventProperties): void;
-		//destroy(event: IDestroySceneEventProperties): void;
-		//end(event: ISceneDirectionEventProperties): void;
-		//enter(event: ISceneDirectionEventProperties): void;
-		//leave(event: ISceneDirectionEventProperties): void;
-		//progress(event: ISceneDirectionEventProperties): void;
-		//remove(event: ICommonEventProperties): void;
-		//shift(event: IShiftSceneEventProperties): void;
-		//start(event: ISceneDirectionEventProperties): void;
-		//update(event: IUpdateSceneEventProperties): void;
+
+		/* add indicator plugins */
+		addIndicators(options?: ISceneAddIndicatorOptions): void;
+		removeIndicators(): void;
+
+		/*GSAP plugins */
+		removeTween(reset?: boolean): Scene;
+		setTween(tweenObject: Timeline): Scene;
+		setTween(tweenObject: string | HTMLElement | Tween, duration: number, params: Object): Scene;
+		tweenChanges(newTweenChanges?: boolean): Scene;
 	}
 
 }

@@ -10,6 +10,8 @@
 	}
 });
 
+var commonJsFiles = ['js/models/enums/svgenums.js', 'js/models/commercialmodel.js', 'js/models/vtrmodel',
+			'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
 
 var commercialIndex = 'js/sections/commercial/commercial-index';
 var commercialPartialViews = [
@@ -24,22 +26,28 @@ var vtrPartialViews = [
 				'js/sections/vtr/components/vtrcontent',
 				'js/sections/vtr/vtr'];
 
-requirejs(['js/models/enums/svgenums.js', 'js/models/commercialmodel.js',
-			'js/commonjs', 'js/abstractions/slide.abstraction'], function () {
+
+var finalPartialViews = commercialPartialViews.concat(vtrPartialViews);
+
+requirejs(commonJsFiles, function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
-		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', commercialIndex], function () {
-			requirejs(commercialPartialViews);
+		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/vtr/devicetypes/vtr-mobile',
+			commercialIndex, vtrIndex], function () {
+			requirejs(finalPartialViews);
 		});
 	}
 	else if (common.isTablet()) {
-		requirejs(['js/sections/commercial/devicetypes/commercial-tablet', commercialIndex], function () {
-			requirejs(commercialPartialViews);
+		requirejs(['js/sections/commercial/devicetypes/commercial-tablet', 'js/sections/vtr/devicetypes/vtr-tablet',
+			commercialIndex, vtrIndex], function () {
+			requirejs(finalPartialViews);
 		});
 	}
 	else {
-		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', commercialIndex], function () {
-			requirejs(commercialPartialViews);
+
+		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', 'js/sections/vtr/devicetypes/vtr-desktop',
+			commercialIndex, vtrIndex], function () {
+			requirejs(finalPartialViews);
 		});
 	}
 });

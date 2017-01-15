@@ -8,6 +8,8 @@ var ExperienceSlide = (function () {
         };
         this.resize = function () {
         };
+        this.setScrollMagicMechanism = function () {
+        };
     }
     return ExperienceSlide;
 }());

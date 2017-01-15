@@ -123,4 +123,8 @@ class VTRMobile extends ExperienceSlide {
 	resize = (): void => {
 
 	}
+
+	setScrollMagicMechanism = (): void => {
+
+	}
 }

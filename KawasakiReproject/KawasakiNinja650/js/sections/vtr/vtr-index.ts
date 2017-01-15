@@ -21,17 +21,18 @@ namespace Kawasaki.NinjaSixFifty {
 
 			let deviceLayout: ExperienceSlide;
 			if (this.Common.isMobile()) {
-				
+				deviceLayout = new VTRMobile(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else if (this.Common.isTablet()) {
-				
+				deviceLayout = new VTRTablet(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else {
-				
+				deviceLayout = new VTRDesktop(this.windowDimensions.width, this.windowDimensions.height);
 			}
 
 			deviceLayout.calculation();
 			deviceLayout.eventInitialize();
+			deviceLayout.setScrollMagicMechanism();
 		}
 	}
 }

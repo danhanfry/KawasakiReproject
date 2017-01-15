@@ -25,11 +25,12 @@ define(["require", "exports"], function (require, exports) {
                 marginTop: '3%'
             };
             return (React.createElement("div", null, 
-                React.createElement("div", {id: "clipperIdVRVideoId", style: vtrContainerStyle}, 
-                    React.createElement("div", {className: "video_contain_vtr"}, 
-                        React.createElement("video", {id: "videoPlayerVR", className: "video_vtr", poster: "", src: Model.VideoUrl, loop: true})
-                    )
-                ), 
+                !IsTouchDevice && !IsLessThanIE11 &&
+                    React.createElement("div", {id: "clipperIdVRVideoId", style: vtrContainerStyle}, 
+                        React.createElement("div", {className: "video_contain_vtr"}, 
+                            React.createElement("video", {id: "videoPlayerVR", className: "video_vtr", poster: "", src: Model.VideoUrl, loop: true})
+                        )
+                    ), 
                 IsLessThanIE11 &&
                     React.createElement("div", null, 
                         React.createElement("div", {id: "desktopFailOverId", className: "desktop-failover-static-img"}, 
@@ -40,7 +41,7 @@ define(["require", "exports"], function (require, exports) {
                                 React.createElement("img", {src: "assets/logo_ninja.svg"})
                             ), 
                             React.createElement("div", {id: "failOverMessage", className: "failover-vr-message"}, 
-                                React.createElement("span", null, Model.FallbackLessThanIE11Description)
+                                React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.FallbackLessThanIE11Description }})
                             ))), 
                 IsTouchDevice &&
                     React.createElement("div", {id: "mobileTabletVRStaticImgId", className: "mobile-tablet-static-img"}, 

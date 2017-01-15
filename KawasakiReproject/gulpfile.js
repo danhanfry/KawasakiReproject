@@ -54,9 +54,23 @@ gulp.task('copy-scrollmagic', function () {
 	.pipe(gulp.dest("."));
 });
 
+gulp.task('copy-scrollmagic-jquery-version', function () {
+	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',])
+	.pipe(concat(paths.externaljs + "/jquery.ScrollMagic.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-scrollmagic-gsap-version', function () {
+	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'])
+	.pipe(concat(paths.externaljs + "/animation.gsap.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
 gulp.task('copy-scrollmagic-plugins', function () {
 	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',
-	'./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.velocity.min.js'])
+	'./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gasp.min.js'])
 	.pipe(concat(paths.externaljs + "/scrollmagic-plugins.js"))
 	.pipe(uglify())
 	.pipe(gulp.dest("."));

@@ -53,10 +53,10 @@ var commercialVideolModel = new CommercialVideoModel('https://media.kawasaki.com
 	'assets/slide1/mobile-landing-bkgd.jpg', 'assets/slide1/tablet-landing-bkgd.jpg', 'assets/close_white_btn.svg');
 
 
-var polygonPlayBtnSvgElement: SVGPolygonElement = Common.createPolygonElement('#FFFFFF', '#FFFFFF',
+var polygonPlayBtnSvgElement: SVGPolygonElement = Common.createSVGPolygon('#FFFFFF', '#FFFFFF',
 	'4', 'round', 'round', '10', ["0,-0.163", "25.32,20.333", "0,40.23"]);
 
-var kawasakiSvgElement: IKawasakiSvgElement = {
+var kawasakiSvgElement: IKawasakiSvgElementProperties = {
 	id: "PlayButtonAction", className: "play-button-action",
 	x: "0px", y: "0px", width: "25.32px", height: "40.23px"
 };

@@ -64,7 +64,7 @@ namespace Kawasaki {
 			}
 		}
 
-		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElement): SVGSVGElement => {
+		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElementProperties): SVGSVGElement => {
 
 			var xyWidthHeight: string = (kawasakiSvgModel.x.replace('px', '') + " " +
 				kawasakiSvgModel.y.replace('px', '') + " " +
@@ -73,7 +73,9 @@ namespace Kawasaki {
 
 			var svgElement: SVGSVGElement = <SVGSVGElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Svg.toString());
 			svgElement.id = kawasakiSvgModel.id;
-			svgElement.classList.add(kawasakiSvgModel.className);
+			if (kawasakiSvgModel.className.trim() !== "") {
+				svgElement.classList.add(kawasakiSvgModel.className);
+			}
 
 			svgElement.setAttribute('version', '1.1');
 			svgElement.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
@@ -90,7 +92,7 @@ namespace Kawasaki {
 			return svgElement;
 		}
 
-		public createPolygonElement = (fill: string, stroke: string, strokeWidth: string, strokeLinecap: string,
+		public createSVGPolygon = (fill: string, stroke: string, strokeWidth: string, strokeLinecap: string,
 			strokeLinejoin: string, strokeMiterlimit: string, points: string[]): SVGPolygonElement => {
 
 			var polygonSvgElement: SVGPolygonElement = <SVGPolygonElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Polygon.toString());
@@ -103,6 +105,70 @@ namespace Kawasaki {
 			polygonSvgElement.setAttribute('points', points.join(' '));
 
 			return polygonSvgElement;
+		}
+
+		public createSVGDefintion = (): SVGDefsElement => {
+
+			let definition: SVGDefsElement = <SVGDefsElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString());
+			return definition;
+		}
+
+		public createSVGUses = (prop: ISVGUseTagProperties): SVGUseElement => {
+			let usesTag: SVGUseElement = <SVGUseElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Use.toString());
+			usesTag.id = prop.id;
+			usesTag.style.stroke = prop.stroke;
+			usesTag.style.mask = prop.mask;
+			usesTag.style.strokeWidth = prop.strokeWidth;
+			usesTag.setAttribute('xlink:href', prop.usesId);
+
+			return usesTag;
+		}
+
+		public createSVGG = (prop: ISVGGTagProperties): SVGGElement => {
+			let gTag: SVGGElement = <SVGGElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.G.toString());
+			gTag.id = prop.id;
+			gTag.style.stroke = prop.stroke;
+			gTag.style.strokeWidth = prop.strokeWidth;
+			gTag.style.fill = prop.fill;
+			gTag.style.fillRule = prop.fillRule;
+			gTag.setAttribute('transform', prop.transform);
+
+			return gTag;
+		}
+
+		public createSVGPath = (prop: ISVGPathTagProperties): SVGPathElement => {
+			let pathTag: SVGPathElement = <SVGPathElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Path.toString());
+			pathTag.id = prop.id;
+			pathTag.style.fill = prop.fill;
+			pathTag.setAttribute('d', prop.d);
+
+			return pathTag;
+		}
+
+		public createSVGRect = (prop: ISVGRectTagProperties): SVGRectElement => {
+			let rectTag: SVGRectElement = <SVGRectElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Rect.toString());
+			rectTag.id = prop.id;
+			rectTag.setAttribute('x', prop.x);
+			rectTag.setAttribute('y', prop.y);
+			rectTag.setAttribute('width', prop.width);
+			rectTag.setAttribute('height', prop.height);
+			rectTag.setAttribute('rx', prop.rx);
+
+			return rectTag;
+		}
+
+		public createSVGMask = (prop: ISVGMaskTagProperties): SVGMaskElement => {
+			let maskTag: SVGMaskElement = <SVGMaskElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Mask.toString());
+			maskTag.id = prop.id;
+			maskTag.style.fill = prop.fill;
+			maskTag.setAttribute('x', prop.x);
+			maskTag.setAttribute('y', prop.y);
+			maskTag.setAttribute('width', prop.width);
+			maskTag.setAttribute('height', prop.height);
+			maskTag.setAttribute('maskContentUnits', prop.maskContentUnits);
+			maskTag.setAttribute('maskUnits', prop.maskUnits);
+
+			return maskTag;
 		}
 
 		public createPointList = (points: string[]): SVGPointList => {
@@ -120,12 +186,6 @@ namespace Kawasaki {
 			}
 
 			return pointsList;
-		}
-
-		public createSVGDefintion = (): void => {
-
-			let definition: SVGDefsElement = <SVGDefsElement>document.createElementNS('http://www.w3.org/2000/svg', SvgQualifiedName.Defs.toString());
-
 		}
 
 		public scaleProportionally = (srcwidth: number, srcheight: number, targetwidth: number,
