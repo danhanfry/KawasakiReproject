@@ -24,6 +24,7 @@ var vtrIndex = 'js/sections/vtr/vtr-index';
 var vtrPartialViews = [
 				'js/sections/vtr/components/vtrvideo',
 				'js/sections/vtr/components/vtrcontent',
+				'js/sections/vtr/components/vtrmodal',
 				'js/sections/vtr/vtr'];
 
 

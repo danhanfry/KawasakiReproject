@@ -22,5 +22,9 @@
   {
     "outputFile": "KawasakiNinja650/css/vtr.css",
     "inputFile": "KawasakiNinja650/css/vtr.scss"
+  },
+  {
+    "outputFile": "KawasakiNinja650/css/modal.css",
+    "inputFile": "KawasakiNinja650/css/modal.scss"
   }
 ]

@@ -78,6 +78,7 @@ var VTRDesktop = (function (_super) {
             var videoVTRPlay = document.getElementById('videoPlayerVR');
             videoVTRPlay.controls = false;
             videoVTRPlay.play();
+            _this.prepareIFrameVRTestRide();
         };
         this.setTweenMechanism = function () {
         };
@@ -118,15 +119,15 @@ var VTRDesktop = (function (_super) {
                     TweenMax.to("#interactivePlayId", 0.5, { stroke: '#fff' });
                 }
             });
-            $('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('tap longtap', function () {
-                this.setupTestVRModal(0);
+            $('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('click', function () {
+                _this.setupTestVRModal(0);
             });
-            $('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('tap longtap', function () {
-                this.setupTestVRModal(1);
+            $('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('click', function () {
+                _this.setupTestVRModal(1);
             });
             $('#testVRModal .close-btn').on('click', function () {
                 window.frames[0].frameElement.contentWindow.getEdgeApp().destroy();
-                this.Common.allowScrolling();
+                _this.Common.allowScrolling();
                 document.getElementById('testVRModal').style.display = 'none';
             });
             $("#slideTwoScroller").on('click', function () {

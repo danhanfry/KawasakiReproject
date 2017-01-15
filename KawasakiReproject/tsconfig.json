@@ -26,7 +26,8 @@
 		"KawasakiNinja650/js/sections/commercial/components/commercialscroller.tsx",
 		"KawasakiNinja650/js/sections/vtr/vtr.tsx",
 		"KawasakiNinja650/js/sections/vtr/components/vtrvideo.tsx",
-		"KawasakiNinja650/js/sections/vtr/components/vtrcontent.tsx"
+		"KawasakiNinja650/js/sections/vtr/components/vtrcontent.tsx",
+		"KawasakiNinja650/js/sections/vtr/components/vtrmodal.tsx"
 	],
 	"exclude": [ ]
 }

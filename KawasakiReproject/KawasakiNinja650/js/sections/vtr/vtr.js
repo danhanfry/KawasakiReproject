@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"], function (require, exports, vtrvideo_1, vtrcontent_1) {
+define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent", "./components/vtrmodal"], function (require, exports, vtrvideo_1, vtrcontent_1, vtrmodal_1) {
     "use strict";
     var VTR = (function (_super) {
         __extends(VTR, _super);
@@ -25,7 +25,8 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
             var _a = this.props.VTRProperties, VTRVideoProp = _a.VTRVideoProp, VTRContentProp = _a.VTRContentProp;
             return (React.createElement("div", null, 
                 React.createElement(vtrvideo_1.VTRVideo, {Model: VTRVideoProp}), 
-                React.createElement(vtrcontent_1.VTRContent, {Model: VTRContentProp})));
+                React.createElement(vtrcontent_1.VTRContent, {Model: VTRContentProp}), 
+                React.createElement(vtrmodal_1.VTRModal, null)));
         };
         VTR.prototype.vtrResizeEvent = function () {
             this.VTRIndex.calculation();

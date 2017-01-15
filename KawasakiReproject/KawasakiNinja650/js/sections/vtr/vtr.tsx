@@ -7,6 +7,7 @@
 
 import { VTRVideo } from "./components/vtrvideo";
 import { VTRContent } from "./components/vtrcontent";
+import { VTRModal } from "./components/vtrmodal"
 
 export class VTR extends React.Component<IVTRlModel, any> {
 
@@ -35,6 +36,7 @@ export class VTR extends React.Component<IVTRlModel, any> {
 			<div>
 				<VTRVideo Model={VTRVideoProp} />
 				<VTRContent Model={VTRContentProp} />
+				<VTRModal />
 			</div>
 		);
 	}

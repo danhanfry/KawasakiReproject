@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gulpfile.js" />
+    <Content Include="KawasakiNinja650\assets\close_green_btn.svg" />
     <Content Include="KawasakiNinja650\assets\close_white_btn.svg" />
     <Content Include="KawasakiNinja650\assets\green_arrow_down.svg" />
     <Content Include="KawasakiNinja650\assets\green_hr.png" />
@@ -58,6 +59,12 @@
     </Content>
     <Content Include="KawasakiNinja650\css\mobile.min.css">
       <DependentUpon>mobile.css</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\modal.css">
+      <DependentUpon>modal.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\modal.min.css">
+      <DependentUpon>modal.css</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\css\styles.css">
       <DependentUpon>styles.scss</DependentUpon>
@@ -122,6 +129,9 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.js">
       <DependentUpon>vtrcontent.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrmodal.js">
+      <DependentUpon>vtrmodal.tsx</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.js">
       <DependentUpon>vtrvideo.tsx</DependentUpon>
@@ -192,6 +202,7 @@
     <Content Include="KawasakiNinja650\css\browserhacks.scss" />
     <Content Include="KawasakiNinja650\css\mobile.scss" />
     <Content Include="KawasakiNinja650\css\vtr.scss" />
+    <Content Include="KawasakiNinja650\css\modal.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -218,6 +229,7 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrmodal.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-mobile.ts" />

@@ -108,6 +108,8 @@ class VTRDesktop extends ExperienceSlide {
 		const videoVTRPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayerVR'));
 		videoVTRPlay.controls = false;
 		videoVTRPlay.play();
+
+		this.prepareIFrameVRTestRide();
 	}
 
 	setTweenMechanism = (): void => {
@@ -116,7 +118,7 @@ class VTRDesktop extends ExperienceSlide {
 
 	eventInitialize = (): void => {
 		$('#leftTextForVRVideoHoverId').on({
-			mouseover: function () {
+			mouseover: () => {
 				TweenMax.to("#leftTextForVRVideoHoverId", 0.5, { color: '#66cc33' });
 				TweenMax.to("#interactiveBoxId", 0.5, { fill: '#66cc33' });
 				TweenMax.to("#interactivePlayId", 0.5, { stroke: '#66cc33' });
@@ -126,7 +128,7 @@ class VTRDesktop extends ExperienceSlide {
 				TweenMax.to("#freeBoxId", 0.5, { fill: '#fff' });
 				TweenMax.to("#freePlayId", 0.5, { stroke: '#fff' });
 			},
-			mouseleave: function () {
+			mouseleave: () => {
 				TweenMax.to("#rightTextForVRVideoHoverId", 0.5, { color: '#fff' });
 				TweenMax.to("#freeBoxId", 0.5, { fill: '#fff' });
 				TweenMax.to("#freePlayId", 0.5, { stroke: '#fff' });
@@ -138,7 +140,7 @@ class VTRDesktop extends ExperienceSlide {
 		});
 
 		$('#rightTextForVRVideoHoverId').on({
-			mouseover: function () {
+			mouseover: () => {
 				TweenMax.to("#leftTextForVRVideoHoverId", 0.5, { color: '#fff' });
 				TweenMax.to("#interactiveBoxId", 0.5, { fill: '#fff' });
 				TweenMax.to("#interactivePlayId", 0.5, { stroke: '#fff' });
@@ -147,7 +149,7 @@ class VTRDesktop extends ExperienceSlide {
 				TweenMax.to("#freeBoxId", 0.5, { fill: '#66cc33' });
 				TweenMax.to("#freePlayId", 0.5, { stroke: '#66cc33' });
 			},
-			mouseleave: function () {
+			mouseleave: () => {
 				TweenMax.to("#rightTextForVRVideoHoverId", 0.5, { color: '#fff' });
 				TweenMax.to("#freeBoxId", 0.5, { fill: '#fff' });
 				TweenMax.to("#freePlayId", 0.5, { stroke: '#fff' });
@@ -159,16 +161,16 @@ class VTRDesktop extends ExperienceSlide {
 		});
 
 
-		$('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('tap longtap', function () {
+		$('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('click', () => {
 			this.setupTestVRModal(0);
 		});
 
 
-		$('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('tap longtap', function () {
+		$('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('click', () => {
 			this.setupTestVRModal(1);
 		});
 
-		$('#testVRModal .close-btn').on('click', function () {
+		$('#testVRModal .close-btn').on('click', () => {
 
 			(<any>(<HTMLIFrameElement>window.frames[0].frameElement).contentWindow).getEdgeApp().destroy();
 
