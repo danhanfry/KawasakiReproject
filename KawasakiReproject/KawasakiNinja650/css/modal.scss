@@ -317,3 +317,79 @@
 	line-height: 22px;
 	letter-spacing: 1px;
 }
+
+/**********************************specific iphone sizes landscape for rotation of device*********************************************/
+@media (min-width: 320px) and (max-width: 736px) and (orientation: landscape) {
+	.modal {
+		padding-top: 0px;
+	}
+}
+
+/*iphone 5*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+	.modal-orientation {
+		position: absolute;
+		left: 45%;
+		top: 150px;
+	}
+
+	#genericModalContent.modal-content {
+		width: 100%;
+	}
+
+	.mobile-rotate-container {
+		position: absolute;
+		left: 15%;
+		top: 0px;
+	}
+
+	.image-rotate-img {
+		position: absolute;
+	}
+}
+
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+	.modal-orientation {
+		position: absolute;
+		left: 45%;
+		top: 150px;
+	}
+
+	#genericModalContent.modal-content {
+		width: 100%;
+	}
+
+	.mobile-rotate-container {
+		position: absolute;
+		left: 15%;
+		top: 0px;
+	}
+
+	.image-rotate-img {
+		position: absolute;
+	}
+}
+
+/*iphone 6 plus*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+	.modal-orientation {
+		position: absolute;
+		left: 45%;
+		top: 150px;
+	}
+
+	#genericModalContent.modal-content {
+		width: 100%;
+	}
+
+	.mobile-rotate-container {
+		position: absolute;
+		left: 15%;
+		top: 0px;
+	}
+
+	.image-rotate-img {
+		position: absolute;
+	}
+}
