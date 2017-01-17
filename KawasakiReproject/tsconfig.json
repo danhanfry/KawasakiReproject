@@ -30,7 +30,7 @@
 		"KawasakiNinja650/js/sections/vtr/components/vtrmodal.tsx",
 		"KawasakiNinja650/js/sections/researchtools/components/researchtoolsheader.tsx",
 		"KawasakiNinja650/js/sections/researchtools/components/researchtoolslinks.tsx",
-		"KawasakiNinja650/js/sections/researchtools/components/researchtools.tsx"
+		"KawasakiNinja650/js/sections/researchtools/researchtools.tsx"
 	],
 	"exclude": [ ]
 }

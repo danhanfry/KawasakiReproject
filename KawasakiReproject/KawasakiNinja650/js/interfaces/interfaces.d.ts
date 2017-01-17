@@ -11,55 +11,55 @@ interface IKawasakiSvgElementProperties {
 }
 
 interface ISvgShapeElementProperties {
-	id: string;
-	className: string;
-	x: string;
-	y: string;
-	width: string;
-	height: string;
+	readonly id: string;
+	readonly className: string;
+	readonly x: string;
+	readonly y: string;
+	readonly width: string;
+	readonly height: string;
 }
 
 interface ISVGGTagProperties {
-	id: string;
-	transform: string;
-	stroke: string;
-	strokeWidth: string;
-	fill: string;
-	fillRule: string;
+	readonly id: string;
+	readonly transform: string;
+	readonly stroke: string;
+	readonly strokeWidth: string;
+	readonly fill: string;
+	readonly fillRule: string;
 }
 
 interface ISVGUseTagProperties {
-	id: string;
-	stroke: string;
-	mask: string;
-	strokeWidth: string;
-	usesId: string;
+	readonly id: string;
+	readonly stroke: string;
+	readonly mask: string;
+	readonly strokeWidth: string;
+	readonly usesId: string;
 }
 
 interface ISVGPathTagProperties {
-	id: string;
-	d: string;
-	fill: string;
+	readonly id: string;
+	readonly d: string;
+	readonly fill: string;
 }
 
 interface ISVGRectTagProperties {
-	id: string;
-	x: string;
-	y: string;
-	width: string;
-	height: string;
-	rx: string;
+	readonly id: string;
+	readonly x: string;
+	readonly y: string;
+	readonly width: string;
+	readonly height: string;
+	readonly rx: string;
 }
 
 interface ISVGMaskTagProperties {
-	id: string;
-	maskContentUnits: string;
-	maskUnits: string;
-	x: string;
-	y: string;
-	width: string;
-	height: string;
-	fill: string;
+	readonly id: string;
+	readonly maskContentUnits: string;
+	readonly maskUnits: string;
+	readonly x: string;
+	readonly y: string;
+	readonly width: string;
+	readonly height: string;
+	readonly fill: string;
 }
 
 interface IElementPosition {

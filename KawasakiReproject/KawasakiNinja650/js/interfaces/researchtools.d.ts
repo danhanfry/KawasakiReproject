@@ -1,12 +1,12 @@
 ﻿interface IResearchToolsHeader {
-	YearLogoImgUrl: string;
-	YearModelImgUrl: string;
-	ResearchToolText: string;
-	ResearchDealership: string;
+	readonly YearLogoImgUrl: string;
+	readonly YearModelImgUrl: string;
+	readonly ResearchToolText: string;
+	readonly ResearchDealership: string;
 }
 
 interface IResearchToolsHeaderModel {
-	Model: IResearchToolsHeader;
+	readonly Model: IResearchToolsHeader;
 }
 
 interface IResearchToolsLink {
@@ -15,18 +15,23 @@ interface IResearchToolsLink {
 }
 
 interface IResearchToolsLinks {
-	Links: Array<IResearchToolsLink>;
+	readonly HeaderText: string;
+	readonly Links: Array<IResearchToolsLink>;
 }
 
 interface IResearchToolsLinksModel {
-	Model: IResearchToolsLinks;
+	readonly Model: IResearchToolsLinks;
+}
+
+interface IResearchToolsLinksState {
+	readonly LinksState: IResearchToolsLinks[];
 }
 
 interface IResearchToolsProperties {
-	ResearchToolsHeaderProp: IResearchToolsHeader;
-	ResearchToolsLinksProp: IResearchToolsLinks;
+	readonly ResearchToolsHeaderProp: IResearchToolsHeader;
+	readonly ResearchToolsLinksProp: IResearchToolsLinks;
 }
 
 interface IResearchToolsModel {
-	ResearchToolsProperties: IResearchToolsProperties;
+	readonly ResearchToolsProperties: IResearchToolsProperties;
 }

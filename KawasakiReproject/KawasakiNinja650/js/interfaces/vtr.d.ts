@@ -1,32 +1,32 @@
 ﻿interface IVTRVideo {
-	VideoUrl: string;
-	FallbackMobileUrl: string;
-	FallbackTabletUrl: string;
-	FallbackLessThanIE11Url: string;
-	FallbackLessThanIE11Description: string;
+	readonly VideoUrl: string;
+	readonly FallbackMobileUrl: string;
+	readonly FallbackTabletUrl: string;
+	readonly FallbackLessThanIE11Url: string;
+	readonly FallbackLessThanIE11Description: string;
 }
 
 interface IVTRVideoModel {
-	Model: IVTRVideo;
+	readonly Model: IVTRVideo;
 }
 
 interface IVTRContent {
-	GreenExperienceText: string;
-	MainTextDisplay: string;
-	Description: string;
-	VirtualRideLeft: SVGSVGElement;
-	VirtualRideRight: SVGSVGElement;
+	readonly GreenExperienceText: string;
+	readonly MainTextDisplay: string;
+	readonly Description: string;
+	readonly VirtualRideLeft: SVGSVGElement;
+	readonly VirtualRideRight: SVGSVGElement;
 }
 
 interface IVTRContentModel {
-	Model: IVTRContent;
+	readonly Model: IVTRContent;
 }
 
 interface IVTRProperties {
-	VTRVideoProp: IVTRVideo;
-	VTRContentProp: IVTRContent;
+	readonly VTRVideoProp: IVTRVideo;
+	readonly VTRContentProp: IVTRContent;
 }
 
 interface IVTRlModel {
-	VTRProperties: IVTRProperties;
+	readonly VTRProperties: IVTRProperties;
 }

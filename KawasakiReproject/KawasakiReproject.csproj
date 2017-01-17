@@ -223,6 +223,7 @@
     <Content Include="KawasakiNinja650\css\vtr.scss" />
     <Content Include="KawasakiNinja650\css\modal.scss" />
     <Content Include="KawasakiNinja650\css\researchtools.scss" />
+    <Content Include="KawasakiNinja650\data\researchdata.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

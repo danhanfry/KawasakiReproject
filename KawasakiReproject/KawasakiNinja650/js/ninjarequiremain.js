@@ -27,8 +27,10 @@ var vtrPartialViews = [
 				'js/sections/vtr/components/vtrmodal',
 				'js/sections/vtr/vtr'];
 
+var researchToolsPartialViews = ['js/sections/researchtools/researchtools'];
 
-var finalPartialViews = commercialPartialViews.concat(vtrPartialViews);
+
+var finalPartialViews = commercialPartialViews.concat(vtrPartialViews).concat(researchToolsPartialViews);
 
 requirejs(commonJsFiles, function () {
 	var common = new Kawasaki.Common();

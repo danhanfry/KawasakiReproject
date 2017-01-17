@@ -1,32 +1,32 @@
 ﻿interface ICommercialVideo {
-	VideoUrl: string;
-	FallbackMobileUrl: string;
-	FallbackTabletUrl: string;
-	CloseImg: string;
+	readonly VideoUrl: string;
+	readonly FallbackMobileUrl: string;
+	readonly FallbackTabletUrl: string;
+	readonly CloseImg: string;
 }
 
 interface ICommercialVideoModel {
-	Model: ICommercialVideo;
+	readonly Model: ICommercialVideo;
 }
 
 interface ICommercialContent {
-	YearLogoImgUrl: string;
-	YearModelImgUrl: string;
-	GreenHorizontalLineImgUrl: string;
-	Description: string;
-	PlayButtonImgSvg: SVGSVGElement;
-	PlayButtonGlossImgUrl: string;
+	readonly YearLogoImgUrl: string;
+	readonly YearModelImgUrl: string;
+	readonly GreenHorizontalLineImgUrl: string;
+	readonly Description: string;
+	readonly PlayButtonImgSvg: SVGSVGElement;
+	readonly PlayButtonGlossImgUrl: string;
 }
 
 interface ICommercialContentModel {
-	Model: ICommercialContent;
+	readonly Model: ICommercialContent;
 }
 
 interface ICommercialProperties {
-	CommercialVideoProp: ICommercialVideo;
-	CommercialContentProp: ICommercialContent;
+	readonly CommercialVideoProp: ICommercialVideo;
+	readonly CommercialContentProp: ICommercialContent;
 }
 
 interface ICommercialModel {
-	CommercialProperties: ICommercialProperties;
+	readonly CommercialProperties: ICommercialProperties;
 }
