@@ -4,7 +4,8 @@
 /// <reference path="../../models/researchtoolsmodel.ts" />
 /// <reference path="../../commonjs.ts" />
 
-//var researchJsonData = require('../../../../data/researchdata.json');
+import { ResearchToolsHeader } from './components/researchtoolsheader';
+import { ResearchToolsLinks } from './components/researchtoolslinks';
 
 export class ResearchTools extends React.Component<IResearchToolsModel, IResearchToolsLinksState> {
 
@@ -80,9 +81,23 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 	render() {
 
+		var { ResearchToolsHeaderProp } = this.props.ResearchToolsProperties;
+
 		return (
 			<div>
-				
+				<ResearchToolsHeader Model={ResearchToolsHeaderProp} />
+				<div id="researchNumberedContainer" className="row research-numbered-container">
+					<div className="footer-tiles-container" id="researchListing">
+						{
+							this.state.LinksState.map((researchLink, index) => {
+
+								return (
+									<ResearchToolsLinks Model={researchLink} />
+								)
+							})
+						}
+					</div>
+				</div>
 			</div>
 		);
 

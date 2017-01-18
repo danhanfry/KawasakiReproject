@@ -8,17 +8,29 @@ export class ResearchToolsLinks extends React.Component<IResearchToolsLinksModel
 
 		var {Model} = this.props;
 
-		var researchlinks = [];
-		for (var i = 0; i < Model.Links.length; i++) {
-			researchlinks.push(<span className='indent' key={i}></span>);
-		}
-
 		return (
-			<div id="researchNumberedContainer" className="row research-numbered-container">
 
-				<div className="footer-tiles-container" id="researchListing">
+			<div className="footer-tiles footer-tiles-margin">
+				<div id="researchTwo" className="research-numbered"></div>
+				<div className="research-numbered-header">
+					<div><span>{Model.HeaderText}</span></div>
 				</div>
+				<div>
 
+					{
+						Model.Links.map((researchLink, index) => {
+
+							return (
+								<div className="research-numbered-link" key={index}>
+									<div>
+										<span><a href={researchLink.Href}>{researchLink.Text}</a></span>
+									</div>
+								</div>
+							)
+						})
+					}
+
+				</div>
 			</div>
 		);
 	}

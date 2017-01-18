@@ -29,7 +29,7 @@ interface IResearchToolsLinksState {
 
 interface IResearchToolsProperties {
 	readonly ResearchToolsHeaderProp: IResearchToolsHeader;
-	readonly ResearchToolsLinksProp: IResearchToolsLinks;
+	//readonly ResearchToolsLinksProp: IResearchToolsLinks;
 }
 
 interface IResearchToolsModel {

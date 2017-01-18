@@ -146,6 +146,9 @@
     <Content Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolslinks.js">
       <DependentUpon>researchtoolslinks.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\sections\researchtools\researchtools.js">
+      <DependentUpon>researchtools.tsx</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.js">
       <DependentUpon>vtrcontent.tsx</DependentUpon>
     </Content>
