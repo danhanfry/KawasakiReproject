@@ -3,6 +3,7 @@
 /// <reference path="../../interfaces/researchtools.d.ts" />
 /// <reference path="../../models/researchtoolsmodel.ts" />
 /// <reference path="../../commonjs.ts" />
+/// <reference path="research-index.ts" />
 
 import { ResearchToolsHeader } from './components/researchtoolsheader';
 import { ResearchToolsLinks } from './components/researchtoolslinks';

@@ -3,20 +3,23 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", './components/researchtoolsheader', './components/researchtoolslinks'], function (require, exports, researchtoolsheader_1, researchtoolslinks_1) {
     "use strict";
     var ResearchTools = (function (_super) {
         __extends(ResearchTools, _super);
-        function ResearchTools() {
-            _super.apply(this, arguments);
+        function ResearchTools(props) {
+            _super.call(this, props);
             this.researchLinks = [];
+            this.state = {
+                LinksState: new Array()
+            };
         }
         ResearchTools.prototype.componentWillMount = function () {
+            var that = this;
             var request = new XMLHttpRequest();
             request.open('GET', './data/researchdata.json', true);
             request.onload = function () {
                 if (this.status >= 200 && this.status < 400) {
-                    console.log('found the json file');
                     var researchData = JSON.parse(this.responseText);
                     if (researchData !== undefined && researchData !== null && researchData.ResearchPage.length > 0) {
                         var allResearchLinks = [];
@@ -36,6 +39,9 @@ define(["require", "exports"], function (require, exports) {
                             };
                             allResearchLinks.push(researchItemPage);
                         }
+                        that.setState({
+                            LinksState: allResearchLinks
+                        });
                     }
                 }
                 else {
@@ -52,7 +58,14 @@ define(["require", "exports"], function (require, exports) {
         ResearchTools.prototype.componentWillUnmount = function () {
         };
         ResearchTools.prototype.render = function () {
-            return (React.createElement("div", null));
+            var ResearchToolsHeaderProp = this.props.ResearchToolsProperties.ResearchToolsHeaderProp;
+            return (React.createElement("div", null, 
+                React.createElement(researchtoolsheader_1.ResearchToolsHeader, {Model: ResearchToolsHeaderProp}), 
+                React.createElement("div", {id: "researchNumberedContainer", className: "row research-numbered-container"}, 
+                    React.createElement("div", {className: "footer-tiles-container", id: "researchListing"}, this.state.LinksState.map(function (researchLink, index) {
+                        return (React.createElement(researchtoolslinks_1.ResearchToolsLinks, {Model: researchLink}));
+                    }))
+                )));
         };
         return ResearchTools;
     }(React.Component));

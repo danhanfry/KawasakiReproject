@@ -27,29 +27,37 @@ var vtrPartialViews = [
 				'js/sections/vtr/components/vtrmodal',
 				'js/sections/vtr/vtr'];
 
-var researchToolsPartialViews = ['js/sections/researchtools/researchtools'];
+var researchIndex = 'js/sections/researchtools/research-index';
+var researchToolsPartialViews = [
+				'js/sections/researchtools/components/researchtoolsheader',
+				'js/sections/researchtools/components/researchtoolslinks',
+				'js/sections/researchtools/researchtools'];
 
 
-var finalPartialViews = commercialPartialViews.concat(vtrPartialViews).concat(researchToolsPartialViews);
+var finalPartialViews = commercialPartialViews.concat(vtrPartialViews)
+						.concat(researchToolsPartialViews);
 
 requirejs(commonJsFiles, function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/vtr/devicetypes/vtr-mobile',
-			commercialIndex, vtrIndex], function () {
+			'js/sections/researchtools/devicetypes/research-mobile',
+			commercialIndex, vtrIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
 	else if (common.isTablet()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-tablet', 'js/sections/vtr/devicetypes/vtr-tablet',
-			commercialIndex, vtrIndex], function () {
+			'js/sections/researchtools/devicetypes/research-tablet',
+			commercialIndex, vtrIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
 	else {
 
 		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', 'js/sections/vtr/devicetypes/vtr-desktop',
-			commercialIndex, vtrIndex], function () {
+			'js/sections/researchtools/devicetypes/research-desktop',
+			commercialIndex, vtrIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}

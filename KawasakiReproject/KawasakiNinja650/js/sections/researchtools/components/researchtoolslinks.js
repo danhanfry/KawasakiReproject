@@ -12,13 +12,22 @@ define(["require", "exports"], function (require, exports) {
         }
         ResearchToolsLinks.prototype.render = function () {
             var Model = this.props.Model;
-            var researchlinks = [];
-            for (var i = 0; i < Model.Links.length; i++) {
-                researchlinks.push(React.createElement("span", {className: 'indent', key: i}));
-            }
-            return (React.createElement("div", {id: "researchNumberedContainer", className: "row research-numbered-container"}, 
-                React.createElement("div", {className: "footer-tiles-container", id: "researchListing"})
-            ));
+            return (React.createElement("div", {className: "footer-tiles footer-tiles-margin"}, 
+                React.createElement("div", {id: "researchTwo", className: "research-numbered"}), 
+                React.createElement("div", {className: "research-numbered-header"}, 
+                    React.createElement("div", null, 
+                        React.createElement("span", null, Model.HeaderText)
+                    )
+                ), 
+                React.createElement("div", null, Model.Links.map(function (researchLink, index) {
+                    return (React.createElement("div", {className: "research-numbered-link", key: index}, 
+                        React.createElement("div", null, 
+                            React.createElement("span", null, 
+                                React.createElement("a", {href: researchLink.Href}, researchLink.Text)
+                            )
+                        )
+                    ));
+                }))));
         };
         return ResearchToolsLinks;
     }(React.Component));
