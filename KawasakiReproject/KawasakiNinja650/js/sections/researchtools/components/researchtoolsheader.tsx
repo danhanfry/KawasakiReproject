@@ -12,11 +12,11 @@ export class ResearchToolsHeader extends React.Component<IResearchToolsHeaderMod
 			<div>
 
 				<div id="researchYear" className="research-text-year ">
-					<div className="scale-to-window"><img src={Model.YearModelImgUrl} /></div>
+					<div className="scale-to-window"><img src={Model.YearLogoImgUrl} /></div>
 				</div>
 
 				<div id="researchNinja" className="research-logo">
-					<div><img id="researchNinjaImgId" className="scale-to-window" src={Model.YearLogoImgUrl} /></div>
+					<div><img id="researchNinjaImgId" className="scale-to-window" src={Model.YearModelImgUrl} /></div>
 				</div>
 
 				<div id="researchToolText" className="research-research-txt">

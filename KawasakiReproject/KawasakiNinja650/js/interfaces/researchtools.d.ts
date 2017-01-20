@@ -27,8 +27,20 @@ interface IResearchToolsLinksState {
 	readonly LinksState: IResearchToolsLinks[];
 }
 
+interface IResearchToolsStartStop {
+	readonly RestartImgPath: string;
+	readonly RestartText: string;
+	readonly ExitExperienceImgPath: string;
+	readonly ExitExperienceText: string;
+}
+
+interface IResearchToolsStartStopModel {
+	readonly Model: IResearchToolsStartStop;
+}
+
 interface IResearchToolsProperties {
 	readonly ResearchToolsHeaderProp: IResearchToolsHeader;
+	readonly ResearchToolsStartStopProp: IResearchToolsStartStop;
 	//readonly ResearchToolsLinksProp: IResearchToolsLinks;
 }
 

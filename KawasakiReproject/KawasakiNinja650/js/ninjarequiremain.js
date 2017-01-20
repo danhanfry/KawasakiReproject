@@ -11,7 +11,7 @@
 });
 
 var commonJsFiles = ['js/models/enums/svgenums.js', 'js/models/commercialmodel.js', 'js/models/vtrmodel',
-			'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
+			'js/models/researchtoolsModel', 'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
 
 var commercialIndex = 'js/sections/commercial/commercial-index';
 var commercialPartialViews = [

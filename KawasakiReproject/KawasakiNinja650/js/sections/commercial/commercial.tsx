@@ -11,7 +11,6 @@ import { CommercialScroller } from "./components/commercialscroller";
 
 export class Commercial extends React.Component<ICommercialModel, any> {
 
-	private Common: Kawasaki.Common = new Kawasaki.Common();
 	private CommercialIndex: Kawasaki.NinjaSixFifty.Commercial = new Kawasaki.NinjaSixFifty.Commercial();
 
 	/*before the render*/

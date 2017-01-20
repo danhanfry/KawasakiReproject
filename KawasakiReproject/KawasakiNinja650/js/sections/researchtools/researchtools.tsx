@@ -7,9 +7,11 @@
 
 import { ResearchToolsHeader } from './components/researchtoolsheader';
 import { ResearchToolsLinks } from './components/researchtoolslinks';
+import { ResearchToolsStartStop } from './components/researchtoolsstartstop';
 
 export class ResearchTools extends React.Component<IResearchToolsModel, IResearchToolsLinksState> {
 
+	private ResearchIndex: Kawasaki.NinjaSixFifty.ResearchTools = new Kawasaki.NinjaSixFifty.ResearchTools();
 	private researchLinks: Array<IResearchToolsLink> = [];
 
 	constructor(props: IResearchToolsModel) {
@@ -72,38 +74,55 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 	/*after the render*/
 	public componentDidMount() {
-		//window.addEventListener("resize", this.commercialResizeEvent);
-		//this.commercialResizeEvent();
+		window.addEventListener("resize", this.researchResizeEvent);
+		this.researchResizeEvent();
 	}
 
 	public componentWillUnmount() {
-		//window.removeEventListener("resize", this.commercialResizeEvent);
+		window.removeEventListener("resize", this.researchResizeEvent);
 	}
 
 	render() {
 
-		var { ResearchToolsHeaderProp } = this.props.ResearchToolsProperties;
+		var { ResearchToolsHeaderProp, ResearchToolsStartStopProp } = this.props.ResearchToolsProperties;
 
 		return (
 			<div>
-				<ResearchToolsHeader Model={ResearchToolsHeaderProp} />
-				<div id="researchNumberedContainer" className="row research-numbered-container">
-					<div className="footer-tiles-container" id="researchListing">
-						{
-							this.state.LinksState.map((researchLink, index) => {
+				<div id="researchToolContainerId" className="research-container">
+					<ResearchToolsHeader Model={ResearchToolsHeaderProp} />
+					<div id="researchNumberedContainer" className="row research-numbered-container">
+						<div className="footer-tiles-container" id="researchListing">
+							{
+								this.state.LinksState.map((researchLink, index) => {
 
-								return (
-									<ResearchToolsLinks Model={researchLink} />
-								)
-							})
-						}
+									return (
+										<ResearchToolsLinks key={index} Model={researchLink} />
+									)
+								})
+							}
+						</div>
 					</div>
+					<ResearchToolsStartStop Model={ResearchToolsStartStopProp} />
 				</div>
+				<div className="research-grey-bkg"></div>
+				<div className="restart-black-bkg"></div>
 			</div>
 		);
 
 	}
 
+	private researchResizeEvent() {
+		this.ResearchIndex.calculation();
+	}
+
 }
 
-ReactDOM.render(<ResearchTools ResearchToolsProperties={null} />, document.getElementById('researchtools'));
+var researchHeaderModel = new ResearchToolsHeaderModel('assets/logo_2017.svg', 'assets/logo_ninja.svg',
+	'research tools', 'in dealerships soon');
+
+var researchStartStopModel = new ResearchToolsStartStopModel('assets/slide5/restart_experience.svg',
+	'RESTART EXPERIENCE', 'assets/slide5/icon_exit.svg', 'EXIT EXPERIENCE');
+
+var researchProperties = new ResearchToolsProperties(researchHeaderModel, researchStartStopModel);
+
+ReactDOM.render(<ResearchTools ResearchToolsProperties={researchProperties} />, document.getElementById('researchtools'));

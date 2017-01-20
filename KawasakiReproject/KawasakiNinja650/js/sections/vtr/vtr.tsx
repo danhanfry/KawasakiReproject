@@ -11,7 +11,6 @@ import { VTRModal } from "./components/vtrmodal"
 
 export class VTR extends React.Component<IVTRlModel, any> {
 
-	private Common: Kawasaki.Common = new Kawasaki.Common();
 	private VTRIndex: Kawasaki.NinjaSixFifty.VTR = new Kawasaki.NinjaSixFifty.VTR();
 
 	/*before the render*/

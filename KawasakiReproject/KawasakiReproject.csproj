@@ -268,6 +268,7 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsheader.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolslinks.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsstartstop.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\devicetypes\research-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\devicetypes\research-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\devicetypes\research-tablet.ts" />

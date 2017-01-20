@@ -9,7 +9,6 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         __extends(VTR, _super);
         function VTR() {
             _super.apply(this, arguments);
-            this.Common = new Kawasaki.Common();
             this.VTRIndex = new Kawasaki.NinjaSixFifty.VTR();
         }
         VTR.prototype.componentWillMount = function () {

@@ -10,7 +10,7 @@ export class ResearchToolsLinks extends React.Component<IResearchToolsLinksModel
 
 		return (
 
-			<div className="footer-tiles footer-tiles-margin">
+			<div className="footer-tiles">
 				<div id="researchTwo" className="research-numbered"></div>
 				<div className="research-numbered-header">
 					<div><span>{Model.HeaderText}</span></div>

@@ -3,12 +3,13 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", './components/researchtoolsheader', './components/researchtoolslinks'], function (require, exports, researchtoolsheader_1, researchtoolslinks_1) {
+define(["require", "exports", './components/researchtoolsheader', './components/researchtoolslinks', './components/researchtoolsstartstop'], function (require, exports, researchtoolsheader_1, researchtoolslinks_1, researchtoolsstartstop_1) {
     "use strict";
     var ResearchTools = (function (_super) {
         __extends(ResearchTools, _super);
         function ResearchTools(props) {
             _super.call(this, props);
+            this.ResearchIndex = new Kawasaki.NinjaSixFifty.ResearchTools();
             this.researchLinks = [];
             this.state = {
                 LinksState: new Array()
@@ -54,21 +55,34 @@ define(["require", "exports", './components/researchtoolsheader', './components/
             request.send();
         };
         ResearchTools.prototype.componentDidMount = function () {
+            window.addEventListener("resize", this.researchResizeEvent);
+            this.researchResizeEvent();
         };
         ResearchTools.prototype.componentWillUnmount = function () {
+            window.removeEventListener("resize", this.researchResizeEvent);
         };
         ResearchTools.prototype.render = function () {
-            var ResearchToolsHeaderProp = this.props.ResearchToolsProperties.ResearchToolsHeaderProp;
+            var _a = this.props.ResearchToolsProperties, ResearchToolsHeaderProp = _a.ResearchToolsHeaderProp, ResearchToolsStartStopProp = _a.ResearchToolsStartStopProp;
             return (React.createElement("div", null, 
-                React.createElement(researchtoolsheader_1.ResearchToolsHeader, {Model: ResearchToolsHeaderProp}), 
-                React.createElement("div", {id: "researchNumberedContainer", className: "row research-numbered-container"}, 
-                    React.createElement("div", {className: "footer-tiles-container", id: "researchListing"}, this.state.LinksState.map(function (researchLink, index) {
-                        return (React.createElement(researchtoolslinks_1.ResearchToolsLinks, {Model: researchLink}));
-                    }))
-                )));
+                React.createElement("div", {id: "researchToolContainerId", className: "research-container"}, 
+                    React.createElement(researchtoolsheader_1.ResearchToolsHeader, {Model: ResearchToolsHeaderProp}), 
+                    React.createElement("div", {id: "researchNumberedContainer", className: "row research-numbered-container"}, 
+                        React.createElement("div", {className: "footer-tiles-container", id: "researchListing"}, this.state.LinksState.map(function (researchLink, index) {
+                            return (React.createElement(researchtoolslinks_1.ResearchToolsLinks, {key: index, Model: researchLink}));
+                        }))
+                    ), 
+                    React.createElement(researchtoolsstartstop_1.ResearchToolsStartStop, {Model: ResearchToolsStartStopProp})), 
+                React.createElement("div", {className: "research-grey-bkg"}), 
+                React.createElement("div", {className: "restart-black-bkg"})));
+        };
+        ResearchTools.prototype.researchResizeEvent = function () {
+            this.ResearchIndex.calculation();
         };
         return ResearchTools;
     }(React.Component));
     exports.ResearchTools = ResearchTools;
-    ReactDOM.render(React.createElement(ResearchTools, {ResearchToolsProperties: null}), document.getElementById('researchtools'));
+    var researchHeaderModel = new ResearchToolsHeaderModel('assets/logo_2017.svg', 'assets/logo_ninja.svg', 'research tools', 'in dealerships soon');
+    var researchStartStopModel = new ResearchToolsStartStopModel('assets/slide5/restart_experience.svg', 'RESTART EXPERIENCE', 'assets/slide5/icon_exit.svg', 'EXIT EXPERIENCE');
+    var researchProperties = new ResearchToolsProperties(researchHeaderModel, researchStartStopModel);
+    ReactDOM.render(React.createElement(ResearchTools, {ResearchToolsProperties: researchProperties}), document.getElementById('researchtools'));
 });

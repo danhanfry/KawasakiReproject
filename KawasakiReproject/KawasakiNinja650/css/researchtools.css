@@ -1,10 +1,13 @@
-﻿.fifth-slide {
+﻿.researchtool-slide {
   background: url("../assets/slide5/research-tools-bg.jpg") no-repeat;
   background-size: cover;
   background-color: #000;
   position: relative;
   z-index: 0;
   min-height: 960px; }
+
+.research-listing-points, .footer-tiles-container, .footer-tiles, .research-numbered, .research-restart-btn, .flip-container, .research-exit-btn {
+  float: left; }
 
 .research-grey-bkg {
   width: 100%;
@@ -76,7 +79,7 @@
 .footer-tiles {
   border-left: 1px solid #39393c; }
 
-.footer-tiles-margin {
+.footer-tiles:nth-child(1), .footer-tiles:nth-child(2) {
   margin-right: 145px; }
 
 .research-numbered {

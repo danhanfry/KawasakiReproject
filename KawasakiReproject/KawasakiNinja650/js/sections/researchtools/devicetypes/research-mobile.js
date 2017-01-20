@@ -6,20 +6,102 @@ var __extends = (this && this.__extends) || function (d, b) {
 var ResearchMobile = (function (_super) {
     __extends(ResearchMobile, _super);
     function ResearchMobile(windowWidth, windowHeight) {
+        var _this = this;
         _super.call(this);
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
         this.Common = new Kawasaki.Common();
+        this.halfWindowWidth = 0;
         this.calculation = function () {
+            if (_this.windowHeight <= 570) {
+                $('#researchtools').css('min-height', _this.windowHeight + 60);
+            }
+            if (_this.windowHeight > 570 && _this.windowHeight <= 680) {
+                $('#researchtools').css('min-height', _this.windowHeight + 50);
+            }
+            if (_this.windowHeight > 680) {
+                $('#researchtools').css('min-height', _this.windowHeight - 50);
+            }
+            $('#researchtools').height(_this.windowHeight - 65);
+            $('#researchtools').css('max-width', _this.windowWidth);
+            $('#researchtools').width(_this.windowWidth);
+            TweenMax.set("#researchYear", { left: _this.halfWindowWidth - ($('#researchYear').width() / 2) });
+            if (_this.Common.isAndroid()) {
+                $('#researchYear img').width("130%");
+            }
+            TweenMax.set("#researchNinja", {
+                left: _this.halfWindowWidth - ($('#researchNinja').width() / 2),
+                top: $('#researchYear').position().top + $('#researchYear').outerHeight() + 15
+            });
+            TweenMax.set("#researchNinjaImgId", {
+                left: _this.halfWindowWidth - ($('#researchNinjaImgId').width() / 2),
+                top: $('#researchYear').position().top + $('#researchYear').outerHeight() + 15
+            });
+            TweenMax.set("#researchInDealership", {
+                left: _this.halfWindowWidth - ($('#researchInDealership').width() / 2),
+                top: $('#researchNinja').position().top + ($('#researchNinja').height()) - 20
+            });
+            TweenMax.set("#researchListing", {
+                left: _this.halfWindowWidth - ($('#researchListing').width() / 2),
+                top: $('#researchToolContainerId').outerHeight() + $('#researchNinja').height() + $('#researchInDealership').height() - 80
+            });
+            var researchListingHeight = $('#researchListing').height();
+            if (_this.windowHeight <= 570) {
+                TweenMax.set("#restartExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 60
+                });
+                TweenMax.set("#exitExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 80,
+                    left: $('.restart-experience-txt').outerWidth()
+                });
+            }
+            if (_this.windowHeight > 570 && _this.windowHeight <= 680) {
+                TweenMax.set("#restartExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) + 20
+                });
+                TweenMax.set("#exitExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()),
+                    left: $('.restart-experience-txt').outerWidth() + 30
+                });
+            }
+            if (_this.windowHeight > 680) {
+                TweenMax.set("#restartExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 20
+                });
+                TweenMax.set("#exitExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 40,
+                    left: $('.restart-experience-txt').outerWidth() + 50
+                });
+            }
+            if (_this.Common.isAndroid()) {
+                TweenMax.set("#restartExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 0
+                });
+                TweenMax.set("#exitExperienceId", {
+                    top: ($('#researchListing').position().top + $('#researchListing').outerHeight()) - 20
+                });
+            }
+            var halfWayOfResearchTool = $('#researchToolText').position().top + ($('#researchToolText').height() / 2);
+            TweenMax.set(".research-grey-bkg", {
+                top: halfWayOfResearchTool,
+                height: $('#researchtools').height() - halfWayOfResearchTool
+            });
         };
         this.setTweenMechanism = function () {
         };
         this.eventInitialize = function () {
+            document.getElementById('restartExperienceId').addEventListener('click', function () {
+                document.getElementById('commercial').scrollIntoView();
+            });
+            document.getElementById('exitExperienceId').addEventListener('click', function () {
+                window.location.href = '/Product/details/2017-Ninja-650-ABS-KRT-Edition';
+            });
         };
         this.resize = function () {
         };
         this.setScrollMagicMechanism = function () {
         };
+        this.halfWindowWidth = this.windowWidth / 2;
     }
     return ResearchMobile;
 }(ExperienceSlide));

@@ -15,12 +15,12 @@ define(["require", "exports"], function (require, exports) {
             return (React.createElement("div", null, 
                 React.createElement("div", {id: "researchYear", className: "research-text-year "}, 
                     React.createElement("div", {className: "scale-to-window"}, 
-                        React.createElement("img", {src: Model.YearModelImgUrl})
+                        React.createElement("img", {src: Model.YearLogoImgUrl})
                     )
                 ), 
                 React.createElement("div", {id: "researchNinja", className: "research-logo"}, 
                     React.createElement("div", null, 
-                        React.createElement("img", {id: "researchNinjaImgId", className: "scale-to-window", src: Model.YearLogoImgUrl})
+                        React.createElement("img", {id: "researchNinjaImgId", className: "scale-to-window", src: Model.YearModelImgUrl})
                     )
                 ), 
                 React.createElement("div", {id: "researchToolText", className: "research-research-txt"}, 

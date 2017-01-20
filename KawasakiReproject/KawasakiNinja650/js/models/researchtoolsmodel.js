@@ -14,10 +14,19 @@ var ResearchToolsLinksModel = (function () {
     }
     return ResearchToolsLinksModel;
 }());
+var ResearchToolsStartStopModel = (function () {
+    function ResearchToolsStartStopModel(RestartImgPath, RestartText, ExitExperienceImgPath, ExitExperienceText) {
+        this.RestartImgPath = RestartImgPath;
+        this.RestartText = RestartText;
+        this.ExitExperienceImgPath = ExitExperienceImgPath;
+        this.ExitExperienceText = ExitExperienceText;
+    }
+    return ResearchToolsStartStopModel;
+}());
 var ResearchToolsProperties = (function () {
-    function ResearchToolsProperties(ResearchToolsHeaderProp, ResearchToolsLinksProp) {
+    function ResearchToolsProperties(ResearchToolsHeaderProp, ResearchToolsStartStopProp) {
         this.ResearchToolsHeaderProp = ResearchToolsHeaderProp;
-        this.ResearchToolsLinksProp = ResearchToolsLinksProp;
+        this.ResearchToolsStartStopProp = ResearchToolsStartStopProp;
     }
     return ResearchToolsProperties;
 }());
