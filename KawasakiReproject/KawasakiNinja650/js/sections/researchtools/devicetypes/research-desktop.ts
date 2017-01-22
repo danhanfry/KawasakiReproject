@@ -47,25 +47,23 @@ class ResearchDesktop extends ExperienceSlide {
 		});
 
 		/*Research Tools Image only desktop since this is text and calculation is unreliable, tablet and mobile is done via css*/
-		if (!this.Common.isTablet()) {
-			var researchToolTxtHalfWidth = $('#researchToolText').width() / 2;
-			TweenMax.set(".research-research-txt", { left: (this.windowWidth / 2) - researchToolTxtHalfWidth });
-		}
+		var researchToolTxtHalfWidth = $('#researchToolText').width() / 2;
+		TweenMax.set(".research-research-txt", { left: (this.windowWidth / 2) - researchToolTxtHalfWidth });
+		
 
 		/*The columns for research, shop and finance*/
 		TweenMax.set(".footer-tiles", { height: $('#researchtools').height() - 160 - 21 - 220 - 100 });
-		var researchToolsColumnsLeftPosition = (this.windowWidth / 2) - ($('#researchListing').width() / 2);
+		var researchToolsColumnsLeftPosition = (this.windowWidth / 2) - researchToolTxtHalfWidth;
 		TweenMax.set("#researchListing", {
 			left: researchToolsColumnsLeftPosition > 5 ? researchToolsColumnsLeftPosition : 5,
 			top: $('#researchToolContainerId').outerHeight() - $('#researchYear').height() + $('#researchNinja').height() + $('#researchInDealership').height()
 		});
 
 		/*the links*/
-		var researchListingHeight = $('#researchListing').height();
-		var restartExperienceLeftPosition = (this.windowWidth / 2) - ($('#researchListing').width() / 2) - ($('.research-restart-btn img').height() / 2);
+		var restartExperienceLeftPosition = (this.windowWidth / 2) - researchToolTxtHalfWidth;;
 		TweenMax.set("#restartExperienceId", {
 			left: restartExperienceLeftPosition > 0 ? restartExperienceLeftPosition : 0,
-			top: ($('#researchtools').height() - researchListingHeight) + (researchListingHeight / 2)
+			top: document.getElementById('researchListing').offsetLeft + (this.windowHeight / 3 * 2)
 		});
 
 		if (this.windowWidth < 950) {

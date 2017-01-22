@@ -3,6 +3,8 @@
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
 
+declare var controller: ScrollMagic.Controller;
+
 class CommercialDesktop extends ExperienceSlide {
 
 	private desktopCommercialSplitVideoUrl = "https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4";

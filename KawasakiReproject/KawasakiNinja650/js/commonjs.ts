@@ -64,6 +64,12 @@ namespace Kawasaki {
 			}
 		}
 
+		public getMatrixOfTransform = (element: HTMLElement): string[] => {
+			//window.getComputedStyle($('.flip-container')[0]).transform
+			var elementMatrix = window.getComputedStyle(element, null).transform;
+			return elementMatrix.replace(/[^0-9\-.,]/g, '').split(',');
+		}
+
 		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElementProperties): SVGSVGElement => {
 
 			var xyWidthHeight: string = (kawasakiSvgModel.x.replace('px', '') + " " +

@@ -30,5 +30,9 @@
   {
     "outputFile": "KawasakiNinja650/css/researchtools.css",
     "inputFile": "KawasakiNinja650/css/researchtools.scss"
+  },
+  {
+    "outputFile": "KawasakiNinja650/css/socialcommunity.css",
+    "inputFile": "KawasakiNinja650/css/socialcommunity.scss"
   }
 ]

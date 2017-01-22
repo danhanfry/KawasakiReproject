@@ -48,6 +48,10 @@ var Kawasaki;
                     document.getElementsByTagName("html")[0].style.overflowY = '';
                 }
             };
+            this.getMatrixOfTransform = function (element) {
+                var elementMatrix = window.getComputedStyle(element, null).transform;
+                return elementMatrix.replace(/[^0-9\-.,]/g, '').split(',');
+            };
             this.createSVGElement = function (kawasakiSvgModel) {
                 var xyWidthHeight = (kawasakiSvgModel.x.replace('px', '') + " " +
                     kawasakiSvgModel.y.replace('px', '') + " " +

@@ -1,0 +1,287 @@
+﻿/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../abstractions/slide.abstraction.ts" />
+/// <reference path="../../../../../scripts/typings/jquery.d.ts" />
+/// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
+/// <reference path="../../../../../scripts/typings/scrollmagic.d.ts" />
+
+declare var controller: ScrollMagic.Controller;
+
+class SocialDesktop extends ExperienceSlide {
+
+	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private allSpreadFasterContent = [];
+
+	constructor(public windowWidth: number, public windowHeight: number) {
+		super();
+	}
+
+	calculation = (): void => {
+
+
+		document.getElementById('socialCommunityContainer').style.display = 'block';
+
+		/*per tile is 360 width and by default there are 4 tiles so 1440*/
+		if (this.windowWidth < 1440) {
+			$('#socialContainer').width(this.windowWidth);
+		}
+		else {
+			var maxTiles = Math.floor(this.windowWidth / 360);
+			$('#socialContainer').width(360 * (maxTiles > 4 ? 4 : maxTiles));
+		}
+
+		/*the community text position, tablet and mobile are done on css since this is not reliable for those devices*/
+		var communityTxtHalfWidth = $('#socialCommunityText').width() / 2;
+		TweenMax.set(".social-community-txt", { left: (this.windowWidth / 2) - communityTxtHalfWidth });
+
+		/*mostly everything below is setting positioning based on window dimensions and other containers*/
+
+		/*ninja life*/
+		TweenMax.set("#ninjaLifeTxt", { left: (this.windowWidth / 2) - ($('#ninjaLifeTxt').width() / 2) });
+
+		/*submission guidelines*/
+		TweenMax.set("#socialSubmissionGuideLines", {
+			left: (this.windowWidth / 2) - ($('#socialSubmissionGuideLines').width() / 2),
+		});
+
+		/*the whole grid system*/
+		var socialContainerLeftPosition = (this.windowWidth / 2) - ($('.social-container').width() / 2);
+		TweenMax.set(".social-container", { left: (socialContainerLeftPosition >= 0 ? socialContainerLeftPosition : 0) });
+
+		/*the green slides on the side above the grid system*/
+		var greenSocialLinePositionTop = ($('.social-gray-bg').height() + ($('.social-gray-bg').position().top / 4 * 3));
+		var greenSocialLineWidth = (this.windowWidth - $('#socialContainer').width() - 165) / 2;
+		TweenMax.set(".social-left-line", { top: greenSocialLinePositionTop, width: greenSocialLineWidth });
+		TweenMax.set(".social-right-line", { top: greenSocialLinePositionTop, width: greenSocialLineWidth });
+
+		/*the small icons centered at top above the grid*/
+		
+		var socialIconContainerTop = $('#socialSubmissionGuideLines').position().top + ($('#socialSubmissionGuideLines').height());
+		var socialIconContainerLeft = (this.windowWidth / 2) - ($('#socialCommunityContainer').width() / 2);
+		//RM - added offset since element being calculated is paralaxing now
+		TweenMax.set("#socialCommunityContainer", { top: socialIconContainerTop + 50, left: socialIconContainerLeft });
+
+
+		/*this for each tiles of the grid*/
+		$('.front-social').height($('.front-social').width());
+		$('.flippingContainer').height($('#flippingContainer').width());
+		$('.flip-container').height($('.flip-container').width());
+
+		/*this is the icon per grid*/
+		var positionTopSocialIcon = ($('.front-social').height() / 2) - ($('.social-icon-grid-middle').height() / 2);
+		var positionLeftSocialIcon = ($('.front-social').width() / 2) - ($('.social-icon-grid-middle').width() / 2);
+		$('.social-icon-grid-middle').css({ top: positionTopSocialIcon, left: positionLeftSocialIcon });
+
+		/*this is the line under the icon in the middle of each grid*/
+		var positionTopSocialIconLine = ($('.front-social').height() / 2) + ($('.social-icon-grid-middle').height() / 2);
+		$('.social-icon-line-grid-middle').css({ top: positionTopSocialIconLine + 10, left: positionLeftSocialIcon - 10 });
+
+		var communityText = $('#socialCommunityText').height();
+		var socialContainment = $('#socialContainer').height();
+		var ninjaText = $('#ninjaLifeTxt').outerHeight();
+		var socialIconContainer = $('.social-community-social-icons-container').height();
+		$('#social').height(communityText + socialContainment + ninjaText + (socialIconContainer * 2)).width(this.windowWidth);
+
+
+		TweenMax.set("#ninjaLifeTxt", { y: 50 });
+		TweenMax.set("#socialSubmissionGuideLines", { y: 50 });
+		TweenMax.set("#twitterSocialIconId", { y: 50 });
+		TweenMax.set("#instagramSocialIconId", { y: 50 });
+
+		this.setTweenMechanism();
+	}
+
+	setTweenMechanism = (): void => {
+
+	}
+
+	eventInitialize = (): void => {
+		$(document).on({
+			mouseenter: function () {
+
+				var element = $(this).get(0);
+
+				var childElementFlipper = $(element).find('.flipper');
+				if (childElementFlipper.length > 0) {
+					var matrix = this.Common.getMatrixOfTransform(childElementFlipper[0]);
+					var transformY = matrix[13] || matrix[5];
+					if (transformY > 0) {
+						return;
+					}
+				}
+
+				var currentContainerOfNetworkInfo = $(element).find('.front-social');
+
+				var hoverContainerForSocial = document.createElement("div");
+
+				var networkSpecificClass = "";
+				if (currentContainerOfNetworkInfo.length > 0) {
+					var networkInfo = currentContainerOfNetworkInfo[0];
+					var network = $(networkInfo).data('network')
+					if (network === "twitter") {
+						networkSpecificClass = "flip-container-hover-twitter";
+					}
+					else if (network === "instagram") {
+						networkSpecificClass = "flip-container-hover-instagram";
+					}
+				}
+
+				hoverContainerForSocial.className = "flip-container-hover" + " " + networkSpecificClass;
+				hoverContainerForSocial.id = "socialHoverId";
+				element.appendChild(hoverContainerForSocial);
+
+				var socialGridBackground = $(this).find('.social-grid-bkg');
+				if (socialGridBackground.length > 0) {
+					TweenMax.to(socialGridBackground[0], 0.5, { css: { className: "+=social-grid-bkg-no-opacity" } });
+				}
+
+				$('#socialHoverId').css('border-width', Math.round($(element).width() / 28));
+
+			},
+			mouseleave: function () {
+				$(this).children().remove("#socialHoverId");
+				var socialGridBackground = $(this).find('.social-grid-bkg');
+				if (socialGridBackground.length > 0) {
+					TweenMax.to(socialGridBackground[0], 0.5, { css: { className: "-=social-grid-bkg-no-opacity" } });
+				}
+			}
+		}, ".flip-container ");
+
+		$(document).on('tap', '.front-social, .flip-container-hover', function () {
+			var indexOfInfo = parseInt($(this).data('index'), 10);
+			if (isNaN(indexOfInfo)) {
+				var theFrontBecauseOfHover = $(this).prev().find(".front-social").get(0);
+				indexOfInfo = parseInt($(theFrontBecauseOfHover).data('index'), 10);
+			}
+
+			var socialInfo = this.allSpreadFasterContent[indexOfInfo]
+
+			var imageContainer = document.getElementById('modalContentImage');
+			imageContainer.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover; background-position: center center";
+
+			var userInfo = document.createElement('div');
+			userInfo.id = "modalUserInfoId";
+			userInfo.className = "modal-user-info";
+			userInfo.innerHTML = socialInfo.user;
+
+			var socialNetworkIcon = document.createElement('img');
+			if (socialInfo.network === "twitter") {
+				socialNetworkIcon.src = "assets/slide4/icon_twitter.svg";
+			}
+			else if (socialInfo.network === "instagram") {
+				socialNetworkIcon.src = "assets/slide4/icon_instagram.svg";
+			}
+
+			var socialRectangle = document.createElement('div');
+			socialRectangle.className = "social-rectangle";
+
+			var textInfo = document.createElement('div');
+			textInfo.id = "modalTextInfoId";
+			textInfo.className = "modal-text-info";
+			textInfo.innerHTML = socialInfo.caption;
+
+			var userContentText = document.createElement('div');
+			userContentText.className = "modal-social-container";
+			userContentText.appendChild(userInfo);
+			userContentText.appendChild(socialRectangle);
+			userContentText.appendChild(textInfo);
+
+			var userContentInfo = document.getElementById('modalContentInfo');
+			while (userContentInfo.firstChild) {
+				userContentInfo.removeChild(userContentInfo.firstChild);
+			}
+			userContentInfo.appendChild(socialNetworkIcon);
+			userContentInfo.appendChild(userContentText);
+
+			if (socialInfo.network === "twitter") {
+				$('#modalContentContainer').addClass('twitter-color').removeClass('instagram-color');
+			}
+			else if (socialInfo.network === "instagram") {
+				$('#modalContentContainer').removeClass('twitter-color').addClass('instagram-color');
+			}
+
+			/*show modal*/
+			$('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
+
+			/*prevent scrolling*/
+			this.Common.preventScrolling();
+		});
+
+		$('#socialSubmissionGuideLines').on('click', function () {
+			/*show modal*/
+			document.getElementById('socialGuidelinesModalId').style.display = "block";
+
+			$('.fixed-nav-bar').css('display', 'none');
+
+			/*prevent scrolling*/
+			this.Common.preventScrolling();
+		});
+
+		$('#socialModalId .close-btn').on('click', function () {
+			/*allow scrolling again*/
+			this.Common.allowScrolling();
+
+			$('.fixed-nav-bar').css('display', 'block');
+
+			/*hide modal*/
+			$('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+
+		});
+
+		$('#socialGuidelinesModalId .close-btn').on('click', function () {
+			/*allow scrolling again*/
+			this.Common.allowScrolling();
+			$('.fixed-nav-bar').css('display', 'block');
+
+			/*hide modal*/
+			document.getElementById('socialGuidelinesModalId').style.display = "none";
+		});
+	}
+
+	resize = (): void => {
+
+	}
+
+	setScrollMagicMechanism = (): void => {
+		var scene = new ScrollMagic.Scene({
+			triggerElement: "#social",
+			offset: 100
+		})
+		.setTween(this.getSocialTween())
+		.addTo(controller);
+
+
+		var scene = new ScrollMagic.Scene({
+			triggerElement: ".social-gray-bg",
+			triggerHook: 1,
+			duration: 1
+		})
+		.setTween(this.getSocialBkgTween())
+		.addTo(controller);
+
+		var scrambleScene = new ScrollMagic.Scene({
+			triggerElement: "#social",
+			offset: 100
+		})
+		.setTween(this.getSocialScramble())
+		.addTo(controller);
+	}
+
+	private getSocialTween = (): Timeline => {
+		return new TimelineMax()
+			.to('#ninjaLifeTxt', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut })
+			.to('#socialSubmissionGuideLines', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut }, "-=1")
+			.to("#twitterSocialIconId", 0.7, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.7")
+			.to("#instagramSocialIconId", 0.7, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.6");
+	}
+
+	private getSocialBkgTween = (): Timeline => {
+		return new TimelineMax()
+			.to('.social-gray-bg', 0.5, { y: -150, ease: Linear.easeOut });
+	}
+
+	private getSocialScramble = (): Timeline => {
+		return new TimelineMax()
+			.to("#socialCommunityText", 1.5, { opacity: 0.5 })
+			.to("#communitySocialBackgroundId", 1.5, { scrambleText: { text: "COMMUNITY", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0")
+	}
+}

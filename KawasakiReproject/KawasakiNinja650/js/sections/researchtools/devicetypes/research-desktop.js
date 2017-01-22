@@ -34,21 +34,19 @@ var ResearchDesktop = (function (_super) {
                 left: ((_this.windowWidth / 2)) - ($('#researchInDealership').width() / 2),
                 top: $('#researchToolContainerId').outerHeight() - $('#researchYear').height() + $('#researchNinja').height()
             });
-            if (!_this.Common.isTablet()) {
-                var researchToolTxtHalfWidth = $('#researchToolText').width() / 2;
-                TweenMax.set(".research-research-txt", { left: (_this.windowWidth / 2) - researchToolTxtHalfWidth });
-            }
+            var researchToolTxtHalfWidth = $('#researchToolText').width() / 2;
+            TweenMax.set(".research-research-txt", { left: (_this.windowWidth / 2) - researchToolTxtHalfWidth });
             TweenMax.set(".footer-tiles", { height: $('#researchtools').height() - 160 - 21 - 220 - 100 });
-            var researchToolsColumnsLeftPosition = (_this.windowWidth / 2) - ($('#researchListing').width() / 2);
+            var researchToolsColumnsLeftPosition = (_this.windowWidth / 2) - researchToolTxtHalfWidth;
             TweenMax.set("#researchListing", {
-                left: researchToolsColumnsLeftPosition,
+                left: researchToolsColumnsLeftPosition > 5 ? researchToolsColumnsLeftPosition : 5,
                 top: $('#researchToolContainerId').outerHeight() - $('#researchYear').height() + $('#researchNinja').height() + $('#researchInDealership').height()
             });
-            var researchListingHeight = $('#researchListing').height();
-            var restartExperienceLeftPosition = (_this.windowWidth / 2) - ($('#researchListing').width() / 2) - ($('.research-restart-btn img').height() / 2);
+            var restartExperienceLeftPosition = (_this.windowWidth / 2) - researchToolTxtHalfWidth;
+            ;
             TweenMax.set("#restartExperienceId", {
                 left: restartExperienceLeftPosition > 0 ? restartExperienceLeftPosition : 0,
-                top: ($('#researchtools').height() - researchListingHeight) + (researchListingHeight / 2)
+                top: document.getElementById('researchListing').offsetLeft + (_this.windowHeight / 3 * 2)
             });
             if (_this.windowWidth < 950) {
                 TweenMax.set("#exitExperienceId", {

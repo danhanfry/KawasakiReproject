@@ -76,6 +76,12 @@
     <Content Include="KawasakiNinja650\css\researchtools.min.css">
       <DependentUpon>researchtools.css</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\css\socialcommunity.css">
+      <DependentUpon>socialcommunity.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\socialcommunity.min.css">
+      <DependentUpon>socialcommunity.css</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\css\styles.css">
       <DependentUpon>styles.scss</DependentUpon>
     </Content>
@@ -108,6 +114,9 @@
     <Content Include="KawasakiNinja650\js\models\enums\svgenums.js" />
     <Content Include="KawasakiNinja650\js\models\researchtoolsmodel.js">
       <DependentUpon>researchtoolsModel.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\models\socialmodel.js">
+      <DependentUpon>socialModel.ts</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\models\vtrmodel.js">
       <DependentUpon>vtrModel.ts</DependentUpon>
@@ -146,6 +155,9 @@
     <Content Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolslinks.js">
       <DependentUpon>researchtoolslinks.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsstartstop.js">
+      <DependentUpon>researchtoolsstartstop.tsx</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\researchtools\devicetypes\research-desktop.js">
       <DependentUpon>research-desktop.ts</DependentUpon>
     </Content>
@@ -160,6 +172,24 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\researchtools\researchtools.js">
       <DependentUpon>researchtools.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\components\socialheader.js">
+      <DependentUpon>socialheader.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\devicetypes\social-desktop.js">
+      <DependentUpon>social-desktop.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\devicetypes\social-mobile.js">
+      <DependentUpon>social-mobile.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\devicetypes\social-tablet.js">
+      <DependentUpon>social-tablet.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\social-index.js">
+      <DependentUpon>social-index.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\socialcommunity.js">
+      <DependentUpon>socialcommunity.tsx</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.js">
       <DependentUpon>vtrcontent.tsx</DependentUpon>
@@ -239,6 +269,7 @@
     <Content Include="KawasakiNinja650\css\modal.scss" />
     <Content Include="KawasakiNinja650\css\researchtools.scss" />
     <Content Include="KawasakiNinja650\data\researchdata.json" />
+    <Content Include="KawasakiNinja650\css\socialcommunity.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -253,10 +284,12 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\researchtools.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\social.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\vtr.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\enums\svg-enums.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\researchtoolsModel.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\models\socialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\vtrModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\commercial.tsx" />
@@ -274,6 +307,12 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\devicetypes\research-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\research-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\researchtools.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\components\socialheader.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-desktop.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-mobile.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-tablet.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\social-index.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\socialcommunity.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrcontent.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrmodal.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\components\vtrvideo.tsx" />
