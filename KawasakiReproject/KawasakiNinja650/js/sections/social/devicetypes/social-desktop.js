@@ -5,11 +5,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var SocialDesktop = (function (_super) {
     __extends(SocialDesktop, _super);
-    function SocialDesktop(windowWidth, windowHeight) {
+    function SocialDesktop(windowWidth, windowHeight, socialSpredfasterUrl) {
         var _this = this;
         _super.call(this);
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
+        this.socialSpredfasterUrl = socialSpredfasterUrl;
         this.Common = new Kawasaki.Common();
         this.allSpreadFasterContent = [];
         this.calculation = function () {
@@ -54,18 +55,20 @@ var SocialDesktop = (function (_super) {
             TweenMax.set("#twitterSocialIconId", { y: 50 });
             TweenMax.set("#instagramSocialIconId", { y: 50 });
             _this.setTweenMechanism();
+            _this.setupSocialFeedRetrieval();
         };
         this.setTweenMechanism = function () {
         };
         this.eventInitialize = function () {
+            var that = _this;
             $(document).on({
                 mouseenter: function () {
                     var element = $(this).get(0);
                     var childElementFlipper = $(element).find('.flipper');
                     if (childElementFlipper.length > 0) {
-                        var matrix = this.Common.getMatrixOfTransform(childElementFlipper[0]);
+                        var matrix = that.Common.getMatrixOfTransform(childElementFlipper[0]);
                         var transformY = matrix[13] || matrix[5];
-                        if (transformY > 0) {
+                        if (parseInt(transformY, 10) > 0) {
                             return;
                         }
                     }
@@ -99,13 +102,13 @@ var SocialDesktop = (function (_super) {
                     }
                 }
             }, ".flip-container ");
-            $(document).on('tap', '.front-social, .flip-container-hover', function () {
+            $(document).on('click', '.front-social, .flip-container-hover', function () {
                 var indexOfInfo = parseInt($(this).data('index'), 10);
                 if (isNaN(indexOfInfo)) {
                     var theFrontBecauseOfHover = $(this).prev().find(".front-social").get(0);
                     indexOfInfo = parseInt($(theFrontBecauseOfHover).data('index'), 10);
                 }
-                var socialInfo = this.allSpreadFasterContent[indexOfInfo];
+                var socialInfo = that.allSpreadFasterContent[indexOfInfo];
                 var imageContainer = document.getElementById('modalContentImage');
                 imageContainer.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover; background-position: center center";
                 var userInfo = document.createElement('div');
@@ -142,21 +145,23 @@ var SocialDesktop = (function (_super) {
                 else if (socialInfo.network === "instagram") {
                     $('#modalContentContainer').removeClass('twitter-color').addClass('instagram-color');
                 }
-                $('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
-                this.Common.preventScrolling();
+                $('#socialModalId').removeClass('fade-out-modal');
+                document.getElementById('socialModalId').style.display = 'block';
+                that.Common.preventScrolling();
             });
             $('#socialSubmissionGuideLines').on('click', function () {
                 document.getElementById('socialGuidelinesModalId').style.display = "block";
                 $('.fixed-nav-bar').css('display', 'none');
-                this.Common.preventScrolling();
+                _this.Common.preventScrolling();
             });
             $('#socialModalId .close-btn').on('click', function () {
-                this.Common.allowScrolling();
+                _this.Common.allowScrolling();
                 $('.fixed-nav-bar').css('display', 'block');
-                $('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+                $('#socialModalId').addClass('fade-out-modal');
+                document.getElementById('socialModalId').style.display = 'none';
             });
             $('#socialGuidelinesModalId .close-btn').on('click', function () {
-                this.Common.allowScrolling();
+                _this.Common.allowScrolling();
                 $('.fixed-nav-bar').css('display', 'block');
                 document.getElementById('socialGuidelinesModalId').style.display = "none";
             });
@@ -184,6 +189,77 @@ var SocialDesktop = (function (_super) {
                 .setTween(_this.getSocialScramble())
                 .addTo(controller);
         };
+        this.setupSocialFeedRetrieval = function () {
+            Spredfast(_this.socialSpredfasterUrl, function (result) {
+                var maxShowSocial = 20;
+                var currentRow = 1;
+                for (var i = 0; i < maxShowSocial; i++) {
+                    var socialInfo = result[i];
+                    _this.allSpreadFasterContent.push(socialInfo);
+                    var flipFront = document.createElement("div");
+                    flipFront.className = "front-social";
+                    flipFront.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover;";
+                    flipFront.setAttribute('data-index', i.toString());
+                    flipFront.setAttribute('data-network', socialInfo.network);
+                    var socialIconMiddleGrid = document.createElement('img');
+                    socialIconMiddleGrid.className = "social-icon-grid-middle";
+                    if (socialInfo.network === "twitter") {
+                        socialIconMiddleGrid.src = "assets/slide4/icon_twitter.svg";
+                    }
+                    else if (socialInfo.network === "instagram") {
+                        socialIconMiddleGrid.src = "assets/slide4/icon_instagram.svg";
+                    }
+                    var backgroundSocialOpactity = document.createElement('div');
+                    backgroundSocialOpactity.className = "social-grid-bkg";
+                    var socialIconLineMiddleGrid = document.createElement('div');
+                    socialIconLineMiddleGrid.className = "social-icon-line-grid-middle";
+                    if (socialInfo.network === "twitter") {
+                        socialIconLineMiddleGrid.className += " twitter-color";
+                    }
+                    else if (socialInfo.network === "instagram") {
+                        socialIconLineMiddleGrid.className += " instagram-color";
+                    }
+                    flipFront.appendChild(backgroundSocialOpactity);
+                    flipFront.appendChild(socialIconMiddleGrid);
+                    flipFront.appendChild(socialIconLineMiddleGrid);
+                    var flippingContainer = document.createElement("div");
+                    flippingContainer.className = "flipper";
+                    flippingContainer.id = "flippingContainer";
+                    flippingContainer.appendChild(flipFront);
+                    var flipContainer = document.createElement("div");
+                    flipContainer.className = "flip-container";
+                    flipContainer.setAttribute('data-rowIndex', currentRow.toString());
+                    if ((i + 1) % 4 == 0) {
+                        currentRow += 1;
+                    }
+                    flipContainer.appendChild(flippingContainer);
+                    var socialContainerDiv = document.getElementById('socialContainer');
+                    socialContainerDiv.appendChild(flipContainer);
+                }
+                $('.front-social').height($('.front-social').width());
+                $('.flippingContainer').height($('#flippingContainer').width());
+                $('.flip-container').height($('.flip-container').width());
+                var positionTopSocialIcon = ($('.front-social').height() / 2) - ($('.social-icon-grid-middle').height() / 2);
+                var positionLeftSocialIcon = ($('.front-social').width() / 2) - ($('.social-icon-grid-middle').width() / 2);
+                $('.social-icon-grid-middle').css({ top: positionTopSocialIcon, left: positionLeftSocialIcon });
+                var positionTopSocialIconLine = ($('.front-social').height() / 2) + ($('.social-icon-grid-middle').height() / 2);
+                $('.social-icon-line-grid-middle').css({ top: positionTopSocialIconLine + 10, left: positionLeftSocialIcon - 10 });
+                var communityText = $('#socialCommunityText').height();
+                var socialContainment = $('#socialContainer').height();
+                var ninjaText = $('#ninjaLifeTxt').outerHeight();
+                var socialIconContainer = $('.social-community-social-icons-container').height();
+                $('#social').height(communityText + socialContainment + ninjaText + (socialIconContainer * 2)).width(_this.windowWidth);
+                var socialTimeline = _this.customStaggerForSocial();
+                for (var j = 0; j < socialTimeline.length; j++) {
+                    var socialScene = new ScrollMagic.Scene({
+                        triggerElement: "#social",
+                        offset: 100 + (0.5 * j)
+                    })
+                        .setTween(socialTimeline[j])
+                        .addTo(controller);
+                }
+            });
+        };
         this.getSocialTween = function () {
             return new TimelineMax()
                 .to('#ninjaLifeTxt', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut })
@@ -199,6 +275,28 @@ var SocialDesktop = (function (_super) {
             return new TimelineMax()
                 .to("#socialCommunityText", 1.5, { opacity: 0.5 })
                 .to("#communitySocialBackgroundId", 1.5, { scrambleText: { text: "COMMUNITY", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0");
+        };
+        this.customStaggerForSocial = function () {
+            var totalNumberOfTiles = $('.front-social').length;
+            var arrayOfTilesMod = [];
+            var arrayofMods = [];
+            var arrayOfTweens = [];
+            $('.flip-container').each(function (index, element) {
+                TweenMax.set(element, { y: 400, opacity: 0 });
+                arrayofMods.push($(this).data('rowindex'));
+                arrayOfTilesMod.push({ htmlElement: element, index: index, mod: $(this).data('rowindex') });
+            });
+            var distinct = arrayofMods.filter((function (value, index, iter) {
+                return iter.indexOf(value) === index;
+            }));
+            for (var i = 0; i < distinct.length; i++) {
+                var rows = arrayOfTilesMod.filter((function (x) { return x.mod == (i + 1); }));
+                var rowElements = rows.map((function (x) { return x.htmlElement; }));
+                var rowTimeline = new TimelineMax();
+                rowTimeline.staggerTo(rowElements, 0.5, { y: 0, ease: Linear.easeOut, autoAlpha: 1, delay: (i * 0.5) }, 0.2);
+                arrayOfTweens.push(rowTimeline);
+            }
+            return arrayOfTweens;
         };
     }
     return SocialDesktop;

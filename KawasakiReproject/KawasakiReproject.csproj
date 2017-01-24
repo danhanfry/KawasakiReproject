@@ -36,6 +36,9 @@
     <Content Include="KawasakiNinja650\assets\slide2\mobile-vtr-failover.jpg" />
     <Content Include="KawasakiNinja650\assets\slide2\tablet-vtr-failover.jpg" />
     <Content Include="KawasakiNinja650\assets\slide2\virtual-test-ride-bg.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide4\icon_instagram.svg" />
+    <Content Include="KawasakiNinja650\assets\slide4\icon_twitter.svg" />
+    <Content Include="KawasakiNinja650\assets\slide4\social-bg.jpg" />
     <Content Include="KawasakiNinja650\assets\slide5\icon_exit.svg" />
     <Content Include="KawasakiNinja650\assets\slide5\minus.png" />
     <Content Include="KawasakiNinja650\assets\slide5\research-tools-bg.jpg" />
@@ -176,6 +179,12 @@
     <Content Include="KawasakiNinja650\js\sections\social\components\socialheader.js">
       <DependentUpon>socialheader.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\components\socialModal.js">
+      <DependentUpon>socialModal.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\social\components\socialSubmissionModal.js">
+      <DependentUpon>socialSubmissionModal.tsx</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\social\devicetypes\social-desktop.js">
       <DependentUpon>social-desktop.ts</DependentUpon>
     </Content>
@@ -224,6 +233,7 @@
     <Content Include="scripts\scrambletextplugin.min.js" />
     <Content Include="scripts\scrollmagic-plugins.js" />
     <Content Include="scripts\scrollmagic.js" />
+    <Content Include="scripts\spredfast.js" />
     <Content Include="scripts\tweenmax.js" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -308,6 +318,8 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\research-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\researchtools.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\components\socialheader.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\components\socialModal.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\components\socialSubmissionModal.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\social\devicetypes\social-tablet.ts" />

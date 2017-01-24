@@ -1,10 +1,16 @@
-var SocialHeader = (function () {
-    function SocialHeader(SocialText, SocialHashTagText, SubmissionGuidelineText, TwitterImgPath, InstagramImgPath) {
+var SocialHeaderViewModel = (function () {
+    function SocialHeaderViewModel(SocialText, SocialHashTagText, SubmissionGuidelineText, TwitterImgPath, InstagramImgPath) {
         this.SocialText = SocialText;
         this.SocialHashTagText = SocialHashTagText;
         this.SubmissionGuidelineText = SubmissionGuidelineText;
         this.TwitterImgPath = TwitterImgPath;
         this.InstagramImgPath = InstagramImgPath;
     }
-    return SocialHeader;
+    return SocialHeaderViewModel;
+}());
+var SocialCommunityProperties = (function () {
+    function SocialCommunityProperties(SocialHeaderProp) {
+        this.SocialHeaderProp = SocialHeaderProp;
+    }
+    return SocialCommunityProperties;
 }());

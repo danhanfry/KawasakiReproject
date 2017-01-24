@@ -5,12 +5,14 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var SocialMobile = (function (_super) {
     __extends(SocialMobile, _super);
-    function SocialMobile(windowWidth, windowHeight) {
+    function SocialMobile(windowWidth, windowHeight, socialSpredfasterUrl) {
         var _this = this;
         _super.call(this);
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
+        this.socialSpredfasterUrl = socialSpredfasterUrl;
         this.Common = new Kawasaki.Common();
+        this.allSpreadFasterContent = [];
         this.calculation = function () {
             $('#socialContainer').width(_this.windowWidth);
             if (_this.Common.isAndroid()) {
@@ -50,6 +52,7 @@ var SocialMobile = (function (_super) {
             var bkgGrey = $('.social-gray-bg').height();
             var socialContainment = $('#socialContainer').height();
             var ninjaText = $('#ninjaLifeTxt').outerHeight();
+            _this.setupSocialFeedRetrieval();
         };
         this.setTweenMechanism = function () {
         };
@@ -160,6 +163,71 @@ var SocialMobile = (function (_super) {
         this.resize = function () {
         };
         this.setScrollMagicMechanism = function () {
+        };
+        this.setupSocialFeedRetrieval = function () {
+            Spredfast(_this.socialSpredfasterUrl, function (result) {
+                var maxShowSocial = 10;
+                var currentRow = 1;
+                for (var i = 0; i < maxShowSocial; i++) {
+                    var socialInfo = result[i];
+                    this.allSpreadFasterContent.push(socialInfo);
+                    var flipFront = document.createElement("div");
+                    flipFront.className = "front-social";
+                    flipFront.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover;";
+                    flipFront.setAttribute('data-index', i.toString());
+                    flipFront.setAttribute('data-network', socialInfo.network);
+                    var socialIconMiddleGrid = document.createElement('img');
+                    socialIconMiddleGrid.className = "social-icon-grid-middle";
+                    if (socialInfo.network === "twitter") {
+                        socialIconMiddleGrid.src = "assets/slide4/icon_twitter.svg";
+                    }
+                    else if (socialInfo.network === "instagram") {
+                        socialIconMiddleGrid.src = "assets/slide4/icon_instagram.svg";
+                    }
+                    var backgroundSocialOpactity = document.createElement('div');
+                    backgroundSocialOpactity.className = "social-grid-bkg";
+                    var socialIconLineMiddleGrid = document.createElement('div');
+                    socialIconLineMiddleGrid.className = "social-icon-line-grid-middle";
+                    if (socialInfo.network === "twitter") {
+                        socialIconLineMiddleGrid.className += " twitter-color";
+                    }
+                    else if (socialInfo.network === "instagram") {
+                        socialIconLineMiddleGrid.className += " instagram-color";
+                    }
+                    flipFront.appendChild(backgroundSocialOpactity);
+                    flipFront.appendChild(socialIconMiddleGrid);
+                    flipFront.appendChild(socialIconLineMiddleGrid);
+                    var flippingContainer = document.createElement("div");
+                    flippingContainer.className = "flipper";
+                    flippingContainer.id = "flippingContainer";
+                    flippingContainer.appendChild(flipFront);
+                    var flipContainer = document.createElement("div");
+                    flipContainer.className = "flip-container";
+                    flipContainer.setAttribute('data-rowIndex', currentRow.toString());
+                    if ((i + 1) % 4 == 0) {
+                        currentRow += 1;
+                    }
+                    flipContainer.appendChild(flippingContainer);
+                    var socialContainerDiv = document.getElementById('socialContainer');
+                    socialContainerDiv.appendChild(flipContainer);
+                }
+                $('.front-social').height($('.front-social').width());
+                $('.flippingContainer').height($('#flippingContainer').width());
+                $('.flip-container').height($('.flip-container').width());
+                var positionTopSocialIcon = ($('.front-social').height() / 2) - ($('.social-icon-grid-middle').height() / 2);
+                var positionLeftSocialIcon = ($('.front-social').width() / 2) - ($('.social-icon-grid-middle').width() / 2);
+                $('.social-icon-grid-middle').css({ top: positionTopSocialIcon, left: positionLeftSocialIcon });
+                var positionTopSocialIconLine = ($('.front-social').height() / 2) + ($('.social-icon-grid-middle').height() / 2);
+                $('.social-icon-line-grid-middle').css({
+                    top: positionTopSocialIconLine + 10, left: positionLeftSocialIcon - 13.5
+                });
+                var communityText = $('#socialCommunityText').height();
+                var socialContainment = $('#socialContainer').height();
+                var ninjaText = $('#ninjaLifeTxt').outerHeight();
+                var socialIconContainer = $('.social-community-social-icons-container').height();
+                var bkgGrey = $('.social-gray-bg');
+                $('#social').height(bkgGrey.position().top + bkgGrey.height() + socialContainment + ninjaText).width(this.windowWidth);
+            });
         };
     }
     return SocialMobile;

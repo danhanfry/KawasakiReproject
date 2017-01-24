@@ -11,22 +11,24 @@ namespace Kawasaki.NinjaSixFifty {
 
 		private Common: Kawasaki.Common = new Kawasaki.Common();
 		private windowDimensions: IDimensionPosition;
+		private socialSpredfasterUrl: string = "";
 
 		constructor() {
 			this.windowDimensions = this.Common.elementDimensions(window);
+			this.socialSpredfasterUrl = location.protocol + "//app.feedspear.com/Campaign/16/Feed";
 		}
 
 		public calculation = (): void => {
 
 			let deviceLayout: ExperienceSlide;
 			if (this.Common.isMobile()) {
-				deviceLayout = new SocialMobile(this.windowDimensions.width, this.windowDimensions.height);
+				deviceLayout = new SocialMobile(this.windowDimensions.width, this.windowDimensions.height, this.socialSpredfasterUrl);
 			}
 			else if (this.Common.isTablet()) {
-				deviceLayout = new SocialTablet(this.windowDimensions.width, this.windowDimensions.height);
+				deviceLayout = new SocialTablet(this.windowDimensions.width, this.windowDimensions.height, this.socialSpredfasterUrl);
 			}
 			else {
-				deviceLayout = new SocialDesktop(this.windowDimensions.width, this.windowDimensions.height);
+				deviceLayout = new SocialDesktop(this.windowDimensions.width, this.windowDimensions.height, this.socialSpredfasterUrl);
 			}
 
 			deviceLayout.calculation();

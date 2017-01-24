@@ -11,7 +11,7 @@
 });
 
 var commonJsFiles = ['js/models/enums/svgenums.js', 'js/models/commercialmodel.js', 'js/models/vtrmodel',
-			'js/models/researchtoolsModel', 'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
+			'js/models/socialmodel', 'js/models/researchtoolsModel', 'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
 
 var commercialIndex = 'js/sections/commercial/commercial-index';
 var commercialPartialViews = [
@@ -27,6 +27,11 @@ var vtrPartialViews = [
 				'js/sections/vtr/components/vtrmodal',
 				'js/sections/vtr/vtr'];
 
+var socialIndex = 'js/sections/social/social-index';
+var socialPartialViews = [
+				'js/sections/social/components/socialheader',
+				'js/sections/social/socialcommunity'];
+
 var researchIndex = 'js/sections/researchtools/research-index';
 var researchToolsPartialViews = [
 				'js/sections/researchtools/components/researchtoolsheader',
@@ -35,29 +40,33 @@ var researchToolsPartialViews = [
 
 
 var finalPartialViews = commercialPartialViews.concat(vtrPartialViews)
+						.concat(socialPartialViews)
 						.concat(researchToolsPartialViews);
 
 requirejs(commonJsFiles, function () {
 	var common = new Kawasaki.Common();
 	if (common.isMobile()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/vtr/devicetypes/vtr-mobile',
+			'js/sections/social/devicetypes/social-mobile',
 			'js/sections/researchtools/devicetypes/research-mobile',
-			commercialIndex, vtrIndex, researchIndex], function () {
+			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
 	else if (common.isTablet()) {
 		requirejs(['js/sections/commercial/devicetypes/commercial-tablet', 'js/sections/vtr/devicetypes/vtr-tablet',
+			'js/sections/social/devicetypes/social-tablet',
 			'js/sections/researchtools/devicetypes/research-tablet',
-			commercialIndex, vtrIndex, researchIndex], function () {
+			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
 	else {
 
 		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', 'js/sections/vtr/devicetypes/vtr-desktop',
+			'js/sections/social/devicetypes/social-desktop',
 			'js/sections/researchtools/devicetypes/research-desktop',
-			commercialIndex, vtrIndex, researchIndex], function () {
+			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}

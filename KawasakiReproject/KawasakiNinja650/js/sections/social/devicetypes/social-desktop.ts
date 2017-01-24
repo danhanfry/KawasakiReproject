@@ -5,14 +5,16 @@
 /// <reference path="../../../../../scripts/typings/scrollmagic.d.ts" />
 
 declare var controller: ScrollMagic.Controller;
+declare var Spredfast:Function;
 
 class SocialDesktop extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
 	private allSpreadFasterContent = [];
 
-	constructor(public windowWidth: number, public windowHeight: number) {
+	constructor(public windowWidth: number, public windowHeight: number, public socialSpredfasterUrl: string) {
 		super();
+		
 	}
 
 	calculation = (): void => {
@@ -88,6 +90,7 @@ class SocialDesktop extends ExperienceSlide {
 		TweenMax.set("#instagramSocialIconId", { y: 50 });
 
 		this.setTweenMechanism();
+		this.setupSocialFeedRetrieval();
 	}
 
 	setTweenMechanism = (): void => {
@@ -95,6 +98,9 @@ class SocialDesktop extends ExperienceSlide {
 	}
 
 	eventInitialize = (): void => {
+
+		var that = this;
+
 		$(document).on({
 			mouseenter: function () {
 
@@ -102,9 +108,9 @@ class SocialDesktop extends ExperienceSlide {
 
 				var childElementFlipper = $(element).find('.flipper');
 				if (childElementFlipper.length > 0) {
-					var matrix = this.Common.getMatrixOfTransform(childElementFlipper[0]);
+					var matrix = that.Common.getMatrixOfTransform(childElementFlipper[0]);
 					var transformY = matrix[13] || matrix[5];
-					if (transformY > 0) {
+					if (parseInt(transformY, 10) > 0) {
 						return;
 					}
 				}
@@ -146,14 +152,14 @@ class SocialDesktop extends ExperienceSlide {
 			}
 		}, ".flip-container ");
 
-		$(document).on('tap', '.front-social, .flip-container-hover', function () {
+		$(document).on('click', '.front-social, .flip-container-hover', function () {
 			var indexOfInfo = parseInt($(this).data('index'), 10);
 			if (isNaN(indexOfInfo)) {
 				var theFrontBecauseOfHover = $(this).prev().find(".front-social").get(0);
 				indexOfInfo = parseInt($(theFrontBecauseOfHover).data('index'), 10);
 			}
 
-			var socialInfo = this.allSpreadFasterContent[indexOfInfo]
+			var socialInfo = that.allSpreadFasterContent[indexOfInfo]
 
 			var imageContainer = document.getElementById('modalContentImage');
 			imageContainer.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover; background-position: center center";
@@ -200,13 +206,13 @@ class SocialDesktop extends ExperienceSlide {
 			}
 
 			/*show modal*/
-			$('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
-
+			$('#socialModalId').removeClass('fade-out-modal');
+			document.getElementById('socialModalId').style.display = 'block';
 			/*prevent scrolling*/
-			this.Common.preventScrolling();
+			that.Common.preventScrolling();
 		});
 
-		$('#socialSubmissionGuideLines').on('click', function () {
+		$('#socialSubmissionGuideLines').on('click', () => {
 			/*show modal*/
 			document.getElementById('socialGuidelinesModalId').style.display = "block";
 
@@ -216,18 +222,19 @@ class SocialDesktop extends ExperienceSlide {
 			this.Common.preventScrolling();
 		});
 
-		$('#socialModalId .close-btn').on('click', function () {
+		$('#socialModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
 
 			$('.fixed-nav-bar').css('display', 'block');
 
 			/*hide modal*/
-			$('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+			$('#socialModalId').addClass('fade-out-modal');
+			document.getElementById('socialModalId').style.display = 'none';
 
 		});
 
-		$('#socialGuidelinesModalId .close-btn').on('click', function () {
+		$('#socialGuidelinesModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
 			$('.fixed-nav-bar').css('display', 'block');
@@ -266,6 +273,101 @@ class SocialDesktop extends ExperienceSlide {
 		.addTo(controller);
 	}
 
+	private setupSocialFeedRetrieval = (): void => {
+		Spredfast(this.socialSpredfasterUrl, (result: ISpreadfaster[]) => {
+
+			var maxShowSocial = 20;
+			var currentRow = 1;
+
+			for (var i = 0; i < maxShowSocial; i++) {
+
+				var socialInfo: ISpreadfaster = result[i];
+				this.allSpreadFasterContent.push(socialInfo);
+
+				var flipFront = document.createElement("div");
+				flipFront.className = "front-social";
+				flipFront.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover;";
+				flipFront.setAttribute('data-index', i.toString());
+				flipFront.setAttribute('data-network', socialInfo.network);
+
+				var socialIconMiddleGrid = document.createElement('img');
+				socialIconMiddleGrid.className = "social-icon-grid-middle";
+				if (socialInfo.network === "twitter") {
+					socialIconMiddleGrid.src = "assets/slide4/icon_twitter.svg";
+				}
+				else if (socialInfo.network === "instagram") {
+					socialIconMiddleGrid.src = "assets/slide4/icon_instagram.svg";
+				}
+
+				var backgroundSocialOpactity = document.createElement('div');
+				backgroundSocialOpactity.className = "social-grid-bkg";
+
+				var socialIconLineMiddleGrid = document.createElement('div');
+				socialIconLineMiddleGrid.className = "social-icon-line-grid-middle";
+				if (socialInfo.network === "twitter") {
+					socialIconLineMiddleGrid.className += " twitter-color";
+				}
+				else if (socialInfo.network === "instagram") {
+					socialIconLineMiddleGrid.className += " instagram-color";
+				}
+
+				flipFront.appendChild(backgroundSocialOpactity);
+				flipFront.appendChild(socialIconMiddleGrid);
+				flipFront.appendChild(socialIconLineMiddleGrid);
+
+				var flippingContainer = document.createElement("div");
+				flippingContainer.className = "flipper";
+				flippingContainer.id = "flippingContainer";
+				flippingContainer.appendChild(flipFront);
+
+				var flipContainer = document.createElement("div");
+				flipContainer.className = "flip-container";
+
+				flipContainer.setAttribute('data-rowIndex', currentRow.toString());
+				if ((i + 1) % 4 == 0) {
+					currentRow += 1;
+				}
+
+				flipContainer.appendChild(flippingContainer);
+
+				var socialContainerDiv = document.getElementById('socialContainer');
+				socialContainerDiv.appendChild(flipContainer);
+			}
+
+			$('.front-social').height($('.front-social').width());
+			$('.flippingContainer').height($('#flippingContainer').width());
+			$('.flip-container').height($('.flip-container').width());
+
+			var positionTopSocialIcon = ($('.front-social').height() / 2) - ($('.social-icon-grid-middle').height() / 2);
+			var positionLeftSocialIcon = ($('.front-social').width() / 2) - ($('.social-icon-grid-middle').width() / 2);
+			$('.social-icon-grid-middle').css({ top: positionTopSocialIcon, left: positionLeftSocialIcon });
+
+			var positionTopSocialIconLine = ($('.front-social').height() / 2) + ($('.social-icon-grid-middle').height() / 2);
+			$('.social-icon-line-grid-middle').css({ top: positionTopSocialIconLine + 10, left: positionLeftSocialIcon - 10 });
+			
+			var communityText = $('#socialCommunityText').height();
+			var socialContainment = $('#socialContainer').height();
+			var ninjaText = $('#ninjaLifeTxt').outerHeight();
+			var socialIconContainer = $('.social-community-social-icons-container').height();
+
+			$('#social').height(communityText + socialContainment + ninjaText + (socialIconContainer * 2)).width(this.windowWidth);
+
+			/*only desktop gets the stagger effect*/
+			
+			var socialTimeline = this.customStaggerForSocial();
+
+			for (var j = 0; j < socialTimeline.length; j++) {
+				var socialScene = new ScrollMagic.Scene({
+					triggerElement: "#social",
+					offset: 100 + (0.5 * j)
+				})
+					.setTween(socialTimeline[j])
+					.addTo(controller);
+			}
+			
+		});
+	}
+
 	private getSocialTween = (): Timeline => {
 		return new TimelineMax()
 			.to('#ninjaLifeTxt', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut })
@@ -283,5 +385,33 @@ class SocialDesktop extends ExperienceSlide {
 		return new TimelineMax()
 			.to("#socialCommunityText", 1.5, { opacity: 0.5 })
 			.to("#communitySocialBackgroundId", 1.5, { scrambleText: { text: "COMMUNITY", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0")
+	}
+
+	private customStaggerForSocial = (): Array<Timeline> => {
+		var totalNumberOfTiles = $('.front-social').length;
+		var arrayOfTilesMod = [];
+		var arrayofMods = [];
+
+		var arrayOfTweens: Timeline[] = [];
+
+		$('.flip-container').each(function (index, element) {
+			TweenMax.set(element, { y: 400, opacity: 0 });
+			arrayofMods.push($(this).data('rowindex'));
+			arrayOfTilesMod.push({ htmlElement: element, index: index, mod: $(this).data('rowindex') });
+		});
+
+		var distinct = arrayofMods.filter((function (value, index, iter) {
+			return iter.indexOf(value) === index;
+		}));
+
+		for (var i = 0; i < distinct.length; i++) {
+			var rows = arrayOfTilesMod.filter((function (x) { return x.mod == (i + 1); }));
+			var rowElements = rows.map((function (x) { return x.htmlElement; }));
+			var rowTimeline = new TimelineMax();
+			rowTimeline.staggerTo(rowElements, 0.5, { y: 0, ease: Linear.easeOut, autoAlpha: 1, delay: (i * 0.5) }, 0.2);
+			arrayOfTweens.push(rowTimeline);
+		}
+
+		return arrayOfTweens;
 	}
 }

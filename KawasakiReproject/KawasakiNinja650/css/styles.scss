@@ -53,3 +53,20 @@ body {
 	border-right: 8px solid transparent;
 	border-top: 8px solid $greenApple;
 }
+
+.twitter-color {
+	background-color: #4099FF;
+}
+
+.instagram-color {
+	background: #8f41b2;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #8f41b2 0%, #f85a55 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #8f41b2 0%, #f85a55 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #8f41b2 0%, #f85a55 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f41b2', endColorstr='#f85a55',GradientType=0 );
+	/* IE6-9 */
+}

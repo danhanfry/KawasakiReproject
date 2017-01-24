@@ -15,24 +15,24 @@ export class SocialHeader extends React.Component<ISocialHeaderModel, any> {
 		return (
 			<div>
 
-				<div class="social-left-line"></div>
-				<div class="social-right-line"></div>
-				<div id="ninjaLifeTxt" class="ninja-life-text">
+				<div className="social-left-line"></div>
+				<div className="social-right-line"></div>
+				<div id="ninjaLifeTxt" className="ninja-life-text">
 					<div><span>{Model.SocialHashTagText}</span></div>
 				</div>
-				<div class="social-gray-bg">
+				<div className="social-gray-bg">
 				</div>
-				<div id="socialCommunityText" class="social-community-txt">
+				<div id="socialCommunityText" className="social-community-txt">
 					<div><span id="communitySocialBackgroundId">{Model.SocialText}</span></div>
 				</div>
-				<div id="socialSubmissionGuideLines" class="social-guidelines-txt">
+				<div id="socialSubmissionGuideLines" className="social-guidelines-txt">
 					<div><span>{Model.SubmissionGuidelineText}</span></div>
 				</div>
-				<div id="socialCommunityContainer" class="social-community-social-icons-container">
-					<div id="twitterSocialIconId" class="social-community-social-icons">
+				<div id="socialCommunityContainer" className="social-community-social-icons-container">
+					<div id="twitterSocialIconId" className="social-community-social-icons">
 						<img src={Model.TwitterImgPath} />
 					</div>
-					<div id="instagramSocialIconId" class="social-community-social-icons" style={socialContainerStyle}>
+					<div id="instagramSocialIconId" className="social-community-social-icons" style={socialContainerStyle}>
 						<img src={Model.InstagramImgPath} />
 					</div>
 				</div>
