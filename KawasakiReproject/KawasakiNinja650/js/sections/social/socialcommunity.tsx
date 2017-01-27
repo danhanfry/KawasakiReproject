@@ -20,7 +20,7 @@ export class SocialCommunity extends React.Component<ISocialCommunityModel, any>
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.socialResizeEvent);
-		this.socialResizeEvent();
+		this.socialCalculation();
 	}
 
 	public componentWillUnmount() {
@@ -41,8 +41,12 @@ export class SocialCommunity extends React.Component<ISocialCommunityModel, any>
 		);
 	}
 
-	private socialResizeEvent() {
+	private socialCalculation() {
 		this.SocialIndex.calculation();
+	}
+
+	private socialResizeEvent() {
+		this.SocialIndex.recalculation();
 	}
 
 }

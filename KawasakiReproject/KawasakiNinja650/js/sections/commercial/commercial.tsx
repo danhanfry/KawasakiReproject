@@ -20,7 +20,7 @@ export class Commercial extends React.Component<ICommercialModel, any> {
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.commercialResizeEvent);
-		this.commercialResizeEvent();
+		this.commercialCalculation();
 	}
 
 	public componentWillUnmount() {
@@ -41,8 +41,12 @@ export class Commercial extends React.Component<ICommercialModel, any> {
 
 	}
 
-	private commercialResizeEvent() {
+	private commercialCalculation() {
 		this.CommercialIndex.calculation();
+	}
+
+	private commercialResizeEvent() {
+		this.CommercialIndex.recalculation();
 	}
 }
 

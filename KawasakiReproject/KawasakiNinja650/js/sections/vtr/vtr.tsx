@@ -20,7 +20,7 @@ export class VTR extends React.Component<IVTRlModel, any> {
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.vtrResizeEvent);
-		this.vtrResizeEvent();
+		this.vtrCaclulation();
 	}
 
 	public componentWillUnmount() {
@@ -40,8 +40,12 @@ export class VTR extends React.Component<IVTRlModel, any> {
 		);
 	}
 
-	private vtrResizeEvent() {
+	private vtrCaclulation() {
 		this.VTRIndex.calculation();
+	}
+
+	private vtrResizeEvent() {
+		this.VTRIndex.recalculation();
 	}
 }
 

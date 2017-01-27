@@ -11,6 +11,7 @@ namespace Kawasaki.NinjaSixFifty {
 
 		private Common: Kawasaki.Common = new Kawasaki.Common();
 		private windowDimensions: IDimensionPosition;
+		private deviceLayout: ExperienceSlide;
 
 		constructor() {
 			this.windowDimensions = this.Common.elementDimensions(window);
@@ -18,21 +19,23 @@ namespace Kawasaki.NinjaSixFifty {
 
 		public calculation = (): void => {
 
-			let deviceLayout: ExperienceSlide;
 			if (this.Common.isMobile()) {
-				deviceLayout = new ResearchMobile(this.windowDimensions.width, this.windowDimensions.height);
+				this.deviceLayout = new ResearchMobile(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else if (this.Common.isTablet()) {
-				deviceLayout = new ResearchTablet(this.windowDimensions.width, this.windowDimensions.height);
+				this.deviceLayout = new ResearchTablet(this.windowDimensions.width, this.windowDimensions.height);
 			}
 			else {
-				deviceLayout = new ResearchDesktop(this.windowDimensions.width, this.windowDimensions.height);
+				this.deviceLayout = new ResearchDesktop(this.windowDimensions.width, this.windowDimensions.height);
 			}
 
-			deviceLayout.calculation();
-			deviceLayout.eventInitialize();
-			deviceLayout.setScrollMagicMechanism();
+			this.deviceLayout.calculation();
+			this.deviceLayout.eventInitialize();
+			this.deviceLayout.setScrollMagicMechanism();
 		}
 
+		public recalculation = (): void => {
+			this.deviceLayout.calculation();
+		}
 	}
 }

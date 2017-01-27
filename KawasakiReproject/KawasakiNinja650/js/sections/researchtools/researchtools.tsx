@@ -75,7 +75,7 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.researchResizeEvent);
-		this.researchResizeEvent();
+		this.researchCalculation();
 	}
 
 	public componentWillUnmount() {
@@ -111,10 +111,13 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 	}
 
-	private researchResizeEvent() {
+	private researchCalculation() {
 		this.ResearchIndex.calculation();
 	}
 
+	private researchResizeEvent() {
+		this.ResearchIndex.recalculation();
+	}
 }
 
 var researchHeaderModel = new ResearchToolsHeaderModel('assets/logo_2017.svg', 'assets/logo_ninja.svg',
