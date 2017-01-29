@@ -70,6 +70,31 @@ namespace Kawasaki {
 			return elementMatrix.replace(/[^0-9\-.,]/g, '').split(',');
 		}
 
+		public createCloneOfElement = (originalNode: HTMLElement, positionLeftTop: IElementPosition): HTMLElement => {
+
+			var originalContainment = originalNode.getBoundingClientRect();
+			var clonedElement: HTMLElement = <HTMLElement>originalNode.cloneNode(true);
+			clonedElement.style.width = originalContainment.width + 'px';
+			clonedElement.style.height = originalContainment.height + 'px';
+			clonedElement.style.transform = 'translate3d(' + originalContainment.left + 'px, ' + originalContainment.top + 'px, 0)';
+
+			clonedElement.style.left = positionLeftTop.positionLeft.toString();
+			clonedElement.style.top = positionLeftTop.positionTop.toString();
+			clonedElement.style.backgroundSize = "cover";
+
+			clonedElement.style.height = originalContainment.height + 'px';
+			clonedElement.style.height = originalContainment.height + 'px';
+
+			if (clonedElement.classList) {
+				clonedElement.classList.add('cloned-element');
+			}
+			else {
+				clonedElement.className += ' cloned-element';
+			}
+
+			return clonedElement;
+		}
+
 		public createSVGElement = (kawasakiSvgModel: IKawasakiSvgElementProperties): SVGSVGElement => {
 
 			var xyWidthHeight: string = (kawasakiSvgModel.x.replace('px', '') + " " +
@@ -235,6 +260,10 @@ namespace Kawasaki {
 			result.targettop = Math.floor((targetheight - result.height) / 2);
 
 			return result;
+		}
+
+		public scaleByFactorProportionally = (factor: number, srcWidth: number, srcHeight: number): IElementDimension => {
+			return <IElementDimension>{width: (srcWidth / factor), height: (srcHeight / factor) };
 		}
 
 		public elementDimensions = (element: HTMLElement | Window | Document): IDimensionPosition => {

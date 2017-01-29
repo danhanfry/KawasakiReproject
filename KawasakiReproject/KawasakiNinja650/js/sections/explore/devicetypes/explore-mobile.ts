@@ -1,0 +1,105 @@
+﻿/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../abstractions/slide.abstraction.ts" />
+/// <reference path="../../../../../scripts/typings/jquery.d.ts" />
+/// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
+/// <reference path="../../../../../scripts/typings/scrollmagic.d.ts" />
+
+class ExploreMobile extends ExperienceSlide {
+
+	private Common: Kawasaki.Common = new Kawasaki.Common();
+
+	constructor(public windowWidth: number, public windowHeight: number) {
+		super();
+	}
+
+	calculation = (): void => {
+		document.getElementById('thirdSlideTransition').style.display = 'none';
+		document.getElementById('slideThreeScroller').style.display = 'none';
+
+		$('#ninjaLogoExploreId').prop('src', 'assets/slide3/ninja-650-logo-mobile.png');
+
+		$('.spec-parts').height($('.spec-parts').width() / 3 * 2 + 6);
+		$('.spec-parts-final').height($('.spec-parts').width() / 2);
+		$('.non-tech-image').height($('.non-tech-image').width() / 3 * 2 + 6);
+		$('#explore').height(this.windowHeight).width(this.windowWidth);
+		$('#explore').css('min-height', '0px');
+
+		TweenMax.set(".non-spec-container", { top: ($('.spec-ninja-bike').position().top + $('.spec-ninja-bike').height()) / 3 * 2 - 3 });
+		TweenMax.set("#slideThreeScroller", {
+			bottom: 0, left: (this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2)
+		});
+	}
+
+	setTweenMechanism = (): void => {
+
+	}
+
+	eventInitialize = (): void => {
+
+		$('.non-tech-image').on('click', function (event) {
+
+			var currentImage = $(this)[0];
+			var specHtml = $(currentImage).data('tech');
+
+			$('#modalSpecContentInfo').load("partials/" + specHtml + ".html", () => {
+
+				TweenMax.set('.modal-spec-content-info', {
+					height: $('#specificationModal.modal').outerHeight() - 100
+				});
+				TweenMax.set('.spec-details-container', {
+					minHeight: Math.ceil($('#specificationModal.modal').outerHeight() * (0.75))
+				});
+
+				TweenMax.set('#mobileImgDisplay', {
+					width: $('#specificationModal').width(), height: 360
+				});
+
+				var $scroller = $(".modal-spec-content-info");
+				$scroller.bind('touchstart', function (ev) {
+					var $this = $(this);
+					var scroller = $scroller.get(0);
+
+					if ($this.scrollTop() === 0) $this.scrollTop(1);
+					var scrollTop = scroller.scrollTop;
+					var scrollHeight = scroller.scrollHeight;
+					var offsetHeight = scroller.offsetHeight;
+					var contentHeight = scrollHeight - offsetHeight;
+					if (contentHeight == scrollTop) $this.scrollTop(scrollTop - 1);
+					if (contentHeight === 0) {
+						this.Common.preventScrolling();
+					}
+				});
+
+				$scroller.scrollTop(0);
+
+			}).hide().fadeIn('slow');
+
+			TweenMax.to(".fixed-nav-bar", 1, {
+				autoAlpha: 0, ease: Linear.easeNone
+			});
+
+			document.getElementById('specificationModal').style.display = "block";
+		});
+
+		$('#specificationModal .close-btn').on('click', () => {
+
+			/*allow scrolling again*/
+			this.Common.allowScrolling();
+			TweenMax.to(".fixed-nav-bar", 1, {
+				autoAlpha: 1, ease: Linear.easeNone
+			});
+			/*hide modal*/
+			$("#specificationModal").fadeOut('slow');
+			/*document.getElementById('specificationModal').style.display = "none";*/
+		});
+	}
+
+	resize = (): void => {
+
+	}
+
+	setScrollMagicMechanism = (): void => {
+
+	}
+
+}

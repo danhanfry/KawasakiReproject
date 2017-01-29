@@ -52,6 +52,25 @@ var Kawasaki;
                 var elementMatrix = window.getComputedStyle(element, null).transform;
                 return elementMatrix.replace(/[^0-9\-.,]/g, '').split(',');
             };
+            this.createCloneOfElement = function (originalNode, positionLeftTop) {
+                var originalContainment = originalNode.getBoundingClientRect();
+                var clonedElement = originalNode.cloneNode(true);
+                clonedElement.style.width = originalContainment.width + 'px';
+                clonedElement.style.height = originalContainment.height + 'px';
+                clonedElement.style.transform = 'translate3d(' + originalContainment.left + 'px, ' + originalContainment.top + 'px, 0)';
+                clonedElement.style.left = positionLeftTop.positionLeft.toString();
+                clonedElement.style.top = positionLeftTop.positionTop.toString();
+                clonedElement.style.backgroundSize = "cover";
+                clonedElement.style.height = originalContainment.height + 'px';
+                clonedElement.style.height = originalContainment.height + 'px';
+                if (clonedElement.classList) {
+                    clonedElement.classList.add('cloned-element');
+                }
+                else {
+                    clonedElement.className += ' cloned-element';
+                }
+                return clonedElement;
+            };
             this.createSVGElement = function (kawasakiSvgModel) {
                 var xyWidthHeight = (kawasakiSvgModel.x.replace('px', '') + " " +
                     kawasakiSvgModel.y.replace('px', '') + " " +
@@ -179,6 +198,9 @@ var Kawasaki;
                 result.targetleft = Math.floor((targetwidth - result.width) / 2);
                 result.targettop = Math.floor((targetheight - result.height) / 2);
                 return result;
+            };
+            this.scaleByFactorProportionally = function (factor, srcWidth, srcHeight) {
+                return { width: (srcWidth / factor), height: (srcHeight / factor) };
             };
             this.elementDimensions = function (element) {
                 var width = 0, height = 0, outerHeight = 0, outerWidth = 0, outerHeightWithMargin = 0, outerWidthWithMargin = 0, elementPositions = { positionLeft: 0, positionTop: 0 };

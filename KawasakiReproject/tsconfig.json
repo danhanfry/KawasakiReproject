@@ -35,7 +35,10 @@
 		"KawasakiNinja650/js/sections/social/components/socialheader.tsx",
 		"KawasakiNinja650/js/sections/social/components/socialModal.tsx",
 		"KawasakiNinja650/js/sections/social/components/socialSubmissionModal.tsx",
-		"KawasakiNinja650/js/sections/social/socialcommunity.tsx"
+		"KawasakiNinja650/js/sections/social/socialcommunity.tsx",
+		"KawasakiNinja650/js/sections/explore/components/exploreheader.tsx",
+		"KawasakiNinja650/js/sections/explore/components/exploretiling.tsx",
+		"KawasakiNinja650/js/sections/explore/explore.tsx"
 	],
-	"exclude": [ ]
+	"exclude": []
 }

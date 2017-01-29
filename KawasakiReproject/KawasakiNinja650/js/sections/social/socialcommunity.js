@@ -15,7 +15,7 @@ define(["require", "exports", './components/socialheader', './components/socialm
         };
         SocialCommunity.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.socialResizeEvent);
-            this.socialResizeEvent();
+            this.socialCalculation();
         };
         SocialCommunity.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.socialResizeEvent);
@@ -28,8 +28,11 @@ define(["require", "exports", './components/socialheader', './components/socialm
                 React.createElement(socialmodal_1.SocialModal, null), 
                 React.createElement(socialSubmissionModal_1.SocialSubmissionGuidelines, null)));
         };
-        SocialCommunity.prototype.socialResizeEvent = function () {
+        SocialCommunity.prototype.socialCalculation = function () {
             this.SocialIndex.calculation();
+        };
+        SocialCommunity.prototype.socialResizeEvent = function () {
+            this.SocialIndex.recalculation();
         };
         return SocialCommunity;
     }(React.Component));

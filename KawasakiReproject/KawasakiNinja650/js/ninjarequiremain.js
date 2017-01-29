@@ -11,7 +11,8 @@
 });
 
 var commonJsFiles = ['js/models/enums/svgenums.js', 'js/models/commercialmodel.js', 'js/models/vtrmodel',
-			'js/models/socialmodel', 'js/models/researchtoolsModel', 'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
+			'js/models/socialmodel', 'js/models/researchtoolsModel', 'js/models/exploreModel',
+			'js/commonjs', 'js/main-index', 'js/abstractions/slide.abstraction'];
 
 var commercialIndex = 'js/sections/commercial/commercial-index';
 var commercialPartialViews = [
@@ -38,10 +39,17 @@ var researchToolsPartialViews = [
 				'js/sections/researchtools/components/researchtoolslinks',
 				'js/sections/researchtools/researchtools'];
 
+var exploreIndex = 'js/sections/explore/explore-index';
+var explorePartialViews = [
+				'js/sections/explore/components/exploreheader',
+				'js/sections/explore/components/exploretiling',
+				'js/sections/explore/explore'];
+
 
 var finalPartialViews = commercialPartialViews.concat(vtrPartialViews)
 						.concat(socialPartialViews)
-						.concat(researchToolsPartialViews);
+						.concat(researchToolsPartialViews)
+						.concat(explorePartialViews);
 
 requirejs(commonJsFiles, function () {
 	var common = new Kawasaki.Common();
@@ -49,7 +57,8 @@ requirejs(commonJsFiles, function () {
 		requirejs(['js/sections/commercial/devicetypes/commercial-mobile', 'js/sections/vtr/devicetypes/vtr-mobile',
 			'js/sections/social/devicetypes/social-mobile',
 			'js/sections/researchtools/devicetypes/research-mobile',
-			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
+			'js/sections/explore/devicetypes/explore-mobile',
+			commercialIndex, vtrIndex, socialIndex, researchIndex, exploreIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
@@ -57,7 +66,8 @@ requirejs(commonJsFiles, function () {
 		requirejs(['js/sections/commercial/devicetypes/commercial-tablet', 'js/sections/vtr/devicetypes/vtr-tablet',
 			'js/sections/social/devicetypes/social-tablet',
 			'js/sections/researchtools/devicetypes/research-tablet',
-			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
+			'js/sections/explore/devicetypes/explore-tablet',
+			commercialIndex, vtrIndex, socialIndex, researchIndex, exploreIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}
@@ -66,7 +76,8 @@ requirejs(commonJsFiles, function () {
 		requirejs(['js/sections/commercial/devicetypes/commercial-desktop', 'js/sections/vtr/devicetypes/vtr-desktop',
 			'js/sections/social/devicetypes/social-desktop',
 			'js/sections/researchtools/devicetypes/research-desktop',
-			commercialIndex, vtrIndex, socialIndex, researchIndex], function () {
+			'js/sections/explore/devicetypes/explore-desktop',
+			commercialIndex, vtrIndex, socialIndex, researchIndex, exploreIndex], function () {
 			requirejs(finalPartialViews);
 		});
 	}

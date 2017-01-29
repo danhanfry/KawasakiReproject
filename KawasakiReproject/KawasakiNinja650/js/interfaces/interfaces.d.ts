@@ -67,6 +67,11 @@ interface IElementPosition {
 	positionTop: number;
 }
 
+interface IElementDimension {
+	width: number;
+	height: number;
+}
+
 interface IDimensionPosition {
 	width: number;
 	height: number;

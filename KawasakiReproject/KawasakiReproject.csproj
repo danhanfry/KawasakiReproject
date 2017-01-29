@@ -36,6 +36,16 @@
     <Content Include="KawasakiNinja650\assets\slide2\mobile-vtr-failover.jpg" />
     <Content Include="KawasakiNinja650\assets\slide2\tablet-vtr-failover.jpg" />
     <Content Include="KawasakiNinja650\assets\slide2\virtual-test-ride-bg.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\bike.png" />
+    <Content Include="KawasakiNinja650\assets\slide3\comfort.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\convenience.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\handling.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\heritage.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\ninja-650-logo-mobile.png" />
+    <Content Include="KawasakiNinja650\assets\slide3\ninja-650-logo.png" />
+    <Content Include="KawasakiNinja650\assets\slide3\ninja_650_logo_tablet.png" />
+    <Content Include="KawasakiNinja650\assets\slide3\power.jpg" />
+    <Content Include="KawasakiNinja650\assets\slide3\styling.jpg" />
     <Content Include="KawasakiNinja650\assets\slide4\icon_instagram.svg" />
     <Content Include="KawasakiNinja650\assets\slide4\icon_twitter.svg" />
     <Content Include="KawasakiNinja650\assets\slide4\social-bg.jpg" />
@@ -54,6 +64,12 @@
     </Content>
     <Content Include="KawasakiNinja650\css\commercial.min.css">
       <DependentUpon>commercial.css</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\explore.css">
+      <DependentUpon>explore.scss</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\css\explore.min.css">
+      <DependentUpon>explore.css</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\css\fonts.css">
       <DependentUpon>fonts.scss</DependentUpon>
@@ -115,6 +131,9 @@
       <DependentUpon>commercialModel.ts</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\models\enums\svgenums.js" />
+    <Content Include="KawasakiNinja650\js\models\exploremodel.js">
+      <DependentUpon>exploreModel.ts</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\models\researchtoolsmodel.js">
       <DependentUpon>researchtoolsModel.ts</DependentUpon>
     </Content>
@@ -151,6 +170,27 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.js">
       <DependentUpon>commercial-tablet.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\components\exploreheader.js">
+      <DependentUpon>exploreheader.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\components\exploretiling.js">
+      <DependentUpon>exploretiling.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-desktop.js">
+      <DependentUpon>explore-desktop.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-mobile.js">
+      <DependentUpon>explore-mobile.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-tablet.js">
+      <DependentUpon>explore-tablet.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\explore-index.js">
+      <DependentUpon>explore-index.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\explore.js">
+      <DependentUpon>explore.tsx</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsheader.js">
       <DependentUpon>researchtoolsheader.tsx</DependentUpon>
@@ -280,6 +320,8 @@
     <Content Include="KawasakiNinja650\css\researchtools.scss" />
     <Content Include="KawasakiNinja650\data\researchdata.json" />
     <Content Include="KawasakiNinja650\css\socialcommunity.scss" />
+    <Content Include="KawasakiNinja650\data\exploredata.json" />
+    <Content Include="KawasakiNinja650\css\explore.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -292,12 +334,14 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\explore.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\researchtools.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\social.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\vtr.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\enums\svg-enums.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\models\exploreModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\researchtoolsModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\socialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\vtrModel.ts" />
@@ -309,6 +353,13 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\components\exploreheader.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\components\exploretiling.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-desktop.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-mobile.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-tablet.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\explore-index.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\explore.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsheader.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolslinks.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsstartstop.tsx" />

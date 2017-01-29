@@ -56,7 +56,7 @@ define(["require", "exports", './components/researchtoolsheader', './components/
         };
         ResearchTools.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.researchResizeEvent);
-            this.researchResizeEvent();
+            this.researchCalculation();
         };
         ResearchTools.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.researchResizeEvent);
@@ -75,8 +75,11 @@ define(["require", "exports", './components/researchtoolsheader', './components/
                 React.createElement("div", {className: "research-grey-bkg"}), 
                 React.createElement("div", {className: "restart-black-bkg"})));
         };
-        ResearchTools.prototype.researchResizeEvent = function () {
+        ResearchTools.prototype.researchCalculation = function () {
             this.ResearchIndex.calculation();
+        };
+        ResearchTools.prototype.researchResizeEvent = function () {
+            this.ResearchIndex.recalculation();
         };
         return ResearchTools;
     }(React.Component));

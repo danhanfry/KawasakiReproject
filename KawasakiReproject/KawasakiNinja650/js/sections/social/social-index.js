@@ -8,19 +8,21 @@ var Kawasaki;
                 this.Common = new Kawasaki.Common();
                 this.socialSpredfasterUrl = "";
                 this.calculation = function () {
-                    var deviceLayout;
                     if (_this.Common.isMobile()) {
-                        deviceLayout = new SocialMobile(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
+                        _this.deviceLayout = new SocialMobile(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
                     }
                     else if (_this.Common.isTablet()) {
-                        deviceLayout = new SocialTablet(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
+                        _this.deviceLayout = new SocialTablet(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
                     }
                     else {
-                        deviceLayout = new SocialDesktop(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
+                        _this.deviceLayout = new SocialDesktop(_this.windowDimensions.width, _this.windowDimensions.height, _this.socialSpredfasterUrl);
                     }
-                    deviceLayout.calculation();
-                    deviceLayout.eventInitialize();
-                    deviceLayout.setScrollMagicMechanism();
+                    _this.deviceLayout.calculation();
+                    _this.deviceLayout.eventInitialize();
+                    _this.deviceLayout.setScrollMagicMechanism();
+                };
+                this.recalculation = function () {
+                    _this.deviceLayout.calculation();
                 };
                 this.windowDimensions = this.Common.elementDimensions(window);
                 this.socialSpredfasterUrl = location.protocol + "//app.feedspear.com/Campaign/16/Feed";

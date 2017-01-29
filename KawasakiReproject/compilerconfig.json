@@ -34,5 +34,9 @@
   {
     "outputFile": "KawasakiNinja650/css/socialcommunity.css",
     "inputFile": "KawasakiNinja650/css/socialcommunity.scss"
+  },
+  {
+    "outputFile": "KawasakiNinja650/css/explore.css",
+    "inputFile": "KawasakiNinja650/css/explore.scss"
   }
 ]

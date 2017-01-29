@@ -15,7 +15,7 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         };
         VTR.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.vtrResizeEvent);
-            this.vtrResizeEvent();
+            this.vtrCaclulation();
         };
         VTR.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.vtrResizeEvent);
@@ -27,8 +27,11 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
                 React.createElement(vtrcontent_1.VTRContent, {Model: VTRContentProp}), 
                 React.createElement(vtrmodal_1.VTRModal, null)));
         };
-        VTR.prototype.vtrResizeEvent = function () {
+        VTR.prototype.vtrCaclulation = function () {
             this.VTRIndex.calculation();
+        };
+        VTR.prototype.vtrResizeEvent = function () {
+            this.VTRIndex.recalculation();
         };
         return VTR;
     }(React.Component));

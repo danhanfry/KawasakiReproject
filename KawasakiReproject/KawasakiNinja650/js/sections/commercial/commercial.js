@@ -15,7 +15,7 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
         };
         Commercial.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.commercialResizeEvent);
-            this.commercialResizeEvent();
+            this.commercialCalculation();
         };
         Commercial.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.commercialResizeEvent);
@@ -27,8 +27,11 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
                 React.createElement(commercialcontent_1.CommercialContent, {Model: CommercialContentProp}), 
                 React.createElement(commercialscroller_1.CommercialScroller, null)));
         };
-        Commercial.prototype.commercialResizeEvent = function () {
+        Commercial.prototype.commercialCalculation = function () {
             this.CommercialIndex.calculation();
+        };
+        Commercial.prototype.commercialResizeEvent = function () {
+            this.CommercialIndex.recalculation();
         };
         return Commercial;
     }(React.Component));

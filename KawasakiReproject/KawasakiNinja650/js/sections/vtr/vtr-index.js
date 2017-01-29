@@ -7,19 +7,21 @@ var Kawasaki;
                 var _this = this;
                 this.Common = new Kawasaki.Common();
                 this.calculation = function () {
-                    var deviceLayout;
                     if (_this.Common.isMobile()) {
-                        deviceLayout = new VTRMobile(_this.windowDimensions.width, _this.windowDimensions.height);
+                        _this.deviceLayout = new VTRMobile(_this.windowDimensions.width, _this.windowDimensions.height);
                     }
                     else if (_this.Common.isTablet()) {
-                        deviceLayout = new VTRTablet(_this.windowDimensions.width, _this.windowDimensions.height);
+                        _this.deviceLayout = new VTRTablet(_this.windowDimensions.width, _this.windowDimensions.height);
                     }
                     else {
-                        deviceLayout = new VTRDesktop(_this.windowDimensions.width, _this.windowDimensions.height);
+                        _this.deviceLayout = new VTRDesktop(_this.windowDimensions.width, _this.windowDimensions.height);
                     }
-                    deviceLayout.calculation();
-                    deviceLayout.eventInitialize();
-                    deviceLayout.setScrollMagicMechanism();
+                    _this.deviceLayout.calculation();
+                    _this.deviceLayout.eventInitialize();
+                    _this.deviceLayout.setScrollMagicMechanism();
+                };
+                this.recalculation = function () {
+                    _this.deviceLayout.calculation();
                 };
                 this.windowDimensions = this.Common.elementDimensions(window);
             }
