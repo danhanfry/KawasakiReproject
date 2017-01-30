@@ -8,7 +8,7 @@ define(["require", "exports"], function (require, exports) {
     var VTRVideo = (function (_super) {
         __extends(VTRVideo, _super);
         function VTRVideo() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         VTRVideo.prototype.render = function () {
             var Model = this.props.Model;
@@ -24,29 +24,23 @@ define(["require", "exports"], function (require, exports) {
                 overflow: 'hidden',
                 marginTop: '3%'
             };
-            return (React.createElement("div", null, 
+            return (React.createElement("div", null,
                 !IsTouchDevice && !IsLessThanIE11 &&
-                    React.createElement("div", {id: "clipperIdVRVideoId", style: vtrContainerStyle}, 
-                        React.createElement("div", {className: "video_contain_vtr"}, 
-                            React.createElement("video", {id: "videoPlayerVR", className: "video_vtr", poster: "", src: Model.VideoUrl, loop: true})
-                        )
-                    ), 
+                    React.createElement("div", { id: "clipperIdVRVideoId", style: vtrContainerStyle },
+                        React.createElement("div", { className: "video_contain_vtr" },
+                            React.createElement("video", { id: "videoPlayerVR", className: "video_vtr", poster: "", src: Model.VideoUrl, loop: true }))),
                 IsLessThanIE11 &&
-                    React.createElement("div", null, 
-                        React.createElement("div", {id: "desktopFailOverId", className: "desktop-failover-static-img"}, 
-                            React.createElement("img", {src: Model.FallbackLessThanIE11Url})
-                        ), 
-                        React.createElement("div", {id: "failOverContainerVR", className: "vr-failover-container"}, 
-                            React.createElement("div", {id: "failOverNinjaName", className: "failover-vr-logo"}, 
-                                React.createElement("img", {src: "assets/logo_ninja.svg"})
-                            ), 
-                            React.createElement("div", {id: "failOverMessage", className: "failover-vr-message"}, 
-                                React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.FallbackLessThanIE11Description }})
-                            ))), 
+                    React.createElement("div", null,
+                        React.createElement("div", { id: "desktopFailOverId", className: "desktop-failover-static-img" },
+                            React.createElement("img", { src: Model.FallbackLessThanIE11Url })),
+                        React.createElement("div", { id: "failOverContainerVR", className: "vr-failover-container" },
+                            React.createElement("div", { id: "failOverNinjaName", className: "failover-vr-logo" },
+                                React.createElement("img", { src: "assets/logo_ninja.svg" })),
+                            React.createElement("div", { id: "failOverMessage", className: "failover-vr-message" },
+                                React.createElement("span", { dangerouslySetInnerHTML: { __html: Model.FallbackLessThanIE11Description } })))),
                 IsTouchDevice &&
-                    React.createElement("div", {id: "mobileTabletVRStaticImgId", className: "mobile-tablet-static-img"}, 
-                        React.createElement("img", {src: IsMobile ? Model.FallbackMobileUrl : (IsTablet ? Model.FallbackTabletUrl : '')})
-                    )));
+                    React.createElement("div", { id: "mobileTabletVRStaticImgId", className: "mobile-tablet-static-img" },
+                        React.createElement("img", { src: IsMobile ? Model.FallbackMobileUrl : (IsTablet ? Model.FallbackTabletUrl : '') }))));
         };
         return VTRVideo;
     }(React.Component));

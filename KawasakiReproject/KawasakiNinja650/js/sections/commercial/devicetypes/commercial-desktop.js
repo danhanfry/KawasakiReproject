@@ -6,14 +6,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 var CommercialDesktop = (function (_super) {
     __extends(CommercialDesktop, _super);
     function CommercialDesktop(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.desktopCommercialSplitVideoUrl = "https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4";
-        this.desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.desktopCommercialSplitVideoUrl = "https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4";
+        _this.desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             var ninjaLogoYear = $('#commericalNinjaNameYearId');
             var ninjaLogoName = $('#commericalNinjaNameId');
             var ninjaDescriptionElement = $('#commericalNinjaLifeDescriptionId');
@@ -79,7 +78,7 @@ var CommercialDesktop = (function (_super) {
             });
             _this.setTweenMechanism();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
             TweenMax.set(".fixed-nav-bar", { y: -100 });
             TweenMax.set("#commericalNinjaNameYearId", { x: 20 });
             TweenMax.set("#commericalNinjaNameId", { x: 0 });
@@ -110,7 +109,7 @@ var CommercialDesktop = (function (_super) {
             setTimeout(_this.repeatScrollIndicatorAnimation, 6000);
             setTimeout(_this.repeatPlayButtonGlossAnimation, 5000);
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             var playButtonElement = document.getElementById('playArrowMask');
             var playButtonArrowElement = document.getElementById('PlayButtonAction');
             document.getElementById('commericalNinjaLifePlayArrow').addEventListener('click', function () {
@@ -177,7 +176,7 @@ var CommercialDesktop = (function (_super) {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#virtual').offset().top - 65 } });
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
             _this.calculation();
             var videoElement = document.getElementById('videoPlayer');
             var isCommercialPlaying = (videoElement.currentTime > 0 && !videoElement.paused && !videoElement.ended && videoElement.readyState > 2);
@@ -185,9 +184,9 @@ var CommercialDesktop = (function (_super) {
                 _this.commercialResize(videoElement, $(window).width(), $(window).height());
             }
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
-        this.commercialResize = function (video, windowWidth, windowHeight) {
+        _this.commercialResize = function (video, windowWidth, windowHeight) {
             var newScaledVideo = _this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
             var finalNewScaledVideo = newScaledVideo.height;
             if (_this.Common.isFirefoxBrowser()) {
@@ -206,22 +205,23 @@ var CommercialDesktop = (function (_super) {
                 $(video).height(finalNewScaledVideo);
             }
         };
-        this.repeatPlayButtonGlossAnimation = function () {
+        _this.repeatPlayButtonGlossAnimation = function () {
             TweenMax.set(".play-button-gloss", { x: -120, opacity: .6, scaleX: .3 });
             new TimelineMax().to(".play-button-gloss", .5, { x: 120, ease: Linear.easeInOut, scaleX: .3, autoAlpha: .6, repeat: 0 });
             setTimeout(_this.repeatPlayButtonGlossAnimation, 4000);
         };
-        this.repeatScrollIndicatorAnimation = function () {
+        _this.repeatScrollIndicatorAnimation = function () {
             TweenMax.set("#slideOneArrow", { y: 0 });
             TweenMax.set("#slideOneGloss", { y: 50 });
             TweenMax.to("#slideOneArrow", 1, { y: 50, ease: Linear.easeInOut, repeat: 0, onComplete: _this.setArrow });
             TweenMax.to("#slideOneGloss", 1, { y: -100, ease: Linear.easeOut, autoAlpha: 1, repeat: 0 });
             setTimeout(_this.repeatScrollIndicatorAnimation, 4500);
         };
-        this.setArrow = function () {
+        _this.setArrow = function () {
             TweenMax.set("#slideOneArrow", { y: -50 });
             new TimelineMax().to("#slideOneArrow", .4, { y: 23, ease: Linear.easeIn, repeat: 0, delay: -.5 });
         };
+        return _this;
     }
     return CommercialDesktop;
 }(ExperienceSlide));

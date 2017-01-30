@@ -26,10 +26,10 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 		var that = this;
 		var request: XMLHttpRequest = new XMLHttpRequest();
 		request.open('GET', './data/exploredata.json', true);
-		request.onload = function () {
-			if (this.status >= 200 && this.status < 400) {
+		request.onload = () => {
+			if (request.status >= 200 && request.status < 400) {
 				//console.log('found the json file');
-				const exploreData = JSON.parse(this.responseText);
+				const exploreData = JSON.parse(request.responseText);
 				if (exploreData !== undefined && exploreData !== null) {
 
 					const allTiles: Array<IExploreTile> = [];

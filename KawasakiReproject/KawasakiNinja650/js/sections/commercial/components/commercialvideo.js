@@ -8,7 +8,7 @@ define(["require", "exports"], function (require, exports) {
     var CommercialVideo = (function (_super) {
         __extends(CommercialVideo, _super);
         function CommercialVideo() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         CommercialVideo.prototype.render = function () {
             var Model = this.props.Model;
@@ -16,17 +16,14 @@ define(["require", "exports"], function (require, exports) {
             var IsMobile = Common.isMobile();
             var IsTablet = Common.isTablet();
             var IsTouchDevice = IsMobile || IsTablet;
-            return (React.createElement("div", null, 
-                React.createElement("div", {className: "close-button-container hide", id: "firstSlideCloseContainerId"}, 
-                    React.createElement("img", {src: Model.CloseImg, alt: "close button"})
-                ), 
-                React.createElement("div", {className: "video_contain"}, 
-                    React.createElement("video", {id: "videoPlayer", className: "video-container video_main", poster: "", src: Model.VideoUrl, loop: true, width: "100%", height: "auto"})
-                ), 
+            return (React.createElement("div", null,
+                React.createElement("div", { className: "close-button-container hide", id: "firstSlideCloseContainerId" },
+                    React.createElement("img", { src: Model.CloseImg, alt: "close button" })),
+                React.createElement("div", { className: "video_contain" },
+                    React.createElement("video", { id: "videoPlayer", className: "video-container video_main", poster: "", src: Model.VideoUrl, loop: true, width: "100%", height: "auto" })),
                 IsTouchDevice &&
-                    React.createElement("div", {id: "mobileTabletStaticImgId", className: "mobile-tablet-static-img"}, 
-                        React.createElement("img", {src: IsMobile ? Model.FallbackMobileUrl : (IsTablet ? Model.FallbackTabletUrl : '')})
-                    )));
+                    React.createElement("div", { id: "mobileTabletStaticImgId", className: "mobile-tablet-static-img" },
+                        React.createElement("img", { src: IsMobile ? Model.FallbackMobileUrl : (IsTablet ? Model.FallbackTabletUrl : '') }))));
         };
         return CommercialVideo;
     }(React.Component));

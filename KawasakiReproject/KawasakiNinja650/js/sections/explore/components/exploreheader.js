@@ -8,22 +8,19 @@ define(["require", "exports"], function (require, exports) {
     var ExploreHeader = (function (_super) {
         __extends(ExploreHeader, _super);
         function ExploreHeader() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         ExploreHeader.prototype.render = function () {
             var Model = this.props.Model;
-            return (React.createElement("div", null, 
-                React.createElement("div", {id: "techDemoTrigger", className: ""}), 
-                React.createElement("div", {id: "techAnimationExploreId", className: "explore-ninja-content "}, 
-                    React.createElement("div", {className: "explore-ninja-text"}, 
-                        React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.ModelName }})
-                    ), 
-                    React.createElement("div", {className: "explore-hr-line"}, 
-                        React.createElement("img", {src: "assets/green_hr.png"})
-                    ), 
-                    React.createElement("div", {className: "click-bike-explore"}, 
-                        React.createElement("span", {dangerouslySetInnerHTML: { __html: Model.ExploreText }})
-                    ))));
+            return (React.createElement("div", null,
+                React.createElement("div", { id: "techDemoTrigger", className: "" }),
+                React.createElement("div", { id: "techAnimationExploreId", className: "explore-ninja-content " },
+                    React.createElement("div", { className: "explore-ninja-text" },
+                        React.createElement("span", { dangerouslySetInnerHTML: { __html: Model.ModelName } })),
+                    React.createElement("div", { className: "explore-hr-line" },
+                        React.createElement("img", { src: "assets/green_hr.png" })),
+                    React.createElement("div", { className: "click-bike-explore" },
+                        React.createElement("span", { dangerouslySetInnerHTML: { __html: Model.ExploreText } })))));
         };
         return ExploreHeader;
     }(React.Component));

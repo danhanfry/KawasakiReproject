@@ -8,7 +8,7 @@ define(["require", "exports"], function (require, exports) {
     var ExploreTiling = (function (_super) {
         __extends(ExploreTiling, _super);
         function ExploreTiling() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         ExploreTiling.prototype.render = function () {
             var Tiles = this.props.Tiles;
@@ -16,50 +16,40 @@ define(["require", "exports"], function (require, exports) {
             var IsMobile = Common.isMobile();
             var IsTablet = Common.isTablet();
             var IsTouchDevice = IsMobile || IsTablet;
-            return (React.createElement("div", null, 
+            return (React.createElement("div", null,
                 !IsTouchDevice &&
-                    React.createElement("div", {id: "techAnimationId", className: "tech-demo-bike"}, 
-                        React.createElement("div", {id: "ninjaLogo", className: "tech-ninjalogo"}), 
-                        React.createElement("div", {id: "bikeId", className: "main-tech-img  "}), 
+                    React.createElement("div", { id: "techAnimationId", className: "tech-demo-bike" },
+                        React.createElement("div", { id: "ninjaLogo", className: "tech-ninjalogo" }),
+                        React.createElement("div", { id: "bikeId", className: "main-tech-img  " }),
                         Tiles.map(function (tile, index) {
                             var classToUse = "tech-image " + tile.TileSize;
-                            return (React.createElement("div", {key: index, id: tile.TileId, "data-tech": tile.TileName, className: classToUse}, 
-                                React.createElement("img", {src: tile.TileImgPath})
-                            ));
-                        }), 
-                        React.createElement("div", {id: "horizontalWhiteLine", className: "tech-image horiz-white-tile"}), 
-                        React.createElement("div", {id: "verticalWhiteLine", className: "tech-image vert-white-tile"})), 
+                            return (React.createElement("div", { key: index, id: tile.TileId, "data-tech": tile.TileName, className: classToUse },
+                                React.createElement("img", { src: tile.TileImgPath })));
+                        }),
+                        React.createElement("div", { id: "horizontalWhiteLine", className: "tech-image horiz-white-tile" }),
+                        React.createElement("div", { id: "verticalWhiteLine", className: "tech-image vert-white-tile" })),
                 IsTouchDevice &&
-                    React.createElement("div", {id: "nonTechAnimationId"}, 
-                        React.createElement("div", {className: "non-explore-ninja"}, 
-                            React.createElement("div", null, 
-                                React.createElement("span", null, 
-                                    "explore ninja", 
-                                    React.createElement("span", {className: "sup"}, "®"), 
-                                    "650")
-                            )
-                        ), 
-                        React.createElement("div", {className: "spec-ninja-logo"}, 
-                            React.createElement("div", null, 
-                                React.createElement("img", {id: "ninjaLogoExploreId", src: ""})
-                            )
-                        ), 
-                        React.createElement("div", {className: "spec-ninja-bike"}, 
-                            React.createElement("div", null, 
-                                React.createElement("img", {src: "assets/slide3/bike.png"})
-                            )
-                        ), 
-                        React.createElement("div", {className: "non-spec-container"}, Tiles.map(function (tile, index) {
+                    React.createElement("div", { id: "nonTechAnimationId" },
+                        React.createElement("div", { className: "non-explore-ninja" },
+                            React.createElement("div", null,
+                                React.createElement("span", null,
+                                    "explore ninja",
+                                    React.createElement("span", { className: "sup" }, "\u00AE"),
+                                    "650"))),
+                        React.createElement("div", { className: "spec-ninja-logo" },
+                            React.createElement("div", null,
+                                React.createElement("img", { id: "ninjaLogoExploreId", src: "" }))),
+                        React.createElement("div", { className: "spec-ninja-bike" },
+                            React.createElement("div", null,
+                                React.createElement("img", { src: "assets/slide3/bike.png" }))),
+                        React.createElement("div", { className: "non-spec-container" }, Tiles.map(function (tile, index) {
                             var classToUse = "tech-image " + tile.TileSize;
-                            return (React.createElement("div", {className: "spec-parts"}, 
-                                React.createElement("div", {"data-tech": tile.TileName, className: classToUse})
-                            ));
-                        }))), 
-                React.createElement("div", {id: "slideThreeScroller", className: "scroll-indicator"}, 
-                    React.createElement("div", null, 
-                        React.createElement("img", {src: "assets/green_arrow_down.svg"})
-                    )
-                )));
+                            return (React.createElement("div", { className: "spec-parts" },
+                                React.createElement("div", { "data-tech": tile.TileName, className: classToUse })));
+                        }))),
+                React.createElement("div", { id: "slideThreeScroller", className: "scroll-indicator" },
+                    React.createElement("div", null,
+                        React.createElement("img", { src: "assets/green_arrow_down.svg" })))));
         };
         return ExploreTiling;
     }(React.Component));

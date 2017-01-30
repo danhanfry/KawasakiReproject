@@ -6,14 +6,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 var SocialMobile = (function (_super) {
     __extends(SocialMobile, _super);
     function SocialMobile(windowWidth, windowHeight, socialSpredfasterUrl) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.socialSpredfasterUrl = socialSpredfasterUrl;
-        this.Common = new Kawasaki.Common();
-        this.allSpreadFasterContent = [];
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.socialSpredfasterUrl = socialSpredfasterUrl;
+        _this.Common = new Kawasaki.Common();
+        _this.allSpreadFasterContent = [];
+        _this.calculation = function () {
             $('#socialContainer').width(_this.windowWidth);
             if (_this.Common.isAndroid()) {
                 TweenMax.set("#ninjaLifeTxt", {
@@ -54,9 +53,9 @@ var SocialMobile = (function (_super) {
             var ninjaText = $('#ninjaLifeTxt').outerHeight();
             _this.setupSocialFeedRetrieval();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             $(document).on({
                 mouseenter: function () {
                     var element = $(this).get(0);
@@ -160,11 +159,11 @@ var SocialMobile = (function (_super) {
                 document.getElementById('socialGuidelinesModalId').style.display = "none";
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
-        this.setupSocialFeedRetrieval = function () {
+        _this.setupSocialFeedRetrieval = function () {
             Spredfast(_this.socialSpredfasterUrl, function (result) {
                 var maxShowSocial = 10;
                 var currentRow = 1;
@@ -229,6 +228,7 @@ var SocialMobile = (function (_super) {
                 $('#social').height(bkgGrey.position().top + bkgGrey.height() + socialContainment + ninjaText).width(this.windowWidth);
             });
         };
+        return _this;
     }
     return SocialMobile;
 }(ExperienceSlide));

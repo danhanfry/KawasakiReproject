@@ -6,14 +6,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 var SocialDesktop = (function (_super) {
     __extends(SocialDesktop, _super);
     function SocialDesktop(windowWidth, windowHeight, socialSpredfasterUrl) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.socialSpredfasterUrl = socialSpredfasterUrl;
-        this.Common = new Kawasaki.Common();
-        this.allSpreadFasterContent = [];
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.socialSpredfasterUrl = socialSpredfasterUrl;
+        _this.Common = new Kawasaki.Common();
+        _this.allSpreadFasterContent = [];
+        _this.calculation = function () {
             document.getElementById('socialCommunityContainer').style.display = 'block';
             if (_this.windowWidth < 1440) {
                 $('#socialContainer').width(_this.windowWidth);
@@ -57,9 +56,9 @@ var SocialDesktop = (function (_super) {
             _this.setTweenMechanism();
             _this.setupSocialFeedRetrieval();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             var that = _this;
             $(document).on({
                 mouseenter: function () {
@@ -166,9 +165,9 @@ var SocialDesktop = (function (_super) {
                 document.getElementById('socialGuidelinesModalId').style.display = "none";
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
             var scene = new ScrollMagic.Scene({
                 triggerElement: "#social",
                 offset: 100
@@ -189,7 +188,7 @@ var SocialDesktop = (function (_super) {
                 .setTween(_this.getSocialScramble())
                 .addTo(controller);
         };
-        this.setupSocialFeedRetrieval = function () {
+        _this.setupSocialFeedRetrieval = function () {
             Spredfast(_this.socialSpredfasterUrl, function (result) {
                 var maxShowSocial = 20;
                 var currentRow = 1;
@@ -260,23 +259,23 @@ var SocialDesktop = (function (_super) {
                 }
             });
         };
-        this.getSocialTween = function () {
+        _this.getSocialTween = function () {
             return new TimelineMax()
                 .to('#ninjaLifeTxt', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut })
                 .to('#socialSubmissionGuideLines', 1, { y: 0, autoAlpha: 1, ease: Linear.easeInOut }, "-=1")
                 .to("#twitterSocialIconId", 0.7, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.7")
                 .to("#instagramSocialIconId", 0.7, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.6");
         };
-        this.getSocialBkgTween = function () {
+        _this.getSocialBkgTween = function () {
             return new TimelineMax()
                 .to('.social-gray-bg', 0.5, { y: -150, ease: Linear.easeOut });
         };
-        this.getSocialScramble = function () {
+        _this.getSocialScramble = function () {
             return new TimelineMax()
                 .to("#socialCommunityText", 1.5, { opacity: 0.5 })
                 .to("#communitySocialBackgroundId", 1.5, { scrambleText: { text: "COMMUNITY", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0");
         };
-        this.customStaggerForSocial = function () {
+        _this.customStaggerForSocial = function () {
             var totalNumberOfTiles = $('.front-social').length;
             var arrayOfTilesMod = [];
             var arrayofMods = [];
@@ -298,6 +297,7 @@ var SocialDesktop = (function (_super) {
             }
             return arrayOfTweens;
         };
+        return _this;
     }
     return SocialDesktop;
 }(ExperienceSlide));

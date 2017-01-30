@@ -6,11 +6,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 var ExploreTablet = (function (_super) {
     __extends(ExploreTablet, _super);
     function ExploreTablet(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.tiles = [
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.tiles = [
             { elm: "#stylingId", x: -100, y: -100, imgX: -900, imgY: -100, imgScale: 0.23 },
             { elm: "#comfortId", x: 0, y: -130, imgX: -1320, imgY: 200, imgScale: 0.4 },
             { elm: "#convenienceId", x: -180, y: -40, imgX: -870, imgY: -700, imgScale: 0.5 },
@@ -18,7 +17,7 @@ var ExploreTablet = (function (_super) {
             { elm: "#handlingId", x: 120, y: -0, imgX: -500, imgY: 0, imgScale: 0.25 },
             { elm: "#racingHeritageId", x: 0, y: 120, imgX: -300, imgY: -800, imgScale: 0.5 }
         ];
-        this.tabletTiles = [
+        _this.tabletTiles = [
             { elm: "styling", x: -510, y: -300, width: 0, height: 0 },
             { elm: "comfort", x: -300, y: -150, width: 0, height: 0 },
             { elm: "convenience", x: -400, y: -355, width: 0, height: 0 },
@@ -26,16 +25,16 @@ var ExploreTablet = (function (_super) {
             { elm: "handling", x: -155, y: -50, width: 0, height: 0 },
             { elm: "racingHeritage", x: -400, y: -300, width: 0, height: 0 }
         ];
-        this.specOriginalDimensions = { width: 1920, height: 1080 };
-        this.s3Animated = false;
-        this.s3AlreadyTriggerHoverOnInit = false;
-        this.s3CurrentSelectedTile = -1;
-        this.s3CurrentSelectedTabletTile = -1;
-        this.s3ModalExapnded = false;
-        this.specModalClicked = false;
-        this.currentImageInTileDimensions = { width: 0, height: 0 };
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        _this.specOriginalDimensions = { width: 1920, height: 1080 };
+        _this.s3Animated = false;
+        _this.s3AlreadyTriggerHoverOnInit = false;
+        _this.s3CurrentSelectedTile = -1;
+        _this.s3CurrentSelectedTabletTile = -1;
+        _this.s3ModalExapnded = false;
+        _this.specModalClicked = false;
+        _this.currentImageInTileDimensions = { width: 0, height: 0 };
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             var bikeCoordinates = $('#bikeId').position().top + $('#bikeId').height();
             if (_this.windowWidth <= 1290) {
                 TweenMax.set("#techAnimationId", { left: 0 });
@@ -109,9 +108,9 @@ var ExploreTablet = (function (_super) {
                 }
             });
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             $('.tech-image:not(.horiz-white-tile):not(.vert-white-tile)').each(function (index, element) {
                 $(this).on('mouseover', function () {
                     TweenMax.to($(this), .2, { scaleX: 1.05, scaleY: 1.05, ease: Linear.easeInOut, repeat: 0 });
@@ -243,16 +242,17 @@ var ExploreTablet = (function (_super) {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#social').offset().top - 65 } });
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
-        this.tabletAttachImageToContainer = function (parent, childImgSrc) {
+        _this.tabletAttachImageToContainer = function (parent, childImgSrc) {
             var tileImage = document.createElement('img');
             tileImage.src = childImgSrc;
             parent.append(tileImage);
             return tileImage;
         };
+        return _this;
     }
     return ExploreTablet;
 }(ExperienceSlide));

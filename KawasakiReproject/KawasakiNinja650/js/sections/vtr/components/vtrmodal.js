@@ -8,23 +8,18 @@ define(["require", "exports"], function (require, exports) {
     var VTRModal = (function (_super) {
         __extends(VTRModal, _super);
         function VTRModal() {
-            _super.apply(this, arguments);
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         VTRModal.prototype.render = function () {
             var Common = new Kawasaki.Common();
-            return (React.createElement("div", {className: "modal", id: "testVRModal"}, 
-                React.createElement("div", {id: "testVRContent", className: "modal-content"}, 
-                    React.createElement("div", {className: "modal-header"}, 
-                        React.createElement("span", {className: "close-btn"}, 
-                            React.createElement("img", {src: "assets/close_green_btn.svg", alt: "close button"})
-                        )
-                    ), 
-                    React.createElement("div", {className: "modal-body"}, 
-                        React.createElement("div", {id: "modalContentVTRContainer", className: "modal-vtr-content-container"}, 
-                            React.createElement("div", {id: "modalVTRContentInfo", className: "modal-vtr-content-info"})
-                        )
-                    ))
-            ));
+            return (React.createElement("div", { className: "modal", id: "testVRModal" },
+                React.createElement("div", { id: "testVRContent", className: "modal-content" },
+                    React.createElement("div", { className: "modal-header" },
+                        React.createElement("span", { className: "close-btn" },
+                            React.createElement("img", { src: "assets/close_green_btn.svg", alt: "close button" }))),
+                    React.createElement("div", { className: "modal-body" },
+                        React.createElement("div", { id: "modalContentVTRContainer", className: "modal-vtr-content-container" },
+                            React.createElement("div", { id: "modalVTRContentInfo", className: "modal-vtr-content-info" }))))));
         };
         return VTRModal;
     }(React.Component));

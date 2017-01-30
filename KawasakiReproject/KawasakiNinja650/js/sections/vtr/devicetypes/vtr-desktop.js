@@ -6,12 +6,11 @@ var __extends = (this && this.__extends) || function (d, b) {
 var VTRDesktop = (function (_super) {
     __extends(VTRDesktop, _super);
     function VTRDesktop(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             $('#virtual').height(_this.windowHeight).width(_this.windowWidth);
             if (navigator.userAgent.indexOf("MSIE") >= 0) {
                 var scaledStaticImage = _this.Common.scaleProportionally(3840, 1400, _this.windowWidth, 700, false);
@@ -80,9 +79,9 @@ var VTRDesktop = (function (_super) {
             videoVTRPlay.play();
             _this.prepareIFrameVRTestRide();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             $('#leftTextForVRVideoHoverId').on({
                 mouseover: function () {
                     TweenMax.to("#leftTextForVRVideoHoverId", 0.5, { color: '#66cc33' });
@@ -134,10 +133,10 @@ var VTRDesktop = (function (_super) {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#explore').offset().top - 65 } });
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
             _this.calculation();
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
             var vtrScene = new ScrollMagic.Scene({
                 triggerElement: "#virtual",
                 offset: 100
@@ -158,7 +157,7 @@ var VTRDesktop = (function (_super) {
                 .setTween("#slideTwoScroller", 1, { y: 65, duration: .5, ease: Linear.easeOut })
                 .addTo(controller);
         };
-        this.prepareIFrameVRTestRide = function () {
+        _this.prepareIFrameVRTestRide = function () {
             var vrIFrame = document.createElement('iframe');
             vrIFrame.width = "100%";
             vrIFrame.height = "100%";
@@ -170,23 +169,24 @@ var VTRDesktop = (function (_super) {
             vrIFrame.setAttribute('seamless', 'true');
             document.getElementById('modalVTRContentInfo').appendChild(vrIFrame);
         };
-        this.setupTestVRModal = function (videoId) {
+        _this.setupTestVRModal = function (videoId) {
             window.frames[0].frameElement.src = "vtr/index.html?videoId=" + videoId;
             document.getElementById('testVRModal').style.display = 'block';
             _this.Common.preventScrolling();
         };
-        this.tweenTextByScroll = function () {
+        _this.tweenTextByScroll = function () {
             return new TimelineMax()
                 .to('.testvr-experience', 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.6")
                 .to(".testvr-description", 0.5, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.4")
                 .to("#leftTextForVRVideoHoverId", 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut })
                 .to('#rightTextForVRVideoHoverId', 0.4, { y: 0, autoAlpha: 1, ease: Linear.easeOut }, "-=0.1");
         };
-        this.tweenScrambleTextByScroll = function () {
+        _this.tweenScrambleTextByScroll = function () {
             return new TimelineMax()
                 .to("#testVRTestRide", 1.5, { opacity: 1 })
                 .to("#testVRTestRideBackgroundId", 1.5, { scrambleText: { text: "TAKE A VIRTUAL TEST RIDE", chars: "upperCase", revealDelay: 0.5, tweenLength: false, ease: Linear.easeNone } }, "-=2.0");
         };
+        return _this;
     }
     return VTRDesktop;
 }(ExperienceSlide));

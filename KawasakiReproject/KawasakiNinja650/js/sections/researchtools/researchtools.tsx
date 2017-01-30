@@ -27,10 +27,10 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 		var that = this;
 		var request: XMLHttpRequest = new XMLHttpRequest();
 		request.open('GET', './data/researchdata.json', true);
-		request.onload = function () {
-			if (this.status >= 200 && this.status < 400) {
+		request.onload = () => {
+			if (request.status >= 200 && request.status < 400) {
 				//console.log('found the json file');
-				const researchData = JSON.parse(this.responseText);
+				const researchData = JSON.parse(request.responseText);
 				if (researchData !== undefined && researchData !== null && researchData.ResearchPage.length > 0) {
 
 					const allResearchLinks: Array<IResearchToolsLinks> = [];

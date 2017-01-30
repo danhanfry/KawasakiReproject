@@ -6,12 +6,11 @@ var __extends = (this && this.__extends) || function (d, b) {
 var VTRMobile = (function (_super) {
     __extends(VTRMobile, _super);
     function VTRMobile(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             $('#mobileTabletVRStaticImgId img').prop('src', 'assets/slide2/mobile-vtr-failover.jpg');
             $('#virtual').height(_this.windowHeight).width(_this.windowWidth);
             var scaledStaticImage = _this.Common.scaleProportionally(1125, 2001, _this.windowWidth, _this.windowHeight, false);
@@ -44,9 +43,9 @@ var VTRMobile = (function (_super) {
                 left: (_this.windowWidth / 2) - ($('#slideTwoScroller img').width() / 2) - 40
             });
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             $('#leftTextForVRVideoHoverId').on({
                 mouseover: function () {
                     TweenMax.to("#leftTextForVRVideoHoverId", 0.5, { color: '#66cc33' });
@@ -93,10 +92,11 @@ var VTRMobile = (function (_super) {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#explore').offset().top } });
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
+        return _this;
     }
     return VTRMobile;
 }(ExperienceSlide));

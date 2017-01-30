@@ -3,13 +3,14 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", './components/socialheader', './components/socialmodal', './components/socialSubmissionModal'], function (require, exports, socialheader_1, socialmodal_1, socialSubmissionModal_1) {
+define(["require", "exports", "./components/socialheader", "./components/socialmodal", "./components/socialSubmissionModal"], function (require, exports, socialheader_1, socialmodal_1, socialSubmissionModal_1) {
     "use strict";
     var SocialCommunity = (function (_super) {
         __extends(SocialCommunity, _super);
         function SocialCommunity() {
-            _super.apply(this, arguments);
-            this.SocialIndex = new Kawasaki.NinjaSixFifty.SocialCommunity();
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.SocialIndex = new Kawasaki.NinjaSixFifty.SocialCommunity();
+            return _this;
         }
         SocialCommunity.prototype.componentWillMount = function () {
         };
@@ -22,10 +23,10 @@ define(["require", "exports", './components/socialheader', './components/socialm
         };
         SocialCommunity.prototype.render = function () {
             var SocialHeaderProp = this.props.SocialCommunityProperties.SocialHeaderProp;
-            return (React.createElement("div", null, 
-                React.createElement(socialheader_1.SocialHeader, {Model: SocialHeaderProp}), 
-                React.createElement("div", {id: "socialContainer", className: "social-container"}), 
-                React.createElement(socialmodal_1.SocialModal, null), 
+            return (React.createElement("div", null,
+                React.createElement(socialheader_1.SocialHeader, { Model: SocialHeaderProp }),
+                React.createElement("div", { id: "socialContainer", className: "social-container" }),
+                React.createElement(socialmodal_1.SocialModal, null),
                 React.createElement(socialSubmissionModal_1.SocialSubmissionGuidelines, null)));
         };
         SocialCommunity.prototype.socialCalculation = function () {
@@ -39,5 +40,5 @@ define(["require", "exports", './components/socialheader', './components/socialm
     exports.SocialCommunity = SocialCommunity;
     var socialCommunityHeaderModel = new SocialHeaderViewModel('community', '#NINJALIFE', 'submission guidelines', 'assets/slide4/icon_twitter.svg', 'assets/slide4/icon_instagram.svg');
     var socialCommunityModel = new SocialCommunityProperties(socialCommunityHeaderModel);
-    ReactDOM.render(React.createElement(SocialCommunity, {SocialCommunityProperties: socialCommunityModel}), document.getElementById('social'));
+    ReactDOM.render(React.createElement(SocialCommunity, { SocialCommunityProperties: socialCommunityModel }), document.getElementById('social'));
 });

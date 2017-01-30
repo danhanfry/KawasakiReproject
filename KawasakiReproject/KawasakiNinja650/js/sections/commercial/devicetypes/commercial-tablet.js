@@ -6,13 +6,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 var CommercialTablet = (function (_super) {
     __extends(CommercialTablet, _super);
     function CommercialTablet(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.tabletMobileCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_720.mp4";
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.tabletMobileCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_720.mp4";
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             var ninjaLogoYear = $('#commericalNinjaNameYearId');
             var ninjaLogoName = $('#commericalNinjaNameId');
             var ninjaDescriptionElement = $('#commericalNinjaLifeDescriptionId');
@@ -90,7 +89,7 @@ var CommercialTablet = (function (_super) {
             });
             _this.setTweenMechanism();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
             TweenMax.set("#commericalNinjaNameYearId", { opacity: 1 });
             TweenMax.set("#commericalNinjaNameId", { opacity: 1 });
             TweenMax.set("#commericalNinjaLifeGreenHrId", { opacity: 1 });
@@ -99,7 +98,7 @@ var CommercialTablet = (function (_super) {
             TweenMax.set("#slideOneScroller.scroll-indicator", { opacity: 1 });
             TweenMax.set(".fixed-nav-bar", { opacity: 1 });
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             var playButtonElement = document.getElementById('playArrowMask');
             var playButtonArrowElement = document.getElementById('PlayButtonAction');
             document.getElementById('commericalNinjaLifePlayArrow').addEventListener('click', function () {
@@ -160,7 +159,7 @@ var CommercialTablet = (function (_super) {
                 }
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
             _this.calculation();
             var videoElement = document.getElementById('videoPlayer');
             var isCommercialPlaying = (videoElement.currentTime > 0 && !videoElement.paused && !videoElement.ended && videoElement.readyState > 2);
@@ -168,9 +167,9 @@ var CommercialTablet = (function (_super) {
                 _this.commercialResize(videoElement, $(window).width(), $(window).height());
             }
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
-        this.commercialResize = function (video, windowWidth, windowHeight) {
+        _this.commercialResize = function (video, windowWidth, windowHeight) {
             var newScaledVideo = _this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
             var finalNewScaledVideo = newScaledVideo.height;
             if (_this.Common.isFirefoxBrowser()) {
@@ -189,6 +188,7 @@ var CommercialTablet = (function (_super) {
                 $(video).height(finalNewScaledVideo);
             }
         };
+        return _this;
     }
     return CommercialTablet;
 }(ExperienceSlide));

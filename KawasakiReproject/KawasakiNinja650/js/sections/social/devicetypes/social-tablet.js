@@ -6,14 +6,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 var SocialTablet = (function (_super) {
     __extends(SocialTablet, _super);
     function SocialTablet(windowWidth, windowHeight, socialSpredfasterUrl) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.socialSpredfasterUrl = socialSpredfasterUrl;
-        this.Common = new Kawasaki.Common();
-        this.allSpreadFasterContent = [];
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.socialSpredfasterUrl = socialSpredfasterUrl;
+        _this.Common = new Kawasaki.Common();
+        _this.allSpreadFasterContent = [];
+        _this.calculation = function () {
             document.getElementById('socialCommunityContainer').style.display = 'block';
             $('#socialContainer').width(_this.windowWidth);
             TweenMax.set("#ninjaLifeTxt", { left: (_this.windowWidth / 2) - ($('#ninjaLifeTxt').width() / 2) });
@@ -48,9 +47,9 @@ var SocialTablet = (function (_super) {
             TweenMax.set("#instagramSocialIconId", { y: 50 });
             _this.setupSocialFeedRetrieval();
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             $(document).on({
                 mouseenter: function () {
                     var element = $(this).get(0);
@@ -154,11 +153,11 @@ var SocialTablet = (function (_super) {
                 document.getElementById('socialGuidelinesModalId').style.display = "none";
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
-        this.setupSocialFeedRetrieval = function () {
+        _this.setupSocialFeedRetrieval = function () {
             Spredfast(_this.socialSpredfasterUrl, function (result) {
                 var maxShowSocial = 20;
                 var currentRow = 1;
@@ -221,6 +220,7 @@ var SocialTablet = (function (_super) {
                 $('#social').height(bkgGrey.position().top + bkgGrey.height() + socialContainment + ninjaText).width(_this.windowWidth);
             });
         };
+        return _this;
     }
     return SocialTablet;
 }(ExperienceSlide));

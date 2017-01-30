@@ -8,8 +8,9 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
     var VTR = (function (_super) {
         __extends(VTR, _super);
         function VTR() {
-            _super.apply(this, arguments);
-            this.VTRIndex = new Kawasaki.NinjaSixFifty.VTR();
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.VTRIndex = new Kawasaki.NinjaSixFifty.VTR();
+            return _this;
         }
         VTR.prototype.componentWillMount = function () {
         };
@@ -22,9 +23,9 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         };
         VTR.prototype.render = function () {
             var _a = this.props.VTRProperties, VTRVideoProp = _a.VTRVideoProp, VTRContentProp = _a.VTRContentProp;
-            return (React.createElement("div", null, 
-                React.createElement(vtrvideo_1.VTRVideo, {Model: VTRVideoProp}), 
-                React.createElement(vtrcontent_1.VTRContent, {Model: VTRContentProp}), 
+            return (React.createElement("div", null,
+                React.createElement(vtrvideo_1.VTRVideo, { Model: VTRVideoProp }),
+                React.createElement(vtrcontent_1.VTRContent, { Model: VTRContentProp }),
                 React.createElement(vtrmodal_1.VTRModal, null)));
         };
         VTR.prototype.vtrCaclulation = function () {
@@ -42,7 +43,7 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
     var freePlayBtnSvgElement = createFreeRidePlayButton();
     var vtrContentModel = new VTRContentViewModel('experience the 2017 ninja<span class="sup">®</span> 650', 'take a virtual test ride', 'Along the way you’ll learn about the exciting features that make the Ninja<span class="cirlce-r">®</span> 650motorcycle a perfect combination of sporty performance and everyday comfort.', interactivePlayBtnSvgElement, freePlayBtnSvgElement);
     var vtrModel = new VTRProperties(vtrVideoModel, vtrContentModel);
-    ReactDOM.render(React.createElement(VTR, {VTRProperties: vtrModel}), document.getElementById('virtual'));
+    ReactDOM.render(React.createElement(VTR, { VTRProperties: vtrModel }), document.getElementById('virtual'));
     function createCommonSvgDefinition() {
         var vtrDefRectProperties = {
             id: "path-1", x: "0", y: "0", width: "108", height: "108", rx: "8"

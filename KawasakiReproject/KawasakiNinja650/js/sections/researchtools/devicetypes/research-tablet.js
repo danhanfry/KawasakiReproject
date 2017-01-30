@@ -6,12 +6,11 @@ var __extends = (this && this.__extends) || function (d, b) {
 var ResearchTablet = (function (_super) {
     __extends(ResearchTablet, _super);
     function ResearchTablet(windowWidth, windowHeight) {
-        var _this = this;
-        _super.call(this);
-        this.windowWidth = windowWidth;
-        this.windowHeight = windowHeight;
-        this.Common = new Kawasaki.Common();
-        this.calculation = function () {
+        var _this = _super.call(this) || this;
+        _this.windowWidth = windowWidth;
+        _this.windowHeight = windowHeight;
+        _this.Common = new Kawasaki.Common();
+        _this.calculation = function () {
             $('#researchtools').width(_this.windowWidth);
             TweenMax.set("#researchYear", { left: ((_this.windowWidth / 2)) - ($('#researchYear').width() / 2) });
             if (_this.Common.isSafari() && !_this.Common.isMobile()) {
@@ -68,9 +67,9 @@ var ResearchTablet = (function (_super) {
                 height: $('#researchtools').height() - halfWayOfResearchTool
             });
         };
-        this.setTweenMechanism = function () {
+        _this.setTweenMechanism = function () {
         };
-        this.eventInitialize = function () {
+        _this.eventInitialize = function () {
             document.getElementById('restartExperienceId').addEventListener('click', function () {
                 TweenMax.to(window, 2, { scrollTo: { y: 0, x: 0 } });
             });
@@ -78,10 +77,11 @@ var ResearchTablet = (function (_super) {
                 window.location.href = '/Products/2017-Ninja-650-ABS-KRT-Edition';
             });
         };
-        this.resize = function () {
+        _this.resize = function () {
         };
-        this.setScrollMagicMechanism = function () {
+        _this.setScrollMagicMechanism = function () {
         };
+        return _this;
     }
     return ResearchTablet;
 }(ExperienceSlide));

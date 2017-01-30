@@ -8,8 +8,9 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
     var Commercial = (function (_super) {
         __extends(Commercial, _super);
         function Commercial() {
-            _super.apply(this, arguments);
-            this.CommercialIndex = new Kawasaki.NinjaSixFifty.Commercial();
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.CommercialIndex = new Kawasaki.NinjaSixFifty.Commercial();
+            return _this;
         }
         Commercial.prototype.componentWillMount = function () {
         };
@@ -22,9 +23,9 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
         };
         Commercial.prototype.render = function () {
             var _a = this.props.CommercialProperties, CommercialVideoProp = _a.CommercialVideoProp, CommercialContentProp = _a.CommercialContentProp;
-            return (React.createElement("div", null, 
-                React.createElement(commercialvideo_1.CommercialVideo, {Model: CommercialVideoProp}), 
-                React.createElement(commercialcontent_1.CommercialContent, {Model: CommercialContentProp}), 
+            return (React.createElement("div", null,
+                React.createElement(commercialvideo_1.CommercialVideo, { Model: CommercialVideoProp }),
+                React.createElement(commercialcontent_1.CommercialContent, { Model: CommercialContentProp }),
                 React.createElement(commercialscroller_1.CommercialScroller, null)));
         };
         Commercial.prototype.commercialCalculation = function () {
@@ -50,5 +51,5 @@ define(["require", "exports", "./components/commercialvideo", "./components/comm
         'to Ninja roots while comfort and convenience make the <br />Ninja 650 an exceptional everyday ride.';
     var commercialContentModel = new CommercialContentModel('assets/logo_2017.svg', 'assets/logo_ninja.svg', 'assets/green_hr.png', commercialDescription, 'assets/slide1/playButton_ActionImg.svg', playBtnSvgElement);
     var commercialModel = new CommercialProperties(commercialVideolModel, commercialContentModel);
-    ReactDOM.render(React.createElement(Commercial, {CommercialProperties: commercialModel}), document.getElementById('commercial'));
+    ReactDOM.render(React.createElement(Commercial, { CommercialProperties: commercialModel }), document.getElementById('commercial'));
 });

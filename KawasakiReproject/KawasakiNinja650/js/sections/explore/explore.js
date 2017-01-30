@@ -3,25 +3,26 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", './components/exploreheader', './components/exploretiling'], function (require, exports, exploreheader_1, exploretiling_1) {
+define(["require", "exports", "./components/exploreheader", "./components/exploretiling"], function (require, exports, exploreheader_1, exploretiling_1) {
     "use strict";
     var Explore = (function (_super) {
         __extends(Explore, _super);
         function Explore(props) {
-            _super.call(this, props);
-            this.ExploreIndex = new Kawasaki.NinjaSixFifty.Explore();
-            this.exploreTiles = [];
-            this.state = {
+            var _this = _super.call(this, props) || this;
+            _this.ExploreIndex = new Kawasaki.NinjaSixFifty.Explore();
+            _this.exploreTiles = [];
+            _this.state = {
                 TilesState: new Array()
             };
+            return _this;
         }
         Explore.prototype.componentWillMount = function () {
             var that = this;
             var request = new XMLHttpRequest();
             request.open('GET', './data/exploredata.json', true);
             request.onload = function () {
-                if (this.status >= 200 && this.status < 400) {
-                    var exploreData = JSON.parse(this.responseText);
+                if (request.status >= 200 && request.status < 400) {
+                    var exploreData = JSON.parse(request.responseText);
                     if (exploreData !== undefined && exploreData !== null) {
                         var allTiles = [];
                         var listOfTiles = exploreData.Tiles;
@@ -58,9 +59,9 @@ define(["require", "exports", './components/exploreheader', './components/explor
         };
         Explore.prototype.render = function () {
             var ExploreHeaderProp = this.props.ExploreProperties.ExploreHeaderProp;
-            return (React.createElement("div", null, 
-                React.createElement(exploreheader_1.ExploreHeader, {Model: ExploreHeaderProp}), 
-                React.createElement(exploretiling_1.ExploreTiling, {Tiles: this.state.TilesState})));
+            return (React.createElement("div", null,
+                React.createElement(exploreheader_1.ExploreHeader, { Model: ExploreHeaderProp }),
+                React.createElement(exploretiling_1.ExploreTiling, { Tiles: this.state.TilesState })));
         };
         Explore.prototype.exploreCalculation = function () {
             this.ExploreIndex.calculation();
@@ -73,5 +74,5 @@ define(["require", "exports", './components/exploreheader', './components/explor
     exports.Explore = Explore;
     var exploreModel = new ExploreContentModel('explore ninja<span class="sup">®</span>650', 'click on the bike to explore');
     var exploreProperties = new ExploreProperties(exploreModel);
-    ReactDOM.render(React.createElement(Explore, {ExploreProperties: exploreProperties}), document.getElementById('explore'));
+    ReactDOM.render(React.createElement(Explore, { ExploreProperties: exploreProperties }), document.getElementById('explore'));
 });
