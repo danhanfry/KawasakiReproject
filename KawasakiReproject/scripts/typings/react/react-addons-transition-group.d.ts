@@ -1,27 +1,18 @@
-﻿// Type definitions for React v0.14 (react-addons-transition-group)
+﻿// Type definitions for React (react-addons-transition-group) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import { ReactElement, ComponentClass, ReactType, TransitionGroupProps } from 'react';
 
-declare namespace __React {
-
-    interface TransitionGroupProps {
-        component?: ReactType;
-        className?: string;
-        childFactory?: (child: ReactElement<any>) => ReactElement<any>;
-    }
-
-    type TransitionGroup = ComponentClass<TransitionGroupProps>;
-
-    namespace __Addons {
-        export var TransitionGroup: __React.TransitionGroup;
-    }
+declare module 'react' {
+	export interface TransitionGroupProps extends HTMLAttributes<{}> {
+		component?: ReactType;
+		className?: string;
+		childFactory?: (child: ReactElement<any>) => ReactElement<any>;
+	}
 }
 
-declare module "react-addons-transition-group" {
-    var TransitionGroup: __React.TransitionGroup;
-    type TransitionGroup = __React.TransitionGroup;
-    export = TransitionGroup;
-}
+declare var ReactCSSTransitionGroup: ComponentClass<TransitionGroupProps>;
+export = ReactCSSTransitionGroup;

@@ -1,16 +1,11 @@
-﻿// Type definitions for React v0.14 (react-addons-create-fragment)
+﻿// Type definitions for React (react-addons-create-fragment) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import * as React from 'react';
 
-declare namespace __React {
-    namespace __Addons {
-        export function createFragment(object: { [key: string]: ReactNode }): ReactFragment;
-    }
-}
+export = createFragment;
 
-declare module "react-addons-create-fragment" {
-    export = __React.__Addons.createFragment;
-}
+declare function createFragment(object: { [key: string]: React.ReactNode }): React.ReactFragment;

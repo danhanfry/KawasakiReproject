@@ -1,20 +1,12 @@
-﻿// Type definitions for React v0.14 (react-addons-pure-render-mixin)
+﻿// Type definitions for React (react-addons-pure-render-mixin) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import { Mixin } from 'react';
 
-declare namespace __React {
-    interface PureRenderMixin extends Mixin<any, any> { }
+declare var PureRenderMixin: PureRenderMixin;
+export = PureRenderMixin;
 
-    namespace __Addons {
-        export var PureRenderMixin: PureRenderMixin;
-    }
-}
-
-declare module "react-addons-pure-render-mixin" {
-    var PureRenderMixin: __React.PureRenderMixin;
-    type PureRenderMixin = __React.PureRenderMixin;
-    export = PureRenderMixin;
-}
+interface PureRenderMixin extends Mixin<any, any> { }

@@ -1,35 +1,34 @@
-﻿// Type definitions for React v0.14 (react-addons-update)
+﻿// Type definitions for React (react-addons-update) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import * as React from 'react';
 
-declare namespace __React {
-    interface UpdateSpecCommand {
-        $set?: any;
-        $merge?: {};
-        $apply?(value: any): any;
-    }
+export = React.__Addons.update;
 
-    interface UpdateSpecPath {
-        [key: string]: UpdateSpec;
-    }
+declare module 'react' {
+	interface UpdateSpecCommand {
+		$set?: any;
+		$merge?: {};
+		$apply?(value: any): any;
+	}
 
-    type UpdateSpec = UpdateSpecCommand | UpdateSpecPath;
+	interface UpdateSpecPath {
+		[key: string]: UpdateSpec;
+	}
 
-    interface UpdateArraySpec extends UpdateSpecCommand {
-        $push?: any[];
-        $unshift?: any[];
-        $splice?: any[][];
-    }
+	type UpdateSpec = UpdateSpecCommand | UpdateSpecPath;
 
-    namespace __Addons {
-        export function update(value: any[], spec: UpdateArraySpec): any[];
-        export function update(value: {}, spec: UpdateSpec): any;
-    }
-}
+	interface UpdateArraySpec extends UpdateSpecCommand {
+		$push?: any[];
+		$unshift?: any[];
+		$splice?: any[][];
+	}
 
-declare module "react-addons-update" {
-    export = __React.__Addons.update;
+	namespace __Addons {
+		export function update(value: any[], spec: UpdateArraySpec): any[];
+		export function update(value: {}, spec: UpdateSpec): any;
+	}
 }

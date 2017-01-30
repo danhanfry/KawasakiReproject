@@ -1,19 +1,18 @@
-﻿// Type definitions for React v0.14 (react-addons-css-transition-group)
+﻿// Type definitions for React (react-addons-shallow-compare) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import { Component } from 'react';
 
-declare namespace __React {
-    namespace __Addons {
-        export function shallowCompare<P, S>(
-            component: __React.Component<P, S>,
-            nextProps: P,
-            nextState: S): boolean;
-    }
-}
+export = shallowCompare;
 
-declare module "react-addons-shallow-compare" {
-    export = __React.__Addons.shallowCompare;
-}
+// workaround to allow ES6 import syntax
+// https://github.com/Microsoft/TypeScript/issues/5073
+declare namespace shallowCompare { }
+
+declare function shallowCompare<P, S>(
+	component: Component<P, S>,
+	nextProps: P,
+	nextState: S): boolean;

@@ -1,32 +1,29 @@
-﻿// Type definitions for React v0.14 (react-addons-linked-state-mixin)
+﻿// Type definitions for React (react-addons-linked-state-mixin) 0.14
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>, AssureSign <http://www.assuresign.com>, Microsoft <https://microsoft.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
-/// <reference path="react.d.ts" />
+import { Mixin } from 'react';
 
-declare namespace __React {
-    interface ReactLink<T> {
-        value: T;
-        requestChange(newValue: T): void;
-    }
+declare var LinkedStateMixin: LinkedStateMixin.LinkedStateMixin;
+type LinkedStateMixin = LinkedStateMixin.LinkedStateMixin;
+export = LinkedStateMixin;
 
-    interface LinkedStateMixin extends Mixin<any, any> {
-        linkState<T>(key: string): ReactLink<T>;
-    }
+declare namespace LinkedStateMixin {
+	export interface ReactLink<T> {
+		value: T;
+		requestChange(newValue: T): void;
+	}
 
-    interface HTMLAttributes {
-        checkedLink?: ReactLink<boolean>;
-        valueLink?: ReactLink<boolean | string | number>;
-    }
-
-    namespace __Addons {
-        export var LinkedStateMixin: LinkedStateMixin;
-    }
+	export interface LinkedStateMixin extends Mixin<any, any> {
+		linkState<T>(key: string): ReactLink<T>;
+	}
 }
 
-declare module "react-addons-linked-state-mixin" {
-    var LinkedStateMixin: __React.LinkedStateMixin;
-    type LinkedStateMixin = __React.LinkedStateMixin;
-    export = LinkedStateMixin;
+declare module 'react' {
+	interface HTMLAttributes<T> {
+		checkedLink?: LinkedStateMixin.ReactLink<boolean>;
+		valueLink?: LinkedStateMixin.ReactLink<boolean | string | number>;
+	}
 }
