@@ -17,3 +17,4 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-addons-tran
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-addons-update
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-dom
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-router
