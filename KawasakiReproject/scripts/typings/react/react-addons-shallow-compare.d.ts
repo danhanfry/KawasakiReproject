@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-import { Component } from 'react';
+import * as React from 'react';
 
-export = shallowCompare;
+export = React.__Addons.ShallowCompare.shallowCompare;
 
-// workaround to allow ES6 import syntax
-// https://github.com/Microsoft/TypeScript/issues/5073
-declare namespace shallowCompare { }
+declare module 'react' {
 
-declare function shallowCompare<P, S>(
-	component: Component<P, S>,
-	nextProps: P,
-	nextState: S): boolean;
+	namespace __Addons {
+		namespace ShallowCompare {
+			export function shallowCompare<P, S>(component: Component<P, S>, nextProps: P, nextState: S): boolean;
+		}
+	}
+}

@@ -26,4 +26,8 @@ declare module 'react' {
 		checkedLink?: LinkedStateMixin.ReactLink<boolean>;
 		valueLink?: LinkedStateMixin.ReactLink<boolean | string | number>;
 	}
+
+	namespace __Addons {
+		export var LinkedStateMixin: LinkedStateMixin;
+	}
 }

@@ -12,7 +12,16 @@ declare module 'react' {
 		className?: string;
 		childFactory?: (child: ReactElement<any>) => ReactElement<any>;
 	}
+
+	type ReactCSSTransitionGroup = ComponentClass<TransitionGroupProps>;
+
+	namespace __Addons {
+		export var TransitionGroup: React.ReactCSSTransitionGroup;
+	}
 }
 
-declare var ReactCSSTransitionGroup: ComponentClass<TransitionGroupProps>;
-export = ReactCSSTransitionGroup;
+declare module "react-addons-transition-group" {
+	var TransitionGroup: React.ReactCSSTransitionGroup;
+	type TransitionGroup = React.ReactCSSTransitionGroup;
+	export = TransitionGroup;
+}

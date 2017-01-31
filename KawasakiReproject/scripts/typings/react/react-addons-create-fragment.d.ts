@@ -6,6 +6,12 @@
 
 import * as React from 'react';
 
-export = createFragment;
+export = React.__Addons.createFragment;
 
-declare function createFragment(object: { [key: string]: React.ReactNode }): React.ReactFragment;
+declare module 'react' {
+
+	namespace __Addons {
+		export function createFragment(object: { [key: string]: React.ReactNode }): React.ReactFragment;
+	}
+
+}

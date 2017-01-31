@@ -17,7 +17,7 @@ declare module 'react' {
 		appearActive?: string;
 	}
 
-	export interface CSSTransitionGroupProps extends TransitionGroupProps {
+	interface CSSTransitionGroupProps extends TransitionGroupProps {
 		transitionName: string | CSSTransitionGroupTransitionName;
 		transitionAppear?: boolean;
 		transitionAppearTimeout?: number;
@@ -26,8 +26,16 @@ declare module 'react' {
 		transitionLeave?: boolean;
 		transitionLeaveTimeout?: number;
 	}
+
+	type CSSTransitionGroup = ComponentClass<CSSTransitionGroupProps>;
+
+	namespace __Addons {
+		export var CSSTransitionGroup: React.CSSTransitionGroup;
+	}
 }
 
-declare var CSSTransitionGroup: CSSTransitionGroup;
-type CSSTransitionGroup = ComponentClass<CSSTransitionGroupProps>;
-export = CSSTransitionGroup;
+declare module "react-addons-css-transition-group" {
+	var CSSTransitionGroup: React.CSSTransitionGroup;
+	type CSSTransitionGroup = React.CSSTransitionGroup;
+	export = CSSTransitionGroup;
+}

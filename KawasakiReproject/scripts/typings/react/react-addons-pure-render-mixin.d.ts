@@ -6,7 +6,18 @@
 
 import { Mixin } from 'react';
 
-declare var PureRenderMixin: PureRenderMixin;
-export = PureRenderMixin;
+declare module 'react' {
 
-interface PureRenderMixin extends Mixin<any, any> { }
+	interface PureRenderMixin extends Mixin<any, any> { }
+
+	namespace __Addons {
+		export var PureRenderMixin: PureRenderMixin;
+	}
+
+}
+
+declare module "react-addons-pure-render-mixin" {
+	var PureRenderMixin: React.PureRenderMixin;
+	type PureRenderMixin = React.PureRenderMixin;
+	export = PureRenderMixin;
+}
