@@ -5,7 +5,6 @@
 		"jquery": "^3.1.1",
 		"react": "^15.4.1",
 		"gsap": "^1.19.0",
-		"scrollmagic": "^2.0.5",
-		"react-router": "^3.0.2"
+		"scrollmagic": "^2.0.5"
 	}
 }

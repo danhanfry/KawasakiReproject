@@ -12,6 +12,7 @@
 		"gulp-buffer": "^0.0.2",
 		"vinyl-source-stream": "^1.1.0",
 		"request": "^2.69.0",
-		"merge2": "^1.0.2"
+		"merge2": "^1.0.2",
+		"react-router": "^3.0.2"
 	}
 }
