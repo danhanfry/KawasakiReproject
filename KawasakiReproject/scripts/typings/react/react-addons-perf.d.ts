@@ -5,6 +5,8 @@
 
 import * as React from 'react';
 
+export = React.__Addons.Perf;
+
 declare module 'react' {
 	interface ComponentPerfContext {
 		current: string;

@@ -6,6 +6,8 @@
 
 import { Mixin } from 'react';
 
+export = React.__Addons.PureRenderMixin;
+
 declare module 'react' {
 
 	interface PureRenderMixin extends Mixin<any, any> { }

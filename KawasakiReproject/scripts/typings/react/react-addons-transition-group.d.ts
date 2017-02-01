@@ -6,6 +6,8 @@
 
 import { ReactElement, ComponentClass, ReactType, TransitionGroupProps } from 'react';
 
+export = React.__Addons.TransitionGroup;
+
 declare module 'react' {
 	export interface TransitionGroupProps extends HTMLAttributes<{}> {
 		component?: ReactType;

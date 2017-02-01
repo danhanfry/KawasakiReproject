@@ -11,6 +11,8 @@ import {
 	ReactHTMLElement, DOMAttributes, SFC
 } from 'react';
 
+export = React.__Addons.TestUtils;
+
 declare module "react-addons-test-utils" {
 	import TestUtils = React.__Addons.TestUtils;
 	export = TestUtils;

@@ -7,6 +7,8 @@
 import 'react-addons-transition-group';
 import { ComponentClass, TransitionGroupProps, CSSTransitionGroupProps } from 'react';
 
+export = React.__Addons.CSSTransitionGroup;
+
 declare module 'react' {
 	interface CSSTransitionGroupTransitionName {
 		enter: string;
