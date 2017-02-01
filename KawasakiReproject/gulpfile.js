@@ -75,3 +75,9 @@ gulp.task('copy-scrollmagic-plugins', function () {
 	.pipe(uglify())
 	.pipe(gulp.dest("."));
 });
+
+gulp.task('copy-reactrouter', function () {
+	gulp.src(['./node_modules/react-router/umd/ReactRouter.min.js'])
+	.pipe(concat(paths.externaljs + "/reactrouter.min.js"))
+	.pipe(gulp.dest("."));
+});

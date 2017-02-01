@@ -270,6 +270,7 @@
     <Content Include="scripts\jquery.ScrollMagic.js" />
     <Content Include="scripts\react-dom.js" />
     <Content Include="scripts\react.js" />
+    <Content Include="scripts\reactrouter.min.js" />
     <Content Include="scripts\require.js" />
     <Content Include="scripts\scrambletextplugin.min.js" />
     <Content Include="scripts\scrollmagic-plugins.js" />
