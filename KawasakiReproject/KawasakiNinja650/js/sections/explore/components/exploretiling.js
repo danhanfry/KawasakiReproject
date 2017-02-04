@@ -21,11 +21,11 @@ define(["require", "exports"], function (require, exports) {
                     React.createElement("div", { id: "techAnimationId", className: "tech-demo-bike" },
                         React.createElement("div", { id: "ninjaLogo", className: "tech-ninjalogo" }),
                         React.createElement("div", { id: "bikeId", className: "main-tech-img  " }),
-                        Tiles.map(function (tile, index) {
+                        React.createElement("div", { id: "techTilesId" }, Tiles.map(function (tile, index) {
                             var classToUse = "tech-image " + tile.TileSize;
                             return (React.createElement("div", { key: index, id: tile.TileId, "data-tech": tile.TileName, className: classToUse },
                                 React.createElement("img", { src: tile.TileImgPath })));
-                        }),
+                        })),
                         React.createElement("div", { id: "horizontalWhiteLine", className: "tech-image horiz-white-tile" }),
                         React.createElement("div", { id: "verticalWhiteLine", className: "tech-image vert-white-tile" })),
                 IsTouchDevice &&

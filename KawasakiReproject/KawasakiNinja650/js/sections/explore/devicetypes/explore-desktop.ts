@@ -96,6 +96,8 @@ class ExploreDesktop extends ExperienceSlide {
 
 	eventInitialize = (): void => {
 
+		var that = this;
+
 		$('.tech-image:not(.horiz-white-tile):not(.vert-white-tile)').each(function (index, element) {
 			$(this).on('mouseover', function () {
 				TweenMax.to($(this), .2, { scaleX: 1.05, scaleY: 1.05, ease: Linear.easeInOut, repeat: 0 });
@@ -109,45 +111,45 @@ class ExploreDesktop extends ExperienceSlide {
 
 		});
 
-		$('.tech-image, .non-tech-image').on('click', (event) => {
+		$('.tech-image, .non-tech-image').on('click', function(event) {
 
 			let currentId: string = $(this).attr('id');
 			if (currentId === "verticalWhiteLine" || currentId === "horizontalWhiteLine") {
 				return;
 			}
 
-			this.s3ModalExapnded = true;
-			this.currentTileImage = $(this)[0];
-			this.specModalClicked = true;
-			this.clonedElement = this.Common.createCloneOfElement(this.currentTileImage, { positionTop: 0, positionLeft: 0 });
+			that.s3ModalExapnded = true;
+			that.currentTileImage = $(this)[0];
+			that.specModalClicked = true;
+			that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
 
-			document.body.appendChild(this.clonedElement);
+			document.body.appendChild(that.clonedElement);
 
-			this.s3CurrentSelectedTile = $(this).data('tile-index');
-			this.s3CurrentSelectedTabletTile = $(this).data('tech');
-			this.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
-			this.s3CapturedTile.width = $(this.clonedElement).width().toString();
-			this.s3CapturedTile.height = $(this.clonedElement).height().toString();
-			this.s3CapturedTile.top = $(this.clonedElement).position().top.toString();
-			this.s3CapturedTile.left = $(this.clonedElement).position().left.toString();
+			that.s3CurrentSelectedTile = $(that).data('tile-index');
+			that.s3CurrentSelectedTabletTile = $(that).data('tech');
+			that.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
+			that.s3CapturedTile.width = $(that.clonedElement).width().toString();
+			that.s3CapturedTile.height = $(that.clonedElement).height().toString();
+			that.s3CapturedTile.top = $(that.clonedElement).position().top.toString();
+			that.s3CapturedTile.left = $(that.clonedElement).position().left.toString();
 
 			var time = 0.65;
 			var ease = Power3.easeOut;
 			var delay = 0.08
-			var imgWrapper = $(this.clonedElement).children()[0];
+			var imgWrapper = $(that.clonedElement).children()[0];
 			var img = $(imgWrapper).children()[0];
 			var windowW = $(window).width();
 			var windowH = $(window).height();
-			var results = this.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
+			var results = that.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
 
-			TweenMax.to(this.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
+			TweenMax.to(that.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
 			if (imgWrapper) {
 				if ($(imgWrapper).is('div')) {
 					TweenMax.to(imgWrapper, time, { delay: delay, scale: 1, ease: ease });
 				}
 				else if ($(imgWrapper).is('img')) {
-					this.currentImageInTileDimensions.width = $(imgWrapper).width();
-					this.currentImageInTileDimensions.height = $(imgWrapper).height();
+					that.currentImageInTileDimensions.width = $(imgWrapper).width();
+					that.currentImageInTileDimensions.height = $(imgWrapper).height();
 					TweenMax.to(imgWrapper, time, { delay: delay, ease: ease, width: "100%", height: "100%", position: 'static' });
 				}
 			}
@@ -157,18 +159,18 @@ class ExploreDesktop extends ExperienceSlide {
 
 			var ypad = 50;
 
-			var specHtml = $(this.currentTileImage).data('tech');
+			var specHtml = $(that.currentTileImage).data('tech');
 			TweenMax.set('#specificationModal', { x: 0 });
 
 			TweenMax.set('#s3ModalCloseBtn img', { scale: 0, transformOrigin: '50% 70%' });
 
 
-			$('#modalSpecContentInfo').load("partials/" + specHtml + ".html", function () {
+			$('#modalSpecContentInfo').load("partials/" + specHtml + ".html", () => {
 				TweenMax.set('.spec-details-container', { minHeight: $('#specificationModal.modal').outerHeight() * (0.85) });
-				this.timelineForExpandingSpecs = new TimelineMax({ paused: true });
-				var backing = "<div class='spec-details-backing'></div>"
-				var copyArr = [];
-				var hardDelay = 0.3;
+				let timelineForExpandingSpecs = new TimelineMax({ paused: true });
+				let backing = "<div class='spec-details-backing'></div>"
+				let copyArr = [];
+				const hardDelay = 0.3;
 
 				TweenMax.set('.spec-details-container', { scaleX: 0, autoAlpha: 1, transformOrigin: '0% 00%' })
 				this.timelineForExpandingSpecs.to('.spec-details-container', 0.5, { scaleX: 1, delay: hardDelay, ease: Power3.easeOut });
@@ -182,8 +184,8 @@ class ExploreDesktop extends ExperienceSlide {
 					var d = (i + 1) * (0.02);
 					copyArr.push(TweenMax.to(e, 0.9, { delay: hardDelay + d, y: 0, opacity: 1, ease: Power3.easeOut }));
 				});
-				this.timelineForExpandingSpecs.add(copyArr)
-				this.timelineForExpandingSpecs.play();
+				timelineForExpandingSpecs.add(copyArr)
+				timelineForExpandingSpecs.play();
 
 				TweenMax.to('#s3ModalCloseBtn img', 0.5, { scale: 1, delay: hardDelay + 0.7, ease: Power3.easeOut, overwrite: 'all' });
 			});
@@ -192,7 +194,7 @@ class ExploreDesktop extends ExperienceSlide {
 			document.getElementById('specificationModal').style.display = "block";
 
 			/*prevent scrolling*/
-			this.Common.preventScrolling();
+			that.Common.preventScrolling();
 
 		});
 

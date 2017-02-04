@@ -20,7 +20,7 @@ class ResearchDesktop extends ExperienceSlide {
 
 		/*2017 Year Image*/
 		TweenMax.set("#researchYear", { left: ((this.windowWidth / 2)) - ($('#researchYear').width() / 2) });
-		if (this.Common.isSafari() && !this.Common.isMobile()) {
+		if (this.Common.isSafari()) {
 			TweenMax.set("#researchYear img", {
 				width: '85%'
 			});
@@ -32,7 +32,7 @@ class ResearchDesktop extends ExperienceSlide {
 			top: $('#researchToolText').position().top + ($('#researchToolText').height() / 3)
 		});
 
-		if (this.Common.isSafari() && !this.Common.isMobile()) {
+		if (this.Common.isSafari()) {
 			if (this.windowWidth > 1910) {
 				TweenMax.set("#researchNinja", {
 					top: $('#researchToolText').position().top + ($('#researchToolText').height() / 3) + 15
@@ -49,21 +49,21 @@ class ResearchDesktop extends ExperienceSlide {
 		/*Research Tools Image only desktop since this is text and calculation is unreliable, tablet and mobile is done via css*/
 		var researchToolTxtHalfWidth = $('#researchToolText').width() / 2;
 		TweenMax.set(".research-research-txt", { left: (this.windowWidth / 2) - researchToolTxtHalfWidth });
-		
 
 		/*The columns for research, shop and finance*/
 		TweenMax.set(".footer-tiles", { height: $('#researchtools').height() - 160 - 21 - 220 - 100 });
-		var researchToolsColumnsLeftPosition = (this.windowWidth / 2) - researchToolTxtHalfWidth;
+		var researchToolsColumnsLeftPosition = (this.windowWidth / 2) - ($('#researchListing').width() / 2);
 		TweenMax.set("#researchListing", {
 			left: researchToolsColumnsLeftPosition > 5 ? researchToolsColumnsLeftPosition : 5,
 			top: $('#researchToolContainerId').outerHeight() - $('#researchYear').height() + $('#researchNinja').height() + $('#researchInDealership').height()
 		});
 
 		/*the links*/
-		var restartExperienceLeftPosition = (this.windowWidth / 2) - researchToolTxtHalfWidth;;
+		var researchListingHeight = $('#researchListing').height();
+		var restartExperienceLeftPosition = (this.windowWidth / 2) - ($('#researchListing').width() / 2) - ($('.research-restart-btn img').height() / 2);
 		TweenMax.set("#restartExperienceId", {
 			left: restartExperienceLeftPosition > 0 ? restartExperienceLeftPosition : 0,
-			top: document.getElementById('researchListing').offsetLeft + (this.windowHeight / 3 * 2)
+			top: ($('#researchtools').height() - researchListingHeight) + (researchListingHeight / 2)
 		});
 
 		if (this.windowWidth < 950) {

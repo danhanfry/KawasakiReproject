@@ -22,17 +22,19 @@ export class ExploreTiling extends React.Component<IExploreTiles, any> {
 						<div id="ninjaLogo" className="tech-ninjalogo"></div>
 						<div id="bikeId" className="main-tech-img  "></div>
 
-						{
-							Tiles.map((tile, index) => {
+						<div id="techTilesId">
+							{
+								Tiles.map((tile, index) => {
 
-								let classToUse:string = "tech-image " + tile.TileSize;
-								return (
-									<div key={index} id={tile.TileId} data-tech={tile.TileName} className={classToUse}>
-										<img src={tile.TileImgPath} />
-									</div>
-								)
-							})
-						}
+									let classToUse:string = "tech-image " + tile.TileSize;
+									return (
+										<div key={index} id={tile.TileId} data-tech={tile.TileName} className={classToUse}>
+											<img src={tile.TileImgPath} />
+										</div>
+									)
+								})
+							}
+						</div>
 
 
 						<div id="horizontalWhiteLine" className="tech-image horiz-white-tile"></div>

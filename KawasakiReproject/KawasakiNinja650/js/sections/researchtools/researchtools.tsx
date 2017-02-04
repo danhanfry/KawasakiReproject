@@ -75,11 +75,18 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.researchResizeEvent);
-		this.researchCalculation();
 	}
 
 	public componentWillUnmount() {
 		window.removeEventListener("resize", this.researchResizeEvent);
+	}
+
+	/* used when state or prop is updated */
+	public componentDidUpdate(prevProps) {
+		let researchLinkContainer = document.getElementById('researchListing');
+		if (researchLinkContainer.children.length > 0) {
+			this.researchCalculation();
+		}
 	}
 
 	render() {

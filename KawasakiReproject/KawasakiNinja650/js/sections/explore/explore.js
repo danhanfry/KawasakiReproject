@@ -52,10 +52,15 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
         };
         Explore.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.exploreResizeEvent);
-            this.exploreCalculation();
         };
         Explore.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.exploreResizeEvent);
+        };
+        Explore.prototype.componentDidUpdate = function (prevProps) {
+            var techTilesContainer = document.getElementById('techTilesId');
+            if (techTilesContainer.children.length > 0) {
+                this.exploreCalculation();
+            }
         };
         Explore.prototype.render = function () {
             var ExploreHeaderProp = this.props.ExploreProperties.ExploreHeaderProp;

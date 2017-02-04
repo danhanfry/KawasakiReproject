@@ -57,10 +57,15 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
         };
         ResearchTools.prototype.componentDidMount = function () {
             window.addEventListener("resize", this.researchResizeEvent);
-            this.researchCalculation();
         };
         ResearchTools.prototype.componentWillUnmount = function () {
             window.removeEventListener("resize", this.researchResizeEvent);
+        };
+        ResearchTools.prototype.componentDidUpdate = function (prevProps) {
+            var researchLinkContainer = document.getElementById('researchListing');
+            if (researchLinkContainer.children.length > 0) {
+                this.researchCalculation();
+            }
         };
         ResearchTools.prototype.render = function () {
             var _a = this.props.ResearchToolsProperties, ResearchToolsHeaderProp = _a.ResearchToolsHeaderProp, ResearchToolsStartStopProp = _a.ResearchToolsStartStopProp;

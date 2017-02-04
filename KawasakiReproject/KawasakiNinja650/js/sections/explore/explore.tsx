@@ -68,11 +68,19 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 	/*after the render*/
 	public componentDidMount() {
 		window.addEventListener("resize", this.exploreResizeEvent);
-		this.exploreCalculation();
+		//this.exploreCalculation();
 	}
 
 	public componentWillUnmount() {
 		window.removeEventListener("resize", this.exploreResizeEvent);
+	}
+
+	/* used when state or prop is updated */
+	public componentDidUpdate(prevProps) {
+		let techTilesContainer = document.getElementById('techTilesId');
+		if (techTilesContainer.children.length > 0) {
+			this.exploreCalculation();
+		}
 	}
 
 	render() {
