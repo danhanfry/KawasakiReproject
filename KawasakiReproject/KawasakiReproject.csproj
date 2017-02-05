@@ -175,6 +175,9 @@
     <Content Include="KawasakiNinja650\js\sections\explore\components\exploreheader.js">
       <DependentUpon>exploreheader.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\js\sections\explore\components\exploreSpecificationModal.js">
+      <DependentUpon>exploreSpecificationModal.tsx</DependentUpon>
+    </Content>
     <Content Include="KawasakiNinja650\js\sections\explore\components\exploretiling.js">
       <DependentUpon>exploretiling.tsx</DependentUpon>
     </Content>
@@ -265,6 +268,12 @@
     <Content Include="KawasakiNinja650\js\sections\vtr\vtr.js">
       <DependentUpon>vtr.tsx</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\partials\comfort.html" />
+    <Content Include="KawasakiNinja650\partials\convenience.html" />
+    <Content Include="KawasakiNinja650\partials\handling.html" />
+    <Content Include="KawasakiNinja650\partials\power.html" />
+    <Content Include="KawasakiNinja650\partials\racingheritage.html" />
+    <Content Include="KawasakiNinja650\partials\styling.html" />
     <Content Include="scripts\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\jquery.ScrollMagic.js" />
@@ -356,6 +365,7 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-mobile.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\commercial\devicetypes\commercial-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\components\exploreheader.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\components\exploreSpecificationModal.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\components\exploretiling.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-desktop.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-mobile.ts" />

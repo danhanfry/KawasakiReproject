@@ -79,7 +79,6 @@ var ExploreDesktop = (function (_super) {
                 });
             });
             $('.tech-image, .non-tech-image').on('click', function (event) {
-                var _this = this;
                 var currentId = $(this).attr('id');
                 if (currentId === "verticalWhiteLine" || currentId === "horizontalWhiteLine") {
                     return;
@@ -89,8 +88,8 @@ var ExploreDesktop = (function (_super) {
                 that.specModalClicked = true;
                 that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
                 document.body.appendChild(that.clonedElement);
-                that.s3CurrentSelectedTile = $(that).data('tile-index');
-                that.s3CurrentSelectedTabletTile = $(that).data('tech');
+                that.s3CurrentSelectedTile = $(this).data('tile-index');
+                that.s3CurrentSelectedTabletTile = $(this).data('tech');
                 that.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
                 that.s3CapturedTile.width = $(that.clonedElement).width().toString();
                 that.s3CapturedTile.height = $(that.clonedElement).height().toString();
@@ -129,7 +128,7 @@ var ExploreDesktop = (function (_super) {
                     var copyArr = [];
                     var hardDelay = 0.3;
                     TweenMax.set('.spec-details-container', { scaleX: 0, autoAlpha: 1, transformOrigin: '0% 00%' });
-                    _this.timelineForExpandingSpecs.to('.spec-details-container', 0.5, { scaleX: 1, delay: hardDelay, ease: Power3.easeOut });
+                    timelineForExpandingSpecs.to('.spec-details-container', 0.5, { scaleX: 1, delay: hardDelay, ease: Power3.easeOut });
                     TweenMax.set('.spec-title', { opacity: 0, y: ypad });
                     copyArr.push(TweenMax.to('.spec-title', 0.9, { delay: hardDelay, y: 0, opacity: 1, ease: Power3.easeOut }));
                     $('.spec-details-text-container').find('div').each(function (i, e) {
@@ -172,12 +171,12 @@ var ExploreDesktop = (function (_super) {
                             delay: delay, ease: ease, x: _this.currentTileTabletData.x, y: _this.currentTileTabletData.y,
                             width: _this.currentTileTabletData.width, height: _this.currentTileTabletData.height, onComplete: function () {
                                 document.body.removeChild($('.cloned-element')[0]);
-                                this.Common.allowScrolling();
+                                that.Common.allowScrolling();
                                 document.getElementById('specificationModal').style.display = "none";
-                                this.s3CapturedTile = null;
-                                this.s3CurrentSelectedTile = -1;
-                                this.s3ModalExapnded = false;
-                                this.specModalClicked = false;
+                                that.s3CapturedTile = null;
+                                that.s3CurrentSelectedTile = -1;
+                                that.s3ModalExapnded = false;
+                                that.specModalClicked = false;
                             }
                         });
                     }
@@ -186,12 +185,12 @@ var ExploreDesktop = (function (_super) {
                     TweenMax.to(img, time, {
                         delay: delay, x: currentTileData.imgX, y: currentTileData.imgY, ease: ease, width: 1920, height: 1080, onComplete: function () {
                             document.body.removeChild($('.cloned-element')[0]);
-                            this.Common.allowScrolling();
+                            that.Common.allowScrolling();
                             document.getElementById('specificationModal').style.display = "none";
-                            this.s3CapturedTile = null;
-                            this.s3CurrentSelectedTile = -1;
-                            this.s3ModalExapnded = false;
-                            this.specModalClicked = false;
+                            that.s3CapturedTile = null;
+                            that.s3CurrentSelectedTile = -1;
+                            that.s3ModalExapnded = false;
+                            that.specModalClicked = false;
                         }
                     });
                 }

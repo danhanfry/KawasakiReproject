@@ -155,6 +155,11 @@ class CommercialDesktop extends ExperienceSlide {
 
 
 		document.getElementById('commericalNinjaLifePlayArrow').addEventListener('click', () => {
+
+			if (document.documentElement.scrollTop > 0) {
+				window.scrollTo(0, 0);
+			}
+
 			TweenMax.set("#commericalNinjaNameYearId", { opacity: 0, display: "none" });
 			TweenMax.set("#commericalNinjaNameId", { opacity: 0, display: "none" });
 			TweenMax.set("#commericalNinjaLifeGreenHrId", { opacity: 0, display: "none" });

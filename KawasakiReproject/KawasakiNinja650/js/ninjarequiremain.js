@@ -43,6 +43,7 @@ var exploreIndex = 'js/sections/explore/explore-index';
 var explorePartialViews = [
 				'js/sections/explore/components/exploreheader',
 				'js/sections/explore/components/exploretiling',
+				'js/sections/explore/components/exploreSpecificationModal',
 				'js/sections/explore/explore'];
 
 

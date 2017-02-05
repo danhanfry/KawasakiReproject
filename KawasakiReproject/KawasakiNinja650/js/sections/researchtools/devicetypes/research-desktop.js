@@ -70,9 +70,18 @@ var ResearchDesktop = (function (_super) {
             TweenMax.set(".research-in-dealership", { y: 50 });
         };
         _this.eventInitialize = function () {
-            document.getElementById('restartExperienceId').addEventListener('click', function () {
-                TweenMax.to(window, 2, { scrollTo: { y: 0, x: 0 } });
-            });
+            document.getElementById('restartExperienceId').addEventListener('click', function (event) {
+                var body = document.body;
+                body.classList.add("scroll-to-top");
+                body.style.webkitTransform = "translate(0, 0)";
+                body.style.transform = "translate(0, 0)";
+                window.setTimeout(function () {
+                    body.classList.remove("scroll-to-top");
+                    body.style.cssText = "";
+                    window.scrollTo(0, 0);
+                }, 900);
+                event.preventDefault();
+            }, false);
             document.getElementById('exitExperienceId').addEventListener('click', function () {
                 window.location.href = '/Products/2017-Ninja-650-ABS-KRT-Edition';
             });

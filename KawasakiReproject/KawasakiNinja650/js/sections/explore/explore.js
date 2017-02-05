@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "./components/exploreheader", "./components/exploretiling"], function (require, exports, exploreheader_1, exploretiling_1) {
+define(["require", "exports", "./components/exploreheader", "./components/exploretiling", "./components/exploreSpecificationModal"], function (require, exports, exploreheader_1, exploretiling_1, exploreSpecificationModal_1) {
     "use strict";
     var Explore = (function (_super) {
         __extends(Explore, _super);
@@ -77,7 +77,20 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
         return Explore;
     }(React.Component));
     exports.Explore = Explore;
+    var ExploreSpecModal = (function (_super) {
+        __extends(ExploreSpecModal, _super);
+        function ExploreSpecModal() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ExploreSpecModal.prototype.render = function () {
+            return (React.createElement("div", null,
+                React.createElement(exploreSpecificationModal_1.ExploreSpecificationModal, null)));
+        };
+        return ExploreSpecModal;
+    }(React.Component));
+    exports.ExploreSpecModal = ExploreSpecModal;
     var exploreModel = new ExploreContentModel('explore ninja<span class="sup">®</span>650', 'click on the bike to explore');
     var exploreProperties = new ExploreProperties(exploreModel);
     ReactDOM.render(React.createElement(Explore, { ExploreProperties: exploreProperties }), document.getElementById('explore'));
+    ReactDOM.render(React.createElement(ExploreSpecModal, null), document.getElementById('specModalContainer'));
 });

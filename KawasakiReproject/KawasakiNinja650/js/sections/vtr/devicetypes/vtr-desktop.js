@@ -170,7 +170,7 @@ var VTRDesktop = (function (_super) {
             document.getElementById('modalVTRContentInfo').appendChild(vrIFrame);
         };
         _this.setupTestVRModal = function (videoId) {
-            window.frames[0].frameElement.src = "vtr/index.html?videoId=" + videoId;
+            window.frames[0].frameElement.src = "//kawasaki.com/ninja650experience/vtr/index.html?videoId=" + videoId;
             document.getElementById('testVRModal').style.display = 'block';
             _this.Common.preventScrolling();
         };

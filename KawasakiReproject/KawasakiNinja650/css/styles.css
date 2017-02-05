@@ -9,6 +9,8 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
+  body.scroll-to-top {
+    transition: transform 900ms ease; }
 
 .hide {
   display: none; }

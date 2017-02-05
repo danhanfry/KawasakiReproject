@@ -7,6 +7,7 @@
 
 import { ExploreHeader } from './components/exploreheader';
 import { ExploreTiling } from './components/exploretiling';
+import { ExploreSpecificationModal } from './components/exploreSpecificationModal';
 
 export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 
@@ -91,7 +92,6 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 			<div>
 				<ExploreHeader Model={ExploreHeaderProp} />
 				<ExploreTiling Tiles={this.state.TilesState} />
-
 			</div>
 		);
 
@@ -107,8 +107,23 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 
 }
 
+export class ExploreSpecModal extends React.Component<IEmptyProperties, any> {
+
+	render() {
+
+		return (
+			<div>
+				<ExploreSpecificationModal />
+			</div>
+		);
+
+	}
+
+}
+
 var exploreModel = new ExploreContentModel('explore ninja<span class="sup">®</span>650', 'click on the bike to explore');
 
 var exploreProperties = new ExploreProperties(exploreModel);
 
 ReactDOM.render(<Explore ExploreProperties={exploreProperties} />, document.getElementById('explore'));
+ReactDOM.render(<ExploreSpecModal />, document.getElementById('specModalContainer'));

@@ -230,7 +230,8 @@ class VTRDesktop extends ExperienceSlide {
 	}
 
 	private setupTestVRModal = (videoId: number): void => {
-		(<HTMLIFrameElement>window.frames[0].frameElement).src = "vtr/index.html?videoId=" + videoId;
+		//(<HTMLIFrameElement>window.frames[0].frameElement).src = "vtr/index.html?videoId=" + videoId;
+		(<HTMLIFrameElement>window.frames[0].frameElement).src = "//kawasaki.com/ninja650experience/vtr/index.html?videoId=" + videoId;
 		document.getElementById('testVRModal').style.display = 'block';
 
 		/*prevent scrolling*/

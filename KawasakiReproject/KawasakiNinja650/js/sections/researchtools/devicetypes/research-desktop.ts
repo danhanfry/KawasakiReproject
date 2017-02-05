@@ -93,9 +93,22 @@ class ResearchDesktop extends ExperienceSlide {
 	}
 
 	eventInitialize = (): void => {
-		document.getElementById('restartExperienceId').addEventListener('click', () => {
-			TweenMax.to(window, 2, { scrollTo: { y: 0, x: 0 } });
-		});
+		document.getElementById('restartExperienceId').addEventListener('click', (event: MouseEvent) => {
+
+			let body = document.body;
+			body.classList.add("scroll-to-top");
+			body.style.webkitTransform = "translate(0, 0)";
+			body.style.transform = "translate(0, 0)";
+
+			window.setTimeout(function () {
+				body.classList.remove("scroll-to-top");
+				body.style.cssText = "";
+				window.scrollTo(0, 0);
+			}, 900);
+
+			event.preventDefault();
+
+		}, false);
 
 		document.getElementById('exitExperienceId').addEventListener('click', () => {
 			window.location.href = '/Products/2017-Ninja-650-ABS-KRT-Edition';

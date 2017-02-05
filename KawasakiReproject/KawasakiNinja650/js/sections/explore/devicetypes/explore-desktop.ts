@@ -125,8 +125,8 @@ class ExploreDesktop extends ExperienceSlide {
 
 			document.body.appendChild(that.clonedElement);
 
-			that.s3CurrentSelectedTile = $(that).data('tile-index');
-			that.s3CurrentSelectedTabletTile = $(that).data('tech');
+			that.s3CurrentSelectedTile = $(this).data('tile-index');
+			that.s3CurrentSelectedTabletTile = $(this).data('tech');
 			that.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
 			that.s3CapturedTile.width = $(that.clonedElement).width().toString();
 			that.s3CapturedTile.height = $(that.clonedElement).height().toString();
@@ -173,7 +173,7 @@ class ExploreDesktop extends ExperienceSlide {
 				const hardDelay = 0.3;
 
 				TweenMax.set('.spec-details-container', { scaleX: 0, autoAlpha: 1, transformOrigin: '0% 00%' })
-				this.timelineForExpandingSpecs.to('.spec-details-container', 0.5, { scaleX: 1, delay: hardDelay, ease: Power3.easeOut });
+				timelineForExpandingSpecs.to('.spec-details-container', 0.5, { scaleX: 1, delay: hardDelay, ease: Power3.easeOut });
 
 				TweenMax.set('.spec-title', { opacity: 0, y: ypad });
 
@@ -234,13 +234,13 @@ class ExploreDesktop extends ExperienceSlide {
 						width: this.currentTileTabletData.width, height: this.currentTileTabletData.height, onComplete: function () {
 
 							document.body.removeChild($('.cloned-element')[0]);
-							this.Common.allowScrolling();
+							that.Common.allowScrolling();
 							document.getElementById('specificationModal').style.display = "none";
 
-							this.s3CapturedTile = null;
-							this.s3CurrentSelectedTile = -1;
-							this.s3ModalExapnded = false;
-							this.specModalClicked = false;
+							that.s3CapturedTile = null;
+							that.s3CurrentSelectedTile = -1;
+							that.s3ModalExapnded = false;
+							that.specModalClicked = false;
 						}
 					});
 
@@ -252,13 +252,13 @@ class ExploreDesktop extends ExperienceSlide {
 					delay: delay, x: currentTileData.imgX, y: currentTileData.imgY, ease: ease, width: 1920, height: 1080, onComplete: function () {
 
 						document.body.removeChild($('.cloned-element')[0]);
-						this.Common.allowScrolling();
+						that.Common.allowScrolling();
 						document.getElementById('specificationModal').style.display = "none";
 
-						this.s3CapturedTile = null;
-						this.s3CurrentSelectedTile = -1;
-						this.s3ModalExapnded = false;
-						this.specModalClicked = false;
+						that.s3CapturedTile = null;
+						that.s3CurrentSelectedTile = -1;
+						that.s3ModalExapnded = false;
+						that.specModalClicked = false;
 					}
 				});
 			}

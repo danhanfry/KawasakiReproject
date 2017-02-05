@@ -113,6 +113,9 @@ var CommercialDesktop = (function (_super) {
             var playButtonElement = document.getElementById('playArrowMask');
             var playButtonArrowElement = document.getElementById('PlayButtonAction');
             document.getElementById('commericalNinjaLifePlayArrow').addEventListener('click', function () {
+                if (document.documentElement.scrollTop > 0) {
+                    window.scrollTo(0, 0);
+                }
                 TweenMax.set("#commericalNinjaNameYearId", { opacity: 0, display: "none" });
                 TweenMax.set("#commericalNinjaNameId", { opacity: 0, display: "none" });
                 TweenMax.set("#commericalNinjaLifeGreenHrId", { opacity: 0, display: "none" });
