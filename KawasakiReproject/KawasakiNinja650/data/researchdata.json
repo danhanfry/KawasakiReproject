@@ -1,6 +1,7 @@
 ﻿{
 	"ResearchPage": [
 		{
+			"Id": "researchOne",
 			"Title": "RESEARCH",
 			"Links": [
 				{
@@ -18,6 +19,7 @@
 			]
 		},
 		{
+			"Id": "researchTwo",
 			"Title": "SHOP",
 			"Links": [
 				{
@@ -35,6 +37,7 @@
 			]
 		},
 		{
+			"Id": "researchThree",
 			"Title": "FINANCE",
 			"Links": [
 				{

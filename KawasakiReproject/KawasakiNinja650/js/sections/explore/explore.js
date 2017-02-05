@@ -11,6 +11,7 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
             var _this = _super.call(this, props) || this;
             _this.ExploreIndex = new Kawasaki.NinjaSixFifty.Explore();
             _this.exploreTiles = [];
+            _this.Common = new Kawasaki.Common();
             _this.state = {
                 TilesState: new Array()
             };
@@ -57,8 +58,13 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
             window.removeEventListener("resize", this.exploreResizeEvent);
         };
         Explore.prototype.componentDidUpdate = function (prevProps) {
-            var techTilesContainer = document.getElementById('techTilesId');
-            if (techTilesContainer.children.length > 0) {
+            if (!this.Common.isMobile() && !this.Common.isTablet()) {
+                var techTilesContainer = document.getElementById('techTilesId');
+                if (techTilesContainer.children.length > 0) {
+                    this.exploreCalculation();
+                }
+            }
+            else {
                 this.exploreCalculation();
             }
         };

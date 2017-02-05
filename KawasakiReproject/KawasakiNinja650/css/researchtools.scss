@@ -92,10 +92,6 @@
 	border-left: 1px solid #39393c;
 }
 
-.footer-tiles:nth-child(1), .footer-tiles:nth-child(2) {
-	margin-right: 145px;
-}
-
 .research-numbered {
 	width: 245px;
 	border: 1px solid #66cc33;
@@ -254,6 +250,10 @@
 
 @media (min-width: 320px) and (max-width: 736px) and (orientation: portrait) {
 
+	.clear, .research-numbered-header, .research-numbered {
+		clear: both;
+	}
+
 	.research-text-year {
 		opacity: 1;
 		top: 50px;
@@ -315,21 +315,21 @@
 		padding-left: 0;
 		width: 35%;
 		padding-right: 5.3%;
-		padding-top: 20px;
+		padding-top: 9px;
 		text-align: left;
-		font-size: 30px;
+		font-size: 20px;
 		border-right: 1px solid #39393c;
-		/*UNCOMMENT OUT FOR THREE COLUMNS*/
-		height: 50px;
+		height: 85px;
 	}
 
 	.research-numbered-header div {
-		padding-left: 10px;
+		padding-left: 5px;
 	}
 
 	.research-numbered-link {
 		float: left;
 		font-size: 12px;
+		line-height: 35px;
 	}
 
 	.research-numbered {
@@ -359,6 +359,11 @@
 		left: 4vw;
 		font-size: 16vw;
 	}
+
+	.research-numbered-link {
+		background-position: 15px 14px;
+		padding-left: 30px;
+	}
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
@@ -367,6 +372,11 @@
 		font-size: 16vw;
 		left: 4vw;
 	}
+
+	.research-numbered-link {
+		background-position: 30px 14px;
+		padding-left: 55px;
+	}
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
@@ -374,5 +384,10 @@
 	.research-research-txt {
 		font-size: 17vw;
 		left: 4vw;
+	}
+
+	.research-numbered-link {
+		background-position: 30px 14px;
+		padding-left: 55px;
 	}
 }

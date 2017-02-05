@@ -8,8 +8,9 @@ var ResearchToolsHeaderModel = (function () {
     return ResearchToolsHeaderModel;
 }());
 var ResearchToolsLinksModel = (function () {
-    function ResearchToolsLinksModel(HeaderText, Links) {
+    function ResearchToolsLinksModel(HeaderText, HeaderId, Links) {
         this.HeaderText = HeaderText;
+        this.HeaderId = HeaderId;
         this.Links = Links;
     }
     return ResearchToolsLinksModel;

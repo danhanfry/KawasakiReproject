@@ -78,6 +78,9 @@ class SocialMobile extends ExperienceSlide {
 	}
 
 	eventInitialize = (): void => {
+
+		var that = this;
+
 		$(document).on({
 			mouseenter: function () {
 
@@ -85,9 +88,9 @@ class SocialMobile extends ExperienceSlide {
 
 				var childElementFlipper = $(element).find('.flipper');
 				if (childElementFlipper.length > 0) {
-					var matrix = this.Common.getMatrixOfTransform(childElementFlipper[0]);
+					var matrix = that.Common.getMatrixOfTransform(childElementFlipper[0]);
 					var transformY = matrix[13] || matrix[5];
-					if (transformY > 0) {
+					if (parseInt(transformY, 10) > 0) {
 						return;
 					}
 				}
@@ -129,14 +132,14 @@ class SocialMobile extends ExperienceSlide {
 			}
 		}, ".flip-container ");
 
-		$(document).on('tap', '.front-social, .flip-container-hover', function () {
+		$(document).on('click', '.front-social, .flip-container-hover', function () {
 			var indexOfInfo = parseInt($(this).data('index'), 10);
 			if (isNaN(indexOfInfo)) {
 				var theFrontBecauseOfHover = $(this).prev().find(".front-social").get(0);
 				indexOfInfo = parseInt($(theFrontBecauseOfHover).data('index'), 10);
 			}
 
-			var socialInfo = this.allSpreadFasterContent[indexOfInfo]
+			var socialInfo = that.allSpreadFasterContent[indexOfInfo]
 
 			var imageContainer = document.getElementById('modalContentImage');
 			imageContainer.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover; background-position: center center";
@@ -184,12 +187,13 @@ class SocialMobile extends ExperienceSlide {
 
 			/*show modal*/
 			$('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
+			document.getElementById('socialModalId').style.display = 'block';
 
 			/*prevent scrolling*/
-			this.Common.preventScrolling();
+			that.Common.preventScrolling();
 		});
 
-		$('#socialSubmissionGuideLines').on('click', function () {
+		$('#socialSubmissionGuideLines').on('click', () => {
 			/*show modal*/
 			document.getElementById('socialGuidelinesModalId').style.display = "block";
 
@@ -199,21 +203,19 @@ class SocialMobile extends ExperienceSlide {
 			this.Common.preventScrolling();
 		});
 
-		$('#socialModalId .close-btn').on('click', function () {
+		$('#socialModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
-
-			$('.fixed-nav-bar').css('display', 'block');
 
 			/*hide modal*/
 			$('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+			document.getElementById('socialModalId').style.display = 'none';
 
 		});
 
-		$('#socialGuidelinesModalId .close-btn').on('click', function () {
+		$('#socialGuidelinesModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
-			$('.fixed-nav-bar').css('display', 'block');
 
 			/*hide modal*/
 			document.getElementById('socialGuidelinesModalId').style.display = "none";
@@ -230,7 +232,7 @@ class SocialMobile extends ExperienceSlide {
 
 	private setupSocialFeedRetrieval = (): void => {
 
-		Spredfast(this.socialSpredfasterUrl, function (result) {
+		Spredfast(this.socialSpredfasterUrl, (result: ISpreadfaster[]) => {
 
 			var maxShowSocial = 10;
 

@@ -57,7 +57,7 @@ export class ExploreTiling extends React.Component<IExploreTiles, any> {
 
 									let classToUse: string = "tech-image " + tile.TileSize;
 									return (
-										<div className="spec-parts">
+										<div key={index} className="spec-parts">
 											<div data-tech={tile.TileName} className={classToUse}></div>
 										</div>
 									)

@@ -13,6 +13,7 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 
 	private ExploreIndex: Kawasaki.NinjaSixFifty.Explore = new Kawasaki.NinjaSixFifty.Explore();
 	private exploreTiles: Array<IExploreTile> = [];
+	private Common: Kawasaki.Common = new Kawasaki.Common();
 
 	constructor(props: IExploreModel) {
 		super(props);
@@ -78,8 +79,13 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 
 	/* used when state or prop is updated */
 	public componentDidUpdate(prevProps) {
-		let techTilesContainer = document.getElementById('techTilesId');
-		if (techTilesContainer.children.length > 0) {
+		if (!this.Common.isMobile() && !this.Common.isTablet()) {
+			let techTilesContainer = document.getElementById('techTilesId');
+			if (techTilesContainer.children.length > 0) {
+				this.exploreCalculation();
+			}
+		}
+		else {
 			this.exploreCalculation();
 		}
 	}

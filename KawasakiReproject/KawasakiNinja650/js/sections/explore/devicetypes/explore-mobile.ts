@@ -13,7 +13,7 @@ class ExploreMobile extends ExperienceSlide {
 	}
 
 	calculation = (): void => {
-		document.getElementById('thirdSlideTransition').style.display = 'none';
+		document.getElementById('techAnimationExploreId').style.display = 'none';
 		document.getElementById('slideThreeScroller').style.display = 'none';
 
 		$('#ninjaLogoExploreId').prop('src', 'assets/slide3/ninja-650-logo-mobile.png');

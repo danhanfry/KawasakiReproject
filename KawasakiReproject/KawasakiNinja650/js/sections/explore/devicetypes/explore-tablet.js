@@ -54,7 +54,6 @@ var ExploreTablet = (function (_super) {
             }
             $('#explore').height(currentWindowHeight).width(_this.windowWidth);
             TweenMax.set("#slideThreeScroller", { bottom: 0, left: (_this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2) });
-            document.getElementById('thirdSlideTransition').style.display = 'none';
             $('#ninjaLogoExploreId').prop('src', 'assets/slide3/ninja_650_logo_tablet.png');
             $('#ninjaLogoExploreId').width("100%");
             $('.spec-parts').height($('.spec-parts').width() / 2);

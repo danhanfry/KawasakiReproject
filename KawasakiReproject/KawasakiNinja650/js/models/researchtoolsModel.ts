@@ -10,7 +10,7 @@ class ResearchToolsHeaderModel implements IResearchToolsHeader {
 
 class ResearchToolsLinksModel implements IResearchToolsLinks {
 
-	constructor(public HeaderText:string, public Links: Array<IResearchToolsLink>) {
+	constructor(public HeaderText:string, public HeaderId:string, public Links: Array<IResearchToolsLink>) {
 	}
 }
 

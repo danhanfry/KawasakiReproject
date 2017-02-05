@@ -13,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
         ResearchToolsLinks.prototype.render = function () {
             var Model = this.props.Model;
             return (React.createElement("div", { className: "footer-tiles" },
-                React.createElement("div", { id: "researchTwo", className: "research-numbered" }),
+                React.createElement("div", { id: Model.HeaderId, className: "research-numbered" }),
                 React.createElement("div", { className: "research-numbered-header" },
                     React.createElement("div", null,
                         React.createElement("span", null, Model.HeaderText))),

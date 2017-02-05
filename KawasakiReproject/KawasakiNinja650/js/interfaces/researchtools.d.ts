@@ -16,6 +16,7 @@ interface IResearchToolsLink {
 
 interface IResearchToolsLinks {
 	readonly HeaderText: string;
+	readonly HeaderId: string;
 	readonly Links: Array<IResearchToolsLink>;
 }
 

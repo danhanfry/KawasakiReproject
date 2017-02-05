@@ -16,10 +16,6 @@
     "inputFile": "KawasakiNinja650/css/browserhacks.scss"
   },
   {
-    "outputFile": "KawasakiNinja650/css/mobile.css",
-    "inputFile": "KawasakiNinja650/css/mobile.scss"
-  },
-  {
     "outputFile": "KawasakiNinja650/css/vtr.css",
     "inputFile": "KawasakiNinja650/css/vtr.scss"
   },

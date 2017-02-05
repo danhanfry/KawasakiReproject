@@ -13,6 +13,7 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 	private ResearchIndex: Kawasaki.NinjaSixFifty.ResearchTools = new Kawasaki.NinjaSixFifty.ResearchTools();
 	private researchLinks: Array<IResearchToolsLink> = [];
+	private Common: Kawasaki.Common = new Kawasaki.Common();
 
 	constructor(props: IResearchToolsModel) {
 		super(props);
@@ -37,6 +38,7 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 					const listOfResearchItem = researchData.ResearchPage;
 					for (var researchItem of listOfResearchItem) {
 						const headerText = researchItem.Title;
+						const headerId = researchItem.Id;
 
 						const currentResearchLinks: Array<IResearchToolsLink> = [];
 						for (var researchLink of researchItem.Links) {
@@ -47,6 +49,7 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 						const researchItemPage: IResearchToolsLinks = {
 							HeaderText: headerText,
+							HeaderId: headerId,
 							Links: currentResearchLinks
 						};
 
@@ -83,8 +86,13 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 
 	/* used when state or prop is updated */
 	public componentDidUpdate(prevProps) {
-		let researchLinkContainer = document.getElementById('researchListing');
-		if (researchLinkContainer.children.length > 0) {
+		if (!this.Common.isMobile() && !this.Common.isTablet()) {
+			let researchLinkContainer = document.getElementById('researchListing');
+			if (researchLinkContainer.children.length > 0) {
+				this.researchCalculation();
+			}
+		}
+		else {
 			this.researchCalculation();
 		}
 	}

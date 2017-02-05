@@ -11,6 +11,7 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
             var _this = _super.call(this, props) || this;
             _this.ResearchIndex = new Kawasaki.NinjaSixFifty.ResearchTools();
             _this.researchLinks = [];
+            _this.Common = new Kawasaki.Common();
             _this.state = {
                 LinksState: new Array()
             };
@@ -29,6 +30,7 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
                         for (var _i = 0, listOfResearchItem_1 = listOfResearchItem; _i < listOfResearchItem_1.length; _i++) {
                             var researchItem = listOfResearchItem_1[_i];
                             var headerText = researchItem.Title;
+                            var headerId = researchItem.Id;
                             var currentResearchLinks = [];
                             for (var _a = 0, _b = researchItem.Links; _a < _b.length; _a++) {
                                 var researchLink = _b[_a];
@@ -37,6 +39,7 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
                             }
                             var researchItemPage = {
                                 HeaderText: headerText,
+                                HeaderId: headerId,
                                 Links: currentResearchLinks
                             };
                             allResearchLinks.push(researchItemPage);
@@ -62,8 +65,13 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
             window.removeEventListener("resize", this.researchResizeEvent);
         };
         ResearchTools.prototype.componentDidUpdate = function (prevProps) {
-            var researchLinkContainer = document.getElementById('researchListing');
-            if (researchLinkContainer.children.length > 0) {
+            if (!this.Common.isMobile() && !this.Common.isTablet()) {
+                var researchLinkContainer = document.getElementById('researchListing');
+                if (researchLinkContainer.children.length > 0) {
+                    this.researchCalculation();
+                }
+            }
+            else {
                 this.researchCalculation();
             }
         };

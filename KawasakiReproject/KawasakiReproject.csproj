@@ -78,12 +78,6 @@
     <Content Include="KawasakiNinja650\css\fonts.min.css">
       <DependentUpon>fonts.scss</DependentUpon>
     </Content>
-    <Content Include="KawasakiNinja650\css\mobile.css">
-      <DependentUpon>mobile.scss</DependentUpon>
-    </Content>
-    <Content Include="KawasakiNinja650\css\mobile.min.css">
-      <DependentUpon>mobile.css</DependentUpon>
-    </Content>
     <Content Include="KawasakiNinja650\css\modal.css">
       <DependentUpon>modal.scss</DependentUpon>
     </Content>
@@ -326,7 +320,6 @@
     <Content Include="KawasakiNinja650\css\commercial.scss" />
     <Content Include="KawasakiNinja650\css\styles.scss" />
     <Content Include="KawasakiNinja650\css\browserhacks.scss" />
-    <Content Include="KawasakiNinja650\css\mobile.scss" />
     <Content Include="KawasakiNinja650\css\vtr.scss" />
     <Content Include="KawasakiNinja650\css\modal.scss" />
     <Content Include="KawasakiNinja650\css\researchtools.scss" />

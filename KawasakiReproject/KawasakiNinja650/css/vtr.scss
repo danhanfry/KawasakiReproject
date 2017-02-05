@@ -354,6 +354,7 @@
 	.testvr-testride {
 		left: 5vw;
 		font-size: 14vw;
+		top: 165px;
 	}
 
 	.textvr-container {
@@ -362,21 +363,22 @@
 	.testvr-experience {
 		left: 10vw;
 		font-size: 8vw;
+		top: 133px;
 	}
 
 	.testvr-description {
-		top: 140px;
-		line-height: 13px;
-		font-size: 6px;
+		top: 220px;
+		line-height: 16px;
 	}
 
 	.vr-test-ride-selection {
-		top: 240px;
+		top: 350px;
+		padding: 0 0 0 10px;
 	}
 
 	.vr-test-ride-selection .text-vr-hover-txt {
-		font-size: 8vw;
-		width: 120px;
+		font-size: 6vw;
+		width: 150px;
 	}
 }
 
@@ -398,16 +400,18 @@
 	}
 
 	.testvr-description {
-		top: 155px;
+		top: 225px;
+		line-height: 20px;
 	}
 
 	.vr-test-ride-selection {
-		padding-left: 40px;
+		padding-left: 15px;
+		top: 400px;
 	}
 
 	.vr-test-ride-selection .text-vr-hover-txt {
-		font-size: 8vw;
-		width: 150px;
+		font-size: 6vw;
+		width: 170px;
 	}
 }
 
@@ -429,14 +433,17 @@
 	}
 
 	.testvr-description {
-		top: 155px;
+		top: 225px;
+		line-height: 24px;
 	}
 
 	.vr-test-ride-selection {
-		padding-left: 40px;
+		padding-left: 10px;
+		top: 435px;
 	}
 
 	.vr-test-ride-selection .text-vr-hover-txt {
-		font-size: 8vw;
+		font-size: 6vw;
+		width: 195px;
 	}
 }

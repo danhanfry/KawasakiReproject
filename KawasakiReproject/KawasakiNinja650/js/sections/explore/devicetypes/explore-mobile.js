@@ -11,7 +11,7 @@ var ExploreMobile = (function (_super) {
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
         _this.calculation = function () {
-            document.getElementById('thirdSlideTransition').style.display = 'none';
+            document.getElementById('techAnimationExploreId').style.display = 'none';
             document.getElementById('slideThreeScroller').style.display = 'none';
             $('#ninjaLogoExploreId').prop('src', 'assets/slide3/ninja-650-logo-mobile.png');
             $('.spec-parts').height($('.spec-parts').width() / 3 * 2 + 6);

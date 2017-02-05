@@ -274,13 +274,6 @@ class ExploreDesktop extends ExperienceSlide {
 	}
 
 	setScrollMagicMechanism = (): void => {
-		var scene = new ScrollMagic.Scene({
-			triggerElement: "#techDemoTrigger",
-			triggerHook: 1,
-			duration: 1
-		})
-			.setTween("#thirdSlideTransition", 1, { y: -160, duration: .5, ease: Linear.easeOut })
-			.addTo(controller);
 
 		var thirdScene = new ScrollMagic.Scene({
 			triggerElement: "#techDemoTrigger",
