@@ -107,12 +107,12 @@ class VTRMobile extends ExperienceSlide {
 			}
 		});
 
-		$('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('tap longtap', function () {
-			window.location.href = 'vtr/index.html?videoId=0';
+		$('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('click', function () {
+			window.location.href = '//kawasaki.com/ninja650experience/vtr/index.html?videoId=0';
 		});
 
-		$('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('tap longtap', function () {
-			window.location.href = 'vtr/index.html?videoId=1';
+		$('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('click', function () {
+			window.location.href = '//kawasaki.com/ninja650experience/vtr/index.html?videoId=1';
 		});
 
 		$("#slideTwoScroller").on('click', function () {

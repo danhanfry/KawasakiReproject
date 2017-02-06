@@ -43,7 +43,7 @@ define(["require", "exports"], function (require, exports) {
                             React.createElement("div", null,
                                 React.createElement("img", { src: "assets/slide3/bike.png" }))),
                         React.createElement("div", { className: "non-spec-container" }, Tiles.map(function (tile, index) {
-                            var classToUse = "tech-image " + tile.TileSize;
+                            var classToUse = "non-tech-image " + tile.TileSize;
                             return (React.createElement("div", { key: index, className: "spec-parts" },
                                 React.createElement("div", { "data-tech": tile.TileName, className: classToUse })));
                         }))),

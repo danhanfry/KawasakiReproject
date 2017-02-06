@@ -36,6 +36,8 @@ class ExploreMobile extends ExperienceSlide {
 
 	eventInitialize = (): void => {
 
+		var that = this;
+
 		$('.non-tech-image').on('click', function (event) {
 
 			var currentImage = $(this)[0];
@@ -66,7 +68,7 @@ class ExploreMobile extends ExperienceSlide {
 					var contentHeight = scrollHeight - offsetHeight;
 					if (contentHeight == scrollTop) $this.scrollTop(scrollTop - 1);
 					if (contentHeight === 0) {
-						this.Common.preventScrolling();
+						that.Common.preventScrolling();
 					}
 				});
 

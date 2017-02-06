@@ -27,6 +27,7 @@ var ExploreMobile = (function (_super) {
         _this.setTweenMechanism = function () {
         };
         _this.eventInitialize = function () {
+            var that = _this;
             $('.non-tech-image').on('click', function (event) {
                 var currentImage = $(this)[0];
                 var specHtml = $(currentImage).data('tech');
@@ -53,7 +54,7 @@ var ExploreMobile = (function (_super) {
                         if (contentHeight == scrollTop)
                             $this.scrollTop(scrollTop - 1);
                         if (contentHeight === 0) {
-                            this.Common.preventScrolling();
+                            that.Common.preventScrolling();
                         }
                     });
                     $scroller.scrollTop(0);

@@ -82,11 +82,11 @@ var VTRMobile = (function (_super) {
                     TweenMax.to("#interactivePlayId", 0.5, { stroke: '#fff' });
                 }
             });
-            $('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('tap longtap', function () {
-                window.location.href = 'vtr/index.html?videoId=0';
+            $('#leftTestVRVideoSVGId, #leftTextForVRVideoHoverId').on('click', function () {
+                window.location.href = '//kawasaki.com/ninja650experience/vtr/index.html?videoId=0';
             });
-            $('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('tap longtap', function () {
-                window.location.href = 'vtr/index.html?videoId=1';
+            $('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('click', function () {
+                window.location.href = '//kawasaki.com/ninja650experience/vtr/index.html?videoId=1';
             });
             $("#slideTwoScroller").on('click', function () {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#explore').offset().top } });

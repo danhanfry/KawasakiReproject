@@ -59,7 +59,7 @@ var CommercialMobile = (function (_super) {
             }
             TweenMax.set("#commericalNinjaNameId", {
                 top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-                left: (_this.windowWidth / 2) - (ninjaLogoName.outerWidth() / 2)
+                left: 0
             });
             TweenMax.set("#commericalNinjaLifeGreenHrId", {
                 top: ninjaLogoName.position().top + (ninjaLogoName.outerHeight() / 3 * 2),

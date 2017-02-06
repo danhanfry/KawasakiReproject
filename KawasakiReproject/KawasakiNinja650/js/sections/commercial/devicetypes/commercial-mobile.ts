@@ -30,12 +30,6 @@ class CommercialMobile extends ExperienceSlide {
 
 		mobileTabletStaticImgContainer.style.display = 'block';
 
-		//var imgScroller = $('#slideOneScroller img');
-		//if (imgScroller !== undefined) {
-		//	imgScroller.prop('src', 'assets/green_arrown_down.svg');
-		//}
-
-
 		var mobileContainerImage = mobileTabletStaticImgContainer.querySelectorAll('img');
 		if (mobileContainerImage.length > 0) {
 			mobileContainerImage[0].src = 'assets/slide1/mobile-landing-bkgd.jpg';
@@ -81,7 +75,7 @@ class CommercialMobile extends ExperienceSlide {
 
 		TweenMax.set("#commericalNinjaNameId", {
 			top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-			left: (this.windowWidth / 2) - (ninjaLogoName.outerWidth() / 2)
+			left: 0
 		});
 
 		TweenMax.set("#commericalNinjaLifeGreenHrId", {
