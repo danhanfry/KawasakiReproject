@@ -38,10 +38,9 @@ class CommercialTablet extends ExperienceSlide {
 
 		var scaledStaticImage = this.Common.scaleProportionally(1125, 2001, this.windowWidth, 150, false);
 		$(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height);
-		/*mobileContainerImage.width(scaledStaticImage.width).height(scaledStaticImage.height);*/
 
-		$('#PlayButtonGloss').hide();
-		$('#slideOneGloss').hide();
+		document.getElementById('PlayButtonGloss').style.display = 'none';
+		document.getElementById('slideOneGloss').style.display = 'none';
 
 		let thirdOfWindowHeight = this.windowHeight / 3;
 		let fourthOfWindowHeight = this.windowHeight / 4;

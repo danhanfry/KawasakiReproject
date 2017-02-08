@@ -49,28 +49,8 @@ class ExploreTablet extends ExperienceSlide {
 	}
 
 	calculation = (): void => {
-		var bikeCoordinates = $('#bikeId').position().top + $('#bikeId').height();
-		if (this.windowWidth <= 1290) {
-			TweenMax.set("#techAnimationId", { left: 0 });
-		}
-		else {
-			TweenMax.set("#techAnimationId", { left: (this.windowWidth / 2) - (1290 / 2) });
-		}
 
-		TweenMax.set("#bikeId", { left: (1215 / 2) - ($('#bikeId').width() / 2) });
-		var expectedTechAnimationExploreYCoord = 0;
-
-		TweenMax.set("#techAnimationExploreId", {
-			left: (this.windowWidth / 2) - ($('.explore-ninja-content').width() / 2),
-		});
-
-		var currentWindowHeight = this.windowHeight;
-		var currentHeightOfSlideContent = $('#techAnimationExploreId').position().top + $('#techAnimationExploreId').height();
-		if (currentWindowHeight < currentHeightOfSlideContent) {
-			currentWindowHeight = currentHeightOfSlideContent;
-		}
-
-		$('#explore').height(currentWindowHeight).width(this.windowWidth);
+		$('#explore').height(this.windowHeight).width(this.windowWidth);
 
 		TweenMax.set("#slideThreeScroller", { bottom: 0, left: (this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2) });
 
@@ -82,7 +62,8 @@ class ExploreTablet extends ExperienceSlide {
 
 		TweenMax.set("#slideThreeScroller", { bottom: "70px", left: (this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2) });
 
-		$('.spec-parts .non-tech-image').each((index, element) => {
+		var that = this;
+		$('.spec-parts .non-tech-image').each(function(index, element) {
 
 			let currentTile = $(this);
 			let tileImage:HTMLImageElement;
@@ -92,33 +73,33 @@ class ExploreTablet extends ExperienceSlide {
 			switch (dataTech) {
 
 				case 'power': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/power.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(1.35, this.specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/power.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(1.35, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 				case 'handling': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/handling.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(4, this.specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/handling.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(4, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 				case 'comfort': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/comfort.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(3, this.specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/comfort.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(3, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 				case 'racingheritage': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/heritage.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(2, this.specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/heritage.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 				case 'styling': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/styling.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(2, this. specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/styling.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 				case 'convenience': {
-					tileImage = this.tabletAttachImageToContainer(currentTile, "assets/slide3/convenience.jpg");
-					elementDimension = this.Common.scaleByFactorProportionally(2, this.specOriginalDimensions.width, this.specOriginalDimensions.height);
+					tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/convenience.jpg");
+					elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
 					break;
 				}
 
@@ -127,7 +108,7 @@ class ExploreTablet extends ExperienceSlide {
 			$(tileImage).width(elementDimension.width);
 			$(tileImage).height(elementDimension.height);
 
-			var tabletTile = this.tabletTiles.filter(function (x) { return x.elm == dataTech; });
+			var tabletTile = that.tabletTiles.filter(function (x) { return x.elm == dataTech; });
 			if (tabletTile.length > 0) {
 				tabletTile[0].width = $(tileImage).width();
 				tabletTile[0].height = $(tileImage).height();
@@ -140,6 +121,8 @@ class ExploreTablet extends ExperienceSlide {
 	}
 
 	eventInitialize = (): void => {
+
+		var that = this;
 
 		$('.tech-image:not(.horiz-white-tile):not(.vert-white-tile)').each(function (index, element) {
 			$(this).on('mouseover', function () {
@@ -154,45 +137,45 @@ class ExploreTablet extends ExperienceSlide {
 
 		});
 
-		$('.tech-image, .non-tech-image').on('click', (event) => {
+		$('.tech-image, .non-tech-image').on('click', function(event) {
 
 			let currentId: string = $(this).attr('id');
 			if (currentId === "verticalWhiteLine" || currentId === "horizontalWhiteLine") {
 				return;
 			}
 
-			this.s3ModalExapnded = true;
-			this.currentTileImage = $(this)[0];
-			this.specModalClicked = true;
-			this.clonedElement = this.Common.createCloneOfElement(this.currentTileImage, { positionTop: 0, positionLeft: 0 });
+			that.s3ModalExapnded = true;
+			that.currentTileImage = $(this)[0];
+			that.specModalClicked = true;
+			that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
 
-			document.body.appendChild(this.clonedElement);
+			document.body.appendChild(that.clonedElement);
 
-			this.s3CurrentSelectedTile = $(this).data('tile-index');
-			this.s3CurrentSelectedTabletTile = $(this).data('tech');
-			this.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
-			this.s3CapturedTile.width = $(this.clonedElement).width().toString();
-			this.s3CapturedTile.height = $(this.clonedElement).height().toString();
-			this.s3CapturedTile.top = $(this.clonedElement).position().top.toString();
-			this.s3CapturedTile.left = $(this.clonedElement).position().left.toString();
+			that.s3CurrentSelectedTile = $(this).data('tile-index');
+			that.s3CurrentSelectedTabletTile = $(this).data('tech');
+			that.s3CapturedTile = { width: "0", height: "0", top: "0", left: "0" };
+			that.s3CapturedTile.width = $(that.clonedElement).width().toString();
+			that.s3CapturedTile.height = $(that.clonedElement).height().toString();
+			that.s3CapturedTile.top = $(that.clonedElement).position().top.toString();
+			that.s3CapturedTile.left = $(that.clonedElement).position().left.toString();
 
 			var time = 0.65;
 			var ease = Power3.easeOut;
 			var delay = 0.08
-			var imgWrapper = $(this.clonedElement).children()[0];
+			var imgWrapper = $(that.clonedElement).children()[0];
 			var img = $(imgWrapper).children()[0];
 			var windowW = $(window).width();
 			var windowH = $(window).height();
-			var results = this.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
+			var results = that.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
 
-			TweenMax.to(this.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
+			TweenMax.to(that.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
 			if (imgWrapper) {
 				if ($(imgWrapper).is('div')) {
 					TweenMax.to(imgWrapper, time, { delay: delay, scale: 1, ease: ease });
 				}
 				else if ($(imgWrapper).is('img')) {
-					this.currentImageInTileDimensions.width = $(imgWrapper).width();
-					this.currentImageInTileDimensions.height = $(imgWrapper).height();
+					that.currentImageInTileDimensions.width = $(imgWrapper).width();
+					that.currentImageInTileDimensions.height = $(imgWrapper).height();
 					TweenMax.to(imgWrapper, time, { delay: delay, ease: ease, width: "100%", height: "100%", position: 'static' });
 				}
 			}
@@ -202,13 +185,13 @@ class ExploreTablet extends ExperienceSlide {
 
 			var ypad = 50;
 
-			var specHtml = $(this.currentTileImage).data('tech');
+			var specHtml = $(that.currentTileImage).data('tech');
 			TweenMax.set('#specificationModal', { x: 0 });
 
 			TweenMax.set('#s3ModalCloseBtn img', { scale: 0, transformOrigin: '50% 70%' });
 
 
-			$('#modalSpecContentInfo').load("partials/" + specHtml + ".html", function () {
+			$('#modalSpecContentInfo').load("partials/" + specHtml + ".html", () => {
 				TweenMax.set('.spec-details-container', { minHeight: $('#specificationModal.modal').outerHeight() * (0.85) });
 				this.timelineForExpandingSpecs = new TimelineMax({ paused: true });
 				var backing = "<div class='spec-details-backing'></div>"

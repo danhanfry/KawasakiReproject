@@ -30,8 +30,8 @@ var CommercialTablet = (function (_super) {
             }
             var scaledStaticImage = _this.Common.scaleProportionally(1125, 2001, _this.windowWidth, 150, false);
             $(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height);
-            $('#PlayButtonGloss').hide();
-            $('#slideOneGloss').hide();
+            document.getElementById('PlayButtonGloss').style.display = 'none';
+            document.getElementById('slideOneGloss').style.display = 'none';
             var thirdOfWindowHeight = _this.windowHeight / 3;
             var fourthOfWindowHeight = _this.windowHeight / 4;
             var thirdOfWindowWidth = _this.windowWidth / 3;

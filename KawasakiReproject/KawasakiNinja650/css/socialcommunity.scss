@@ -345,6 +345,59 @@
 	}
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+	.social-community-txt {
+		font-size: 190px;
+		top: 110px;
+		left: 18vw;
+		opacity: 1;
+	}
+
+	.ninja-life-text {
+		opacity: 1;
+		top: 140px;
+	}
+
+	.social-gray-bg {
+		top: 100px;
+	}
+
+	.social-community-social-icons {
+		opacity: 1;
+	}
+
+		.social-community-social-icons img {
+			width: 18px;
+			height: 18px;
+		}
+
+	.social-guidelines-txt {
+		opacity: 1;
+		top: 210px;
+	}
+
+	.flip-container-hover-instagram {
+		border-width: 9px;
+	}
+
+	.flip-container-hover-twitter {
+		border-width: 9px;
+		top: 91px;
+	}
+
+	#socialModalId .modal-social-container {
+		padding-top: 20px;
+		overflow: hidden;
+	}
+
+	#socialModalId .modal-text-info {
+		overflow:hidden;
+		height: 260px;
+	}
+
+}
+
 @media (min-width: 320px) and (max-width: 736px) and (orientation: portrait) {
 
 	.ninja-life-text {

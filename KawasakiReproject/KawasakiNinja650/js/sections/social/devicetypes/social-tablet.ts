@@ -85,6 +85,9 @@ class SocialTablet extends ExperienceSlide {
 	}
 
 	eventInitialize = (): void => {
+
+		var that = this;
+
 		$(document).on({
 			mouseenter: function () {
 
@@ -92,9 +95,9 @@ class SocialTablet extends ExperienceSlide {
 
 				var childElementFlipper = $(element).find('.flipper');
 				if (childElementFlipper.length > 0) {
-					var matrix = this.Common.getMatrixOfTransform(childElementFlipper[0]);
+					var matrix = that.Common.getMatrixOfTransform(childElementFlipper[0]);
 					var transformY = matrix[13] || matrix[5];
-					if (transformY > 0) {
+					if (parseInt(transformY, 10) > 0) {
 						return;
 					}
 				}
@@ -136,14 +139,14 @@ class SocialTablet extends ExperienceSlide {
 			}
 		}, ".flip-container ");
 
-		$(document).on('tap', '.front-social, .flip-container-hover', function () {
+		$(document).on('click', '.front-social, .flip-container-hover', function () {
 			var indexOfInfo = parseInt($(this).data('index'), 10);
 			if (isNaN(indexOfInfo)) {
 				var theFrontBecauseOfHover = $(this).prev().find(".front-social").get(0);
 				indexOfInfo = parseInt($(theFrontBecauseOfHover).data('index'), 10);
 			}
 
-			var socialInfo = this.allSpreadFasterContent[indexOfInfo]
+			var socialInfo = that.allSpreadFasterContent[indexOfInfo]
 
 			var imageContainer = document.getElementById('modalContentImage');
 			imageContainer.style.cssText = "background: url('" + socialInfo.imageUrl + "') no-repeat; background-size: cover; background-position: center center";
@@ -193,10 +196,10 @@ class SocialTablet extends ExperienceSlide {
 			$('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
 
 			/*prevent scrolling*/
-			this.Common.preventScrolling();
+			that.Common.preventScrolling();
 		});
 
-		$('#socialSubmissionGuideLines').on('click', function () {
+		$('#socialSubmissionGuideLines').on('click', () => {
 			/*show modal*/
 			document.getElementById('socialGuidelinesModalId').style.display = "block";
 
@@ -206,7 +209,7 @@ class SocialTablet extends ExperienceSlide {
 			this.Common.preventScrolling();
 		});
 
-		$('#socialModalId .close-btn').on('click', function () {
+		$('#socialModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
 
@@ -217,7 +220,7 @@ class SocialTablet extends ExperienceSlide {
 
 		});
 
-		$('#socialGuidelinesModalId .close-btn').on('click', function () {
+		$('#socialGuidelinesModalId .close-btn').on('click', () => {
 			/*allow scrolling again*/
 			this.Common.allowScrolling();
 			$('.fixed-nav-bar').css('display', 'block');
