@@ -193,8 +193,8 @@ class SocialTablet extends ExperienceSlide {
 			}
 
 			/*show modal*/
-			$('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
-
+			$('#socialModalId').removeClass('fade-out-modal');
+			document.getElementById('socialModalId').style.display = 'block';
 			/*prevent scrolling*/
 			that.Common.preventScrolling();
 		});
@@ -216,7 +216,8 @@ class SocialTablet extends ExperienceSlide {
 			$('.fixed-nav-bar').css('display', 'block');
 
 			/*hide modal*/
-			$('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+			$('#socialModalId').addClass('fade-out-modal');
+			document.getElementById('socialModalId').style.display = 'none';
 
 		});
 

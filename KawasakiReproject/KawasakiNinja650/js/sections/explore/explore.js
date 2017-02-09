@@ -98,5 +98,5 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
     var exploreModel = new ExploreContentModel('explore ninja<span class="sup">®</span>650', 'click on the bike to explore');
     var exploreProperties = new ExploreProperties(exploreModel);
     ReactDOM.render(React.createElement(Explore, { ExploreProperties: exploreProperties }), document.getElementById('explore'));
-    ReactDOM.render(React.createElement(ExploreSpecModal, null), document.getElementById('specModalContainer'));
+    ReactDOM.render(React.createElement(ExploreSpecModal, null), document.getElementById('specificationModal'));
 });

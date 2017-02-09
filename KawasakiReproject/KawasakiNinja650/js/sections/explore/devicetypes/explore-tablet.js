@@ -169,7 +169,7 @@ var ExploreTablet = (function (_super) {
                     TweenMax.to('#s3ModalCloseBtn img', 0.5, { scale: 1, delay: hardDelay + 0.7, ease: Power3.easeOut, overwrite: 'all' });
                 });
                 document.getElementById('specificationModal').style.display = "block";
-                this.Common.preventScrolling();
+                that.Common.preventScrolling();
             });
             $('#specificationModal .close-btn').on('click', function () {
                 var currentTileData = _this.tiles[_this.s3CurrentSelectedTile];
@@ -199,12 +199,12 @@ var ExploreTablet = (function (_super) {
                             delay: delay, ease: ease, x: _this.currentTileTabletData.x, y: _this.currentTileTabletData.y,
                             width: _this.currentTileTabletData.width, height: _this.currentTileTabletData.height, onComplete: function () {
                                 document.body.removeChild($('.cloned-element')[0]);
-                                this.Common.allowScrolling();
+                                that.Common.allowScrolling();
                                 document.getElementById('specificationModal').style.display = "none";
-                                this.s3CapturedTile = null;
-                                this.s3CurrentSelectedTile = -1;
-                                this.s3ModalExapnded = false;
-                                this.specModalClicked = false;
+                                that.s3CapturedTile = null;
+                                that.s3CurrentSelectedTile = -1;
+                                that.s3ModalExapnded = false;
+                                that.specModalClicked = false;
                             }
                         });
                     }

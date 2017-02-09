@@ -135,7 +135,8 @@ var SocialTablet = (function (_super) {
                 else if (socialInfo.network === "instagram") {
                     $('#modalContentContainer').removeClass('twitter-color').addClass('instagram-color');
                 }
-                $('#socialModalId').removeClass('fadeOut').addClass('fadeIn');
+                $('#socialModalId').removeClass('fade-out-modal');
+                document.getElementById('socialModalId').style.display = 'block';
                 that.Common.preventScrolling();
             });
             $('#socialSubmissionGuideLines').on('click', function () {

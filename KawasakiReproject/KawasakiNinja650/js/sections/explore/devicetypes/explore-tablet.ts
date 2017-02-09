@@ -220,7 +220,7 @@ class ExploreTablet extends ExperienceSlide {
 			document.getElementById('specificationModal').style.display = "block";
 
 			/*prevent scrolling*/
-			this.Common.preventScrolling();
+			that.Common.preventScrolling();
 
 		});
 
@@ -260,13 +260,13 @@ class ExploreTablet extends ExperienceSlide {
 						width: this.currentTileTabletData.width, height: this.currentTileTabletData.height, onComplete: function () {
 
 							document.body.removeChild($('.cloned-element')[0]);
-							this.Common.allowScrolling();
+							that.Common.allowScrolling();
 							document.getElementById('specificationModal').style.display = "none";
 
-							this.s3CapturedTile = null;
-							this.s3CurrentSelectedTile = -1;
-							this.s3ModalExapnded = false;
-							this.specModalClicked = false;
+							that.s3CapturedTile = null;
+							that.s3CurrentSelectedTile = -1;
+							that.s3ModalExapnded = false;
+							that.specModalClicked = false;
 						}
 					});
 

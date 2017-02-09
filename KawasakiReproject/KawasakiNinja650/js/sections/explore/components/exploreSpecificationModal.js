@@ -11,14 +11,13 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ExploreSpecificationModal.prototype.render = function () {
-            return (React.createElement("div", { className: "modal", id: "specificationModal" },
-                React.createElement("div", { id: "specificationContent", className: "modal-content" },
-                    React.createElement("div", { className: "modal-header" },
-                        React.createElement("span", { id: "s3ModalCloseBtn", className: "close-btn" },
-                            React.createElement("img", { src: "assets/close_green_btn.svg", alt: "close button" }))),
-                    React.createElement("div", { className: "modal-body" },
-                        React.createElement("div", { id: "modalContentSpecContainer", className: "modal-spec-content-container" },
-                            React.createElement("div", { id: "modalSpecContentInfo", className: "modal-spec-content-info" }))))));
+            return (React.createElement("div", { id: "specificationContent", className: "modal-content" },
+                React.createElement("div", { className: "modal-header" },
+                    React.createElement("span", { id: "s3ModalCloseBtn", className: "close-btn" },
+                        React.createElement("img", { src: "assets/close_green_btn.svg", alt: "close button" }))),
+                React.createElement("div", { className: "modal-body" },
+                    React.createElement("div", { id: "modalContentSpecContainer", className: "modal-spec-content-container" },
+                        React.createElement("div", { id: "modalSpecContentInfo", className: "modal-spec-content-info" })))));
         };
         return ExploreSpecificationModal;
     }(React.Component));
