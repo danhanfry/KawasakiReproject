@@ -147,7 +147,8 @@ var SocialTablet = (function (_super) {
             $('#socialModalId .close-btn').on('click', function () {
                 _this.Common.allowScrolling();
                 $('.fixed-nav-bar').css('display', 'block');
-                $('#socialModalId').removeClass('fadeIn').addClass('fadeOut');
+                $('#socialModalId').addClass('fade-out-modal');
+                document.getElementById('socialModalId').style.display = 'none';
             });
             $('#socialGuidelinesModalId .close-btn').on('click', function () {
                 _this.Common.allowScrolling();

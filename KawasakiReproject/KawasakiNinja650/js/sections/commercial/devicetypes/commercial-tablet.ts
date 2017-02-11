@@ -36,8 +36,8 @@ class CommercialTablet extends ExperienceSlide {
 			mobileContainerImage[0].src = 'assets/slide1/tablet-landing-bkgd.jpg';
 		}
 
-		var scaledStaticImage = this.Common.scaleProportionally(1125, 2001, this.windowWidth, 150, false);
-		$(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height);
+		var scaledStaticImage = this.Common.scaleProportionally(1920, 1080, this.windowWidth, 150, false);
+		$(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height + 60);
 
 		document.getElementById('PlayButtonGloss').style.display = 'none';
 		document.getElementById('slideOneGloss').style.display = 'none';

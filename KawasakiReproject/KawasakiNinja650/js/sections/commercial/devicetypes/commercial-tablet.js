@@ -28,8 +28,8 @@ var CommercialTablet = (function (_super) {
             if (mobileContainerImage.length > 0) {
                 mobileContainerImage[0].src = 'assets/slide1/tablet-landing-bkgd.jpg';
             }
-            var scaledStaticImage = _this.Common.scaleProportionally(1125, 2001, _this.windowWidth, 150, false);
-            $(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height);
+            var scaledStaticImage = _this.Common.scaleProportionally(1920, 1080, _this.windowWidth, 150, false);
+            $(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height + 60);
             document.getElementById('PlayButtonGloss').style.display = 'none';
             document.getElementById('slideOneGloss').style.display = 'none';
             var thirdOfWindowHeight = _this.windowHeight / 3;

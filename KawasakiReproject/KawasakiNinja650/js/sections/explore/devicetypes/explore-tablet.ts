@@ -57,7 +57,7 @@ class ExploreTablet extends ExperienceSlide {
 		$('#ninjaLogoExploreId').prop('src', 'assets/slide3/ninja_650_logo_tablet.png');
 		$('#ninjaLogoExploreId').width("100%");
 		$('.spec-parts').height($('.spec-parts').width() / 2);
-		TweenMax.set(".non-spec-container", { top: $('.spec-ninja-bike').position().top + ($('.spec-ninja-bike').height() / 3) - 15 });
+		TweenMax.set(".non-spec-container", { top: ($('#explore').height() / 2) - ($('#explore').height() / 5) });
 		$('#explore').height(this.windowHeight).width(this.windowWidth);
 
 		TweenMax.set("#slideThreeScroller", { bottom: "70px", left: (this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2) });
