@@ -126,6 +126,18 @@
     width: 100%; }
   .commerical-text-year img {
     width: 100%; }
+  .commerical-logo {
+    top: 25vw;
+    left: 20vw; }
+  .commerical-hr {
+    left: 45vw;
+    top: 34vw; }
+  .commerical-life-description {
+    left: 45vw;
+    top: 37vw; }
+  .commerical-life-arrow {
+    top: 37vw;
+    left: 80vw; }
   .commerical-life-description {
     width: 300px;
     font-size: 13px;

@@ -17,21 +17,6 @@ var VTRTablet = (function (_super) {
             TweenMax.set('#testVRContainerId', {
                 top: ($('#virtual').height() / 5.5) - 80
             });
-            TweenMax.set("#testVRExperience", {
-                left: (_this.windowWidth / 2) - ($('#testVRExperience').width() / 2)
-            });
-            var vrTestRideTxtHalfWidth = $('#testVRTestRide').width() / 2;
-            TweenMax.set(".testvr-testride", {
-                top: $('#testVRExperience').position().top + $('#testVRExperience').height(),
-                left: (_this.windowWidth / 2) - vrTestRideTxtHalfWidth
-            });
-            TweenMax.set("#testVRDescription", {
-                top: $('#testVRTestRide').position().top + $('#testVRTestRide').height(),
-                left: (_this.windowWidth / 2) - ($('#testVRDescription').width() / 2)
-            });
-            TweenMax.set('#vrTestRideSelection', {
-                top: $('#testVRDescription').position().top + $('#testVRDescription').height() + 40
-            });
             $('#leftTextForVRVideoHoverId').css({
                 'left': ($(window).width() / 2) - $('#leftTextForVRVideoHoverId').width() - 60
             });

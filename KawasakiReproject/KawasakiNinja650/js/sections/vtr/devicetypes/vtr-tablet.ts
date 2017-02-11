@@ -24,29 +24,6 @@ class VTRTablet extends ExperienceSlide {
 			top: ($('#virtual').height() / 5.5) - 80
 		});
 
-		/*experience*/
-		TweenMax.set("#testVRExperience", {
-			left: (this.windowWidth / 2) - ($('#testVRExperience').width() / 2)
-		});
-
-		/*virtual test ride text positioning only desktop, tablet and mobile are via css since this is unreliable on those devices*/
-		var vrTestRideTxtHalfWidth = $('#testVRTestRide').width() / 2;
-		TweenMax.set(".testvr-testride", {
-			top: $('#testVRExperience').position().top + $('#testVRExperience').height(),
-			left: (this.windowWidth / 2) - vrTestRideTxtHalfWidth
-		});
-
-
-		/*description*/
-		TweenMax.set("#testVRDescription", {
-			top: $('#testVRTestRide').position().top + $('#testVRTestRide').height(),
-			left: (this.windowWidth / 2) - ($('#testVRDescription').width() / 2)
-		});
-
-		TweenMax.set('#vrTestRideSelection', {
-			top: $('#testVRDescription').position().top + $('#testVRDescription').height() + 40
-		});
-
 		$('#leftTextForVRVideoHoverId').css({
 			'left': ($(window).width() / 2) - $('#leftTextForVRVideoHoverId').width() - 60
 		});

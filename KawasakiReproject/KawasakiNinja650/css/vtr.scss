@@ -238,17 +238,13 @@
 /*ipad mostly*/
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
 
-	.testvr-experience .sup {
-		margin-top: -7px;
-	}
-
 	.testvr-testride {
 		left: 8vw;
 		opacity: 1;
 	}
 
 	.testvr-experience {
-		left: 17vw;
+		left: 30vw;
 		opacity: 1;
 	}
 
@@ -256,6 +252,7 @@
 		opacity: 1;
 		width: 75%;
 		left: 13vw;
+		top: 230px;
 	}
 
 	.testvr-text-year {
@@ -264,6 +261,10 @@
 
 	.testvr-logo {
 		opacity: 1;
+	}
+
+	.vr-test-ride-selection {
+		top: 350px;
 	}
 
 	.vr-test-ride-selection .text-vr-hover-txt {

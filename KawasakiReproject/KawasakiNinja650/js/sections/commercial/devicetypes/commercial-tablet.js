@@ -51,35 +51,7 @@ var CommercialTablet = (function (_super) {
                     width: '135%'
                 });
             }
-            TweenMax.set("#commericalNinjaNameId", {
-                top: ninjaLogoYear.position().top + ninjaLogoYear.height(),
-                left: (_this.windowWidth / 2) - (ninjaLogoName.width() / 2)
-            });
-            var leftGreenHr = halfOfWindowWidth - 10;
-            leftGreenHr = leftGreenHr - (ninjaGreenLine.width() / 2);
-            TweenMax.set("#commericalNinjaLifeGreenHrId", {
-                top: ninjaLogoName.position().top + ninjaLogoName.height(),
-                left: leftGreenHr
-            });
-            var leftDescription = halfOfWindowWidth - 10;
-            leftDescription = leftDescription - (ninjaDescriptionElement.width() / 2);
-            TweenMax.set("#commericalNinjaLifeDescriptionId", {
-                top: ninjaGreenLine.position().top + ninjaGreenLine.outerHeight() - 10,
-                left: leftDescription
-            });
-            TweenMax.set("#commericalNinjaLifePlayArrow", {
-                top: ninjaGreenLine.position().top + ninjaGreenLine.outerHeight(),
-                left: (ninjaDescriptionElement.position().left + ninjaDescriptionElement.width() + 50)
-            });
             var floatingBottom = $('#commercial').height() / 10 * 9;
-            var bottom = ninjaDescriptionElement.offset().top + ninjaDescriptionElement.outerHeight() + 100;
-            if (floatingBottom < bottom) {
-                floatingBottom = bottom;
-            }
-            TweenMax.set("#PlayButtonAction", {
-                top: (ninjaPlayArrow.height() / 2) - (ninjaPlayButtonSvg.height() / 2) - 10,
-                left: (ninjaPlayArrow.width() / 2) - (ninjaPlayButtonSvg.width() / 2) - 15
-            });
             TweenMax.set("#slideOneArrow", {
                 top: ($('#scrollIndicatorMask').height() / 2) - ($('#slideOneArrow').height() / 2)
             });

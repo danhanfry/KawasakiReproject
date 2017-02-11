@@ -349,18 +349,21 @@
 
 	.social-community-txt {
 		font-size: 190px;
-		top: 110px;
+		top: 30px;
 		left: 18vw;
 		opacity: 1;
 	}
 
 	.ninja-life-text {
 		opacity: 1;
-		top: 140px;
+		top: 40px;
+		font-size: 45px;
+		letter-spacing: 40px;
 	}
 
 	.social-gray-bg {
-		top: 100px;
+		top: 58px;
+		height: 160px;
 	}
 
 	.social-community-social-icons {
@@ -374,7 +377,15 @@
 
 	.social-guidelines-txt {
 		opacity: 1;
-		top: 210px;
+		top: 100px;
+	}
+
+	.social-line, .social-left-line, .social-right-line {
+		width: 30px;
+	}
+
+	.social-container {
+		top: 225px;
 	}
 
 	.flip-container-hover-instagram {
@@ -392,7 +403,7 @@
 	}
 
 	#socialModalId .modal-text-info {
-		overflow:hidden;
+		overflow: hidden;
 		height: 260px;
 	}
 
