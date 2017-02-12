@@ -132,4 +132,4 @@ var exploreModel = new ExploreContentModel('explore ninja<span class="sup">®</s
 var exploreProperties = new ExploreProperties(exploreModel);
 
 ReactDOM.render(<Explore ExploreProperties={exploreProperties} />, document.getElementById('explore'));
-ReactDOM.render(<ExploreSpecModal />, document.getElementById('specificationModal'));
+ReactDOM.render(<ExploreSpecificationModal />, document.getElementById('specificationModal'));

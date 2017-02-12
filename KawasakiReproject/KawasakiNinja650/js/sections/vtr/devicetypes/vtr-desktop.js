@@ -77,7 +77,6 @@ var VTRDesktop = (function (_super) {
             var videoVTRPlay = document.getElementById('videoPlayerVR');
             videoVTRPlay.controls = false;
             videoVTRPlay.play();
-            _this.prepareIFrameVRTestRide();
         };
         _this.setTweenMechanism = function () {
         };
@@ -124,11 +123,6 @@ var VTRDesktop = (function (_super) {
             $('#rightTestVRVideoSVGId, #rightTextForVRVideoHoverId').on('click', function () {
                 _this.setupTestVRModal(1);
             });
-            $('#testVRModal .close-btn').on('click', function () {
-                window.frames[0].frameElement.contentWindow.getEdgeApp().destroy();
-                _this.Common.allowScrolling();
-                document.getElementById('testVRModal').style.display = 'none';
-            });
             $("#slideTwoScroller").on('click', function () {
                 TweenMax.to(window, 1, { scrollTo: { y: $('#explore').offset().top - 65 } });
             });
@@ -170,9 +164,15 @@ var VTRDesktop = (function (_super) {
             document.getElementById('modalVTRContentInfo').appendChild(vrIFrame);
         };
         _this.setupTestVRModal = function (videoId) {
+            _this.prepareIFrameVRTestRide();
             window.frames[0].frameElement.src = "//kawasaki.com/ninja650experience/vtr/index.html?videoId=" + videoId;
             document.getElementById('testVRModal').style.display = 'block';
             _this.Common.preventScrolling();
+            $('#testVRModal .close-btn').on('click', function () {
+                window.frames[0].frameElement.contentWindow.getEdgeApp().destroy();
+                _this.Common.allowScrolling();
+                document.getElementById('testVRModal').style.display = 'none';
+            });
         };
         _this.tweenTextByScroll = function () {
             return new TimelineMax()

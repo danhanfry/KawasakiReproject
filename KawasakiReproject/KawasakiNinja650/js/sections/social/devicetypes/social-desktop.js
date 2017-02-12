@@ -147,22 +147,22 @@ var SocialDesktop = (function (_super) {
                 $('#socialModalId').removeClass('fade-out-modal');
                 document.getElementById('socialModalId').style.display = 'block';
                 that.Common.preventScrolling();
+                $('#socialModalId .close-btn').on('click', function () {
+                    that.Common.allowScrolling();
+                    $('.fixed-nav-bar').css('display', 'block');
+                    $('#socialModalId').addClass('fade-out-modal');
+                    document.getElementById('socialModalId').style.display = 'none';
+                });
             });
             $('#socialSubmissionGuideLines').on('click', function () {
                 document.getElementById('socialGuidelinesModalId').style.display = "block";
                 $('.fixed-nav-bar').css('display', 'none');
                 _this.Common.preventScrolling();
-            });
-            $('#socialModalId .close-btn').on('click', function () {
-                _this.Common.allowScrolling();
-                $('.fixed-nav-bar').css('display', 'block');
-                $('#socialModalId').addClass('fade-out-modal');
-                document.getElementById('socialModalId').style.display = 'none';
-            });
-            $('#socialGuidelinesModalId .close-btn').on('click', function () {
-                _this.Common.allowScrolling();
-                $('.fixed-nav-bar').css('display', 'block');
-                document.getElementById('socialGuidelinesModalId').style.display = "none";
+                $('#socialGuidelinesModalId .close-btn').on('click', function () {
+                    _this.Common.allowScrolling();
+                    $('.fixed-nav-bar').css('display', 'block');
+                    document.getElementById('socialGuidelinesModalId').style.display = "none";
+                });
             });
         };
         _this.resize = function () {

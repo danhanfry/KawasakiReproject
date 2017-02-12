@@ -35,7 +35,6 @@ export class VTR extends React.Component<IVTRlModel, any> {
 			<div>
 				<VTRVideo Model={VTRVideoProp} />
 				<VTRContent Model={VTRContentProp} />
-				<VTRModal />
 			</div>
 		);
 	}
@@ -67,6 +66,8 @@ var vtrContentModel = new VTRContentViewModel('experience the 2017 ninja<span cl
 var vtrModel = new VTRProperties(vtrVideoModel, vtrContentModel);
 
 ReactDOM.render(<VTR VTRProperties={vtrModel} />, document.getElementById('virtual'));
+
+ReactDOM.render(<VTRModal />, document.getElementById('testVRModal'));
 
 function createCommonSvgDefinition() {
 	var vtrDefRectProperties: ISVGRectTagProperties = {

@@ -25,9 +25,7 @@ define(["require", "exports", "./components/socialheader", "./components/socialm
             var SocialHeaderProp = this.props.SocialCommunityProperties.SocialHeaderProp;
             return (React.createElement("div", null,
                 React.createElement(socialheader_1.SocialHeader, { Model: SocialHeaderProp }),
-                React.createElement("div", { id: "socialContainer", className: "social-container" }),
-                React.createElement(socialmodal_1.SocialModal, null),
-                React.createElement(socialSubmissionModal_1.SocialSubmissionGuidelines, null)));
+                React.createElement("div", { id: "socialContainer", className: "social-container" })));
         };
         SocialCommunity.prototype.socialCalculation = function () {
             this.SocialIndex.calculation();
@@ -41,4 +39,6 @@ define(["require", "exports", "./components/socialheader", "./components/socialm
     var socialCommunityHeaderModel = new SocialHeaderViewModel('community', '#NINJALIFE', 'submission guidelines', 'assets/slide4/icon_twitter.svg', 'assets/slide4/icon_instagram.svg');
     var socialCommunityModel = new SocialCommunityProperties(socialCommunityHeaderModel);
     ReactDOM.render(React.createElement(SocialCommunity, { SocialCommunityProperties: socialCommunityModel }), document.getElementById('social'));
+    ReactDOM.render(React.createElement(socialmodal_1.SocialModal, null), document.getElementById('socialModalId'));
+    ReactDOM.render(React.createElement(socialSubmissionModal_1.SocialSubmissionGuidelines, null), document.getElementById('socialGuidelinesModalId'));
 });

@@ -277,6 +277,7 @@
     <Content Include="scripts\scrambletextplugin.min.js" />
     <Content Include="scripts\scrollmagic-plugins.js" />
     <Content Include="scripts\scrollmagic.js" />
+    <Content Include="scripts\scrolltoplugin.js" />
     <Content Include="scripts\spredfast.js" />
     <Content Include="scripts\tweenmax.js" />
     <Content Include="web.config">

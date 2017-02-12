@@ -210,6 +210,18 @@ class SocialDesktop extends ExperienceSlide {
 			document.getElementById('socialModalId').style.display = 'block';
 			/*prevent scrolling*/
 			that.Common.preventScrolling();
+
+			$('#socialModalId .close-btn').on('click', () => {
+				/*allow scrolling again*/
+				that.Common.allowScrolling();
+
+				$('.fixed-nav-bar').css('display', 'block');
+
+				/*hide modal*/
+				$('#socialModalId').addClass('fade-out-modal');
+				document.getElementById('socialModalId').style.display = 'none';
+
+			});
 		});
 
 		$('#socialSubmissionGuideLines').on('click', () => {
@@ -220,27 +232,15 @@ class SocialDesktop extends ExperienceSlide {
 
 			/*prevent scrolling*/
 			this.Common.preventScrolling();
-		});
 
-		$('#socialModalId .close-btn').on('click', () => {
-			/*allow scrolling again*/
-			this.Common.allowScrolling();
+			$('#socialGuidelinesModalId .close-btn').on('click', () => {
+				/*allow scrolling again*/
+				this.Common.allowScrolling();
+				$('.fixed-nav-bar').css('display', 'block');
 
-			$('.fixed-nav-bar').css('display', 'block');
-
-			/*hide modal*/
-			$('#socialModalId').addClass('fade-out-modal');
-			document.getElementById('socialModalId').style.display = 'none';
-
-		});
-
-		$('#socialGuidelinesModalId .close-btn').on('click', () => {
-			/*allow scrolling again*/
-			this.Common.allowScrolling();
-			$('.fixed-nav-bar').css('display', 'block');
-
-			/*hide modal*/
-			document.getElementById('socialGuidelinesModalId').style.display = "none";
+				/*hide modal*/
+				document.getElementById('socialGuidelinesModalId').style.display = "none";
+			});
 		});
 	}
 

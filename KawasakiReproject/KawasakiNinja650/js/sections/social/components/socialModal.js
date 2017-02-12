@@ -11,15 +11,14 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         SocialModal.prototype.render = function () {
-            return (React.createElement("div", { id: "socialModalId", className: "modal fadeIn" },
-                React.createElement("div", { className: "modal-content" },
-                    React.createElement("div", { className: "modal-header" },
-                        React.createElement("span", { className: "close-btn" },
-                            React.createElement("img", { src: "assets/close_green_btn.svg", alt: "close button" }))),
-                    React.createElement("div", { className: "modal-body" },
-                        React.createElement("div", { id: "modalContentImage", className: "modal-content-image" }),
-                        React.createElement("div", { id: "modalContentContainer", className: "modal-content-container" },
-                            React.createElement("div", { id: "modalContentInfo", className: "modal-content-info" }))))));
+            return (React.createElement("div", { className: "modal-content" },
+                React.createElement("div", { className: "modal-header" },
+                    React.createElement("span", { className: "close-btn" },
+                        React.createElement("img", { src: "assets/close_green_btn.svg", alt: "close button" }))),
+                React.createElement("div", { className: "modal-body" },
+                    React.createElement("div", { id: "modalContentImage", className: "modal-content-image" }),
+                    React.createElement("div", { id: "modalContentContainer", className: "modal-content-container" },
+                        React.createElement("div", { id: "modalContentInfo", className: "modal-content-info" })))));
         };
         return SocialModal;
     }(React.Component));

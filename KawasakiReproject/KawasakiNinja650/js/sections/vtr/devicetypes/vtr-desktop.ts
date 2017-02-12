@@ -108,8 +108,6 @@ class VTRDesktop extends ExperienceSlide {
 		const videoVTRPlay: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('videoPlayerVR'));
 		videoVTRPlay.controls = false;
 		videoVTRPlay.play();
-
-		this.prepareIFrameVRTestRide();
 	}
 
 	setTweenMechanism = (): void => {
@@ -170,16 +168,6 @@ class VTRDesktop extends ExperienceSlide {
 			this.setupTestVRModal(1);
 		});
 
-		$('#testVRModal .close-btn').on('click', () => {
-
-			(<any>(<HTMLIFrameElement>window.frames[0].frameElement).contentWindow).getEdgeApp().destroy();
-
-			/*allow scrolling again*/
-			this.Common.allowScrolling();
-
-			document.getElementById('testVRModal').style.display = 'none';
-		});
-
 		$("#slideTwoScroller").on('click', function () {
 			TweenMax.to(window, 1, { scrollTo: { y: $('#explore').offset().top - 65 } });
 		});
@@ -230,12 +218,24 @@ class VTRDesktop extends ExperienceSlide {
 	}
 
 	private setupTestVRModal = (videoId: number): void => {
+
+		this.prepareIFrameVRTestRide();
 		//(<HTMLIFrameElement>window.frames[0].frameElement).src = "vtr/index.html?videoId=" + videoId;
 		(<HTMLIFrameElement>window.frames[0].frameElement).src = "//kawasaki.com/ninja650experience/vtr/index.html?videoId=" + videoId;
 		document.getElementById('testVRModal').style.display = 'block';
 
 		/*prevent scrolling*/
 		this.Common.preventScrolling();
+
+		$('#testVRModal .close-btn').on('click', () => {
+
+			(<any>(<HTMLIFrameElement>window.frames[0].frameElement).contentWindow).getEdgeApp().destroy();
+
+			/*allow scrolling again*/
+			this.Common.allowScrolling();
+
+			document.getElementById('testVRModal').style.display = 'none';
+		});
 	};
 
 	private tweenTextByScroll = (): Timeline => {

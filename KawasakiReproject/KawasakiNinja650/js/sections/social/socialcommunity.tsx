@@ -35,8 +35,6 @@ export class SocialCommunity extends React.Component<ISocialCommunityModel, any>
 			<div>
 				<SocialHeader Model={SocialHeaderProp} />
 				<div id="socialContainer" className="social-container"></div>
-				<SocialModal />
-				<SocialSubmissionGuidelines />
 			</div>
 		);
 	}
@@ -58,3 +56,7 @@ var socialCommunityHeaderModel = new SocialHeaderViewModel('community', '#NINJAL
 var socialCommunityModel = new SocialCommunityProperties(socialCommunityHeaderModel);
 
 ReactDOM.render(<SocialCommunity SocialCommunityProperties={socialCommunityModel} />, document.getElementById('social'));
+
+ReactDOM.render(<SocialModal />, document.getElementById('socialModalId'));
+
+ReactDOM.render(<SocialSubmissionGuidelines />, document.getElementById('socialGuidelinesModalId'));

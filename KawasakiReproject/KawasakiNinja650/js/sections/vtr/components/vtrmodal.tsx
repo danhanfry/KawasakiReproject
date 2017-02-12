@@ -9,18 +9,16 @@ export class VTRModal extends React.Component<IEmptyProperties, any> {
 		const Common: Kawasaki.Common = new Kawasaki.Common();
 
 		return (
-			<div className="modal" id="testVRModal">
-				<div id="testVRContent" className="modal-content">
-					<div className="modal-header">
-						<span className="close-btn">
-							<img src="assets/close_green_btn.svg" alt="close button" />
-						</span>
-					</div>
-					<div className="modal-body">
-						<div id="modalContentVTRContainer" className="modal-vtr-content-container">
-							<div id="modalVTRContentInfo" className="modal-vtr-content-info">
+			<div id="testVRContent" className="modal-content">
+				<div className="modal-header">
+					<span className="close-btn">
+						<img src="assets/close_green_btn.svg" alt="close button" />
+					</span>
+				</div>
+				<div className="modal-body">
+					<div id="modalContentVTRContainer" className="modal-vtr-content-container">
+						<div id="modalVTRContentInfo" className="modal-vtr-content-info">
 
-							</div>
 						</div>
 					</div>
 				</div>
