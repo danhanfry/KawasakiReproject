@@ -84,6 +84,7 @@
     <Content Include="KawasakiNinja650\css\modal.min.css">
       <DependentUpon>modal.css</DependentUpon>
     </Content>
+    <Content Include="KawasakiNinja650\css\ninjasixfifty.min.css" />
     <Content Include="KawasakiNinja650\css\researchtools.css">
       <DependentUpon>researchtools.scss</DependentUpon>
     </Content>
@@ -268,18 +269,17 @@
     <Content Include="KawasakiNinja650\partials\power.html" />
     <Content Include="KawasakiNinja650\partials\racingheritage.html" />
     <Content Include="KawasakiNinja650\partials\styling.html" />
-    <Content Include="scripts\animation.gsap.js" />
+    <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
-    <Content Include="scripts\jquery.ScrollMagic.js" />
+    <Content Include="scripts\scrollmagic\jquery.ScrollMagic.js" />
     <Content Include="scripts\react-dom.js" />
     <Content Include="scripts\react.js" />
     <Content Include="scripts\require.js" />
-    <Content Include="scripts\scrambletextplugin.min.js" />
-    <Content Include="scripts\scrollmagic-plugins.js" />
-    <Content Include="scripts\scrollmagic.js" />
-    <Content Include="scripts\scrolltoplugin.js" />
+    <Content Include="scripts\gsap\scrambletextplugin.min.js" />
+    <Content Include="scripts\scrollmagic\scrollmagic.js" />
+    <Content Include="scripts\gsap\scrolltoplugin.js" />
     <Content Include="scripts\spredfast.js" />
-    <Content Include="scripts\tweenmax.js" />
+    <Content Include="scripts\gsap\tweenmax.js" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -415,6 +415,7 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

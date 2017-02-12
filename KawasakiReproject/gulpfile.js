@@ -16,6 +16,7 @@ var merge = require('merge2');
 
 var paths = {
 	externaljs: "./scripts/",
+	ninjacustomcss: "./KawasakiNinja650/css/",
 };
 
 gulp.task('copy-requirejs', function () {
@@ -74,4 +75,16 @@ gulp.task('copy-scrollmagic-plugins', function () {
 	.pipe(concat(paths.externaljs + "/scrollmagic-plugins.js"))
 	.pipe(uglify())
 	.pipe(gulp.dest("."));
+});
+
+gulp.task("bundleNinja650Css", function () {
+
+	gulp.src([paths.ninjacustomcss + "fonts.css", paths.ninjacustomcss + "styles.css",
+				paths.ninjacustomcss + "modal.css", paths.ninjacustomcss + "commercial.css",
+				paths.ninjacustomcss + "vtr.css", paths.ninjacustomcss + "socialcommunity.css",
+				paths.ninjacustomcss + "researchtools.css", paths.ninjacustomcss + "explore.css",
+				paths.ninjacustomcss + "browserhacks.css", ])
+		.pipe(concat(paths.ninjacustomcss + "ninjasixfifty.min.css"))
+		.pipe(cssmin())
+		.pipe(gulp.dest("."));
 });
