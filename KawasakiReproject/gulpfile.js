@@ -88,3 +88,24 @@ gulp.task("bundleNinja650Css", function () {
 		.pipe(cssmin())
 		.pipe(gulp.dest("."));
 });
+
+gulp.task('copy-pixi', function () {
+	gulp.src(['./bower_components/pixi/dist/pixi.js'])
+	.pipe(concat(paths.externaljs + "/pixi.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-howler', function () {
+	gulp.src(['./bower_components/howler/dist/howler.js'])
+	.pipe(concat(paths.externaljs + "/howler.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-packery', function () {
+	gulp.src(['./bower_components/packery/dist/packery.pkgd.js'])
+	.pipe(concat(paths.externaljs + "/packery.pkgd.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});

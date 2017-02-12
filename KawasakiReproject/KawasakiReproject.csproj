@@ -269,6 +269,9 @@
     <Content Include="KawasakiNinja650\partials\power.html" />
     <Content Include="KawasakiNinja650\partials\racingheritage.html" />
     <Content Include="KawasakiNinja650\partials\styling.html" />
+    <Content Include="scripts\howler.js" />
+    <Content Include="scripts\packery.pkgd.js" />
+    <Content Include="scripts\pixi.js" />
     <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\scrollmagic\jquery.ScrollMagic.js" />
@@ -390,7 +393,10 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr.tsx" />
+    <TypeScriptCompile Include="scripts\typings\howler.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\packery.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\pixi.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-linked-state-mixin.d.ts" />

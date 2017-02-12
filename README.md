@@ -18,3 +18,11 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-addons-upda
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-dom
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-router
+
+# Third Party Typescript
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jquery
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/greensock
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/pixi.js
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/howler
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/packery
