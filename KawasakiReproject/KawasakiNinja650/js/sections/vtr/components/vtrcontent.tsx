@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/vtr.d.ts" />
-/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../../../scripts/core/commonjs.ts" />
 
 
 export class VTRContent extends React.Component<IVTRContentModel, any> {

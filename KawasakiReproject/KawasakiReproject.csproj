@@ -23,9 +23,12 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AXBuilderProper\index.html" />
+    <Content Include="AXBuilder\index.html" />
     <Content Include="gulpfile.js" />
     <Content Include="KawasakiNinja650\assets\close_green_btn.svg" />
     <Content Include="KawasakiNinja650\assets\close_white_btn.svg" />
+    <Content Include="KawasakiNinja650\assets\device_rotate.svg" />
     <Content Include="KawasakiNinja650\assets\green_arrow_down.svg" />
     <Content Include="KawasakiNinja650\assets\green_hr.png" />
     <Content Include="KawasakiNinja650\assets\logo_2017.svg" />
@@ -116,13 +119,12 @@
     <Content Include="KawasakiNinja650\js\abstractions\slide.abstraction.js">
       <DependentUpon>slide.abstraction.ts</DependentUpon>
     </Content>
-    <Content Include="KawasakiNinja650\js\commonjs.js">
-      <DependentUpon>commonjs.ts</DependentUpon>
+    <Content Include="KawasakiNinja650\js\generic-index.js">
+      <DependentUpon>generic-index.tsx</DependentUpon>
     </Content>
-    <Content Include="KawasakiNinja650\js\commonjs.js.map">
-      <DependentUpon>commonjs.ts</DependentUpon>
+    <Content Include="KawasakiNinja650\js\main-index.js">
+      <DependentUpon>main-index.ts</DependentUpon>
     </Content>
-    <Content Include="KawasakiNinja650\js\main-index.js" />
     <Content Include="KawasakiNinja650\js\models\commercialmodel.js">
       <DependentUpon>commercialModel.ts</DependentUpon>
     </Content>
@@ -138,6 +140,9 @@
     </Content>
     <Content Include="KawasakiNinja650\js\models\vtrmodel.js">
       <DependentUpon>vtrModel.ts</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\ninjacommonjs.js">
+      <DependentUpon>ninjacommonjs.ts</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\ninjarequiremain.js" />
     <Content Include="KawasakiNinja650\js\sections\commercial\commercial-index.js">
@@ -190,6 +195,9 @@
     </Content>
     <Content Include="KawasakiNinja650\js\sections\explore\explore.js">
       <DependentUpon>explore.tsx</DependentUpon>
+    </Content>
+    <Content Include="KawasakiNinja650\js\sections\genericModal.js">
+      <DependentUpon>genericModal.tsx</DependentUpon>
     </Content>
     <Content Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsheader.js">
       <DependentUpon>researchtoolsheader.tsx</DependentUpon>
@@ -269,6 +277,12 @@
     <Content Include="KawasakiNinja650\partials\power.html" />
     <Content Include="KawasakiNinja650\partials\racingheritage.html" />
     <Content Include="KawasakiNinja650\partials\styling.html" />
+    <Content Include="scripts\core\collection.js">
+      <DependentUpon>Collection.ts</DependentUpon>
+    </Content>
+    <Content Include="scripts\core\commonjs.js">
+      <DependentUpon>commonjs.ts</DependentUpon>
+    </Content>
     <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\scrollmagic\jquery.ScrollMagic.js" />
@@ -336,14 +350,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="AXBuilderProper\js\AccessoryBuilder.ts" />
+    <TypeScriptCompile Include="AXBuilderProper\js\interfaces\IParts.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\AccessoryBuilder.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\interfaces\IAccessory.ts" />
+    <TypeScriptCompile Include="AXBuilderProper\js\models\enum.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
-    <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\ninjacommonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\explore.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\researchtools.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\social.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\vtr.d.ts" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\generic-index.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\main-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\commercialModel.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\enums\svg-enums.d.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\models\exploreModel.ts" />
@@ -366,6 +387,7 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\devicetypes\explore-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\explore-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\explore\explore.tsx" />
+    <TypeScriptCompile Include="KawasakiNinja650\js\sections\genericModal.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsheader.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolslinks.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\researchtools\components\researchtoolsstartstop.tsx" />
@@ -390,6 +412,9 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr.tsx" />
+    <TypeScriptCompile Include="scripts\core\Collection.ts" />
+    <TypeScriptCompile Include="scripts\core\commonjs.ts" />
+    <TypeScriptCompile Include="scripts\core\Dictionary.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />
@@ -415,7 +440,11 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AXBuilderProper\css\" />
+    <Folder Include="AXBuilder\css\" />
+    <Folder Include="AXBuilder\js\models\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

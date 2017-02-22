@@ -11,7 +11,6 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         VTRModal.prototype.render = function () {
-            var Common = new Kawasaki.Common();
             return (React.createElement("div", { id: "testVRContent", className: "modal-content" },
                 React.createElement("div", { className: "modal-header" },
                     React.createElement("span", { className: "close-btn" },

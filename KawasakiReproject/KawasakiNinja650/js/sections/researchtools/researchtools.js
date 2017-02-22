@@ -12,6 +12,7 @@ define(["require", "exports", "./components/researchtoolsheader", "./components/
             _this.ResearchIndex = new Kawasaki.NinjaSixFifty.ResearchTools();
             _this.researchLinks = [];
             _this.Common = new Kawasaki.Common();
+            _this.NinjaCommon = new Kawasaki.NinjaCommon();
             _this.state = {
                 LinksState: new Array()
             };

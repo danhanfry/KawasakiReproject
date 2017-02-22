@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../ninjacommonjs.ts" />
+/// <reference path="../../../../../scripts/core/commonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -8,6 +9,7 @@ class CommercialMobile extends ExperienceSlide {
 	private tabletMobileCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_720.mp4";
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
@@ -47,7 +49,7 @@ class CommercialMobile extends ExperienceSlide {
 
 		$('#commercial').height(this.windowHeight).width(this.windowWidth);
 
-		var scaledStaticImage = this.Common.scaleProportionally(1125, 2001, this.windowWidth, 150, false);
+		var scaledStaticImage = this.NinjaCommon.scaleProportionally(1125, 2001, this.windowWidth, 150, false);
 		$(mobileTabletStaticImgContainer).width(scaledStaticImage.width).height(scaledStaticImage.height);
 
 		var topOfHeightToUse = (this.windowHeight / 8);
@@ -131,7 +133,7 @@ class CommercialMobile extends ExperienceSlide {
 			});
 		}
 
-		var scaledVideo = this.Common.scaleProportionally(1388, 780, this.windowWidth, 150, false);
+		var scaledVideo = this.NinjaCommon.scaleProportionally(1388, 780, this.windowWidth, 150, false);
 		$('#videoPlayer').height(scaledVideo.height).width(scaledVideo.width);
 
 		this.setTweenMechanism();
@@ -206,24 +208,24 @@ class CommercialMobile extends ExperienceSlide {
 		});
 
 		playButtonElement.addEventListener('mouseenter', () => {
-			playButtonElement.style.borderColor = this.Common.kawasakiGreen;
+			playButtonElement.style.borderColor = this.NinjaCommon.kawasakiGreen;
 			document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
 			let polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
 			if (polygonInPlayBtn.length > 0) {
 				let polygonInSvg = polygonInPlayBtn[0];
-				polygonInSvg.style.fill = this.Common.kawasakiGreen;
-				polygonInSvg.style.stroke = this.Common.kawasakiGreen;
+				polygonInSvg.style.fill = this.NinjaCommon.kawasakiGreen;
+				polygonInSvg.style.stroke = this.NinjaCommon.kawasakiGreen;
 			}
 		});
 
 		playButtonElement.addEventListener('mouseleave', () => {
-			playButtonElement.style.borderColor = this.Common.kawasakiWhite;
+			playButtonElement.style.borderColor = this.NinjaCommon.kawasakiWhite;
 			document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
 			let polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
 			if (polygonInPlayBtn.length > 0) {
 				let polygonInSvg = polygonInPlayBtn[0];
-				polygonInSvg.style.fill = this.Common.kawasakiWhite;
-				polygonInSvg.style.stroke = this.Common.kawasakiWhite;
+				polygonInSvg.style.fill = this.NinjaCommon.kawasakiWhite;
+				polygonInSvg.style.stroke = this.NinjaCommon.kawasakiWhite;
 			}
 		});
 
@@ -258,7 +260,7 @@ class CommercialMobile extends ExperienceSlide {
 	}
 
 	private commercialResize = (video: HTMLVideoElement, windowWidth: number, windowHeight: number): void => {
-		var newScaledVideo = this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
+		var newScaledVideo = this.NinjaCommon.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
 		var finalNewScaledVideo = newScaledVideo.height;
 		if (this.Common.isFirefoxBrowser()) {
 			finalNewScaledVideo -= 30;

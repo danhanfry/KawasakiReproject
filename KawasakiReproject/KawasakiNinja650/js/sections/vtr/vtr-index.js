@@ -6,6 +6,7 @@ var Kawasaki;
             function VTR() {
                 var _this = this;
                 this.Common = new Kawasaki.Common();
+                this.NinjaCommon = new Kawasaki.NinjaCommon();
                 this.calculation = function () {
                     if (_this.Common.isMobile()) {
                         _this.deviceLayout = new VTRMobile(_this.windowDimensions.width, _this.windowDimensions.height);
@@ -23,7 +24,7 @@ var Kawasaki;
                 this.recalculation = function () {
                     _this.deviceLayout.calculation();
                 };
-                this.windowDimensions = this.Common.elementDimensions(window);
+                this.windowDimensions = this.NinjaCommon.elementDimensions(window);
             }
             return VTR;
         }());

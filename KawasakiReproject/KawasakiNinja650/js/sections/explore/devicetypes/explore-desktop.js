@@ -33,6 +33,7 @@ var ExploreDesktop = (function (_super) {
             { elm: "racingHeritage", x: -400, y: -300, width: 0, height: 0 }
         ];
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             var bikeCoordinates = $('#bikeId').position().top + $('#bikeId').height();
             if (_this.windowWidth <= 1290) {
@@ -86,7 +87,7 @@ var ExploreDesktop = (function (_super) {
                 that.s3ModalExapnded = true;
                 that.currentTileImage = $(this)[0];
                 that.specModalClicked = true;
-                that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
+                that.clonedElement = that.NinjaCommon.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
                 document.body.appendChild(that.clonedElement);
                 that.s3CurrentSelectedTile = $(this).data('tile-index');
                 that.s3CurrentSelectedTabletTile = $(this).data('tech');
@@ -102,7 +103,7 @@ var ExploreDesktop = (function (_super) {
                 var img = $(imgWrapper).children()[0];
                 var windowW = $(window).width();
                 var windowH = $(window).height();
-                var results = that.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
+                var results = that.NinjaCommon.scaleProportionally(1920, 1080, windowW, windowH, false);
                 TweenMax.to(that.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
                 if (imgWrapper) {
                     if ($(imgWrapper).is('div')) {

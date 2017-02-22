@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -10,6 +11,7 @@ declare var Spredfast: Function;
 class SocialTablet extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 	private allSpreadFasterContent = [];
 
 	constructor(public windowWidth: number, public windowHeight: number, public socialSpredfasterUrl: string) {

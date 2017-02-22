@@ -10,6 +10,7 @@ var ResearchMobile = (function (_super) {
         _this.windowWidth = windowWidth;
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.halfWindowWidth = 0;
         _this.calculation = function () {
             if (_this.windowHeight <= 570) {

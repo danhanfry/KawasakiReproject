@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -6,6 +7,7 @@
 class VTRMobile extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
@@ -16,7 +18,7 @@ class VTRMobile extends ExperienceSlide {
 
 		$('#virtual').height(this.windowHeight).width(this.windowWidth);
 
-		var scaledStaticImage = this.Common.scaleProportionally(1125, 2001, this.windowWidth, this.windowHeight, false);
+		var scaledStaticImage = this.NinjaCommon.scaleProportionally(1125, 2001, this.windowWidth, this.windowHeight, false);
 		$('#mobileTabletVRStaticImgId').width(scaledStaticImage.width);
 
 		if (this.windowHeight <= 570) {

@@ -2,7 +2,7 @@
 /// <reference path="../../interfaces/interfaces.d.ts" />
 /// <reference path="../../interfaces/commercial.d.ts" />
 /// <reference path="../../models/commercialmodel.ts" />
-/// <reference path="../../commonjs.ts" />
+/// <reference path="../../ninjacommonjs.ts" />
 /// <reference path="commercial-index.ts" />
 
 import { CommercialVideo } from "./components/commercialvideo";
@@ -50,7 +50,7 @@ export class Commercial extends React.Component<ICommercialModel, any> {
 	}
 }
 
-const Common: Kawasaki.Common = new Kawasaki.Common();
+const Common: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 var commercialVideolModel = new CommercialVideoModel('https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4',
 	'assets/slide1/mobile-landing-bkgd.jpg', 'assets/slide1/tablet-landing-bkgd.jpg', 'assets/close_white_btn.svg');

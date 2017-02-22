@@ -12,6 +12,7 @@ var CommercialDesktop = (function (_super) {
         _this.desktopCommercialSplitVideoUrl = "https://media.kawasaki.com/contentstorage/ae7eacd5-2531-4f57-b5a6-a0c5bb7326b8_H264_1080.mp4";
         _this.desktopCommercialVideoUrl = "https://media.kawasaki.com/contentstorage/6f857fc4-d143-4a2f-b4d8-7b00a2578df4_H264_1080.mp4";
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             var ninjaLogoYear = $('#commericalNinjaNameYearId');
             var ninjaLogoName = $('#commericalNinjaNameId');
@@ -29,7 +30,7 @@ var CommercialDesktop = (function (_super) {
                 left: (_this.windowWidth / 2) - ($('#firstSlideCloseContainerId').width() / 2)
             });
             $('#commercial').height(_this.windowHeight).width(_this.windowWidth);
-            var scaledVideo = _this.Common.scaleProportionally(1388, 780, _this.windowWidth, _this.windowHeight, false);
+            var scaledVideo = _this.NinjaCommon.scaleProportionally(1388, 780, _this.windowWidth, _this.windowHeight, false);
             $('#videoPlayer').height(scaledVideo.height).width(scaledVideo.width);
             var topOfHeightToUse = thirdOfWindowHeight;
             if (_this.windowHeight < 750) {
@@ -128,7 +129,7 @@ var CommercialDesktop = (function (_super) {
                 video.src = _this.desktopCommercialVideoUrl;
                 video.removeAttribute("loop");
                 video.setAttribute("controls", "controls");
-                var newScaledVideo = _this.Common.scaleProportionally(1920, 1080, _this.windowWidth, _this.windowHeight, false);
+                var newScaledVideo = _this.NinjaCommon.scaleProportionally(1920, 1080, _this.windowWidth, _this.windowHeight, false);
                 var finalNewScaledVideo = newScaledVideo.height;
                 if (_this.Common.isFirefoxBrowser()) {
                     finalNewScaledVideo -= 30;
@@ -156,23 +157,23 @@ var CommercialDesktop = (function (_super) {
                 _this.resize();
             });
             playButtonElement.addEventListener('mouseenter', function () {
-                playButtonElement.style.borderColor = _this.Common.kawasakiGreen;
+                playButtonElement.style.borderColor = _this.NinjaCommon.kawasakiGreen;
                 document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
                 var polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
                 if (polygonInPlayBtn.length > 0) {
                     var polygonInSvg = polygonInPlayBtn[0];
-                    polygonInSvg.style.fill = _this.Common.kawasakiGreen;
-                    polygonInSvg.style.stroke = _this.Common.kawasakiGreen;
+                    polygonInSvg.style.fill = _this.NinjaCommon.kawasakiGreen;
+                    polygonInSvg.style.stroke = _this.NinjaCommon.kawasakiGreen;
                 }
             });
             playButtonElement.addEventListener('mouseleave', function () {
-                playButtonElement.style.borderColor = _this.Common.kawasakiWhite;
+                playButtonElement.style.borderColor = _this.NinjaCommon.kawasakiWhite;
                 document.getElementById('PlayButtonAction').querySelectorAll('polygon')[0];
                 var polygonInPlayBtn = playButtonArrowElement.querySelectorAll('polygon');
                 if (polygonInPlayBtn.length > 0) {
                     var polygonInSvg = polygonInPlayBtn[0];
-                    polygonInSvg.style.fill = _this.Common.kawasakiWhite;
-                    polygonInSvg.style.stroke = _this.Common.kawasakiWhite;
+                    polygonInSvg.style.fill = _this.NinjaCommon.kawasakiWhite;
+                    polygonInSvg.style.stroke = _this.NinjaCommon.kawasakiWhite;
                 }
             });
             document.getElementById('slideOneScroller').addEventListener('click', function () {
@@ -190,7 +191,7 @@ var CommercialDesktop = (function (_super) {
         _this.setScrollMagicMechanism = function () {
         };
         _this.commercialResize = function (video, windowWidth, windowHeight) {
-            var newScaledVideo = _this.Common.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
+            var newScaledVideo = _this.NinjaCommon.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
             var finalNewScaledVideo = newScaledVideo.height;
             if (_this.Common.isFirefoxBrowser()) {
                 finalNewScaledVideo -= 30;

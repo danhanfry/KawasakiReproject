@@ -2,7 +2,6 @@
 /// <reference path="../../interfaces/interfaces.d.ts" />
 /// <reference path="../../interfaces/social.d.ts" />
 /// <reference path="../../models/socialmodel.ts" />
-/// <reference path="../../commonjs.ts" />
 /// <reference path="social-index.ts" />
 
 import { SocialHeader } from './components/socialheader';

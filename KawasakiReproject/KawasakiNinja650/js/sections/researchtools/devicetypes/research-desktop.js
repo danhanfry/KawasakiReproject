@@ -10,6 +10,7 @@ var ResearchDesktop = (function (_super) {
         _this.windowWidth = windowWidth;
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             $('#researchtools').width(_this.windowWidth);
             TweenMax.set("#researchYear", { left: ((_this.windowWidth / 2)) - ($('#researchYear').width() / 2) });

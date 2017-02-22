@@ -1,4 +1,4 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />

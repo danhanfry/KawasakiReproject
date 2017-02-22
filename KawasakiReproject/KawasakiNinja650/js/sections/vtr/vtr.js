@@ -36,7 +36,7 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         return VTR;
     }(React.Component));
     exports.VTR = VTR;
-    var Common = new Kawasaki.Common();
+    var NinjaCommon = new Kawasaki.NinjaCommon();
     var vtrVideoModel = new VTRVideoModel('https://media.kawasaki.com/contentstorage/c74f106b-f25e-4bca-ad61-43a6d49c4b06.mp4', 'assets/slide2/mobile-vtr-failover.jpg', 'assets/slide2/tablet-vtr-failover.jpg', 'assets/slide2/desktop-failover.jpg', 'Along the way you’ll learn about the exciting features that make the Ninja<span class="cirlce-r">®</span> 650 motorcycle a perfect combination of sporty performance and everyday comfort. <br> <span id="dragExperienceId" class="drag-experience-threesixty">Click and drag your mouse to experience 360-degree views');
     var interactivePlayBtnSvgElement = createInteractivePlayButton();
     var freePlayBtnSvgElement = createFreeRidePlayButton();
@@ -55,10 +55,10 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         var vtrDefMaskUsesProperties = {
             id: "", mask: "", stroke: "", strokeWidth: "", usesId: "#path-1"
         };
-        var vtrDefRectElement = Common.createSVGRect(vtrDefRectProperties);
-        var vtrDefMaskElement = Common.createSVGMask(vtrDefMaskProperties);
-        vtrDefMaskElement.appendChild(Common.createSVGUses(vtrDefMaskUsesProperties));
-        var vtrDef = Common.createSVGDefintion();
+        var vtrDefRectElement = NinjaCommon.createSVGRect(vtrDefRectProperties);
+        var vtrDefMaskElement = NinjaCommon.createSVGMask(vtrDefMaskProperties);
+        vtrDefMaskElement.appendChild(NinjaCommon.createSVGUses(vtrDefMaskUsesProperties));
+        var vtrDef = NinjaCommon.createSVGDefintion();
         vtrDef.appendChild(vtrDefRectElement);
         vtrDef.appendChild(vtrDefMaskElement);
         return vtrDef;
@@ -73,17 +73,17 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         var vtrTierThreeProperties = {
             id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
         };
-        var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
-        var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
-        var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+        var vtrMainGDTag = NinjaCommon.createSVGG(vtrMainProperties);
+        var vtrTierTwoGDTag = NinjaCommon.createSVGG(vtrTierTwoProperties);
+        var vtrTierThreeGDTag = NinjaCommon.createSVGG(vtrTierThreeProperties);
         var vtrInteractiveRideGUsesProperties = {
             id: "interactivePlayId", mask: "url(#mask-2)", stroke: "#FFFFFF", strokeWidth: "4", usesId: "#path-1"
         };
         var vtrInteractiveRideGPathProperties = {
             id: "interactiveBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
         };
-        var vtrPathTag = Common.createSVGPath(vtrInteractiveRideGPathProperties);
-        var vtrGUsesTag = Common.createSVGUses(vtrInteractiveRideGUsesProperties);
+        var vtrPathTag = NinjaCommon.createSVGPath(vtrInteractiveRideGPathProperties);
+        var vtrGUsesTag = NinjaCommon.createSVGUses(vtrInteractiveRideGUsesProperties);
         vtrTierThreeGDTag.appendChild(vtrPathTag);
         vtrTierThreeGDTag.appendChild(vtrGUsesTag);
         vtrTierTwoGDTag.appendChild(vtrTierThreeGDTag);
@@ -92,7 +92,7 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
             id: "interactivePlayBtn", className: "",
             x: "0px", y: "0px", width: "108px", height: "108px"
         };
-        var interactivePlayBtnSvgElement = Common.createSVGElement(vtrInteractivePlayButtonSvgElement);
+        var interactivePlayBtnSvgElement = NinjaCommon.createSVGElement(vtrInteractivePlayButtonSvgElement);
         interactivePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
         interactivePlayBtnSvgElement.appendChild(vtrMainGDTag);
         return interactivePlayBtnSvgElement;
@@ -107,17 +107,17 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
         var vtrTierThreeProperties = {
             id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
         };
-        var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
-        var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
-        var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+        var vtrMainGDTag = NinjaCommon.createSVGG(vtrMainProperties);
+        var vtrTierTwoGDTag = NinjaCommon.createSVGG(vtrTierTwoProperties);
+        var vtrTierThreeGDTag = NinjaCommon.createSVGG(vtrTierThreeProperties);
         var vtrFreeRideGUsesProperties = {
             id: "freePlayId", mask: "url(#mask-2)", stroke: "#FFFFFF", strokeWidth: "4", usesId: "#path-1"
         };
         var vtrGFreeRidePathProperties = {
             id: "freeBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
         };
-        var vtrPathTag = Common.createSVGPath(vtrGFreeRidePathProperties);
-        var vtrGUsesTag = Common.createSVGUses(vtrFreeRideGUsesProperties);
+        var vtrPathTag = NinjaCommon.createSVGPath(vtrGFreeRidePathProperties);
+        var vtrGUsesTag = NinjaCommon.createSVGUses(vtrFreeRideGUsesProperties);
         vtrTierThreeGDTag.appendChild(vtrPathTag);
         vtrTierThreeGDTag.appendChild(vtrGUsesTag);
         vtrTierTwoGDTag.appendChild(vtrTierThreeGDTag);
@@ -126,7 +126,7 @@ define(["require", "exports", "./components/vtrvideo", "./components/vtrcontent"
             id: "freeRidePlayBtn", className: "",
             x: "0px", y: "0px", width: "108px", height: "108px"
         };
-        var freePlayBtnSvgElement = Common.createSVGElement(vtrFreePlayButtonSvgElement);
+        var freePlayBtnSvgElement = NinjaCommon.createSVGElement(vtrFreePlayButtonSvgElement);
         freePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
         freePlayBtnSvgElement.appendChild(vtrMainGDTag);
         return freePlayBtnSvgElement;

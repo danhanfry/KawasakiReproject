@@ -6,6 +6,7 @@ var Kawasaki;
             function SocialCommunity() {
                 var _this = this;
                 this.Common = new Kawasaki.Common();
+                this.NinjaCommon = new Kawasaki.NinjaCommon();
                 this.socialSpredfasterUrl = "";
                 this.calculation = function () {
                     if (_this.Common.isMobile()) {
@@ -24,7 +25,7 @@ var Kawasaki;
                 this.recalculation = function () {
                     _this.deviceLayout.calculation();
                 };
-                this.windowDimensions = this.Common.elementDimensions(window);
+                this.windowDimensions = this.NinjaCommon.elementDimensions(window);
                 this.socialSpredfasterUrl = location.protocol + "//app.feedspear.com/Campaign/16/Feed";
             }
             return SocialCommunity;

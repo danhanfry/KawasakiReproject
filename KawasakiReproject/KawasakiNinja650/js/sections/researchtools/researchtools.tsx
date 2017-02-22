@@ -2,7 +2,8 @@
 /// <reference path="../../interfaces/interfaces.d.ts" />
 /// <reference path="../../interfaces/researchtools.d.ts" />
 /// <reference path="../../models/researchtoolsmodel.ts" />
-/// <reference path="../../commonjs.ts" />
+/// <reference path="../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../ninjacommonjs.ts" />
 /// <reference path="research-index.ts" />
 
 import { ResearchToolsHeader } from './components/researchtoolsheader';
@@ -14,6 +15,7 @@ export class ResearchTools extends React.Component<IResearchToolsModel, IResearc
 	private ResearchIndex: Kawasaki.NinjaSixFifty.ResearchTools = new Kawasaki.NinjaSixFifty.ResearchTools();
 	private researchLinks: Array<IResearchToolsLink> = [];
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(props: IResearchToolsModel) {
 		super(props);

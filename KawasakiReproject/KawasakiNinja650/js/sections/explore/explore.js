@@ -12,6 +12,7 @@ define(["require", "exports", "./components/exploreheader", "./components/explor
             _this.ExploreIndex = new Kawasaki.NinjaSixFifty.Explore();
             _this.exploreTiles = [];
             _this.Common = new Kawasaki.Common();
+            _this.NinjaCommon = new Kawasaki.NinjaCommon();
             _this.state = {
                 TilesState: new Array()
             };

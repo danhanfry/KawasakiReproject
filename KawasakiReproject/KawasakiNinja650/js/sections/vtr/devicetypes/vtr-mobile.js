@@ -10,10 +10,11 @@ var VTRMobile = (function (_super) {
         _this.windowWidth = windowWidth;
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             $('#mobileTabletVRStaticImgId img').prop('src', 'assets/slide2/mobile-vtr-failover.jpg');
             $('#virtual').height(_this.windowHeight).width(_this.windowWidth);
-            var scaledStaticImage = _this.Common.scaleProportionally(1125, 2001, _this.windowWidth, _this.windowHeight, false);
+            var scaledStaticImage = _this.NinjaCommon.scaleProportionally(1125, 2001, _this.windowWidth, _this.windowHeight, false);
             $('#mobileTabletVRStaticImgId').width(scaledStaticImage.width);
             if (_this.windowHeight <= 570) {
                 $('#mobileTabletVRStaticImgId').height(scaledStaticImage.height / 2 + 20);

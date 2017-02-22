@@ -1,6 +1,7 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../interfaces/interfaces.d.ts" />
-/// <reference path="../../commonjs.ts" />
+/// <reference path="../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../ninjacommonjs.ts" />
 /// <reference path="../../interfaces/explore.d.ts" />
 /// <reference path="../../models/exploremodel.ts" />
 /// <reference path="explore-index.ts" />
@@ -14,6 +15,7 @@ export class Explore extends React.Component<IExploreModel, IExploreTileState> {
 	private ExploreIndex: Kawasaki.NinjaSixFifty.Explore = new Kawasaki.NinjaSixFifty.Explore();
 	private exploreTiles: Array<IExploreTile> = [];
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(props: IExploreModel) {
 		super(props);

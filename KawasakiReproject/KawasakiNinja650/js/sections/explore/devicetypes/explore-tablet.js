@@ -34,6 +34,7 @@ var ExploreTablet = (function (_super) {
         _this.specModalClicked = false;
         _this.currentImageInTileDimensions = { width: 0, height: 0 };
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             $('#explore').height(_this.windowHeight).width(_this.windowWidth);
             TweenMax.set("#slideThreeScroller", { bottom: 0, left: (_this.windowWidth / 2) - ($('#slideThreeScroller').width() / 2) });
@@ -52,32 +53,32 @@ var ExploreTablet = (function (_super) {
                 switch (dataTech) {
                     case 'power': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/power.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(1.35, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(1.35, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                     case 'handling': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/handling.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(4, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(4, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                     case 'comfort': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/comfort.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(3, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(3, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                     case 'racingheritage': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/heritage.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                     case 'styling': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/styling.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                     case 'convenience': {
                         tileImage = that.tabletAttachImageToContainer(currentTile, "assets/slide3/convenience.jpg");
-                        elementDimension = that.Common.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
+                        elementDimension = that.NinjaCommon.scaleByFactorProportionally(2, that.specOriginalDimensions.width, that.specOriginalDimensions.height);
                         break;
                     }
                 }
@@ -114,7 +115,7 @@ var ExploreTablet = (function (_super) {
                 that.s3ModalExapnded = true;
                 that.currentTileImage = $(this)[0];
                 that.specModalClicked = true;
-                that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
+                that.clonedElement = that.NinjaCommon.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
                 document.body.appendChild(that.clonedElement);
                 that.s3CurrentSelectedTile = $(this).data('tile-index');
                 that.s3CurrentSelectedTabletTile = $(this).data('tech');
@@ -130,7 +131,7 @@ var ExploreTablet = (function (_super) {
                 var img = $(imgWrapper).children()[0];
                 var windowW = $(window).width();
                 var windowH = $(window).height();
-                var results = that.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
+                var results = that.NinjaCommon.scaleProportionally(1920, 1080, windowW, windowH, false);
                 TweenMax.to(that.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
                 if (imgWrapper) {
                     if ($(imgWrapper).is('div')) {

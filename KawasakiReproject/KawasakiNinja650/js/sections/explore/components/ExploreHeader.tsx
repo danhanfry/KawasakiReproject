@@ -1,7 +1,8 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/explore.d.ts" />
 /// <reference path="../../../models/exploremodel.ts" />
-/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../../../scripts/core/commonjs.ts" />
+
 
 export class ExploreHeader extends React.Component<IExploreHeaderModel, any> {
 	render() {

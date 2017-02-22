@@ -11,6 +11,7 @@ var SocialMobile = (function (_super) {
         _this.windowHeight = windowHeight;
         _this.socialSpredfasterUrl = socialSpredfasterUrl;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.allSpreadFasterContent = [];
         _this.calculation = function () {
             $('#socialContainer').width(_this.windowWidth);

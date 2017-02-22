@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../interfaces/interfaces.d.ts" />
 /// <reference path="../../interfaces/vtr.d.ts" />
-/// <reference path="../../commonjs.ts" />
+/// <reference path="../../ninjacommonjs.ts" />
 /// <reference path="../../models/vtrmodel.ts" />
 /// <reference path="vtr-index.ts" />
 
@@ -49,7 +49,7 @@ export class VTR extends React.Component<IVTRlModel, any> {
 }
 
 
-const Common: Kawasaki.Common = new Kawasaki.Common();
+const NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 var vtrVideoModel = new VTRVideoModel('https://media.kawasaki.com/contentstorage/c74f106b-f25e-4bca-ad61-43a6d49c4b06.mp4',
 	'assets/slide2/mobile-vtr-failover.jpg', 'assets/slide2/tablet-vtr-failover.jpg',
@@ -83,11 +83,11 @@ function createCommonSvgDefinition() {
 		id: "", mask: "", stroke: "", strokeWidth: "", usesId: "#path-1"
 	};
 
-	var vtrDefRectElement = Common.createSVGRect(vtrDefRectProperties);
-	var vtrDefMaskElement = Common.createSVGMask(vtrDefMaskProperties);
-	vtrDefMaskElement.appendChild(Common.createSVGUses(vtrDefMaskUsesProperties));
+	var vtrDefRectElement = NinjaCommon.createSVGRect(vtrDefRectProperties);
+	var vtrDefMaskElement = NinjaCommon.createSVGMask(vtrDefMaskProperties);
+	vtrDefMaskElement.appendChild(NinjaCommon.createSVGUses(vtrDefMaskUsesProperties));
 
-	var vtrDef = Common.createSVGDefintion();
+	var vtrDef = NinjaCommon.createSVGDefintion();
 	vtrDef.appendChild(vtrDefRectElement);
 	vtrDef.appendChild(vtrDefMaskElement);
 
@@ -108,9 +108,9 @@ function createInteractivePlayButton() {
 		id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
 	};
 
-	var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
-	var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
-	var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+	var vtrMainGDTag = NinjaCommon.createSVGG(vtrMainProperties);
+	var vtrTierTwoGDTag = NinjaCommon.createSVGG(vtrTierTwoProperties);
+	var vtrTierThreeGDTag = NinjaCommon.createSVGG(vtrTierThreeProperties);
 
 
 	var vtrInteractiveRideGUsesProperties: ISVGUseTagProperties = {
@@ -121,8 +121,8 @@ function createInteractivePlayButton() {
 		id: "interactiveBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
 	};
 
-	var vtrPathTag = Common.createSVGPath(vtrInteractiveRideGPathProperties);
-	var vtrGUsesTag = Common.createSVGUses(vtrInteractiveRideGUsesProperties);
+	var vtrPathTag = NinjaCommon.createSVGPath(vtrInteractiveRideGPathProperties);
+	var vtrGUsesTag = NinjaCommon.createSVGUses(vtrInteractiveRideGUsesProperties);
 
 	vtrTierThreeGDTag.appendChild(vtrPathTag);
 	vtrTierThreeGDTag.appendChild(vtrGUsesTag);
@@ -135,7 +135,7 @@ function createInteractivePlayButton() {
 		x: "0px", y: "0px", width: "108px", height: "108px"
 	};
 
-	var interactivePlayBtnSvgElement: SVGSVGElement = Common.createSVGElement(vtrInteractivePlayButtonSvgElement);
+	var interactivePlayBtnSvgElement: SVGSVGElement = NinjaCommon.createSVGElement(vtrInteractivePlayButtonSvgElement);
 	interactivePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
 	interactivePlayBtnSvgElement.appendChild(vtrMainGDTag);
 
@@ -156,9 +156,9 @@ function createFreeRidePlayButton() {
 		id: "Group-4", transform: "translate(1466.000000, 652.000000)", stroke: "", strokeWidth: "", fill: "", fillRule: ""
 	};
 
-	var vtrMainGDTag = Common.createSVGG(vtrMainProperties);
-	var vtrTierTwoGDTag = Common.createSVGG(vtrTierTwoProperties);
-	var vtrTierThreeGDTag = Common.createSVGG(vtrTierThreeProperties);
+	var vtrMainGDTag = NinjaCommon.createSVGG(vtrMainProperties);
+	var vtrTierTwoGDTag = NinjaCommon.createSVGG(vtrTierTwoProperties);
+	var vtrTierThreeGDTag = NinjaCommon.createSVGG(vtrTierThreeProperties);
 
 	var vtrFreeRideGUsesProperties: ISVGUseTagProperties = {
 		id: "freePlayId", mask: "url(#mask-2)", stroke: "#FFFFFF", strokeWidth: "4", usesId: "#path-1"
@@ -168,8 +168,8 @@ function createFreeRidePlayButton() {
 		id: "freeBoxId", fill: "#FFFFFF", d: "M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z"
 	};
 
-	var vtrPathTag = Common.createSVGPath(vtrGFreeRidePathProperties);
-	var vtrGUsesTag = Common.createSVGUses(vtrFreeRideGUsesProperties);
+	var vtrPathTag = NinjaCommon.createSVGPath(vtrGFreeRidePathProperties);
+	var vtrGUsesTag = NinjaCommon.createSVGUses(vtrFreeRideGUsesProperties);
 
 	vtrTierThreeGDTag.appendChild(vtrPathTag);
 	vtrTierThreeGDTag.appendChild(vtrGUsesTag);
@@ -182,7 +182,7 @@ function createFreeRidePlayButton() {
 		x: "0px", y: "0px", width: "108px", height: "108px"
 	};
 
-	var freePlayBtnSvgElement: SVGSVGElement = Common.createSVGElement(vtrFreePlayButtonSvgElement);
+	var freePlayBtnSvgElement: SVGSVGElement = NinjaCommon.createSVGElement(vtrFreePlayButtonSvgElement);
 	freePlayBtnSvgElement.appendChild(createCommonSvgDefinition());
 	freePlayBtnSvgElement.appendChild(vtrMainGDTag);
 

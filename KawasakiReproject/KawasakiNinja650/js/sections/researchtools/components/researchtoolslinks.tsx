@@ -1,7 +1,6 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/researchtools.d.ts" />
 /// <reference path="../../../models/researchtoolsmodel.ts" />
-/// <reference path="../../../commonjs.ts" />
 
 export class ResearchToolsLinks extends React.Component<IResearchToolsLinksModel, any> {
 	render() {

@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -9,6 +10,7 @@ declare var controller:ScrollMagic.Controller;
 class VTRDesktop extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
@@ -21,7 +23,7 @@ class VTRDesktop extends ExperienceSlide {
 
 		if (navigator.userAgent.indexOf("MSIE") >= 0) {
 
-			var scaledStaticImage = this.Common.scaleProportionally(3840, 1400, this.windowWidth, 700, false);
+			var scaledStaticImage = this.NinjaCommon.scaleProportionally(3840, 1400, this.windowWidth, 700, false);
 			$('#desktopFailOverId').height(scaledStaticImage.height);
 			$('#desktopFailOverId img').height(scaledStaticImage.height);
 
@@ -81,7 +83,7 @@ class VTRDesktop extends ExperienceSlide {
 
 			/*modal iframe content*/
 			if (this.windowWidth < (1280 + 40) || this.windowHeight < 801) {
-				var scaledVRVideo = this.Common.scaleProportionally(1280, 720, (this.windowWidth / 2), 550, false);
+				var scaledVRVideo = this.NinjaCommon.scaleProportionally(1280, 720, (this.windowWidth / 2), 550, false);
 
 				$('#modalContentVTRContainer').height(scaledVRVideo.height).width(scaledVRVideo.width);
 				$('#modalVTRContentInfo').height(scaledVRVideo.height).width(scaledVRVideo.width);

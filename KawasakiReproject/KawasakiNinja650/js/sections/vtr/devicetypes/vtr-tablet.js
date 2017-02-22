@@ -10,9 +10,10 @@ var VTRTablet = (function (_super) {
         _this.windowWidth = windowWidth;
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             $('#virtual').height(_this.windowHeight).width(_this.windowWidth);
-            var scaledStaticImage = _this.Common.scaleProportionally(2048, 1070, _this.windowWidth, 150, false);
+            var scaledStaticImage = _this.NinjaCommon.scaleProportionally(2048, 1070, _this.windowWidth, 150, false);
             $('#mobileTabletVRStaticImgId').height(scaledStaticImage.height + 15);
             TweenMax.set('#testVRContainerId', {
                 top: ($('#virtual').height() / 5.5) - 80

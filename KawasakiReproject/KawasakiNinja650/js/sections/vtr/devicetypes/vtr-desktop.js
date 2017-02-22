@@ -10,10 +10,11 @@ var VTRDesktop = (function (_super) {
         _this.windowWidth = windowWidth;
         _this.windowHeight = windowHeight;
         _this.Common = new Kawasaki.Common();
+        _this.NinjaCommon = new Kawasaki.NinjaCommon();
         _this.calculation = function () {
             $('#virtual').height(_this.windowHeight).width(_this.windowWidth);
             if (navigator.userAgent.indexOf("MSIE") >= 0) {
-                var scaledStaticImage = _this.Common.scaleProportionally(3840, 1400, _this.windowWidth, 700, false);
+                var scaledStaticImage = _this.NinjaCommon.scaleProportionally(3840, 1400, _this.windowWidth, 700, false);
                 $('#desktopFailOverId').height(scaledStaticImage.height);
                 $('#desktopFailOverId img').height(scaledStaticImage.height);
                 TweenMax.set('#desktopFailOverId', {
@@ -57,7 +58,7 @@ var VTRDesktop = (function (_super) {
                     'left': ($(window).width() / 2) + 75
                 });
                 if (_this.windowWidth < (1280 + 40) || _this.windowHeight < 801) {
-                    var scaledVRVideo = _this.Common.scaleProportionally(1280, 720, (_this.windowWidth / 2), 550, false);
+                    var scaledVRVideo = _this.NinjaCommon.scaleProportionally(1280, 720, (_this.windowWidth / 2), 550, false);
                     $('#modalContentVTRContainer').height(scaledVRVideo.height).width(scaledVRVideo.width);
                     $('#modalVTRContentInfo').height(scaledVRVideo.height).width(scaledVRVideo.width);
                 }

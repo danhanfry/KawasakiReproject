@@ -1,6 +1,5 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/interfaces.d.ts" />
-/// <reference path="../../../commonjs.ts" />
 
 export class SocialSubmissionGuidelines extends React.Component<IEmptyProperties, any> {
 

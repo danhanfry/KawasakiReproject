@@ -1,7 +1,6 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/commercial.d.ts" />
 /// <reference path="../../../models/commercialmodel.ts" />
-/// <reference path="../../../commonjs.ts" />
 
 
 export class CommercialContent extends React.Component<ICommercialContentModel, any> {

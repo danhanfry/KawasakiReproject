@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -7,6 +8,7 @@
 class ResearchTablet extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();

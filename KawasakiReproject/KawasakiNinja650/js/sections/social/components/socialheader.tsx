@@ -1,6 +1,5 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/social.d.ts" />
-/// <reference path="../../../commonjs.ts" />
 
 export class SocialHeader extends React.Component<ISocialHeaderModel, any> {
 	render() {

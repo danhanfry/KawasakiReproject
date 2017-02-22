@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../commonjs.ts" />
+﻿/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -6,6 +7,7 @@
 class VTRTablet extends ExperienceSlide {
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
@@ -17,7 +19,7 @@ class VTRTablet extends ExperienceSlide {
 		$('#virtual').height(this.windowHeight).width(this.windowWidth);
 
 		/**/
-		var scaledStaticImage = this.Common.scaleProportionally(2048, 1070, this.windowWidth, 150, false);
+		var scaledStaticImage = this.NinjaCommon.scaleProportionally(2048, 1070, this.windowWidth, 150, false);
 		$('#mobileTabletVRStaticImgId').height(scaledStaticImage.height + 15);
 
 		TweenMax.set('#testVRContainerId', {

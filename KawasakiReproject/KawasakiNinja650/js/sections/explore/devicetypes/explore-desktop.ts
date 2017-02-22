@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../../interfaces/explore.d.ts" />
-/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../../../scripts/core/commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
 /// <reference path="../../../abstractions/slide.abstraction.ts" />
 /// <reference path="../../../../../scripts/typings/jquery.d.ts" />
 /// <reference path="../../../../../scripts/typings/tweenmax.d.ts" />
@@ -45,6 +46,7 @@ class ExploreDesktop extends ExperienceSlide {
 	];
 
 	private Common: Kawasaki.Common = new Kawasaki.Common();
+	private NinjaCommon: Kawasaki.NinjaCommon = new Kawasaki.NinjaCommon();
 
 	constructor(public windowWidth: number, public windowHeight: number) {
 		super();
@@ -121,7 +123,7 @@ class ExploreDesktop extends ExperienceSlide {
 			that.s3ModalExapnded = true;
 			that.currentTileImage = $(this)[0];
 			that.specModalClicked = true;
-			that.clonedElement = that.Common.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
+			that.clonedElement = that.NinjaCommon.createCloneOfElement(that.currentTileImage, { positionTop: 0, positionLeft: 0 });
 
 			document.body.appendChild(that.clonedElement);
 
@@ -140,7 +142,7 @@ class ExploreDesktop extends ExperienceSlide {
 			var img = $(imgWrapper).children()[0];
 			var windowW = $(window).width();
 			var windowH = $(window).height();
-			var results = that.Common.scaleProportionally(1920, 1080, windowW, windowH, false);
+			var results = that.NinjaCommon.scaleProportionally(1920, 1080, windowW, windowH, false);
 
 			TweenMax.to(that.clonedElement, time, { delay: delay, x: 0, y: 0, width: '100%', height: '100%', ease: ease });
 			if (imgWrapper) {

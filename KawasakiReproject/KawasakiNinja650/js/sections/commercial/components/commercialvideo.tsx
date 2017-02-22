@@ -1,7 +1,8 @@
 ﻿/// <reference path="../../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../interfaces/commercial.d.ts" />
 /// <reference path="../../../models/commercialmodel.ts" />
-/// <reference path="../../../commonjs.ts" />
+/// <reference path="../../../ninjacommonjs.ts" />
+/// <reference path="../../../../../scripts/core/commonjs.ts" />
 
 
 export class CommercialVideo extends React.Component<ICommercialVideoModel, any> {
