@@ -25,6 +25,12 @@
   <ItemGroup>
     <Content Include="AXBuilderProper\index.html" />
     <Content Include="AXBuilder\index.html" />
+    <Content Include="AXBuilder\js\AccessoryBuilder.js">
+      <DependentUpon>AccessoryBuilder.ts</DependentUpon>
+    </Content>
+    <Content Include="AXBuilder\js\interfaces\iaccessory.js">
+      <DependentUpon>IAccessory.ts</DependentUpon>
+    </Content>
     <Content Include="gulpfile.js" />
     <Content Include="KawasakiNinja650\assets\close_green_btn.svg" />
     <Content Include="KawasakiNinja650\assets\close_white_btn.svg" />
@@ -277,11 +283,17 @@
     <Content Include="KawasakiNinja650\partials\power.html" />
     <Content Include="KawasakiNinja650\partials\racingheritage.html" />
     <Content Include="KawasakiNinja650\partials\styling.html" />
+    <Content Include="scripts\core testing\boot.js" />
+    <Content Include="scripts\core testing\jasmine-html.js" />
+    <Content Include="scripts\core testing\jasmine.js" />
     <Content Include="scripts\core\collection.js">
       <DependentUpon>Collection.ts</DependentUpon>
     </Content>
     <Content Include="scripts\core\commonjs.js">
       <DependentUpon>commonjs.ts</DependentUpon>
+    </Content>
+    <Content Include="scripts\core\dictionary.js">
+      <DependentUpon>Dictionary.ts</DependentUpon>
     </Content>
     <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
@@ -294,6 +306,12 @@
     <Content Include="scripts\gsap\scrolltoplugin.js" />
     <Content Include="scripts\spredfast.js" />
     <Content Include="scripts\gsap\tweenmax.js" />
+    <Content Include="styles\jasmine.min.css" />
+    <Content Include="Tests\Collection\CollectionSpec.js">
+      <DependentUpon>CollectionSpec.ts</DependentUpon>
+    </Content>
+    <Content Include="Tests\Collection\SpecRunner.html" />
+    <Content Include="Tests\imgs\jasmine_favicon.png" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -415,6 +433,7 @@
     <TypeScriptCompile Include="scripts\core\Collection.ts" />
     <TypeScriptCompile Include="scripts\core\commonjs.ts" />
     <TypeScriptCompile Include="scripts\core\Dictionary.ts" />
+    <TypeScriptCompile Include="scripts\typings\jasmine.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-css-transition-group.d.ts" />
@@ -431,6 +450,7 @@
     <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
     <TypeScriptCompile Include="scripts\typings\scrollmagic.d.ts" />
     <TypeScriptCompile Include="scripts\typings\tweenmax.d.ts" />
+    <TypeScriptCompile Include="Tests\Collection\CollectionSpec.ts" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

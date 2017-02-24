@@ -17,6 +17,8 @@ var merge = require('merge2');
 var paths = {
 	externaljs: "./scripts/",
 	ninjacustomcss: "./KawasakiNinja650/css/",
+	externaltestjs: "./scripts/core testing",
+	externalcss: "./styles",
 };
 
 gulp.task('copy-requirejs', function () {
@@ -85,6 +87,35 @@ gulp.task("bundleNinja650Css", function () {
 				paths.ninjacustomcss + "researchtools.css", paths.ninjacustomcss + "explore.css",
 				paths.ninjacustomcss + "browserhacks.css", ])
 		.pipe(concat(paths.ninjacustomcss + "ninjasixfifty.min.css"))
+		.pipe(cssmin())
+		.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-jasmine-file', function () {
+	gulp.src(['./bower_components/jasmine/lib/jasmine-core/jasmine.js'])
+	.pipe(concat(paths.externaltestjs + "/jasmine.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-jasmine-htmljs', function () {
+	gulp.src(['./bower_components/jasmine/lib/jasmine-core/jasmine-html.js'])
+	.pipe(concat(paths.externaltestjs + "/jasmine-html.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-jasmine-boot', function () {
+	gulp.src(['./bower_components/jasmine/lib/jasmine-core/boot.js'])
+	.pipe(concat(paths.externaltestjs + "/boot.js"))
+	.pipe(uglify())
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-jasmine-css', function () {
+
+	gulp.src(['./bower_components/jasmine/lib/jasmine-core/jasmine.css'])
+		.pipe(concat(paths.externalcss + "/jasmine.min.css"))
 		.pipe(cssmin())
 		.pipe(gulp.dest("."));
 });

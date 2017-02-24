@@ -77,7 +77,7 @@ class Collection<T> {
 	}
 
 	public First = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
-		return expression === undefined ? this._items[0] : this.Where(expression)[0];
+		return expression === undefined ? this._items[0] : this.Where(expression).ElementAt(0);
 	}
 
 	public FirstOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
@@ -143,8 +143,13 @@ class Collection<T> {
 	}
 
 	public Last = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
-		const lengthIndex = this._items.length - 1;
-		return expression === undefined ? this._items[lengthIndex] : this.Where(expression)[lengthIndex];
+		if (expression === undefined) {
+			return this._items[this._items.length - 1];
+		}
+		else {
+			let newCollectionWithExpression = this.Where(expression);
+			return newCollectionWithExpression.ElementAt(newCollectionWithExpression.Count() - 1);
+		}
 	}
 
 	public LastOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {

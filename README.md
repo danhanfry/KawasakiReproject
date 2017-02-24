@@ -18,3 +18,6 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-addons-upda
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-dom
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-router
+
+# Misc Typescript
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jasmine

@@ -20,6 +20,10 @@
 		"!node_modules/**"
 	],
 	"files": [
+		"scripts/core/collection.ts",
+		"scripts/core/dictionary.ts",
+		"Tests/Collection/CollectionSpec.ts",
+		"AXBuilder/js/AccessoryBuilder.ts",
 		"KawasakiNinja650/js/generic-index.tsx",
 		"KawasakiNinja650/js/sections/commercial/commercial.tsx",
 		"KawasakiNinja650/js/sections/commercial/components/commercialvideo.tsx",

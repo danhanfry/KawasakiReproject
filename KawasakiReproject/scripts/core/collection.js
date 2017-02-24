@@ -54,7 +54,7 @@ var Collection = (function () {
             return _this._items.forEach(action);
         };
         this.First = function (expression) {
-            return expression === undefined ? _this._items[0] : _this.Where(expression)[0];
+            return expression === undefined ? _this._items[0] : _this.Where(expression).ElementAt(0);
         };
         this.FirstOrDefault = function (expression) {
             if (_this.Count() <= 0) {
@@ -107,8 +107,13 @@ var Collection = (function () {
             return _this.Where(function (x) { return source.Contains(x); });
         };
         this.Last = function (expression) {
-            var lengthIndex = _this._items.length - 1;
-            return expression === undefined ? _this._items[lengthIndex] : _this.Where(expression)[lengthIndex];
+            if (expression === undefined) {
+                return _this._items[_this._items.length - 1];
+            }
+            else {
+                var newCollectionWithExpression = _this.Where(expression);
+                return newCollectionWithExpression.ElementAt(newCollectionWithExpression.Count() - 1);
+            }
         };
         this.LastOrDefault = function (expression) {
             if (_this.Count() <= 0) {
