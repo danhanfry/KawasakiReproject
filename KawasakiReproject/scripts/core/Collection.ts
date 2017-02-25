@@ -254,7 +254,7 @@ class Collection<T> {
 	}
 
 	public Union = (second: Collection<T>): Collection<T> => {
-		return this.Concat(second).Distinct();
+		return this.Concat(second);
 	}
 
 	private EmptyCollection = (): Collection<T> => {

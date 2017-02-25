@@ -191,7 +191,7 @@ var Collection = (function () {
             return _this._items;
         };
         this.Union = function (second) {
-            return _this.Concat(second).Distinct();
+            return _this.Concat(second);
         };
         this.EmptyCollection = function () {
             return new Collection();
