@@ -17,8 +17,13 @@ class Collection<T> {
 		this._items.push(...items);
 	}
 
-	public Aggregate = <U>(callbackfun: (previousValue: U, currentValue?: T, currentIndex?: number, list?: T[]) => any, initialValue ?: U): any => {
-		return this._items.reduce(callbackfun, initialValue);
+	public Aggregate = <U>(callbackfun: (previousValue: U, currentValue?: T, currentIndex?: number, list?: T[]) => any, initialValue?: U): any => {
+		if (this.Count() <= 0) {
+			return undefined;
+		}
+
+		const newerInitialValue: T | U = initialValue === undefined ? this.DefaultValuePerType(this.First()) : initialValue;
+		return this._items.reduce(callbackfun, newerInitialValue);
 	}
 
 	public All = (predicate: (value?: T, index?: number, list?: T[]) => boolean): boolean => {
@@ -27,6 +32,21 @@ class Collection<T> {
 
 	public Any = (expression?: (value?: T, index?: number, list?: T[]) => boolean): boolean => {
 		return expression === undefined ? this._items.length > 0 : this._items.some(expression);
+	}
+
+	public Average = (expression?: (value?: T, index?: number, list?: T[]) => any): number => {
+
+		if (this.Count() < 0) {
+			throw new Error("No items in the collection.");
+		}
+
+		const collectionItemType = typeof this.ElementAt(0);
+		if (collectionItemType !== "number") {
+			throw new Error(collectionItemType + " does have the defintion of 'Average'");
+		}
+
+		return this.Sum(expression) / this.Count(expression);
+
 	}
 
 	public Clear = (): void => {
@@ -57,14 +77,14 @@ class Collection<T> {
 
 	// Get a specific item from a collection given it's index
 	public ElementAt = (index: number): T => {
+		if (this.Count() == 0 || index > this.Count()) {
+			throw new Error('ArgumentOutOfRangeException: index is less than 0 or greater than or equal to the number of elements in source.');
+		}
+
 		return this._items[index];
 	}
 
 	public ElementAtOrDefault = (index: number): T => {
-		if (this.Count() == 0) {
-			return undefined;
-		}
-
 		return this.ElementAt(index) || undefined;
 	}
 
@@ -77,7 +97,11 @@ class Collection<T> {
 	}
 
 	public First = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
-		return expression === undefined ? this._items[0] : this.Where(expression).ElementAt(0);
+		if (this.Count() < 0) {
+			throw new Error('InvalidOperationException: The source sequence is empty.');
+		}
+
+		return expression === undefined ? this._items[0] : this.Where(expression).First();
 	}
 
 	public FirstOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
@@ -113,24 +137,12 @@ class Collection<T> {
 		return this._items.indexOf(item);
 	}
 
-	// Find the index of a given object in a collection
-	public IndexOfItem = (obj: T, fromIndex?: number): number => {
-		if (fromIndex == null) {
-			fromIndex = 0;
-		}
-		else if (fromIndex < 0) {
-			fromIndex = Math.max(0, this._items.length + fromIndex);
-		}
+	//public FirstIndexOf = (expression?: (value?: T, index?: number, list?: T[]) => boolean): number => {
+	//	/*this_items.findIndex(expression)*/
+	//	return 0;
+	//}
 
-		for (var i = fromIndex, j = this._items.length; i < j; i++) {
-			if (this._items[i] === obj) {
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	public Insert = (index: number, element: T): void | Error => {
+	public Insert = (index: number, element: T): void => {
 		if (index < 0 || index > this._items.length) {
 			throw new Error('Index is out of range.');
 		}
@@ -143,13 +155,13 @@ class Collection<T> {
 	}
 
 	public Last = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
-		if (expression === undefined) {
-			return this._items[this._items.length - 1];
+
+		if (this.Count() < 0) {
+			throw new Error('InvalidOperationException: The source sequence is empty.');
 		}
-		else {
-			let newCollectionWithExpression = this.Where(expression);
-			return newCollectionWithExpression.ElementAt(newCollectionWithExpression.Count() - 1);
-		}
+
+		return expression === undefined ? this._items[this._items.length - 1] : this.Where(expression).Last();
+
 	}
 
 	public LastOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
@@ -159,6 +171,14 @@ class Collection<T> {
 
 		const lastWithExpression = this.Last(expression);
 		return (lastWithExpression === undefined ? undefined : lastWithExpression);
+	}
+
+	public Max = (): T => {
+		return <T>this.Aggregate((x: T, y: T) => x > y ? x : y);
+	}
+
+	public Min = (): T => {
+		return <T>this.Aggregate((x: T, y: T) => x < y ? x : y);
 	}
 
 	public OrderBy = (keySelector: (key: T) => any): Collection<T> => {
@@ -179,8 +199,13 @@ class Collection<T> {
 		return this._items.indexOf(item) !== -1 ? (this.RemoveAt(this._items.indexOf(item)), true) : false;
 	}
 
-	public RemoveAll = (predicate: (value?: T, index?: number, list?: T[]) => boolean): Collection<T> => {
-		return this.Where(this.Negate(predicate));
+	public RemoveAll = (predicate: (value?: T, index?: number, list?: T[]) => boolean): number => {
+		const itemsToBeRemoved = this.Where(predicate);
+		itemsToBeRemoved.ToArray().forEach((item) => {
+			this.Remove(item);
+		});
+
+		return itemsToBeRemoved.Count();
 	}
 
 	// Delete an object from the collection
@@ -189,10 +214,7 @@ class Collection<T> {
 	}
 
 	public Reverse = (): Collection<T> => {
-
-		const reversedArray = this._items.reverse();
-
-		return new Collection<T>(reversedArray);
+		return new Collection<T>(this._items.reverse());
 	}
 
 	public Select = <U>(expression: (value?: T, index?: number, list?: T[]) => U): Collection<U> => {
@@ -200,17 +222,17 @@ class Collection<T> {
 		return new Collection<U>(newArrayMapper);
 	}
 
-	public Single = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T | TypeError => {
+	public Single = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
 		if (this.Count() !== -1) {
-			throw new TypeError('The collection does not contain exactly one element.');
+			throw new Error('The collection does not contain exactly one element.');
 		}
 
 		return this.First(expression);
 	}
 
-	public SingleOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T | TypeError => {
+	public SingleOrDefault = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
 		if (this.Count() > 1) {
-			throw new TypeError('The collection contains more than one element.');
+			throw new Error('The collection contains more than one element.');
 		}
 
 		return this.Single(expression);
@@ -218,7 +240,7 @@ class Collection<T> {
 
 	public Skip = (amount: number): Collection<T> => {
 		if (this.Count() == 0) {
-			return this.EmptyCollection();
+			return this;
 		}
 
 		const skippedArray = this._items.slice(Math.max(0, amount));
@@ -226,13 +248,26 @@ class Collection<T> {
 	}
 
 	public SkipWhile = (expression?: (value?: T, index?: number, list?: T[]) => boolean): Collection<T> => {
-		var aggregated = this.Aggregate((prev, current) => expression(this.ElementAt(prev)) ? ++prev : prev, 0);
-		return this.Skip(aggregated);
+		var skipWhileCollection = this.Negate(expression);
+		return this.Where(skipWhileCollection);
+	}
+
+	public Sum = (expression?: (value?: T, index?: number, list?: T[]) => number): number => {
+		if (this.Count() < 0) {
+			throw new Error("No items in the collection.");
+		}
+
+		const collectionItemType = typeof this.ElementAt(0);
+		if (collectionItemType !== "number") {
+			throw new Error(collectionItemType + " does have the defintion of 'Sum'");
+		}
+
+		return expression === undefined ? <number>this.Aggregate((result:number, currentValue:T) => result += (<number><any>currentValue)) : this.Select(expression).Sum();
 	}
 
 	public Take = (amount: number): Collection<T> => {
 		if (this.Count() == 0) {
-			return this.EmptyCollection();
+			return this;
 		}
 
 		const takenArray = this._items.slice(0, Math.max(0, amount));
@@ -240,8 +275,9 @@ class Collection<T> {
 	}
 
 	public TakeWhile = (expression?: (value?: T, index?: number, list?: T[]) => boolean): Collection<T> => {
-		var aggregated = this.Aggregate((prev:number, current:T) => expression(this.ElementAt(prev)) ? ++prev : prev, 0);
-		return this.Take(aggregated);
+
+		var takeWhileIdx:number = <number>this.Aggregate((prev:number, currentValue:T) => expression(this.ElementAt(prev)) ? ++prev : prev);
+		return this.Take(takeWhileIdx);
 	}
 
 	public Where = (expression?: (value?: T, index?: number, list?: T[]) => boolean): Collection<T> => {
@@ -255,17 +291,6 @@ class Collection<T> {
 
 	public Union = (second: Collection<T>): Collection<T> => {
 		return this.Concat(second);
-	}
-
-	private EmptyCollection = (): Collection<T> => {
-		return new Collection<T>();
-	}
-
-	private Negate = (expression: (value?: T, index?: number, list?: T[]) => boolean): (() => any) => {
-		var that = this;
-		return function (): any {
-			return !expression.apply(that, arguments);
-		};
 	}
 
 	private ComparerForKey = (keySelector: (key: T) => any, descending?: boolean): ((a: T, b: T) => number) => {
@@ -302,6 +327,41 @@ class Collection<T> {
 		};
 	}
 
+	private DefaultValuePerType = (collectionType: T): T => {
+
+		switch (typeof collectionType) {
+			case "undefined":
+				{
+					return undefined;
+				}
+			case "number":
+				{
+					return <T><any>0;
+				}
+			case "string":
+				{
+					return <T><any>"";
+				}
+			case "boolean":
+				{
+					return <T><any>false;
+				}
+			case "object":
+				{
+					if (collectionType === null) {
+						return <T><any>{};
+					}
+
+					let isArray:boolean = Array.isArray(collectionType);
+					if (isArray) {
+						return <T><any>[];
+					}
+
+					return <T><any>{};
+				}
+		};
+	}
+
 	private LookThroughGroupArray = (item: T, keyToGroup: (key: T) => T, groupedArray: Array<T[]>): T[] => {
 
 		for (let i = 0; i < groupedArray.length; i++) {
@@ -312,4 +372,11 @@ class Collection<T> {
 
 		return undefined;
 	}
+
+	private Negate(expression: (value?: T, index?: number, list?: T[]) => boolean): () => any {
+		return function (): any {
+			return !expression.apply(this, arguments);
+		};
+	}
+
 }

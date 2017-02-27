@@ -11,7 +11,11 @@ var Collection = (function () {
             var _a;
         };
         this.Aggregate = function (callbackfun, initialValue) {
-            return _this._items.reduce(callbackfun, initialValue);
+            if (_this.Count() <= 0) {
+                return undefined;
+            }
+            var newerInitialValue = initialValue === undefined ? _this.DefaultValuePerType(_this.First()) : initialValue;
+            return _this._items.reduce(callbackfun, newerInitialValue);
         };
         this.All = function (predicate) {
             return _this._items.every(predicate);
@@ -39,12 +43,12 @@ var Collection = (function () {
             return _this.Where(function (value, index, iter) { return iter.indexOf(value) === index; });
         };
         this.ElementAt = function (index) {
+            if (_this.Count() == 0 || index > _this.Count()) {
+                throw new Error('ArgumentOutOfRangeException: index is less than 0 or greater than or equal to the number of elements in source.');
+            }
             return _this._items[index];
         };
         this.ElementAtOrDefault = function (index) {
-            if (_this.Count() == 0) {
-                return undefined;
-            }
             return _this.ElementAt(index) || undefined;
         };
         this.Except = function (source) {
@@ -54,7 +58,10 @@ var Collection = (function () {
             return _this._items.forEach(action);
         };
         this.First = function (expression) {
-            return expression === undefined ? _this._items[0] : _this.Where(expression).ElementAt(0);
+            if (_this.Count() < 0) {
+                throw new Error('InvalidOperationException: The source sequence is empty.');
+            }
+            return expression === undefined ? _this._items[0] : _this.Where(expression).First();
         };
         this.FirstOrDefault = function (expression) {
             if (_this.Count() <= 0) {
@@ -83,20 +90,6 @@ var Collection = (function () {
         this.IndexOf = function (item) {
             return _this._items.indexOf(item);
         };
-        this.IndexOfItem = function (obj, fromIndex) {
-            if (fromIndex == null) {
-                fromIndex = 0;
-            }
-            else if (fromIndex < 0) {
-                fromIndex = Math.max(0, _this._items.length + fromIndex);
-            }
-            for (var i = fromIndex, j = _this._items.length; i < j; i++) {
-                if (_this._items[i] === obj) {
-                    return i;
-                }
-            }
-            return -1;
-        };
         this.Insert = function (index, element) {
             if (index < 0 || index > _this._items.length) {
                 throw new Error('Index is out of range.');
@@ -107,13 +100,10 @@ var Collection = (function () {
             return _this.Where(function (x) { return source.Contains(x); });
         };
         this.Last = function (expression) {
-            if (expression === undefined) {
-                return _this._items[_this._items.length - 1];
+            if (_this.Count() < 0) {
+                throw new Error('InvalidOperationException: The source sequence is empty.');
             }
-            else {
-                var newCollectionWithExpression = _this.Where(expression);
-                return newCollectionWithExpression.ElementAt(newCollectionWithExpression.Count() - 1);
-            }
+            return expression === undefined ? _this._items[_this._items.length - 1] : _this.Where(expression).Last();
         };
         this.LastOrDefault = function (expression) {
             if (_this.Count() <= 0) {
@@ -136,14 +126,17 @@ var Collection = (function () {
             return _this._items.indexOf(item) !== -1 ? (_this.RemoveAt(_this._items.indexOf(item)), true) : false;
         };
         this.RemoveAll = function (predicate) {
-            return _this.Where(_this.Negate(predicate));
+            var itemsToBeRemoved = _this.Where(predicate);
+            itemsToBeRemoved.ToArray().forEach(function (item) {
+                _this.Remove(item);
+            });
+            return itemsToBeRemoved.Count();
         };
         this.RemoveAt = function (itemIndex) {
             _this._items.splice(itemIndex, 1);
         };
         this.Reverse = function () {
-            var reversedArray = _this._items.reverse();
-            return new Collection(reversedArray);
+            return new Collection(_this._items.reverse());
         };
         this.Select = function (expression) {
             var newArrayMapper = _this._items.map(expression);
@@ -163,25 +156,35 @@ var Collection = (function () {
         };
         this.Skip = function (amount) {
             if (_this.Count() == 0) {
-                return _this.EmptyCollection();
+                return _this;
             }
             var skippedArray = _this._items.slice(Math.max(0, amount));
             return new Collection(skippedArray);
         };
         this.SkipWhile = function (expression) {
-            var aggregated = _this.Aggregate(function (prev, current) { return expression(_this.ElementAt(prev)) ? ++prev : prev; }, 0);
-            return _this.Skip(aggregated);
+            var skipWhileCollection = _this.Negate(expression);
+            return _this.Where(skipWhileCollection);
+        };
+        this.Sum = function (expression) {
+            if (_this.Count() < 0) {
+                throw new Error("No items in the collection.");
+            }
+            var collectionItemType = typeof _this.ElementAt(0);
+            if (collectionItemType !== "number") {
+                throw new Error(collectionItemType + " does have the defintion of 'Sum'");
+            }
+            return expression === undefined ? _this.Aggregate(function (result, currentValue) { return result += currentValue; }) : _this.Select(expression).Sum();
         };
         this.Take = function (amount) {
             if (_this.Count() == 0) {
-                return _this.EmptyCollection();
+                return _this;
             }
             var takenArray = _this._items.slice(0, Math.max(0, amount));
             return new Collection(takenArray);
         };
         this.TakeWhile = function (expression) {
-            var aggregated = _this.Aggregate(function (prev, current) { return expression(_this.ElementAt(prev)) ? ++prev : prev; }, 0);
-            return _this.Take(aggregated);
+            var takeWhileIdx = _this.Aggregate(function (prev, currentValue) { return expression(_this.ElementAt(prev)) ? ++prev : prev; });
+            return _this.Take(takeWhileIdx);
         };
         this.Where = function (expression) {
             var filteredArray = _this._items.filter(expression);
@@ -192,15 +195,6 @@ var Collection = (function () {
         };
         this.Union = function (second) {
             return _this.Concat(second);
-        };
-        this.EmptyCollection = function () {
-            return new Collection();
-        };
-        this.Negate = function (expression) {
-            var that = _this;
-            return function () {
-                return !expression.apply(that, arguments);
-            };
         };
         this.ComparerForKey = function (keySelector, descending) {
             return function (a, b) {
@@ -229,6 +223,38 @@ var Collection = (function () {
                 }
             };
         };
+        this.DefaultValuePerType = function (collectionType) {
+            switch (typeof collectionType) {
+                case "undefined":
+                    {
+                        return undefined;
+                    }
+                case "number":
+                    {
+                        return 0;
+                    }
+                case "string":
+                    {
+                        return "";
+                    }
+                case "boolean":
+                    {
+                        return false;
+                    }
+                case "object":
+                    {
+                        if (collectionType === null) {
+                            return {};
+                        }
+                        var isArray = Array.isArray(collectionType);
+                        if (isArray) {
+                            return [];
+                        }
+                        return {};
+                    }
+            }
+            ;
+        };
         this.LookThroughGroupArray = function (item, keyToGroup, groupedArray) {
             for (var i = 0; i < groupedArray.length; i++) {
                 if (groupedArray[i].length > 0 && keyToGroup(groupedArray[i][0]) == item) {
@@ -239,5 +265,10 @@ var Collection = (function () {
         };
         this._items = items;
     }
+    Collection.prototype.Negate = function (expression) {
+        return function () {
+            return !expression.apply(this, arguments);
+        };
+    };
     return Collection;
 }());
