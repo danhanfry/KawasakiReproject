@@ -97,8 +97,8 @@ var Enumberable = (function () {
             }
             return groupedBy;
         };
-        this.IndexOf = function (item) {
-            return _this._items.indexOf(item);
+        this.IndexOf = function (item, startIndex) {
+            return _this._items.indexOf(item, startIndex);
         };
         this.Insert = function (index, element) {
             if (index < 0 || index > _this._items.length) {
@@ -121,6 +121,9 @@ var Enumberable = (function () {
             }
             var lastWithExpression = _this.Last(expression);
             return (lastWithExpression === undefined ? undefined : lastWithExpression);
+        };
+        this.LastIndexOf = function (item, startIndex) {
+            return _this._items.lastIndexOf(item, startIndex);
         };
         this.Max = function () {
             return _this.Aggregate(function (x, y) { return x > y ? x : y; });

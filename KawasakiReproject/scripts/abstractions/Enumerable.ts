@@ -134,8 +134,8 @@ class Enumberable<T> implements IEnumberable<T> {
 		return groupedBy;
 	}
 
-	public IndexOf = (item: T): number => {
-		return this._items.indexOf(item);
+	public IndexOf = (item: T, startIndex?:number): number => {
+		return this._items.indexOf(item, startIndex);
 	}
 
 	//public FirstIndexOf = (expression?: (value?: T, index?: number, list?: T[]) => boolean): number => {
@@ -172,6 +172,10 @@ class Enumberable<T> implements IEnumberable<T> {
 
 		const lastWithExpression = this.Last(expression);
 		return (lastWithExpression === undefined ? undefined : lastWithExpression);
+	}
+
+	public LastIndexOf = (item: T, startIndex?:number): number => {
+		return this._items.lastIndexOf(item, startIndex);
 	}
 
 	public Max = (): T => {

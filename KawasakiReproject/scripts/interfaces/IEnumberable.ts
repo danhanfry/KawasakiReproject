@@ -17,11 +17,12 @@
 	ForEach(action: (value?: T, index?: number, list?: T[]) => any): void;
 	First(expression?: (value?: T, index?: number, list?: T[]) => boolean): T;
 	FirstOrDefault(expression?: (value?: T, index?: number, list?: T[]) => boolean): T;
-	IndexOf(item: T): number;
+	IndexOf(item: T, startIndex?: number): number;
 	Insert(index: number, element: T): void;
 	Intersect(source: IEnumberable<T>): IEnumberable<T>;
 	Last(expression?: (value?: T, index?: number, list?: T[]) => boolean): T;
 	LastOrDefault(expression?: (value?: T, index?: number, list?: T[]) => boolean): T;
+	LastIndexOf(item: T, startIndex?: number): number;
 	Max(): T;
 	Min(): T;
 	OrderBy(keySelector: (key: T) => any): IEnumberable<T>;
