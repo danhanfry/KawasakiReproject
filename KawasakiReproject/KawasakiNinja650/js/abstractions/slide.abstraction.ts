@@ -6,25 +6,25 @@
 	setScrollMagicMechanism(): void;
 }
 
-class ExperienceSlide implements IExperienceSlide {
+abstract class ExperienceSlide implements IExperienceSlide {
 
-	calculation = (): void => {
-
-	}
-
-	setTweenMechanism = (): void => {
+	abstract calculation = (): void => {
 
 	}
 
-	eventInitialize = (): void => {
+	abstract setTweenMechanism = (): void => {
 
 	}
 
-	resize = (): void => {
+	abstract eventInitialize = (): void => {
 
 	}
 
-	setScrollMagicMechanism = (): void => {
+	abstract resize = (): void => {
+
+	}
+
+	abstract setScrollMagicMechanism = (): void => {
 
 	}
 }
