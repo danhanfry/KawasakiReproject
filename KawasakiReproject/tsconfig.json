@@ -20,6 +20,7 @@
 		"!node_modules/**"
 	],
 	"files": [
+		"scripts/abstractions/enumerable.ts",
 		"scripts/core/collection.ts",
 		"scripts/core/dictionary.ts",
 		"Tests/Collection/CollectionSpec.ts",

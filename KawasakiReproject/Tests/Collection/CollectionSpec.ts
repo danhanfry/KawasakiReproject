@@ -149,6 +149,22 @@ describe("Collection Functionality", function () {
 		});
 	});
 
+	describe("when there are multiple items, the OrderBy function", function () {
+
+		it("should order them in ascending order with 1 as the first item in the new array", function () {
+			let orderedCollection = genericCollection.OrderBy(x => x);
+			expect(orderedCollection.ElementAt(0)).toBe(1);
+		});
+	});
+
+	describe("when there are multiple items, the OrderByDescending function", function () {
+
+		it("should order them in descending order with 99 as the first item in the new array", function () {
+			let orderedCollection = genericCollection.OrderByDescending(x => x);
+			expect(orderedCollection.ElementAt(0)).toBe(99);
+		});
+	});
+
 	describe("when there are six items, the RemoveAt function", function () {
 
 		it("should return false when removing at position 4, which is 50, and checking if contains 50", function () {
@@ -228,6 +244,14 @@ describe("Collection Functionality", function () {
 			var unionCollection = new Collection<number>([0, 1, 2]);
 			var unioned = genericCollection.Union(unionCollection);
 			expect(unioned.Count()).toBe(8);
+		});
+	});
+
+	describe("when there are multiple items and the Clear function", function () {
+
+		it("should return count of  0", function () {
+			genericCollection.Clear();
+			expect(genericCollection.Count()).toBe(0);
 		});
 	});
 });

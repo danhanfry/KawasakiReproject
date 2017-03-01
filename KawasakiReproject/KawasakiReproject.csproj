@@ -283,6 +283,9 @@
     <Content Include="KawasakiNinja650\partials\power.html" />
     <Content Include="KawasakiNinja650\partials\racingheritage.html" />
     <Content Include="KawasakiNinja650\partials\styling.html" />
+    <Content Include="scripts\abstractions\enumerable.js">
+      <DependentUpon>Enumerable.ts</DependentUpon>
+    </Content>
     <Content Include="scripts\core testing\boot.js" />
     <Content Include="scripts\core testing\jasmine-html.js" />
     <Content Include="scripts\core testing\jasmine.js" />
@@ -294,6 +297,9 @@
     </Content>
     <Content Include="scripts\core\dictionary.js">
       <DependentUpon>Dictionary.ts</DependentUpon>
+    </Content>
+    <Content Include="scripts\interfaces\ienumberable.js">
+      <DependentUpon>IEnumberable.ts</DependentUpon>
     </Content>
     <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
@@ -430,9 +436,11 @@
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\devicetypes\vtr-tablet.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr-index.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\sections\vtr\vtr.tsx" />
+    <TypeScriptCompile Include="scripts\abstractions\Enumerable.ts" />
     <TypeScriptCompile Include="scripts\core\Collection.ts" />
     <TypeScriptCompile Include="scripts\core\commonjs.ts" />
     <TypeScriptCompile Include="scripts\core\Dictionary.ts" />
+    <TypeScriptCompile Include="scripts\interfaces\IEnumberable.ts" />
     <TypeScriptCompile Include="scripts\typings\jasmine.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-addons-create-fragment.d.ts" />
