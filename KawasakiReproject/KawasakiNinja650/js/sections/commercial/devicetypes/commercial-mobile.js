@@ -210,6 +210,8 @@ var CommercialMobile = (function (_super) {
                 _this.commercialResize(videoElement, $(window).width(), $(window).height());
             }
         };
+        _this.setScrollMagicMechanism = function () {
+        };
         _this.commercialResize = function (video, windowWidth, windowHeight) {
             var newScaledVideo = _this.NinjaCommon.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
             var finalNewScaledVideo = newScaledVideo.height;

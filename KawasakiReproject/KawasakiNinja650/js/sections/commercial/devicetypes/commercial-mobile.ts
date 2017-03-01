@@ -259,6 +259,10 @@ class CommercialMobile extends ExperienceSlide {
 		}
 	}
 
+	setScrollMagicMechanism = (): void => {
+
+	}
+
 	private commercialResize = (video: HTMLVideoElement, windowWidth: number, windowHeight: number): void => {
 		var newScaledVideo = this.NinjaCommon.scaleProportionally(1920, 1080, windowWidth, windowHeight, false);
 		var finalNewScaledVideo = newScaledVideo.height;
