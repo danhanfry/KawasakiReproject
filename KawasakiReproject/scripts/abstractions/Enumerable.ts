@@ -93,6 +93,10 @@ class Enumberable<T> implements IEnumberable<T> {
 		return this.Where(x => !source.Contains(x));
 	}
 
+	public Exists = (predicate: (value?: T, index?: number, list?: T[]) => boolean): boolean => {
+		return this.Where(predicate).Count() > 0;
+	}
+
 	public ForEach = (action: (value?: T, index?: number, list?: T[]) => any): void => {
 		return this._items.forEach(action);
 	}
@@ -114,34 +118,28 @@ class Enumberable<T> implements IEnumberable<T> {
 		return (firstWithExpression === undefined ? undefined : firstWithExpression);
 	}
 
-	public GroupBy = (keyToGroup: (key: T) => T): Array<T[]> => {
+	public GetRange = (index: number, count: number): Enumberable<T> => {
 
-		let groupedBy: Array<T[]> = [];
-		for (let i = 0; i < this.Count(); i++) {
-			let currentItemInCollection = this.ElementAt(i);
-			let currentKey = keyToGroup(currentItemInCollection);
-			if (currentKey) {
-				let currentGroupBy = this.LookThroughGroupArray(currentKey, keyToGroup, groupedBy);
-				if (currentGroupBy === undefined) {
-					groupedBy.push([currentItemInCollection]);
-				}
-				else {
-					currentGroupBy.push(currentItemInCollection);
-				}
-			}
-		}
+		const absIndex: number = Math.abs(index);
+		const absCount: number = Math.abs(count);
+		const finalCount: number = absIndex + absCount > this._items.length ? (this._items.length - 1) : absIndex + absCount;
+		return new Enumberable<T>(this._items.slice(absIndex, finalCount));
+	}
 
-		return groupedBy;
+	public GroupBy = (keySelector: (key: T) => any, elementSelector: (key: T) => any): void => {
+
+		//let groupedEnumberable = new Enumberable<IGrouping<any, any>>();
+
+		this.Aggregate(
+			(grouped, item) => ((<any>grouped)[keySelector(item)] ?
+				(<any>grouped)[keySelector(item)].push(elementSelector(item)) :
+				(<any>grouped)[keySelector(item)] = [elementSelector(item)], grouped),
+			{});
 	}
 
 	public IndexOf = (item: T, startIndex?:number): number => {
 		return this._items.indexOf(item, startIndex);
 	}
-
-	//public FirstIndexOf = (expression?: (value?: T, index?: number, list?: T[]) => boolean): number => {
-	//	/*this_items.findIndex(expression)*/
-	//	return 0;
-	//}
 
 	public Insert = (index: number, element: T): void => {
 		if (index < 0 || index > this._items.length) {
@@ -149,6 +147,14 @@ class Enumberable<T> implements IEnumberable<T> {
 		}
 
 		this._items.splice(index, 0, element);
+	}
+
+	public InsertRange = (index: number, source: IEnumberable<T>): void => {
+		let currentIndex = index;
+		source.ToArray().forEach((item) => {
+			this.Insert(currentIndex, item);
+			currentIndex++;
+		});
 	}
 
 	public Intersect = (source: Enumberable<T>): Enumberable<T> => {
@@ -179,11 +185,15 @@ class Enumberable<T> implements IEnumberable<T> {
 	}
 
 	public Max = (): T => {
-		return <T>this.Aggregate((x: T, y: T) => x > y ? x : y);
+		return <T>this.Aggregate((currentMax: T, currentValue: T) => currentMax > currentValue ? currentMax : currentValue);
+	}
+
+	public MemberwiseClone = (): Enumberable<T> => {
+		return new Enumberable<T>(this._items.slice(0));
 	}
 
 	public Min = (): T => {
-		return <T>this.Aggregate((x: T, y: T) => x < y ? x : y);
+		return <T>this.Aggregate((currentMin: T, currentValue: T) => currentMin < currentValue ? currentMin : currentValue);
 	}
 
 	public OrderBy = (keySelector: (key: T) => any): Enumberable<T> => {
@@ -210,8 +220,12 @@ class Enumberable<T> implements IEnumberable<T> {
 	}
 
 	// Delete an object from the collection
-	public RemoveAt = (itemIndex: number): void => {
-		this._items.splice(itemIndex, 1);
+	public RemoveAt = (index: number): void => {
+		this.RemoveRange(index, 1);
+	}
+
+	public RemoveRange = (index: number, count:number): void => {
+		this._items.splice(index, count);
 	}
 
 	public Reverse = (): Enumberable<T> => {
@@ -221,6 +235,11 @@ class Enumberable<T> implements IEnumberable<T> {
 	public Select = <U>(expression: (value?: T, index?: number, list?: T[]) => U): Enumberable<U> => {
 		var newArrayMapper = this._items.map(expression);
 		return new Enumberable<U>(newArrayMapper);
+	}
+
+	public SelectMany = <U extends Enumberable<any>>(expression: (value?: T, index?: number, list?: T[]) => U): U => {
+
+		return this.Aggregate((groupedCollection: U, currentValue, currentIndex) => (groupedCollection.AddRange(this.Select(expression).ElementAt(currentIndex).ToArray()), groupedCollection), new Enumberable<any>());
 	}
 
 	public Single = (expression?: (value?: T, index?: number, list?: T[]) => boolean): T => {
@@ -244,7 +263,7 @@ class Enumberable<T> implements IEnumberable<T> {
 			return this;
 		}
 
-		const skippedArray = this._items.slice(Math.max(0, amount));
+		const skippedArray = this._items.slice(Math.abs(amount));
 		return new Enumberable<T>(skippedArray);
 	}
 
@@ -271,7 +290,7 @@ class Enumberable<T> implements IEnumberable<T> {
 			return this;
 		}
 
-		const takenArray = this._items.slice(0, Math.max(0, amount));
+		const takenArray = this._items.slice(0, Math.abs(amount));
 		return new Enumberable<T>(takenArray);
 	}
 

@@ -64,6 +64,9 @@ var Enumberable = (function () {
         this.Except = function (source) {
             return _this.Where(function (x) { return !source.Contains(x); });
         };
+        this.Exists = function (predicate) {
+            return _this.Where(predicate).Count() > 0;
+        };
         this.ForEach = function (action) {
             return _this._items.forEach(action);
         };
@@ -80,22 +83,16 @@ var Enumberable = (function () {
             var firstWithExpression = _this.First(expression);
             return (firstWithExpression === undefined ? undefined : firstWithExpression);
         };
-        this.GroupBy = function (keyToGroup) {
-            var groupedBy = [];
-            for (var i = 0; i < _this.Count(); i++) {
-                var currentItemInCollection = _this.ElementAt(i);
-                var currentKey = keyToGroup(currentItemInCollection);
-                if (currentKey) {
-                    var currentGroupBy = _this.LookThroughGroupArray(currentKey, keyToGroup, groupedBy);
-                    if (currentGroupBy === undefined) {
-                        groupedBy.push([currentItemInCollection]);
-                    }
-                    else {
-                        currentGroupBy.push(currentItemInCollection);
-                    }
-                }
-            }
-            return groupedBy;
+        this.GetRange = function (index, count) {
+            var absIndex = Math.abs(index);
+            var absCount = Math.abs(count);
+            var finalCount = absIndex + absCount > _this._items.length ? (_this._items.length - 1) : absIndex + absCount;
+            return new Enumberable(_this._items.slice(absIndex, finalCount));
+        };
+        this.GroupBy = function (keySelector, elementSelector) {
+            _this.Aggregate(function (grouped, item) { return (grouped[keySelector(item)] ?
+                grouped[keySelector(item)].push(elementSelector(item)) :
+                grouped[keySelector(item)] = [elementSelector(item)], grouped); }, {});
         };
         this.IndexOf = function (item, startIndex) {
             return _this._items.indexOf(item, startIndex);
@@ -105,6 +102,13 @@ var Enumberable = (function () {
                 throw new Error('Index is out of range.');
             }
             _this._items.splice(index, 0, element);
+        };
+        this.InsertRange = function (index, source) {
+            var currentIndex = index;
+            source.ToArray().forEach(function (item) {
+                _this.Insert(currentIndex, item);
+                currentIndex++;
+            });
         };
         this.Intersect = function (source) {
             return _this.Where(function (x) { return source.Contains(x); });
@@ -126,10 +130,13 @@ var Enumberable = (function () {
             return _this._items.lastIndexOf(item, startIndex);
         };
         this.Max = function () {
-            return _this.Aggregate(function (x, y) { return x > y ? x : y; });
+            return _this.Aggregate(function (currentMax, currentValue) { return currentMax > currentValue ? currentMax : currentValue; });
+        };
+        this.MemberwiseClone = function () {
+            return new Enumberable(_this._items.slice(0));
         };
         this.Min = function () {
-            return _this.Aggregate(function (x, y) { return x < y ? x : y; });
+            return _this.Aggregate(function (currentMin, currentValue) { return currentMin < currentValue ? currentMin : currentValue; });
         };
         this.OrderBy = function (keySelector) {
             var orderArrayComparer = _this.ComparerForKey(keySelector, false);
@@ -149,8 +156,11 @@ var Enumberable = (function () {
             });
             return itemsToBeRemoved.Count();
         };
-        this.RemoveAt = function (itemIndex) {
-            _this._items.splice(itemIndex, 1);
+        this.RemoveAt = function (index) {
+            _this.RemoveRange(index, 1);
+        };
+        this.RemoveRange = function (index, count) {
+            _this._items.splice(index, count);
         };
         this.Reverse = function () {
             return new Enumberable(_this._items.reverse());
@@ -158,6 +168,9 @@ var Enumberable = (function () {
         this.Select = function (expression) {
             var newArrayMapper = _this._items.map(expression);
             return new Enumberable(newArrayMapper);
+        };
+        this.SelectMany = function (expression) {
+            return _this.Aggregate(function (groupedCollection, currentValue, currentIndex) { return (groupedCollection.AddRange(_this.Select(expression).ElementAt(currentIndex).ToArray()), groupedCollection); }, new Enumberable());
         };
         this.Single = function (expression) {
             if (_this.Count() !== -1) {
@@ -175,7 +188,7 @@ var Enumberable = (function () {
             if (_this.Count() == 0) {
                 return _this;
             }
-            var skippedArray = _this._items.slice(Math.max(0, amount));
+            var skippedArray = _this._items.slice(Math.abs(amount));
             return new Enumberable(skippedArray);
         };
         this.SkipWhile = function (expression) {
@@ -196,7 +209,7 @@ var Enumberable = (function () {
             if (_this.Count() == 0) {
                 return _this;
             }
-            var takenArray = _this._items.slice(0, Math.max(0, amount));
+            var takenArray = _this._items.slice(0, Math.abs(amount));
             return new Enumberable(takenArray);
         };
         this.TakeWhile = function (expression) {

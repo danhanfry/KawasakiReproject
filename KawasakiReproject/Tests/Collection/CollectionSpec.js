@@ -1,4 +1,16 @@
+var Book = (function () {
+    function Book(Name, Author, Library) {
+        this.Name = Name;
+        this.Author = Author;
+        this.Library = Library;
+    }
+    return Book;
+}());
 var genericCollection = new Collection();
+var genericBookCollection = new Collection();
+genericBookCollection.Add(new Book("book1", "author1", new Collection(["L1", "L2"])));
+genericBookCollection.Add(new Book("book2", "author2", new Collection(["L8", "L9"])));
+genericBookCollection.Add(new Book("book2", "author3", new Collection(["L100", "L200"])));
 describe("Collection Functionality", function () {
     describe("when there is no item in collection, the Count function", function () {
         it("should return 0", function () {
@@ -71,6 +83,16 @@ describe("Collection Functionality", function () {
             expect(excepted.Count()).toBe(1);
         });
     });
+    describe("when there are multiple items , the Exists function", function () {
+        it("should return true when looking for the number 1", function () {
+            expect(genericCollection.Exists(function (x) { return x == 1; })).toBe(true);
+        });
+    });
+    describe("when there are multiple items , the Exists function", function () {
+        it("should return false when looking for the number 100", function () {
+            expect(genericCollection.Exists(function (x) { return x == 100; })).toBe(false);
+        });
+    });
     describe("when there are multiple items , the Where function", function () {
         it("should return a count of three when looking for greater than 50", function () {
             genericCollection.Add(88);
@@ -80,6 +102,12 @@ describe("Collection Functionality", function () {
     describe("when there are multiple items with the same number, the First function", function () {
         it("should return 50 when looking for the first number", function () {
             expect(genericCollection.First(function (x) { return x == 50; })).toBe(50);
+        });
+    });
+    describe("when there are multiple items, the GetRange function", function () {
+        it("should return the first element as 99 when index 2 and count of 2", function () {
+            var getRangeCollection = genericCollection.GetRange(2, 2);
+            expect(getRangeCollection.ElementAt(0)).toBe(99);
         });
     });
     describe("when there are multiple items, the IndexOf function", function () {
@@ -183,6 +211,35 @@ describe("Collection Functionality", function () {
         it("should return count of  0", function () {
             genericCollection.Clear();
             expect(genericCollection.Count()).toBe(0);
+        });
+    });
+    describe("when there are multiple items and the InsertRange function", function () {
+        it("should return number 11 at position 2", function () {
+            genericCollection.AddRange([55, 67, 88, 400]);
+            genericCollection.InsertRange(2, new Collection([11, 2, 5000]));
+            expect(genericCollection.ElementAt(2)).toBe(11);
+        });
+    });
+    describe("when there are multiple items and the RemoveRange function", function () {
+        it("should return number 400 for the last item when removing from position 3 with deletecount 3", function () {
+            genericCollection.RemoveRange(3, 3);
+            expect(genericCollection.Last()).toBe(400);
+        });
+    });
+    describe("when there lots of books and the Select function", function () {
+        it("return 'book1' when selecting name and looking at position 0", function () {
+            expect(genericBookCollection.Select(function (x) { return x.Name; }).ElementAt(0)).toBe("book1");
+        });
+    });
+    describe("when there lots of books and the SelectMany function", function () {
+        it("return count of six when looking at the library field", function () {
+            expect(genericBookCollection.SelectMany(function (x) { return x.Library; }).Count()).toBe(6);
+        });
+    });
+    describe("when there lots of books and the Groupby function", function () {
+        it("false", function () {
+            var a = genericBookCollection.GroupBy(function (x) { return x.Name; }, function (x) { return x.Author; });
+            expect(genericBookCollection.Any()).toBe(false);
         });
     });
 });

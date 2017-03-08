@@ -12,7 +12,15 @@
 		"removeComments": true,
 		"noLib": false,
 		"preserveConstEnums": true,
-		"suppressImplicitAnyIndexErrors": true
+		"suppressImplicitAnyIndexErrors": true,
+		"allowSyntheticDefaultImports": true,
+		"lib": [
+			"dom",
+			"es5",
+			"scripthost",
+			"es2015",
+			"es2015.promise"
+		]
 	},
 	"filesGlob": [
 		"**/*.ts",
