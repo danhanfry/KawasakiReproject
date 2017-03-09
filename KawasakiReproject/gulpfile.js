@@ -119,9 +119,3 @@ gulp.task('copy-jasmine-css', function () {
 		.pipe(cssmin())
 		.pipe(gulp.dest("."));
 });
-
-gulp.task('copy-vue-umd', function () {
-	gulp.src(['./node_modules/vue/dist/vue.js'])
-	.pipe(concat(paths.externaljs + "/vue.js"))
-	.pipe(gulp.dest("."));
-});
