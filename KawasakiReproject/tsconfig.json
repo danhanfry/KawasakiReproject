@@ -54,7 +54,10 @@
 		"KawasakiNinja650/js/sections/explore/components/exploretiling.tsx",
 		"KawasakiNinja650/js/sections/explore/components/exploreSpecificationModal.tsx",
 		"KawasakiNinja650/js/sections/explore/explore.tsx",
-		"KawasakiNinja650/js/sections/genericModal.tsx"
+		"KawasakiNinja650/js/sections/genericModal.tsx",
+
+		"AXBuilder/js/interfaces/IAccessory.ts",
+		"AXBuilder/js/AccessoryBuilder.ts"
 	],
 	"exclude": []
 }
