@@ -57,7 +57,11 @@
 		"KawasakiNinja650/js/sections/genericModal.tsx",
 
 		"AXBuilder/js/interfaces/IAccessory.ts",
-		"AXBuilder/js/AccessoryBuilder.ts"
+		"AXBuilder/js/AccessoryBuilder.ts",
+		"AXBuilder/views/partials/headertabs.tsx",
+		"AXBuilder/views/components/packagetablisting.tsx",
+		"AXBuilder/views/components/customize/customizeheader.tsx",
+		"AXBuilder/views/accessorybuilder.tsx"
 	],
 	"exclude": []
 }
