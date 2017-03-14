@@ -34,6 +34,15 @@
     <Content Include="AXBuilder\views\accessorybuilder.js">
       <DependentUpon>accessorybuilder.tsx</DependentUpon>
     </Content>
+    <Content Include="AXBuilder\views\components\customizetablisting.js">
+      <DependentUpon>customizetablisting.tsx</DependentUpon>
+    </Content>
+    <Content Include="AXBuilder\views\components\customize\customizeheader.js">
+      <DependentUpon>customizeheader.tsx</DependentUpon>
+    </Content>
+    <Content Include="AXBuilder\views\components\customize\customizepackages.js">
+      <DependentUpon>customizepackages.tsx</DependentUpon>
+    </Content>
     <Content Include="AXBuilder\views\components\packagetablisting.js">
       <DependentUpon>packagetablisting.tsx</DependentUpon>
     </Content>
@@ -390,9 +399,10 @@
     <TypeScriptCompile Include="AXBuilder\js\AccessoryBuilder.ts" />
     <TypeScriptCompile Include="AXBuilder\js\interfaces\IAccessory.ts" />
     <TypeScriptCompile Include="AXBuilder\js\interfaces\interfaces.d.ts" />
-    <TypeScriptCompile Include="AXBuilder\js\partials\header.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\accessorybuilder.tsx" />
+    <TypeScriptCompile Include="AXBuilder\views\components\customizetablisting.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customize\customizeheader.tsx" />
+    <TypeScriptCompile Include="AXBuilder\views\components\customize\customizepackages.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\partials\headertabs.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\packagetablisting.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
@@ -490,6 +500,7 @@
     <Folder Include="AXBuilderProper\css\" />
     <Folder Include="AXBuilder\css\" />
     <Folder Include="AXBuilder\js\models\" />
+    <Folder Include="AXBuilder\js\partials\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

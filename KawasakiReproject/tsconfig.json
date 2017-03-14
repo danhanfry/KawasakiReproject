@@ -59,8 +59,10 @@
 		"AXBuilder/js/interfaces/IAccessory.ts",
 		"AXBuilder/js/AccessoryBuilder.ts",
 		"AXBuilder/views/partials/headertabs.tsx",
-		"AXBuilder/views/components/packagetablisting.tsx",
 		"AXBuilder/views/components/customize/customizeheader.tsx",
+		"AXBuilder/views/components/customize/customizepackages.tsx",
+		"AXBuilder/views/components/packagetablisting.tsx",
+		"AXBuilder/views/components/customizetablisting.tsx",
 		"AXBuilder/views/accessorybuilder.tsx"
 	],
 	"exclude": []

@@ -1,10 +1,10 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../js/interfaces/interfaces.d.ts" />
 
-export class CustomizeHeader extends React.Component<IAXCustomizeTab, any> {
+export class CustomizeHeader extends React.Component<IAXCategory[], any> {
 	render() {
 
-		var { Categories } = this.props;
+		var Categories = this.props;
 
 		return (
 			<ul id="categoryContainer" className="tabs inline-list">

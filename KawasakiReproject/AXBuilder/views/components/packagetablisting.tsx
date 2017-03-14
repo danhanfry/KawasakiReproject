@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../js/interfaces/interfaces.d.ts" />
 
-export class AXPackageDisplay extends React.Component<IAXPackageTab, any> {
+export class AXPackageDisplay extends React.Component<IAXPackageTabModel, any> {
 	render() {
 
 		var packageTitleDescriptionContainerStyle = {

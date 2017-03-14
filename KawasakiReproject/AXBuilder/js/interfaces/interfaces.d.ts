@@ -12,18 +12,19 @@ interface IAXCategory {
 	CategoryName: string;
 }
 
-interface IAXPackageTab {
+interface IAXPackageTabModel {
 	readonly BaseImage: string;
 	readonly Packages: IAXPackage[];
 }
 
-interface IAXCustomizeTab {
-	Categories: IAXCategory[];
+interface IAXCustomizeTabModel {
+	readonly Categories: IAXCategory[];
+	readonly Packages: IAXPackage[];
 }
 
 interface IAXBuilderModel {
-	readonly PackageContent: IAXPackageTab;
-	readonly CustomizeContent: IAXCustomizeTab;
+	readonly PackageContent: IAXPackageTabModel;
+	readonly CustomizeContent: IAXCustomizeTabModel;
 }
 
 interface IAXState {
