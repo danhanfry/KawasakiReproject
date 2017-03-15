@@ -1,16 +1,16 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../js/interfaces/interfaces.d.ts" />
 
-export class CustomizePackages extends React.Component<IAXPackage[], any> {
+export class CustomizePackages extends React.Component<IOnlyAXPackage, any> {
 	render() {
 
-		var Packages = this.props;
+		var {AllPackages} = this.props;
 
 		return (
 
 			<div className="packages hide">
 				{
-					Packages.map((axpackage, index) => {
+					AllPackages.map((axpackage, index) => {
 
 						return (
 

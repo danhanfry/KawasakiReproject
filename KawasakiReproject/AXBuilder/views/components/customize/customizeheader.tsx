@@ -1,17 +1,17 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../js/interfaces/interfaces.d.ts" />
 
-export class CustomizeHeader extends React.Component<IAXCategory[], any> {
+export class CustomizeHeader extends React.Component<IOnlyAXCategory, any> {
 	render() {
 
-		var Categories = this.props;
+		var { AllCategories } = this.props;
 
 		return (
 			<ul id="categoryContainer" className="tabs inline-list">
 				<li id="packages">ACCESSORIES PACKAGES</li>
 
 				{
-					Categories.map((axcategory, index) => {
+					AllCategories.map((axcategory, index) => {
 
 						let specialDataAttr = "cat_" + axcategory.AccessoryCategoryID;
 

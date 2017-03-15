@@ -8,8 +8,27 @@
 }
 
 interface IAXCategory {
-	AccessoryCategoryID: number;
-	CategoryName: string;
+	readonly AccessoryCategoryID: number;
+	readonly CategoryName: string;
+}
+
+interface IAXColor {
+	readonly ColorID: number;
+	readonly ColorName: string;
+	readonly ColorImgName: string;
+	readonly ColorImgName_Active: string;
+}
+
+interface IOnlyAXCategory {
+	AllCategories: IAXCategory[];
+}
+
+interface IOnlyAXPackage {
+	AllPackages: IAXPackage[];
+}
+
+interface IOnlyAXColor {
+	AllColors: IAXColor[];
 }
 
 interface IAXPackageTabModel {
@@ -20,6 +39,7 @@ interface IAXPackageTabModel {
 interface IAXCustomizeTabModel {
 	readonly Categories: IAXCategory[];
 	readonly Packages: IAXPackage[];
+	readonly Colors: IAXColor[];
 }
 
 interface IAXBuilderModel {

@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "./partials/headertabs", "./components/packagetablisting"], function (require, exports, headertabs_1, packagetablisting_1) {
+define(["require", "exports", "./partials/headertabs", "./components/packagetablisting", "./components/customizetablisting"], function (require, exports, headertabs_1, packagetablisting_1, customizetablisting_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AX = (function (_super) {
@@ -17,8 +17,9 @@ define(["require", "exports", "./partials/headertabs", "./components/packagetabl
             return _super !== null && _super.apply(this, arguments) || this;
         }
         AX.prototype.render = function () {
-            var PackageContent = this.props.PackageContent;
+            var _a = this.props, PackageContent = _a.PackageContent, CustomizeContent = _a.CustomizeContent;
             var BaseImage = PackageContent.BaseImage, Packages = PackageContent.Packages;
+            var Categories = CustomizeContent.Categories, Colors = CustomizeContent.Colors;
             return (React.createElement("div", { className: "fit direct-fit clearfix" },
                 React.createElement("ul", { className: "small-block-grid-2" },
                     React.createElement("li", null,
@@ -27,7 +28,8 @@ define(["require", "exports", "./partials/headertabs", "./components/packagetabl
                             React.createElement("div", { className: "fit-box" },
                                 React.createElement(packagetablisting_1.AXPackageDisplay, { Packages: Packages, BaseImage: BaseImage })),
                         this.state.AccessoryView &&
-                            React.createElement("div", null),
+                            React.createElement("div", { className: "build-box" },
+                                React.createElement(customizetablisting_1.AXCustomizeDisplay, { Packages: Packages, Categories: Categories, Colors: Colors })),
                         this.state.SummaryView &&
                             React.createElement("div", null)),
                     React.createElement("li", null,

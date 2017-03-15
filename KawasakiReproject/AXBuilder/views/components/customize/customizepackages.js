@@ -17,8 +17,8 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         CustomizePackages.prototype.render = function () {
-            var Packages = this.props;
-            return (React.createElement("div", { className: "packages hide" }, Packages.map(function (axpackage, index) {
+            var AllPackages = this.props.AllPackages;
+            return (React.createElement("div", { className: "packages hide" }, AllPackages.map(function (axpackage, index) {
                 return (React.createElement("section", { key: index, className: "clearfix customize-package-type", "data-packageid": axpackage.AccessoryPackageTypeID },
                     React.createElement("img", { alt: "reduced package", src: axpackage.IconImgPath }),
                     React.createElement("div", { className: "pick-p" },

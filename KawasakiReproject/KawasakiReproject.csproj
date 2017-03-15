@@ -37,11 +37,17 @@
     <Content Include="AXBuilder\views\components\customizetablisting.js">
       <DependentUpon>customizetablisting.tsx</DependentUpon>
     </Content>
+    <Content Include="AXBuilder\views\components\customize\customizecategoryaccessories.js">
+      <DependentUpon>customizecategoryaccessories.tsx</DependentUpon>
+    </Content>
     <Content Include="AXBuilder\views\components\customize\customizeheader.js">
       <DependentUpon>customizeheader.tsx</DependentUpon>
     </Content>
     <Content Include="AXBuilder\views\components\customize\customizepackages.js">
       <DependentUpon>customizepackages.tsx</DependentUpon>
+    </Content>
+    <Content Include="AXBuilder\views\components\customize\customizevehiclecontrols.js">
+      <DependentUpon>customizevehiclecontrols.tsx</DependentUpon>
     </Content>
     <Content Include="AXBuilder\views\components\packagetablisting.js">
       <DependentUpon>packagetablisting.tsx</DependentUpon>
@@ -401,8 +407,10 @@
     <TypeScriptCompile Include="AXBuilder\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="AXBuilder\views\accessorybuilder.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customizetablisting.tsx" />
+    <TypeScriptCompile Include="AXBuilder\views\components\customize\customizecategoryaccessories.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customize\customizeheader.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customize\customizepackages.tsx" />
+    <TypeScriptCompile Include="AXBuilder\views\components\customize\customizevehiclecontrols.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\partials\headertabs.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\packagetablisting.tsx" />
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />

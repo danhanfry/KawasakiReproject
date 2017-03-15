@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "./customize/customizeheader", "./customize/customizepackages", "./customize/customizecategoryaccessories"], function (require, exports, customizeheader_1, customizepackages_1, customizecategoryaccessories_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AXCustomizeDisplay = (function (_super) {
@@ -18,7 +18,10 @@ define(["require", "exports"], function (require, exports) {
         }
         AXCustomizeDisplay.prototype.render = function () {
             var _a = this.props, Categories = _a.Categories, Packages = _a.Packages;
-            return (React.createElement("div", null));
+            return (React.createElement("div", null,
+                React.createElement(customizeheader_1.CustomizeHeader, { AllCategories: Categories }),
+                React.createElement(customizepackages_1.CustomizePackages, { AllPackages: Packages }),
+                React.createElement(customizecategoryaccessories_1.CustomizeCatgoriesAccessories, { AllCategories: Categories })));
         };
         return AXCustomizeDisplay;
     }(React.Component));

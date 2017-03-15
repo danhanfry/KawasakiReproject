@@ -17,10 +17,10 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         CustomizeHeader.prototype.render = function () {
-            var Categories = this.props;
+            var AllCategories = this.props.AllCategories;
             return (React.createElement("ul", { id: "categoryContainer", className: "tabs inline-list" },
                 React.createElement("li", { id: "packages" }, "ACCESSORIES PACKAGES"),
-                Categories.map(function (axcategory, index) {
+                AllCategories.map(function (axcategory, index) {
                     var specialDataAttr = "cat_" + axcategory.AccessoryCategoryID;
                     return (React.createElement("li", { id: axcategory.CategoryName.toLowerCase(), key: index, "data-special": specialDataAttr, className: "category-tab" },
                         React.createElement("h3", null,

@@ -3,12 +3,14 @@
 
 import { AXHeaderTabs } from "./partials/headertabs"
 import { AXPackageDisplay } from "./components/packagetablisting"
+import { AXCustomizeDisplay } from "./components/customizetablisting"
 
 export class AX extends React.Component<IAXBuilderModel, IAXState> {
 	render() {
 
-		var { PackageContent } = this.props;
+		var { PackageContent, CustomizeContent } = this.props;
 		var { BaseImage, Packages } = PackageContent;
+		var { Categories, Colors } = CustomizeContent;
 
 		return (
 			<div className="fit direct-fit clearfix">
@@ -24,7 +26,9 @@ export class AX extends React.Component<IAXBuilderModel, IAXState> {
 
 						{
 							this.state.AccessoryView &&
-							<div></div>
+							<div className="build-box">
+								<AXCustomizeDisplay Packages={Packages} Categories={Categories} Colors={Colors} />
+							</div>
 						}
 
 						{
