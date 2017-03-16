@@ -71,6 +71,12 @@ gulp.task('copy-scrollmagic-gsap-version', function () {
 	.pipe(gulp.dest("."));
 });
 
+gulp.task('copy-react-marked', function () {
+	gulp.src(['./node_modules/marked/lib/marked.js'])
+	.pipe(concat(paths.externaljs + "/marked.js"))
+	.pipe(gulp.dest("."));
+});
+
 gulp.task('copy-scrollmagic-plugins', function () {
 	gulp.src(['./bower_components/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js',
 	'./bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gasp.min.js'])

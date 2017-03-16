@@ -63,6 +63,7 @@
 		"AXBuilder/views/components/customize/customizepackages.tsx",
 		"AXBuilder/views/components/customize/customizecategoryaccessories.tsx",
 		"AXBuilder/views/components/customize/customizevehiclecontrols.tsx",
+		"AXBuilder/views/components/summary/summarysection.tsx",
 		"AXBuilder/views/components/packagetablisting.tsx",
 		"AXBuilder/views/components/customizetablisting.tsx",
 		"AXBuilder/views/accessorybuilder.tsx"

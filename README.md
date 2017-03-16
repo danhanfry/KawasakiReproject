@@ -21,3 +21,4 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-router
 
 # Misc Typescript
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jasmine
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/marked

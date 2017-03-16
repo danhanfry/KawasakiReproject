@@ -42,6 +42,17 @@ interface IAXCustomizeTabModel {
 	readonly Colors: IAXColor[];
 }
 
+interface IAXSummarySection {
+	readonly AccessoriesText: string;
+	readonly MSRPText: string;
+	readonly SubtotalText: string;
+	readonly TotalMSRPText: string;
+	readonly DownloadSummaryText: string;
+	readonly EmailSummaryText: string;
+	readonly ProductCategory: string;
+	readonly HideBrowseCatalog: boolean;
+}
+
 interface IAXBuilderModel {
 	readonly PackageContent: IAXPackageTabModel;
 	readonly CustomizeContent: IAXCustomizeTabModel;
