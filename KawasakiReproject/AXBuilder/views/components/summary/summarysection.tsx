@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../../scripts/typings/react/react-global.d.ts" />
 /// <reference path="../../../js/interfaces/interfaces.d.ts" />
 
-export class CustomizeVehicleControls extends React.Component<IAXSummarySection, any> {
+export class AXSummary extends React.Component<IAXSummarySection, any> {
 	render() {
 
 		var model = this.props;
@@ -41,7 +41,7 @@ export class CustomizeVehicleControls extends React.Component<IAXSummarySection,
 
 					{
 						model.HideBrowseCatalog &&
-						<h6><a id="skip">Browse Accessories Catalog</a></h6>
+						<h6><a id="skip" onClick={this.browseCatalogClick}>Browse Accessories Catalog</a></h6>
 					}
 
 				</section>
@@ -58,8 +58,6 @@ export class CustomizeVehicleControls extends React.Component<IAXSummarySection,
 			currentElement.style.display = 'none';
 		}
 
-		/*$('.noshow').hide();
-		$('#noshow').hide();
-		$('#confirm-mdl-cat').foundation('reveal', 'open');*/
+		/*$('#confirm-mdl-cat').foundation('reveal', 'open');*/
 	}
 }

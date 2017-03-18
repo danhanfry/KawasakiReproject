@@ -31,17 +31,6 @@ interface IOnlyAXColor {
 	AllColors: IAXColor[];
 }
 
-interface IAXPackageTabModel {
-	readonly BaseImage: string;
-	readonly Packages: IAXPackage[];
-}
-
-interface IAXCustomizeTabModel {
-	readonly Categories: IAXCategory[];
-	readonly Packages: IAXPackage[];
-	readonly Colors: IAXColor[];
-}
-
 interface IAXSummarySection {
 	readonly AccessoriesText: string;
 	readonly MSRPText: string;
@@ -53,9 +42,25 @@ interface IAXSummarySection {
 	readonly HideBrowseCatalog: boolean;
 }
 
+interface IAXPackageTabModel {
+	readonly BaseImage: string;
+	readonly Packages: IAXPackage[];
+}
+
+interface IAXCustomizeTabModel {
+	readonly Categories: IAXCategory[];
+	readonly Packages: IAXPackage[];
+	readonly Colors: IAXColor[];
+}
+
+interface IAXSummaryTabModel {
+	readonly Summary: IAXSummarySection;
+}
+
 interface IAXBuilderModel {
 	readonly PackageContent: IAXPackageTabModel;
 	readonly CustomizeContent: IAXCustomizeTabModel;
+	readonly SummaryContent: IAXSummaryTabModel;
 }
 
 interface IAXState {

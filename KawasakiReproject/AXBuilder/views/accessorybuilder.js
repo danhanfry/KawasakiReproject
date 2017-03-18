@@ -16,6 +16,8 @@ define(["require", "exports", "./partials/headertabs", "./components/packagetabl
         function AX() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        AX.prototype.componentDidUpdate = function (prevProps) {
+        };
         AX.prototype.render = function () {
             var _a = this.props, PackageContent = _a.PackageContent, CustomizeContent = _a.CustomizeContent;
             var BaseImage = PackageContent.BaseImage, Packages = PackageContent.Packages;

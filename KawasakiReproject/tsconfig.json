@@ -66,6 +66,7 @@
 		"AXBuilder/views/components/summary/summarysection.tsx",
 		"AXBuilder/views/components/packagetablisting.tsx",
 		"AXBuilder/views/components/customizetablisting.tsx",
+		"AXBuilder/views/components/summarytablisting.tsx",
 		"AXBuilder/views/accessorybuilder.tsx"
 	],
 	"exclude": []
