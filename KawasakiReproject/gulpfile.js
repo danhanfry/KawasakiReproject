@@ -125,3 +125,15 @@ gulp.task('copy-jasmine-css', function () {
 		.pipe(cssmin())
 		.pipe(gulp.dest("."));
 });
+
+gulp.task('copy-redux-main', function () {
+	gulp.src(['./node_modules/redux/dist/redux.js'])
+	.pipe(concat(paths.externaljs + "/redux.js"))
+	.pipe(gulp.dest("."));
+});
+
+gulp.task('copy-react-redux', function () {
+	gulp.src(['./node_modules/react-redux/dist/react-redux.js'])
+	.pipe(concat(paths.externaljs + "/react-redux.js"))
+	.pipe(gulp.dest("."));
+});

@@ -333,6 +333,8 @@
       <DependentUpon>IEnumberable.ts</DependentUpon>
     </Content>
     <Content Include="scripts\marked.js" />
+    <Content Include="scripts\react-redux.js" />
+    <Content Include="scripts\redux.js" />
     <Content Include="scripts\scrollmagic\animation.gsap.js" />
     <Content Include="scripts\jquery.js" />
     <Content Include="scripts\scrollmagic\jquery.ScrollMagic.js" />
