@@ -11,9 +11,9 @@ var __extends = (this && this.__extends) || (function () {
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var CustomizeVehicleControls = (function (_super) {
-        __extends(CustomizeVehicleControls, _super);
-        function CustomizeVehicleControls() {
+    var AXSummary = (function (_super) {
+        __extends(AXSummary, _super);
+        function AXSummary() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.browseCatalogClick = function () {
                 document.getElementById('noshow').style.display = 'none';
@@ -25,7 +25,7 @@ define(["require", "exports"], function (require, exports) {
             };
             return _this;
         }
-        CustomizeVehicleControls.prototype.render = function () {
+        AXSummary.prototype.render = function () {
             var model = this.props;
             return (React.createElement("div", { className: "summary" },
                 React.createElement("section", { className: "clearfix" },
@@ -53,7 +53,7 @@ define(["require", "exports"], function (require, exports) {
                         React.createElement("h6", null,
                             React.createElement("a", { id: "skip", onClick: this.browseCatalogClick }, "Browse Accessories Catalog")))));
         };
-        return CustomizeVehicleControls;
+        return AXSummary;
     }(React.Component));
-    exports.CustomizeVehicleControls = CustomizeVehicleControls;
+    exports.AXSummary = AXSummary;
 });

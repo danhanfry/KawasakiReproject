@@ -502,8 +502,10 @@
     <TypeScriptCompile Include="scripts\typings\react\react-addons-update.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-dom.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-global.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\react-redux.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-router.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\redux.d.ts" />
     <TypeScriptCompile Include="scripts\typings\scrollmagic.d.ts" />
     <TypeScriptCompile Include="scripts\typings\tweenmax.d.ts" />
     <TypeScriptCompile Include="Tests\Collection\CollectionSpec.ts" />

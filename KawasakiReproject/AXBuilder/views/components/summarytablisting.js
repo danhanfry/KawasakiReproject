@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "./summary/summarysection"], function (require, exports, summarysection_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AXSummaryDisplay = (function (_super) {
@@ -17,7 +17,9 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         AXSummaryDisplay.prototype.render = function () {
-            return (React.createElement("div", null));
+            var Summary = this.props.Summary;
+            return (React.createElement("div", null,
+                React.createElement(summarysection_1.AXSummary, { AccessoriesText: Summary.AccessoriesText, DownloadSummaryText: Summary.DownloadSummaryText, EmailSummaryText: Summary.EmailSummaryText, HideBrowseCatalog: Summary.HideBrowseCatalog, MSRPText: Summary.MSRPText, TotalMSRPText: Summary.TotalMSRPText, ProductCategory: Summary.ProductCategory, SubtotalText: Summary.SubtotalText })));
         };
         return AXSummaryDisplay;
     }(React.Component));

@@ -8,20 +8,37 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "./partials/headertabs", "./components/packagetablisting", "./components/customizetablisting"], function (require, exports, headertabs_1, packagetablisting_1, customizetablisting_1) {
+define(["require", "exports", "./partials/headertabs", "./components/packagetablisting", "./components/customizetablisting", "./components/summarytablisting", "./components/customize/customizevehiclecontrols"], function (require, exports, headertabs_1, packagetablisting_1, customizetablisting_1, summarytablisting_1, customizevehiclecontrols_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AX = (function (_super) {
         __extends(AX, _super);
-        function AX() {
-            return _super !== null && _super.apply(this, arguments) || this;
+        function AX(props) {
+            var _this = _super.call(this, props) || this;
+            _this.state = {
+                PackageView: true,
+                AccessoryView: false,
+                SummaryView: false
+            };
+            return _this;
         }
+        AX.prototype.componentWillMount = function () {
+        };
+        AX.prototype.componentDidMount = function () {
+            this.init_clickevents();
+        };
+        AX.prototype.componentWillUnmount = function () {
+        };
         AX.prototype.componentDidUpdate = function (prevProps) {
         };
         AX.prototype.render = function () {
-            var _a = this.props, PackageContent = _a.PackageContent, CustomizeContent = _a.CustomizeContent;
+            var _a = this.props, PackageContent = _a.PackageContent, CustomizeContent = _a.CustomizeContent, SummaryContent = _a.SummaryContent;
             var BaseImage = PackageContent.BaseImage, Packages = PackageContent.Packages;
             var Categories = CustomizeContent.Categories, Colors = CustomizeContent.Colors;
+            var Summary = SummaryContent.Summary;
+            var accessoryImgAddon = {
+                height: '414px'
+            };
             return (React.createElement("div", { className: "fit direct-fit clearfix" },
                 React.createElement("ul", { className: "small-block-grid-2" },
                     React.createElement("li", null,
@@ -33,9 +50,38 @@ define(["require", "exports", "./partials/headertabs", "./components/packagetabl
                             React.createElement("div", { className: "build-box" },
                                 React.createElement(customizetablisting_1.AXCustomizeDisplay, { Packages: Packages, Categories: Categories, Colors: Colors })),
                         this.state.SummaryView &&
-                            React.createElement("div", null)),
+                            React.createElement(summarytablisting_1.AXSummaryDisplay, { Summary: Summary })),
                     React.createElement("li", null,
-                        React.createElement("img", { id: "packageProductImgId", alt: "pick your fit", className: "pick-fit", src: BaseImage })))));
+                        this.state.PackageView &&
+                            React.createElement("img", { id: "packageProductImgId", alt: "pick your fit", className: "pick-fit", src: BaseImage }),
+                        this.state.AccessoryView &&
+                            React.createElement("li", { className: "results" },
+                                React.createElement("div", { style: accessoryImgAddon },
+                                    React.createElement("img", { className: "front-white show" }),
+                                    React.createElement("img", { className: "back-white hide" })),
+                                React.createElement(customizevehiclecontrols_1.CustomizeVehicleControls, { AllColors: Colors })),
+                        this.state.SummaryView &&
+                            React.createElement("li", { className: "results" },
+                                React.createElement("img", { alt: "mule builder", className: "front-white show", src: "~/images/ajax-medium.gif" }),
+                                React.createElement("img", { alt: "mule builder", className: "back-white hide", src: "~/images/ajax-medium.gif" }),
+                                React.createElement("div", null,
+                                    React.createElement("h5", { className: "frontOrBack" }, "front view"),
+                                    React.createElement("img", { alt: "switch front back view", className: "switch", src: "/images/accybldr/switch.jpg" })))))));
+        };
+        AX.prototype.init_clickevents = function () {
+            var headerListings = document.querySelectorAll('#headerTabId li');
+            var that = this;
+            for (var i = 0; i < headerListings.length; i++) {
+                var currentElement = headerListings[i];
+                currentElement.addEventListener('click', function () {
+                    var currentIdAttribute = this.getAttribute('id');
+                    that.setState({
+                        PackageView: currentIdAttribute === "packagesTabId",
+                        AccessoryView: currentIdAttribute === "customizeTabId",
+                        SummaryView: currentIdAttribute === "summaryTabId"
+                    });
+                });
+            }
         };
         return AX;
     }(React.Component));

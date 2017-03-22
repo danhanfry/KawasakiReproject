@@ -17,7 +17,7 @@ define(["require", "exports"], function (require, exports) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         AXHeaderTabs.prototype.render = function () {
-            return (React.createElement("ul", { className: "fit-steps small-block-grid-3" },
+            return (React.createElement("ul", { id: "headerTabId", className: "fit-steps small-block-grid-3" },
                 React.createElement("li", { id: "packagesTabId", className: "active" },
                     React.createElement("h2", null, "1. packages")),
                 React.createElement("li", { id: "customizeTabId" },
