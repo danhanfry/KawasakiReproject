@@ -23,6 +23,7 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/react-router
 https://nuget.org/packages/redux.TypeScript.DefinitelyTyped
 https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/react-redux
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/redux-devtools
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/redux-actions
 
 # Misc Typescript
 https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jasmine

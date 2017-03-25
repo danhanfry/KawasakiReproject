@@ -27,10 +27,8 @@
     <Content Include="AXBuilder\js\AccessoryBuilder.js">
       <DependentUpon>AccessoryBuilder.ts</DependentUpon>
     </Content>
-    <Content Include="AXBuilder\js\interfaces\iaccessory.js">
-      <DependentUpon>IAccessory.ts</DependentUpon>
-    </Content>
     <Content Include="AXBuilder\accessorybuilder.html" />
+    <Content Include="AXBuilder\js\models\enums.js" />
     <Content Include="AXBuilder\views\accessorybuilder.js">
       <DependentUpon>accessorybuilder.tsx</DependentUpon>
     </Content>
@@ -414,6 +412,10 @@
     <TypeScriptCompile Include="AXBuilder\js\AccessoryBuilder.ts" />
     <TypeScriptCompile Include="AXBuilder\js\interfaces\IAccessory.ts" />
     <TypeScriptCompile Include="AXBuilder\js\interfaces\interfaces.d.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\interfaces\IReduxActions.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\models\enums.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\reducers\AXReducer.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\stores\AXTabStore.ts" />
     <TypeScriptCompile Include="AXBuilder\views\accessorybuilder.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customizetablisting.tsx" />
     <TypeScriptCompile Include="AXBuilder\views\components\customize\customizecategoryaccessories.tsx" />
@@ -505,6 +507,7 @@
     <TypeScriptCompile Include="scripts\typings\react\react-redux.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react-router.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\react.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\react\redux-actions.d.ts" />
     <TypeScriptCompile Include="scripts\typings\react\redux.d.ts" />
     <TypeScriptCompile Include="scripts\typings\scrollmagic.d.ts" />
     <TypeScriptCompile Include="scripts\typings\tweenmax.d.ts" />
@@ -521,7 +524,6 @@
   <ItemGroup>
     <Folder Include="AXBuilderProper\css\" />
     <Folder Include="AXBuilder\css\" />
-    <Folder Include="AXBuilder\js\models\" />
     <Folder Include="AXBuilder\js\partials\" />
   </ItemGroup>
   <PropertyGroup>
