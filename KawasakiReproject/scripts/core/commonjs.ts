@@ -81,5 +81,19 @@
 
 			return isFound;
 		}
+
+		public supportEventConstructor = (): boolean => {
+			try {
+				if (new Event('submit', { bubbles: false }).bubbles !== false) {
+					return false;
+				} else if (new Event('submit', { bubbles: true }).bubbles !== true) {
+					return false;
+				} else {
+					return true;
+				}
+			} catch (e) {
+				return false;
+			}
+		}
 	}
 }

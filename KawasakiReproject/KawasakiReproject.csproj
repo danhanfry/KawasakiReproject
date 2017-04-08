@@ -414,6 +414,7 @@
     <TypeScriptCompile Include="AXBuilder\js\interfaces\interfaces.d.ts" />
     <TypeScriptCompile Include="AXBuilder\js\interfaces\IReduxActions.ts" />
     <TypeScriptCompile Include="AXBuilder\js\models\enums.ts" />
+    <TypeScriptCompile Include="AXBuilder\js\models\viewmodels.ts" />
     <TypeScriptCompile Include="AXBuilder\js\reducers\AXReducer.ts" />
     <TypeScriptCompile Include="AXBuilder\js\stores\AXTabStore.ts" />
     <TypeScriptCompile Include="AXBuilder\views\accessorybuilder.tsx" />
