@@ -1,0 +1,230 @@
+﻿<section class="accBldr row">
+	<div class="fit direct-fit clearfix">
+		<ul class="small-block-grid-2">
+			<li>
+				<ul class="fit-steps small-block-grid-3">
+					<li id="packagesTabId" class="active"><h2>1. packages</h2></li>
+					<li id="customizeTabId" onclick="window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: Customize', 'ACCESSORIES BUILDER');"><h2>2. customize</h2></li>
+					<li id="summaryTabId" class="last" onclick="window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: summary', 'ACCESSORIES BUILDER');"><h2>3. summary</h2></li>
+				</ul>
+				<div class="fit-box">
+					<div id="packageTitleDescriptionContainerId" style="height: 122px;">
+						<h3 id="packageTitleId" class="title-roll-over">PURPOSE-BUILT PACKAGES</h3>
+						<p id="packageDescriptionId" class="item-roll-over">Roll over any of the icons below for more information on each purpose-built accessories package.</p>
+					</div>
+					<div class="package-listing-container">
+						<ul class="selections small-block-grid-4" id="packageListingContainerId">
+							@foreach (var packageIncludedInProduct in Model.Packages)
+							{
+							<li id="@(packageIncludedInProduct.PackageName.Replace(" ", " "))Id">
+								<img alt="some text" src="@packageIncludedInProduct.IconImgPath" class="package-icon-mule" />
+								<h4>
+									@Html.Raw(packageIncludedInProduct.PackageTitle)
+								</h4>
+								<button class="gry-btn" onclick="initPickAPackage(@packageIncludedInProduct.AccessoryPackageTypeID); window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: @packageIncludedInProduct.PackageName', 'ACCESSORIES BUILDER')">select</button>
+							</li>
+							}
+						</ul>
+						<h6><a id="skip" onclick="selectPackage(); window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: Skip this step', 'ACCESSORIES BUILDER')">Skip this step</a></h6>
+					</div>
+				</div>
+			</li>
+			<li>
+				<img id="packageProductImgId" alt="pick your fit" class="pick-fit" src="@Model.BaseImageUrl" />
+			</li>
+		</ul>
+	</div>
+
+	<ul class="build direct-build clearfix hide">
+		<ul class="small-block-grid-2">
+			<li class="clearfix">
+				<ul class="fit-steps small-block-grid-3">
+					<li class="find-package-tab" onclick="resetBuilder(); window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: PACKAGES SELECTOR', 'ACCESSORIES BUILDER');"><h2>1. PACKAGES</h2></li>
+					<li class="active"><h2>2. CUSTOMIZE</h2></li>
+					<li id="summary" class="last" onclick="window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: SUMMARY', 'ACCESSORIES BUILDER');"><h2>3. SUMMARY</h2></li>
+				</ul>
+				<div class="build-box">
+					<ul id="categoryContainer" class="tabs inline-list">
+						<li onclick="showPackages(); window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: PACKAGES SELECTOR', 'ACCESSORIES BUILDER');" id="packages"><h3>ACCESSORIES PACKAGES</h3></li>
+						@foreach (var category in Model.Categories)
+						{
+						<li id="@category.CategoryName.Replace(" ", " ").ToLower()" data-special="cat_@(category.AccessoryCategoryID)" onclick="window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: @category.CategoryName', 'ACCESSORIES BUILDER');" class="category-tab"><h3>@category.CategoryName <i style="display: none;"></i></h3></li>
+						}
+
+						@*
+						<li onclick="window.parent.RecordMetric_ElementView('2015 VULCAN S ABS: BUILD YOUR BIKE-ERGO-FIT', 'ACCESSORIES BUILDER');" id="packages"><h3>ACCESSORIES PACKAGES</h3></li>
+						<li onclick="window.parent.RecordMetric_ElementView('2015 VULCAN S ABS: BUILD YOUR BIKE-COMFORT (DEF)', 'ACCESSORIES BUILDER');" id="comfort"><h3 class="active">EXTERIOR<i></i></h3></li>
+						<li onclick="window.parent.RecordMetric_ElementView('2015 VULCAN S ABS: BUILD YOUR BIKE-CONVENIENCE', 'ACCESSORIES BUILDER');" id="convenience"><h3>INTERIOR<i></i></h3></li>*@
+						@*
+						<li onclick="window.parent.RecordMetric_ElementView('2015 VULCAN S ABS: BUILD YOUR BIKE-STYLE', 'ACCESSORIES BUILDER');" id="style" class="last"><h3>style <i></i></h3></li>*@
+					</ul>
+					<div class="packages hide">
+
+						@foreach (var packageIncludedInProduct in Model.Packages)
+						{
+						<section class="clearfix customize-package-type" data-packageid="@packageIncludedInProduct.AccessoryPackageTypeID">
+							<img alt="reduced package" src="@packageIncludedInProduct.IconImgPath" />
+							<div class="pick-p">
+								<h3 class="package-name-customize-tab">
+									@Html.Raw(
+									string.Equals("plow package", packageIncludedInProduct.PackageName, StringComparison.InvariantCultureIgnoreCase) ?
+									"WARN<span class='sup'>&#174;</span> PROVANTAGE™ PLOW PACKAGE" : packageIncludedInProduct.PackageName
+									)
+								</h3>
+								<div class="package-accessory"></div>
+							</div>
+							<div class="free">
+								<h4></h4>
+								<button id="" class="green-btn close-reveal-modal right" onclick="optionDetails(@packageIncludedInProduct.AccessoryPackageTypeID)">SELECT</button>
+							</div>
+						</section>
+						}
+
+					</div>
+					<div class="product_list">
+						@{ var i = 0; }
+						@foreach (var categoryDetail in Model.Categories)
+						{
+						<div id="cat_@(categoryDetail.AccessoryCategoryID)" data-catid="@categoryDetail.AccessoryCategoryID" class="@categoryDetail.CategoryName @(i != 0 ? " acc-list hide" : "acc-list" )"></div>
+						i++;
+						}
+					</div>
+				</div>
+			</li>
+			<li class="results">
+				<div style="height: 414px;">
+					<img class="front-white show" />
+					<img class="back-white hide" />
+				</div>
+				<ul class="small-block-grid-3" id="customizePriceColorView">
+					<li>
+						<h5>accessories total msrp</h5>
+						<div class="accessory-total-container">
+							<h6 id="accessoryTotal">$0.00</h6>
+						</div>
+					</li>
+					<li>
+						<div id="buttonColorName">
+							<h5>@(Model.ProductColors.Count > 0 ? Model.ProductColors.FirstOrDefault().ColorName : "NONE")</h5>
+						</div>
+						<div class="color-picker-container">
+							<ul class="inline-list accessory-color-list-customize-tab" id="colorOptions">
+								@foreach (var clr in Model.ProductColors.Select((value, colorIndex) => new { colorIndex, value }))
+								{
+
+								<li>
+									<img data-id="@clr.value.ColorID" data-colorname="@clr.value.ColorName" class="swatch-off-mode"
+										 style="display: @(clr.colorIndex == 0 ? " none" : "block" )" alt="@clr.value.ColorName"
+										 src="/content/accessories/colorswatches/@clr.value.ColorImgName?w=37" />
+
+									<img data-id="@clr.value.ColorID" data-colorname="@clr.value.ColorName" class="swatch-on-mode"
+										 style="display: @(clr.colorIndex == 0 ? " block" : "none" )" alt="@clr.value.ColorName"
+										 src="/content/accessories/colorswatches/@clr.value.ColorImgName_Active?w=37" />
+								</li>
+								}
+							</ul>
+						</div>
+					</li>
+					<li>
+						<h5 class="frontOrBack">front view</h5>
+						<img alt="switch front back view" class="switch" src="/images/accybldr/switch.jpg" />
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</ul>
+
+	<ul class="build clearfix direct-summary hide">
+		<ul class="small-block-grid-2">
+			<li class="clearfix">
+				<ul class="fit-steps small-block-grid-3">
+					<li class="find-package-tab" onclick="resetBuilder(); window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: PACKAGES SELECTOR', 'ACCESSORIES BUILDER');"><h2>1. PACKAGES</h2></li>
+					<li id="build-vehicle-tab" onclick="window.parent.RecordMetric_ElementView('@Model.Product.ModelYear @Model.Product.Name: CUSTOMIZE', 'ACCESSORIES BUILDER');"><h2>2. CUSTOMIZE</h2></li>
+					<li id="summary" class="active last"><h2>3. SUMMARY</h2></li>
+				</ul>
+				@Html.Partial("~/Views/AccessoryBuilder/BuilderPartials/_SummaryTabSummarySection.cshtml", new ViewDataDictionary { { "HideBrowseCatalog", Model.Language == "es" }, { "ProductCategory", "SIDE X SIDE" } })
+			</li>
+			<li class="results">
+				<img alt="mule builder" class="front-white show" src="~/images/ajax-medium.gif" />
+				<img alt="mule builder" class="back-white hide" src="~/images/ajax-medium.gif" />
+				<div>
+					<h5 class="frontOrBack">front view</h5>
+
+					<img alt="switch front back view" class="switch" src="/images/accybldr/switch.jpg" />
+				</div>
+			</li>
+		</ul>
+	</ul>
+	<footer>
+		<button id="restart" class="gry-btn left">restart</button>
+		<div class="text-left" style="font-size: 12px;">
+
+			@foreach (var disclamer in Model.Disclaimers)
+			{
+			<p>@Html.Raw(disclamer)</p>
+			}
+		</div>
+	</footer>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@{
+	var hideBrowseCatalog = false;
+	bool.TryParse(ViewData["HideBrowseCatalog"].ToString(), out hideBrowseCatalog);
+}
+
+<div class="summary">
+	<section class="clearfix">
+		<p class="left">@ViewData["ProductCategory"].ToString()</p>
+		<p class="right summary-hide-price">@Resources.Builder.msrp</p>
+	</section>
+	<section class="clearfix">
+		<h2 class="left" id="summaryProductName"></h2>
+		<h3 class="right" id="summaryProductPrice"></h3>
+		<div class="clearfix">
+			<p class="left">@Resources.Builder.accessories</p>
+			<p id="accessoryMSRP" class="right summary-hide-price">@Resources.Builder.msrp</p>
+		</div>
+	</section>
+	<section class="clearfix">
+		<div id="summaryListOfAccessories" class="item-list clearfix">
+
+		</div>
+		<div class="subtotal">
+			<h5 class="left summary-hide-price">@Resources.Builder.subtotal</h5>
+			<h5 class="right summary-hide-price" id="summarySubTotal">$0.00</h5>
+		</div>
+	</section>
+	<section class="total clearfix">
+		<div class="clearfix">
+			<h6 class="left summary-hide-price">@Resources.Builder.total_msrp</h6>
+			<h6 class="right"><div id="finalTotal" class="summary-hide-price"></div></h6>
+		</div>
+
+		<button data-download-summary class="green-btn">@Resources.Builder.download_summary&nbsp;</button>
+		<button data-email-summary class="green-btn">@Resources.Builder.email_summary</button>
+
+		@if (!hideBrowseCatalog)
+		{
+		<h7><a id="skip" onclick="Kawasaki.AccessoryBuilder.AccessoryBuilderCommon.browsCatalog();">Browse Accessories Catalog</a></h7>
+		}
+
+	</section>
+</div>

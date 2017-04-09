@@ -1,0 +1,3 @@
+rootProject.name = 'KawasakiNinja650Native'
+
+include ':app'
