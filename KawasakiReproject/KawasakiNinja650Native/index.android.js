@@ -26,7 +26,7 @@ export default class KawasakiNinja650Native extends Component {
          </View>
 
          <View style={styles.videocontainer}>
-          <BackgroundVideo videourl={require('./assets/video/small.mp4')} />
+          {/*<BackgroundVideo videourl={require('./assets/video/small.mp4')} />*/}
         </View>
       </View>
     );
@@ -36,7 +36,7 @@ export default class KawasakiNinja650Native extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#000',
   },
   videocontainer: {
     flex: 1
