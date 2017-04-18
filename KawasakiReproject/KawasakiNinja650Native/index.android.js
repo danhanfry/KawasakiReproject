@@ -22,7 +22,7 @@ export default class KawasakiNinja650Native extends Component {
       <View style={styles.container}>
           <View>
             <CommercialContent />
-             <CommercialScroller />
+             {/*<CommercialScroller />*/}
          </View>
 
          <View style={styles.videocontainer}>

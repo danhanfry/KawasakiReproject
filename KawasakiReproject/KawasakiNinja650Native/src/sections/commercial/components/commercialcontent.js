@@ -8,21 +8,32 @@ import {
   Dimensions
 } from 'react-native';
 
+import HTMLView from 'react-native-htmlview';
+
 var {
-  height: deviceHeight
+  height,
+  width
 } = Dimensions.get('window');
 
 export default class CommercialContent extends Component {
+
+  constructor(props) {
+      super(props);
+  }
 
   componentDidMount() {
 
   }
 
     render() {
+
+      const ninjaDescription = '<div>Superb balance and exciting performance mark the strengths of the new Ninja<span class="cirlce-r">®</span> 650 sportbike.Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the <br />Ninja 650 an exceptional everyday ride.</div>'
+
         return (
             <View>
                 <View id="commericialContainerId">
 
+                    <Text style={styles.debugText}>{width}</Text>
                     <View id="commericalNinjaNameYearId" style={this.getNinjaYearStyle()}>
                           <Image source={require("../../../../assets/logo_2017.png")} />
                     </View>
@@ -36,18 +47,14 @@ export default class CommercialContent extends Component {
                     </View>
 
                     <View id="commericalNinjaLifeDescriptionId" style={this.getNinjaDescription()}>
-                        <WebView source={{html: 'Superb balance and exciting performance mark the strengths of the new ' +
-                              'Ninja<span class="cirlce-r">®</span> 650 sportbike.Sporty handling and aggressive styling ' +
-                              'stay true to Ninja roots while comfort and convenience make the <br />Ninja 650 an ' +
-                              'exceptional everyday ride.'}} />
+                      <HTMLView value={ninjaDescription} stylesheet={ninjaDescriptionStyles} />
                     </View>
 
-                    {/*<View id="commericalNinjaLifePlayArrow" style={this.getNinjaArrow()}>
-                        <View id="playArrowMask">
-                              <Image source={require("../../../../assets/slide1/playButton_ActionArrow.png")} />
-                              <Image id="PlayButtonGloss" source={require("../../../../assets/slide1/playButton_ActionImg.png")} />
+                    <View id="commericalNinjaLifePlayArrow" style={this.getNinjaArrow()}>
+                        <View id="playArrowMask" style={this.getNinjaArrowContainer()}>
+                              <Image style={this.getNinjaArrowPlay()} source={require("../../../../assets/slide1/playButton_ActionArrow.png")} />
                         </View>
-                    </View>*/}
+                    </View>
                 </View>
             </View>
         );
@@ -72,8 +79,11 @@ export default class CommercialContent extends Component {
 
     getNinjaModelYearImg() {
       return {
-          margin: 0,
-          width: "100%",
+          position: "relative",
+          flex: 1,
+          width: width,
+          height: 60,
+          resizeMode: 'contain'
          }
     }
 
@@ -95,6 +105,26 @@ export default class CommercialContent extends Component {
        }
     }
 
+    getNinjaArrowContainer() {
+        return {
+          height: 100,
+          width: 100,
+          overflow: 'hidden',
+          borderRadius: 6,
+          borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: "#fff",
+        }
+    }
+
+    getNinjaArrowPlay() {
+      return {
+        position: "absolute",
+        top: 30,
+        left: 36
+      }
+    }
+
     getNinjaArrow() {
       return {
           position: "absolute",
@@ -104,3 +134,18 @@ export default class CommercialContent extends Component {
        }
     }
 }
+
+const styles = StyleSheet.create({
+    debugText: {
+        color: "#fff",
+    },
+    textColor: {
+      color: "#fff",
+    }
+});
+
+const ninjaDescriptionStyles = StyleSheet.create({
+  div: {
+    color: '#fff',
+  },
+});
