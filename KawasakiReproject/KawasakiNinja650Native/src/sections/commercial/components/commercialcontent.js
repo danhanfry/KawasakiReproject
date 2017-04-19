@@ -18,7 +18,26 @@ var {
 export default class CommercialContent extends Component {
 
   constructor(props) {
-      super(props);
+    super(props);
+    this.state = {
+      ninjaYearLogoDimension: {
+        width: 0,
+        left: 0,
+        top: 0
+      },
+      ninjaLogoDimension: {
+        width: 0,
+        height: 0,
+        left: 0,
+        top: 0
+      },
+      ninjaHrDimension: {
+        width: 0,
+        height: 0,
+        left: 0,
+        top: 0
+      },
+    };
   }
 
   componentDidMount() {
@@ -27,23 +46,24 @@ export default class CommercialContent extends Component {
 
     render() {
 
-      const ninjaDescription = '<div>Superb balance and exciting performance mark the strengths of the new Ninja<span class="cirlce-r">®</span> 650 sportbike.Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the <br />Ninja 650 an exceptional everyday ride.</div>'
+      const ninjaDescription = '<div>Superb balance and exciting performance mark the strengths of the new Ninja<span style="display: inline-block;font-size: 10px;vertical-align: top;margin-top: -4px;">&reg;</span> 650 sportbike.Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the Ninja 650 an exceptional everyday ride.</div>'
 
         return (
             <View>
                 <View id="commericialContainerId">
 
-                    <Text style={styles.debugText}>{width}</Text>
                     <View id="commericalNinjaNameYearId" style={this.getNinjaYearStyle()}>
-                          <Image source={require("../../../../assets/logo_2017.png")} />
+                          <Image source={require("../../../../assets/logo_2017.png")} onLayout={(event) => this.getNinjaYearDimensions(event)} />
                     </View>
 
                     <View id="commericalNinjaNameId" style={this.getNinjaModelYear()}>
-                        <Image source={require("../../../../assets/logo_ninja.png")} style={this.getNinjaModelYearImg()} />
+                        <Image source={require("../../../../assets/logo_ninja.png")}
+                              style={this.getNinjaModelYearImg()}
+                              onLayout={(event) => this.getNinjaLogoDimensions(event)} />
                     </View>
 
                     <View id="commericalNinjaLifeGreenHrId" style={this.getNinjaHr()}>
-                      <Image source={require("../../../../assets/green_hr.png")} />
+                      <Image source={require("../../../../assets/green_hr.png")} onLayout={(event) => this.getNinjaHrDimensions(event)} />
                     </View>
 
                     <View id="commericalNinjaLifeDescriptionId" style={this.getNinjaDescription()}>
@@ -60,11 +80,45 @@ export default class CommercialContent extends Component {
         );
     }
 
+    getNinjaYearDimensions(event) {
+
+      const ninjaYearDimensionCalcuated = {
+        width: event.nativeEvent.layout.width,
+        left: event.nativeEvent.layout.x,
+        top: event.nativeEvent.layout.y
+      };
+
+      this.setState({ ninjaYearLogoDimension: ninjaYearDimensionCalcuated });
+    }
+
+    getNinjaLogoDimensions(event) {
+
+      const ninjaLogoDimensionCalcuated = {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height,
+        left: event.nativeEvent.layout.x,
+        top: event.nativeEvent.layout.y
+      };
+
+      this.setState({ ninjaLogoDimension: ninjaLogoDimensionCalcuated });
+    }
+
+    getNinjaHrDimensions(event) {
+      const ninjaHrDimensionCalcuated = {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height,
+        left: event.nativeEvent.layout.x,
+        top: event.nativeEvent.layout.y
+      };
+
+      this.setState({ ninjaHrDimension: ninjaHrDimensionCalcuated });
+    }
+
     getNinjaYearStyle() {
       return {
           position: "absolute",
           padding: 20,
-          left: 170,
+          left: (width / 2) - (this.state.ninjaYearLogoDimension.width / 2),
           top: 87,
        }
     }
@@ -73,7 +127,8 @@ export default class CommercialContent extends Component {
       return {
           position: "absolute",
           padding: 20,
-          top: 105,
+          top: (this.state.ninjaYearLogoDimension.top + this.state.ninjaLogoDimension.height + 35),
+          left: -15
        }
     }
 
@@ -91,8 +146,8 @@ export default class CommercialContent extends Component {
       return {
           position: "absolute",
           padding: 20,
-          left: 145,
-          top: 178,
+          left: (width / 2) - (this.state.ninjaHrDimension.width / 2),
+          top: (this.state.ninjaLogoDimension.top + this.state.ninjaLogoDimension.height + this.state.ninjaYearLogoDimension.top + 75),
        }
     }
 
