@@ -3,41 +3,64 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  Dimensions
 } from 'react-native';
+
+import styles from '../../../styles/commercialstyles';
+
+var {
+  height,
+  width
+} = Dimensions.get('window');
 
 export default class CommercialScroller extends Component {
 
+  constructor(props) {
+      super(props);
+      this.state = {
+            ninjascrollermaskbox: {
+                width: 0,
+                height: 0,
+            },
+        };
+  }
+
     render() {
         return (
-            <View id="slideOneScroller" style={styles.container}>
+            <View id="slideOneScroller" style={this.getNinjaScrollStyle()} onLayout={(event) => this.getNinjaScrollerMask(event)}>
                 <View id="scrollIndicatorMask" style={styles.mask}>
-                    <View id="slideOneArrow" style={styles.arrowDown}></View>
-                        <Image id="slideOneGloss" style={styles.glossArrow} source={require("../../../../assets/slide1/scrollIndicator_gloss.png")} />
+                    <View id="slideOneArrow" style={this.getNinjaArrowDown()}></View>
                 </View>
             </View>
         );
     }
-}
 
-const styles = StyleSheet.create({
-    container: {
-        transform: [
-            { scale: 0.7 },
-        ],
-        width: "auto"
-    },
-    mask: {
-        width: 48,
-        height: 48,
-        overflow: "hidden",
-        borderRadius: 3,
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: "#000",
-        zIndex: 500
-    },
-    arrowDown: {
+    getNinjaScrollerMask(event) {
+
+      const ninjaScrollerCalcuated = {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height,
+      };
+
+      this.setState({ ninjascrollermaskbox: ninjaScrollerCalcuated });
+    }
+
+    getNinjaScrollStyle() {
+      return {
+          transform: [
+              { scale: 0.7 },
+          ],
+          width: "auto",
+          position: "absolute",
+          top: 582,
+          padding: 20,
+          left: (width / 2) - (this.state.ninjascrollermaskbox.width / 2),
+       }
+    }
+
+    getNinjaArrowDown() {
+      return {
         zIndex: 100,
         position: "absolute",
         marginLeft: 16,
@@ -48,12 +71,8 @@ const styles = StyleSheet.create({
         borderRightWidth: 8,
         borderRightColor: "transparent",
         borderTopWidth: 8,
-        borderTopColor: "#4CBA41"
-    },
-    glossArrow: {
-        position: "absolute",
-        opacity: 0.5,
-        width: 50,
-        height: 50
+        borderTopColor: "#4CBA41",
+        top: (this.state.ninjascrollermaskbox.height / 4),
+       }
     }
-});
+}
