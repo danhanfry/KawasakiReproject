@@ -13,19 +13,59 @@ import {
 } from 'react-native';
 
 import CommercialIndex from './src/sections/commercial/commercialindex';
+import VTRIndex from './src/sections/vtr/vtrindex';
 import BackgroundVideo from './src/sections/common/backgroundvideo';
 
 export default class KawasakiNinja650Native extends Component {
-  render() {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        showCommercial: true,
+        showVTR: false,
+        showExplore: false,
+        showSocial: false,
+        showTools: false,
+    }
+  }
+
+  render = () => {
     return (
       <View style={styles.container}>
-          <CommercialIndex />
-          <View style={styles.videocontainer}>
-            {/*<BackgroundVideo videourl={require('./assets/video/small.mp4')} />*/}
-          </View>
+          {
+            this.state.showCommercial &&
+            <CommercialIndex updateState={this.makeVTRVisible} />
+          }
+
+          {
+            this.state.showVTR &&
+            <VTRIndex />
+          }
+
       </View>
     );
   }
+
+  makeCommercialVisible = () => {
+    this.setState({
+      showCommercial: true,
+      showVTR: false,
+      showExplore: false,
+      showSocial: false,
+      showTools: false,
+    });
+  }
+
+  makeVTRVisible = () => {
+    this.setState({
+      showCommercial: false,
+      showVTR: true,
+      showExplore: false,
+      showSocial: false,
+      showTools: false,
+    });
+  }
+
 }
 
 const styles = StyleSheet.create({

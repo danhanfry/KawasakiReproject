@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import HTMLView from 'react-native-htmlview';
+import { LayoutDefinition } from '../../common/commonjs';
 import styles from '../../../styles/commercialstyles';
 
 var {
@@ -23,6 +24,7 @@ export default class CommercialContent extends Component {
       this.state = {
             ninjaYearLogoDimension: {
                 width: 0,
+                height: 0,
                 left: 0,
                 top: 0
             },
@@ -59,9 +61,9 @@ export default class CommercialContent extends Component {
 
   }
 
-    render() {
+    render = () => {
 
-      const ninjaDescription = '<div>Superb balance and exciting performance mark the strengths of the new Ninja<span style="display: inline-block;font-size: 10px;vertical-align: top;margin-top: -4px;">&reg;</span> 650 sportbike.Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the Ninja 650 an exceptional everyday ride.</div>'
+      const ninjaDescription = '<div>Superb balance and exciting performance mark the strengths of the new Ninja<span style="display: inline-block;font-size: 10px;vertical-align: top;margin-top: -4px;">&reg;</span> 650 sportbike.Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the Ninja 650 an exceptional everyday ride.</div>';
 
         return (
             <View>
@@ -96,63 +98,35 @@ export default class CommercialContent extends Component {
         );
     }
 
-    getNinjaYearDimensions(event) {
-
-      const ninjaYearDimensionCalcuated = {
-        width: event.nativeEvent.layout.width,
-        left: event.nativeEvent.layout.x,
-        top: event.nativeEvent.layout.y
-      };
-
-      this.setState({ ninjaYearLogoDimension: ninjaYearDimensionCalcuated });
+    getNinjaYearDimensions = (event) => {
+      this.setState({ ninjaYearLogoDimension: LayoutDefinition(event) });
     }
 
-    getNinjaLogoDimensions(event) {
+    getNinjaLogoDimensions = (event) => {
 
-      const ninjaLogoDimensionCalcuated = {
-        width: event.nativeEvent.layout.width,
-        height: event.nativeEvent.layout.height,
-        left: event.nativeEvent.layout.x,
-        top: event.nativeEvent.layout.y
-      };
+      this.setState({ ninjaLogoDimension: LayoutDefinition(event) });
 
-      this.setState({ ninjaLogoDimension: ninjaLogoDimensionCalcuated });
     }
 
-    getNinjaHrDimensions(event) {
-      const ninjaHrDimensionCalcuated = {
-        width: event.nativeEvent.layout.width,
-        height: event.nativeEvent.layout.height,
-        left: event.nativeEvent.layout.x,
-        top: event.nativeEvent.layout.y
-      };
+    getNinjaHrDimensions = (event) => {
 
-      this.setState({ ninjaHrDimension: ninjaHrDimensionCalcuated });
+      this.setState({ ninjaHrDimension: LayoutDefinition(event) });
+
     }
 
-    getNinjaDescriptionDimensions(event) {
-      const ninjaDescriptionDimensionCalcuated = {
-        width: event.nativeEvent.layout.width,
-        height: event.nativeEvent.layout.height,
-        left: event.nativeEvent.layout.x,
-        top: event.nativeEvent.layout.y
-      };
+    getNinjaDescriptionDimensions = (event) => {
 
-      this.setState({ ninjaDescription: ninjaDescriptionDimensionCalcuated });
+      this.setState({ ninjaDescription: LayoutDefinition(event) });
+
     }
 
-    getNinjaPlayArrowDimensions(event) {
-      const ninjaPlayArrowDimensionCalcuated = {
-        width: event.nativeEvent.layout.width,
-        height: event.nativeEvent.layout.height,
-        left: event.nativeEvent.layout.x,
-        top: event.nativeEvent.layout.y
-      };
+    getNinjaPlayArrowDimensions = (event) => {
 
-      this.setState({ ninjaPlayArrow: ninjaPlayArrowDimensionCalcuated });
+      this.setState({ ninjaPlayArrow: LayoutDefinition(event) });
+
     }
 
-    getNinjaYearStyle() {
+    getNinjaYearStyle = () => {
       return {
           position: "absolute",
           padding: 20,
@@ -161,7 +135,7 @@ export default class CommercialContent extends Component {
        }
     }
 
-    getNinjaModelYear() {
+    getNinjaModelYear = () => {
       return {
           position: "absolute",
           padding: 20,
@@ -170,7 +144,7 @@ export default class CommercialContent extends Component {
        }
     }
 
-    getNinjaModelYearImg() {
+    getNinjaModelYearImg = () => {
       return {
           position: "relative",
           flex: 1,
@@ -180,7 +154,7 @@ export default class CommercialContent extends Component {
          }
     }
 
-    getNinjaHr() {
+    getNinjaHr = () => {
       return {
           position: "absolute",
           padding: 20,
@@ -189,7 +163,7 @@ export default class CommercialContent extends Component {
        }
     }
 
-    getNinjaDescription() {
+    getNinjaDescription = () => {
       return {
           position: "absolute",
           padding: Number.parseInt(width / 2, 10) / 5,
@@ -198,7 +172,7 @@ export default class CommercialContent extends Component {
        }
     }
 
-    getNinjaArrowContainer() {
+    getNinjaArrowContainer = () => {
       return {
           position: "absolute",
           padding: 20,
@@ -207,7 +181,7 @@ export default class CommercialContent extends Component {
        }
     }
 
-    getNinjaArrowPlayContainer() {
+    getNinjaArrowPlayContainer = () => {
         return {
           height: 100,
           width: 100,

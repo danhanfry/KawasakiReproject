@@ -18,7 +18,7 @@ export default class CommercialIndex extends Component {
         return (
             <View>
                 <CommercialContent />
-                <CommercialScroller />
+                <CommercialScroller updateState={this.props.updateState} />
             </View>
         );
     }

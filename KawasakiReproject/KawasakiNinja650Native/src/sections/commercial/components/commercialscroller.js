@@ -4,7 +4,9 @@ import {
   Text,
   View,
   Image,
-  Dimensions
+  Dimensions,
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 import styles from '../../../styles/commercialstyles';
@@ -26,17 +28,34 @@ export default class CommercialScroller extends Component {
         };
   }
 
-    render() {
+  componentDidMount = () => {
+      {/*Alert.alert(
+         'Title',
+         'Alert message...',
+         [
+            {text: 'Maybe', onPress: () => alert(this.props.updateState)},
+            {text: 'No', onPress: this.noPressed, style: 'cancel'},
+            {text: 'Yes', onPress: this.yesPressed},
+         ]
+      )*/}
+   }
+
+    render = () => {
         return (
-            <View id="slideOneScroller" style={this.getNinjaScrollStyle()} onLayout={(event) => this.getNinjaScrollerMask(event)}>
+          <TouchableOpacity style={this.getNinjaScrollStyle()} onPress={this.props.updateState}>
+            <View id="slideOneScroller" onLayout={(event) => this.getNinjaScrollerMask(event)}>
+
                 <View id="scrollIndicatorMask" style={styles.mask}>
                     <View id="slideOneArrow" style={this.getNinjaArrowDown()}></View>
                 </View>
+
             </View>
+          </TouchableOpacity>
+
         );
     }
 
-    getNinjaScrollerMask(event) {
+    getNinjaScrollerMask = (event) => {
 
       const ninjaScrollerCalcuated = {
         width: event.nativeEvent.layout.width,
@@ -46,7 +65,7 @@ export default class CommercialScroller extends Component {
       this.setState({ ninjascrollermaskbox: ninjaScrollerCalcuated });
     }
 
-    getNinjaScrollStyle() {
+    getNinjaScrollStyle = () => {
       return {
           transform: [
               { scale: 0.7 },
@@ -55,11 +74,11 @@ export default class CommercialScroller extends Component {
           position: "absolute",
           top: 582,
           padding: 20,
-          left: (width / 2) - (this.state.ninjascrollermaskbox.width / 2),
+          left: (width / 2) - (this.state.ninjascrollermaskbox.width),
        }
     }
 
-    getNinjaArrowDown() {
+    getNinjaArrowDown = () => {
       return {
         zIndex: 100,
         position: "absolute",
@@ -72,7 +91,7 @@ export default class CommercialScroller extends Component {
         borderRightColor: "transparent",
         borderTopWidth: 8,
         borderTopColor: "#4CBA41",
-        top: (this.state.ninjascrollermaskbox.height / 4),
+        top: (this.state.ninjascrollermaskbox.height / 3),
        }
     }
 }
