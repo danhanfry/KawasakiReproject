@@ -10708,6 +10708,15 @@
     <Content Include="KawasakiNinja650Native\node_modules\yargs\node_modules\cliui\index.js" />
     <Content Include="KawasakiNinja650Native\node_modules\yargs\node_modules\cliui\LICENSE.txt" />
     <Content Include="KawasakiNinja650Native\node_modules\yargs\yargs.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\backgroundvideo.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\commercial\commercialindex.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\commercial\components\commercialcontent.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\commercial\components\commercialscroller.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\common\backgroundvideo.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\common\commonjs.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\vtr\components\vtrcontent.js" />
+    <Content Include="KawasakiNinja650Native\src\sections\vtr\vtrindex.js" />
+    <Content Include="KawasakiNinja650Native\src\styles\commercialstyles.js" />
     <Content Include="KawasakiNinja650Native\__tests__\index.android.js" />
     <Content Include="KawasakiNinja650Native\__tests__\index.ios.js" />
     <Content Include="KawasakiNinja650\assets\close_green_btn.svg" />
