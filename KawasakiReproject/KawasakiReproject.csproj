@@ -24,6 +24,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="gulpfile.js" />
+    <Content Include="KawasakiNativeScript\app\app.css" />
+    <Content Include="KawasakiNativeScript\app\app.js" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\AndroidManifest.xml" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-hdpi\icon.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-hdpi\ic_menu.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-ldpi\icon.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-mdpi\icon.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-mdpi\ic_menu.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-xhdpi\ic_menu.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-xxhdpi\ic_menu.png" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\drawable-xxxhdpi\ic_menu.png" />
+    <Content Include="KawasakiNativeScript\app\pages\about\about.js" />
+    <Content Include="KawasakiNativeScript\app\pages\about\about.xml" />
+    <Content Include="KawasakiNativeScript\app\pages\home\home.js" />
+    <Content Include="KawasakiNativeScript\app\pages\home\home.xml" />
+    <Content Include="KawasakiNativeScript\app\pages\settings\settings.js" />
+    <Content Include="KawasakiNativeScript\app\pages\settings\settings.xml" />
+    <Content Include="KawasakiNativeScript\app\shared\BasePage.js" />
+    <Content Include="KawasakiNativeScript\app\shared\widgets\drawer-content.xml" />
     <Content Include="KawasakiNinja650Native\.gitattributes" />
     <Content Include="KawasakiNinja650Native\.gitignore" />
     <Content Include="KawasakiNinja650Native\android\app\src\main\AndroidManifest.xml" />
@@ -15024,6 +15044,10 @@
     <Content Include="KawasakiNinja650Native\node_modules\yargs\package.json" />
     <Content Include="KawasakiNinja650Native\node_modules\yargs\README.md" />
     <Content Include="KawasakiNinja650Native\package.json" />
+    <Content Include="KawasakiNativeScript\app\App_Resources\Android\app.gradle" />
+    <Content Include="KawasakiNativeScript\app\package.json" />
+    <Content Include="KawasakiNativeScript\app\README.md" />
+    <Content Include="KawasakiNativeScript\package.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
