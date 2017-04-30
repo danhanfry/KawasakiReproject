@@ -9,14 +9,18 @@ HomePage.prototype.constructor = HomePage;
 HomePage.prototype.contentLoaded = function() {}
 
 HomePage.prototype.fun = function() {
-  var page = topmost().currentPage;
+  /*var page = topmost().currentPage;
   var logo = page.getViewById("logo");
   logo.animate({
     rotate: 3600,
     duration: 3000
   }).then(function() {
     logo.rotate = 0;
-  });
+  });*/
+}
+
+HomePage.prototype.gotoslidetwo = function() {
+  topmost().navigate("pages/about/about");
 }
 
 module.exports = new HomePage();
