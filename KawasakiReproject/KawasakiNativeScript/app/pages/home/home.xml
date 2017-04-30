@@ -18,16 +18,14 @@
     <drawer:rad-side-drawer.mainContent>
 
       <!-- Home page contents -->
-      <stack-layout loaded="contentLoaded">
+      <StackLayout  loaded="contentLoaded">
         <Image src="~/images/logo_2017.png" id="commericalNinjaNameYearId" class="ninja-year" />
         <Image src="~/images/logo_ninja.png" id="commericalNinjaNameId" class="ninja-model-name" />
         <Image src="~/images/green_hr.png" id="commericalNinjaLifeGreenHrId" class="ninja-hr" />
 
-        <!--<AbsoluteLayout>-->
-          <Border borderRadius="10" borderWidth="1" borderColor="#fff" width="25%" height="15%" class="ninja-play">
-              <Image src="~/images/slide1/playButton_ActionArrow.png" id="slideOneArrow" class="ninja-play-arrow" />
-          </Border>
-        <!--</AbsoluteLayout>-->
+        <StackLayout borderRadius="10" borderWidth="1" borderColor="#fff" width="25%" height="15%" class="ninja-play">
+            <Image src="~/images/slide1/playButton_ActionArrow.png" id="slideOneArrow" class="ninja-play-arrow" />
+        </StackLayout>
 
         <Label text="Superb balance and exciting performance mark the strengths of the new Ninja 650 sportbike. Sporty handling and aggressive styling stay true to Ninja roots while comfort and convenience make the Ninja 650 an exceptional everyday ride."
               textWrap="true" class="ninja-description" />
@@ -35,7 +33,7 @@
         <Image src="~/images/green_arrow_down.png" id="slideOneScroller" class="ninja-scroller" tap="gotoslidetwo" />
         <!--<image src="https://i.imgur.com/LY3cb3A.png" id="logo" tap="fun" height="100" margin="20 0 0 0" />
         <label text="Welcome to the NativeScript drawer template! This is the home page. Try tapping the logo." margin="20" horizontalAlignment="center" textWrap="true" />-->
-      </stack-layout>
+      </StackLayout >
 
     </drawer:rad-side-drawer.mainContent>
     <drawer:rad-side-drawer.drawerContent>
