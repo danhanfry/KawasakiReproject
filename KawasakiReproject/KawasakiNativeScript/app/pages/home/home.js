@@ -1,26 +1,34 @@
+var Common = require("../../shared/Common");
 var BasePage = require("../../shared/BasePage");
 var topmost = require("ui/frame").topmost;
 
-var HomePage = function() {};
-HomePage.prototype = new BasePage();
-HomePage.prototype.constructor = HomePage;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 
-// Place any code you want to run when the home page loads here.
-HomePage.prototype.contentLoaded = function() {}
+var HomePage = HomePage || {};
+(function (homepage) {
 
-HomePage.prototype.fun = function() {
-  /*var page = topmost().currentPage;
-  var logo = page.getViewById("logo");
-  logo.animate({
-    rotate: 3600,
-    duration: 3000
-  }).then(function() {
-    logo.rotate = 0;
-  });*/
-}
+  var basePage = __extends(homepage, BasePage);
 
-HomePage.prototype.gotoslidetwo = function() {
-  topmost().navigate("pages/about/about");
-}
+  var contentLoaded = function() {
 
-module.exports = new HomePage();
+  };
+
+  var gotoslidetwo = function() {
+    topmost().navigate("pages/about/about");
+  };
+
+	homepage.contentLoaded = contentLoaded;
+  homepage.gotoslidetwo = gotoslidetwo;
+
+})(HomePage);
+
+module.exports = HomePage;
