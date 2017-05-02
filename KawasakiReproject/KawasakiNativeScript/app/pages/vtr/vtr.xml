@@ -5,7 +5,7 @@
   loaded="pageLoaded">
 
   <page.actionBar>
-    <action-bar title="About">
+    <action-bar title="Virtual Test Ride">
       <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
       <action-bar.actionItems>
         <ios>

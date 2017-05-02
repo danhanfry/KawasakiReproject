@@ -23,7 +23,7 @@ var HomePage = HomePage || {};
   };
 
   var gotoslidetwo = function() {
-    topmost().navigate("pages/about/about");
+    topmost().navigate("pages/vtr/vtr");
   };
 
 	homepage.contentLoaded = contentLoaded;
