@@ -16,17 +16,19 @@ var __extends = (this && this.__extends) || (function () {
 var HomePage = HomePage || {};
 (function (homepage) {
 
-  var basePage = __extends(homepage, BasePage);
+  __extends(homepage, BasePage);
+  homepage.viewModel.set("playButtonClicked", false);
 
-  var contentLoaded = function() {
-
+  var playCommercial = function() {
+      homepage.viewModel.set("playButtonClicked", true);
   };
 
   var gotoslidetwo = function() {
+   homepage.viewModel.set("selectedPage", "vtr");
     topmost().navigate("pages/vtr/vtr");
   };
 
-	homepage.contentLoaded = contentLoaded;
+  homepage.playCommercial = playCommercial;
   homepage.gotoslidetwo = gotoslidetwo;
 
 })(HomePage);

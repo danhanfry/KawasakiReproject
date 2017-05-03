@@ -1,4 +1,6 @@
 var BasePage = require("../../shared/BasePage");
+var cameraModule = require("camera");
+var permissions = require( "nativescript-permissions" );
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -15,10 +17,40 @@ var AboutPage = AboutPage || {};
 (function (aboutpage) {
 
   __extends(aboutpage, BasePage);
+
+  aboutpage.pageLoaded = function(args) {
+    var page = args.object;
+    myImage = page.getViewById("myImage");
+    myImage.src = "https://placehold.it/150x150";
+    page.bindingContext = aboutpage.viewModel;
+    grantCameraPermission();
+  };
+
   var init = function() {
 
   };
-	aboutpage.init = init;
+
+  var tapAction = function() {
+    cameraModule.takePicture().then(function(picture) {
+        myImage.imageSource = picture;
+    });
+  };
+
+  var grantCameraPermission = function() {
+        permissions.requestPermissions([android.Manifest.permission.CAMERA,
+                                        android.Manifest.permission.ACCESS_NETWORK_STATE], 
+                                        "App Needs The Following permissions")
+            .then(()=>{
+                console.log("Permission Granted !");
+               
+            })
+            .catch(()=>{
+                console.log("Permission Denied !");
+            });
+  };
+
+    aboutpage.init = init;
+    aboutpage.tapAction = tapAction;
 
 })(AboutPage);
 

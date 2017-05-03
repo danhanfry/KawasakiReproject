@@ -22,3 +22,9 @@ A quick-and-dirty template for starting a new [NativeScript](https://www.natives
 nativescript package used:
 
 nativescript-template-drawer
+
+tns plugin add nativescript-camera
+npm install nativescript-camera --save
+
+tns plugin add nativescript-permissions
+tns plugin add nativescript-geolocation
