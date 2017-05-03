@@ -1,6 +1,4 @@
 var BasePage = require("../../shared/BasePage");
-var cameraModule = require("camera");
-var permissions = require( "nativescript-permissions" );
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -13,45 +11,21 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 
-var AboutPage = AboutPage || {};
-(function (aboutpage) {
+var VTRPage = VTRPage || {};
+(function (vtrpage) {
 
-  __extends(aboutpage, BasePage);
+  __extends(vtrpage, BasePage);
 
-  aboutpage.pageLoaded = function(args) {
-    var page = args.object;
-    myImage = page.getViewById("myImage");
-    myImage.src = "https://placehold.it/150x150";
-    page.bindingContext = aboutpage.viewModel;
-    grantCameraPermission();
+  vtrpage.pageLoaded = function(args) {
+
   };
 
   var init = function() {
 
   };
 
-  var tapAction = function() {
-    cameraModule.takePicture().then(function(picture) {
-        myImage.imageSource = picture;
-    });
-  };
+    vtrpage.init = init;
 
-  var grantCameraPermission = function() {
-        permissions.requestPermissions([android.Manifest.permission.CAMERA,
-                                        android.Manifest.permission.ACCESS_NETWORK_STATE], 
-                                        "App Needs The Following permissions")
-            .then(()=>{
-                console.log("Permission Granted !");
-               
-            })
-            .catch(()=>{
-                console.log("Permission Denied !");
-            });
-  };
+})(VTRPage);
 
-    aboutpage.init = init;
-    aboutpage.tapAction = tapAction;
-
-})(AboutPage);
-
-module.exports = AboutPage;
+module.exports = VTRPage;

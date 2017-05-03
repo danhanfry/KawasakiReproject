@@ -5,7 +5,7 @@
   loaded="pageLoaded">
 
   <page.actionBar>
-    <action-bar title="Virtual Test Ride">
+    <action-bar title="Camera">
       <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
       <action-bar.actionItems>
         <ios>
@@ -17,11 +17,13 @@
 
   <drawer:rad-side-drawer id="drawer">
     <drawer:rad-side-drawer.mainContent>
-
-      <!-- About page contents -->
-      <StackLayout>
-         <Label text="VTR IS HERE." textWrap="true" />
-      </StackLayout>
+      <GridLayout rows="auto, *, auto">
+        <StackLayout>
+            <Label text="Take a picture" class="title" />
+            <Image id="myImage" />
+            <Button text="Take" tap="tapAction" />
+        </StackLayout>
+    </GridLayout>
 
     </drawer:rad-side-drawer.mainContent>
     <drawer:rad-side-drawer.drawerContent>

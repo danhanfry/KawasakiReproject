@@ -48,6 +48,9 @@
     <Content Include="KawasakiNativeScript\app\images\slide1\playButton_ActionImg.png" />
     <Content Include="KawasakiNativeScript\app\images\slide1\scrollIndicator_gloss.png" />
     <Content Include="KawasakiNativeScript\app\images\slide1\tablet-landing-bkgd.jpg" />
+    <Content Include="KawasakiNativeScript\app\pages\camera\camera.css" />
+    <Content Include="KawasakiNativeScript\app\pages\camera\camera.js" />
+    <Content Include="KawasakiNativeScript\app\pages\camera\camera.xml" />
     <Content Include="KawasakiNativeScript\app\pages\commercial\commercial.css" />
     <Content Include="KawasakiNativeScript\app\pages\commercial\commercial.js" />
     <Content Include="KawasakiNativeScript\app\pages\commercial\commercial.xml" />
