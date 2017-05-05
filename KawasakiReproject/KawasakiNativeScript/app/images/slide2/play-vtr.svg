@@ -1,0 +1,16 @@
+<svg width="108px" height="108px" viewBox="0 0 108 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<rect id="path-1" x="0" y="0" width="108" height="108" rx="8"></rect>
+								<mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="108" height="108" fill="white">
+									<use xlink:href="#path-1"></use>
+								</mask>
+							</defs>
+							<g id="1080" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="01-HOME-1080" transform="translate(-1466.000000, -652.000000)">
+									<g id="Group-4" transform="translate(1466.000000, 652.000000)">
+										<path id="interactiveBoxId" d="M45.3329239,72.8028672 C43.0890162,74.4078845 41.2699695,73.4638271 41.2699695,70.7016188 L41.2699695,33.5084018 C41.2699695,30.742897 43.0911856,29.8036879 45.3329239,31.4071535 L70.2067791,49.1988693 C72.4506868,50.8038867 72.4485174,53.4076857 70.2067791,55.0111513 L45.3329239,72.8028672 Z" fill="#FFFFFF"></path>
+										<use id="interactivePlayId" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+									</g>
+								</g>
+							</g>
+						</svg>

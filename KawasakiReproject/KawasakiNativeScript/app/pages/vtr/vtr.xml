@@ -2,7 +2,8 @@
   xmlns="http://schemas.nativescript.org/tns.xsd"
   xmlns:drawer="nativescript-telerik-ui/sidedrawer"
   xmlns:widgets="shared/widgets"
-  loaded="pageLoaded">
+  loaded="pageLoaded"
+  class="vtr-section">
 
   <page.actionBar>
     <action-bar title="Virtual Test Ride">
@@ -20,7 +21,31 @@
 
       <!-- About page contents -->
       <StackLayout>
-         <Label text="VTR IS HERE." textWrap="true" />
+          <Label text="experience the 2017 ninja 650." textWrap="true" class="testvr-experience" />
+
+          <Label text="take a virtual test ride." textWrap="true" class="testvr-testride" />
+
+          <Label text="Along the way you’ll learn about the exciting features that make the Ninja 650 motorcycle a perfect combination of sporty performance and everyday comfort."
+              textWrap="true" class="testvr-description" />
+            
+          <Label text="Move your mobile device to experience 360-degree views." textWrap="true" class="drag-experience-threesixty" />
+
+          <WrapLayout orientation="horizontal">
+
+              <StackLayout class="vr-test-ride-selection-container" style="margin-right: 1.8%;">
+                  <StackLayout class="vr-video-green-line"></StackLayout>
+                  <Image src="~/images/slide2/play-vtr.png" class="vtr-test-ride-play-img" />
+                  <Label text="INTERACTIVE RIDE" textWrap="true" class="vr-test-ride-selection-txt" />
+              </StackLayout>
+
+                <StackLayout class="vr-test-ride-selection-container">
+                    <StackLayout class="vr-video-green-line"></StackLayout>
+                    <Image src="~/images/slide2/play-vtr.png" class="vtr-test-ride-play-img" />
+                    <Label text="FREE RIDE" textWrap="true" class="vr-test-ride-selection-txt" />
+                </StackLayout>
+
+          </WrapLayout>
+
       </StackLayout>
 
     </drawer:rad-side-drawer.mainContent>
