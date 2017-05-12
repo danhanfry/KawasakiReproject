@@ -1,12 +1,12 @@
 # NativeScript Drawer Template
 
-A quick-and-dirty template for starting a new [NativeScript](https://www.nativescript.org/) JavaScript app with drawer navigation pre-scaffolded.
+A quick-and-dirty template for starting a new [NativeScript](https://www.nativescript.org/) app with drawer navigation pre-scaffolded in TypeScript.
 
-> **NOTE**: Want to use TypeScript instead? Check out [@ignaciofuentes’ TypeScript drawer template](https://github.com/ignaciofuentes/nativescript-template-drawer-ts).
+Full credit to TJ Van Toll for the [original JavaScript version](https://github.com/tjvantoll/nativescript-template-drawer) of this template.
 
 ## Usage
 
-`tns create my-project-name --template nativescript-template-drawer`
+`tns create my-project-name --template nativescript-template-drawer-ts`
 
 ## Screenshots
 
@@ -19,12 +19,16 @@ A quick-and-dirty template for starting a new [NativeScript](https://www.natives
 ![](http://i.imgur.com/6Kha8WY.png)
 
 
+
+
+
+
+
+
 nativescript package used:
 
 nativescript-template-drawer
 
-tns plugin add nativescript-camera
-npm install nativescript-camera --save
+tns plugin add nativescript-camera npm install nativescript-camera --save
 
-tns plugin add nativescript-permissions
-tns plugin add nativescript-geolocation
+tns plugin add nativescript-permissions tns plugin add nativescript-geolocation

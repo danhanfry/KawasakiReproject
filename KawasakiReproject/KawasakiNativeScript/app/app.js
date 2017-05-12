@@ -1,2 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var application = require("application");
-application.start({ moduleName: "pages/commercial/commercial" });
+application.start({ moduleName: "pages/camera/camera" });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEseUNBQTJDO0FBQzNDLFdBQVcsQ0FBQyxLQUFLLENBQUMsRUFBRSxVQUFVLEVBQUUscUJBQXFCLEVBQUUsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgYXBwbGljYXRpb24gZnJvbSBcImFwcGxpY2F0aW9uXCI7XG5hcHBsaWNhdGlvbi5zdGFydCh7IG1vZHVsZU5hbWU6IFwicGFnZXMvY2FtZXJhL2NhbWVyYVwiIH0pO1xuIl19

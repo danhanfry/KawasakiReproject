@@ -1,16 +1,10 @@
-﻿action-bar {
-  background-color: #053140;
-  color: white;
-}
-
-label {
-  margin: 20;
-}
+﻿@import '~/nativescript-theme-core/css/blue.css';
 
 .drawer-content {
-  background-color: #053140;
-  color: white;
+  background-color:#3d5afe;
+  color: #ffffff;
   padding-top: 20;
+  width:300;
 }
 
 .drawer-content label {
@@ -23,6 +17,5 @@ label {
 }
 
 .section-scroller {
-  width: 48px;
-  height: 48px;
+  width: 15%;
 }

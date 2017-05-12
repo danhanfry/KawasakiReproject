@@ -1,12 +1,14 @@
 <page
+  class="page"
   xmlns="http://schemas.nativescript.org/tns.xsd"
   xmlns:drawer="nativescript-telerik-ui/sidedrawer"
   xmlns:widgets="shared/widgets"
-  loaded="pageLoaded"
-  class="vtr-section">
+  loaded="loaded"
+  class="vtr-section"
+  >
 
   <page.actionBar>
-    <action-bar title="Virtual Test Ride">
+    <action-bar title="NativeScript" class="action-bar">
       <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
       <action-bar.actionItems>
         <ios>
@@ -16,11 +18,16 @@
     </action-bar>
   </page.actionBar>
 
-  <drawer:rad-side-drawer id="drawer">
-    <drawer:rad-side-drawer.mainContent>
 
-      <!-- About page contents -->
-      <StackLayout>
+  <drawer:rad-side-drawer id="drawer" showOverNavigation="true"> 
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+
+     <drawer:rad-side-drawer.mainContent>
+    
+
+        <StackLayout>
           <Label text="experience the 2017 ninja 650." textWrap="true" class="testvr-experience" />
 
           <Label text="take a virtual test ride." textWrap="true" class="testvr-testride" />
@@ -30,7 +37,7 @@
             
           <Label text="Move your mobile device to experience 360-degree views." textWrap="true" class="drag-experience-threesixty" />
 
-          <WrapLayout orientation="horizontal">
+          <WrapLayout orientation="horizontal" class="vtr-selection-container">
 
               <StackLayout class="vr-test-ride-selection-container" style="margin-right: 1.8%;">
                   <StackLayout class="vr-video-green-line"></StackLayout>
@@ -46,12 +53,14 @@
 
           </WrapLayout>
 
-      </StackLayout>
 
-    </drawer:rad-side-drawer.mainContent>
-    <drawer:rad-side-drawer.drawerContent>
-      <widgets:drawer-content />
-    </drawer:rad-side-drawer.drawerContent>
+          <widgets:scroller tap="gotoslidethree" />
+
+        </StackLayout>
+
+
+      </drawer:rad-side-drawer.mainContent>
+
   </drawer:rad-side-drawer>
 
 </page>

@@ -4,7 +4,6 @@
   xmlns:drawer="nativescript-telerik-ui/sidedrawer"
   xmlns:widgets="shared/widgets"
   loaded="loaded"
-  class="commercial-section"
   >
 
   <page.actionBar>
@@ -26,15 +25,10 @@
 
      <drawer:rad-side-drawer.mainContent>
      <!-- Home page contents -->
-      
-      <GridLayout rows="auto, *, auto">
-        <StackLayout>
-            <Label text="Take a picture" class="title" />
-            <Image src="{{ cameraImage }}" id="myImage"/>
-            <Button text="Take" tap="tapAction" />
-        </StackLayout>
-    </GridLayout>
-
+      <stack-layout>
+        <image src="https://i.imgur.com/LY3cb3A.png" id="logo" tap="fun" height="100" margin="20 0 0 0" />
+        <label class="h2 m-20 text-center" text="{{ text }}" />
+      </stack-layout>
       </drawer:rad-side-drawer.mainContent>
 
   </drawer:rad-side-drawer>

@@ -4,20 +4,25 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.KawasakiNativeScript",
+    "id": "org.nativescript.KawiNativeTypescript",
     "tns-android": {
-      "version": "2.5.0"
+      "version": "3.0.0"
     }
   },
   "dependencies": {
-    "nativescript-statusbar": "^1.0.0",
-    "nativescript-telerik-ui": "1.4.1",
-    "tns-core-modules": "2.3.0"
+    "nativescript-camera": "^3.0.0",
+    "nativescript-geolocation": "^3.0.0",
+    "nativescript-permissions": "^1.2.3",
+    "nativescript-telerik-ui": "~2.0.0",
+    "nativescript-theme-core": "^1.0.4",
+    "tns-core-modules": "~3.0.0"
   },
   "devDependencies": {
     "babel-traverse": "6.4.5",
     "babel-types": "6.4.5",
     "babylon": "6.4.5",
-    "lazy": "1.0.11"
+    "lazy": "1.0.11",
+    "nativescript-dev-typescript": "~0.4.0",
+    "typescript": "~2.2.1"
   }
 }

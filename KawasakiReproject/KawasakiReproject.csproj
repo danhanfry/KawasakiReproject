@@ -56,12 +56,15 @@
     <Content Include="KawasakiNativeScript\app\pages\commercial\commercial.xml" />
     <Content Include="KawasakiNativeScript\app\pages\settings\settings.js" />
     <Content Include="KawasakiNativeScript\app\pages\settings\settings.xml" />
+    <Content Include="KawasakiNativeScript\app\pages\vtr\vtr.css" />
     <Content Include="KawasakiNativeScript\app\pages\vtr\vtr.js" />
     <Content Include="KawasakiNativeScript\app\pages\vtr\vtr.xml" />
     <Content Include="KawasakiNativeScript\app\shared\BasePage.js" />
     <Content Include="KawasakiNativeScript\app\shared\Common.js" />
     <Content Include="KawasakiNativeScript\app\shared\widgets\drawer-content.xml" />
     <Content Include="KawasakiNativeScript\app\shared\widgets\scroller.xml" />
+    <Content Include="KawasakiNativeScript\hooks\before-prepare\nativescript-dev-typescript.js" />
+    <Content Include="KawasakiNativeScript\hooks\before-watch\nativescript-dev-typescript.js" />
     <Content Include="KawasakiNinja650\assets\close_green_btn.svg" />
     <Content Include="KawasakiNinja650\assets\close_white_btn.svg" />
     <Content Include="KawasakiNinja650\assets\green_arrow_down.svg" />
@@ -370,6 +373,7 @@
     <Content Include="KawasakiNativeScript\app\package.json" />
     <Content Include="KawasakiNativeScript\app\README.md" />
     <Content Include="KawasakiNativeScript\package.json" />
+    <Content Include="KawasakiNativeScript\tsconfig.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -378,6 +382,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="KawasakiNativeScript\app\app.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\pages\camera\camera.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\pages\commercial\commercial.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\pages\settings\settings.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\pages\vtr\vtr.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\shared\BasePage.ts" />
+    <TypeScriptCompile Include="KawasakiNativeScript\app\shared\Common.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\abstractions\slide.abstraction.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\commonjs.ts" />
     <TypeScriptCompile Include="KawasakiNinja650\js\interfaces\commercial.d.ts" />

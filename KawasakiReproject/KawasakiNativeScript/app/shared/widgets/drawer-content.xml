@@ -1,7 +1,8 @@
-<GridLayout class="drawer-content">
+<grid-layout class="drawer-content">
   <stack-layout>
     <label text="Commercial" tap="navigate" class="{{ selectedPage == 'commercial' ? 'selected' : '' }}" />
     <label text="VTR" tap="navigate" class="{{ selectedPage == 'vtr' ? 'selected' : '' }}" />
     <label text="Settings" tap="navigate" class="{{ selectedPage == 'settings' ? 'selected' : '' }}" />
+    <label text="Camera" tap="navigate" class="{{ selectedPage == 'camera' ? 'selected' : '' }}" />
   </stack-layout>
-</GridLayout>
+</grid-layout>
