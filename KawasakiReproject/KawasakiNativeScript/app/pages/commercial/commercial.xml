@@ -18,7 +18,7 @@
     <drawer:rad-side-drawer.mainContent>
 
       <!-- Home page contents -->
-      <StackLayout  loaded="contentLoaded">
+      <StackLayout>
         <Image src="~/images/logo_2017.png" id="commericalNinjaNameYearId" class="ninja-year" />
         <Image src="~/images/logo_ninja.png" id="commericalNinjaNameId" class="ninja-model-name" />
         <Image src="~/images/green_hr.png" id="commericalNinjaLifeGreenHrId" class="ninja-hr" />
