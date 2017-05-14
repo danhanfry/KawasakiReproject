@@ -1,0 +1,106 @@
+Label {
+	color: #fff;
+}
+
+.social-section {
+  background-color: #000;
+  background-image: ~/images/slide4/social-bg.jpg;
+  background-repeat: no-repeat;
+  background-position: 75% 25%;
+  background-size: cover;
+}
+
+.twitter-color {
+	 height: 5;
+	 width: 20%;
+	 background-color: #4099FF;
+}
+
+.instagram-color {
+	 height: 5;
+	 width: 20%;
+	 background-color: #8f41b2;
+}
+
+.social-rdn-green-line {
+    border-radius: 5px;
+    border-width:2;
+    border-color:#66cc33;
+    width:20%;
+    height:3px;
+}
+
+.ninja-life-text {
+	font-weight: bold;
+	font-size: 20vw;
+	color: #fff;
+	letter-spacing: 1.2vw;
+    margin-left: 8%;
+}
+
+.social-gray-bg {
+    width: 100%;
+	height: 160px;
+	background-color: #5A5A5A;
+	opacity: 0.2;
+}
+
+.social-community-txt {
+    margin: 0 auto;
+	text-align: center;
+	z-index: 1;
+	font-size: 60vw;
+	color: #000;
+	font-weight: normal;
+	text-transform: uppercase;
+	width: 100%;
+    margin-left: 1%;
+    letter-spacing: 0.08vw;
+}
+
+.social-guidelines-txt {
+    margin: 0 auto;
+	text-align: center;
+    z-index: 2;
+	font-size: 18px;
+	color: #fff;
+	font-weight: normal;
+	text-transform: uppercase;
+	width: 100%;
+	cursor:pointer;
+    text-decoration: underline;
+}
+
+.social-grid-bkg {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+}
+
+.social-icon-grid-middle {
+    width: 18px;
+    height: 18px;
+}
+
+.flip-container {
+	width: 90%;
+}
+
+.flipper {
+	width: 100%;
+}
+
+.front-social {
+	height: 100vh;
+}
+
+.social-grid-bkg {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+}
+
+.social-icon-grid-middle {
+	width: 7%;
+	height: 7%;
+}

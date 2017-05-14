@@ -1,0 +1,67 @@
+<page
+  class="page"
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  class="social-section"
+  >
+
+  <page.actionBar>
+    <action-bar title="NativeScript" class="action-bar">
+      <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+        </ios>
+      </action-bar.actionItems>
+    </action-bar>
+  </page.actionBar>
+
+
+  <drawer:rad-side-drawer id="drawer" showOverNavigation="true"> 
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+
+    <drawer:rad-side-drawer.mainContent>
+     
+         <StackLayout>
+         
+              <AbsoluteLayout>
+                <Label text="#NINJALIFE" textWrap="true" top="60" class="ninja-life-text" />
+                <StackLayout class="social-gray-bg" top="40"></StackLayout>
+                <Label text="community" textWrap="true" top="85" class="social-community-txt" />
+                <Label text="submission guidelines" textWrap="true" top="105" 
+                        class="social-guidelines-txt" tap="opensubmissionguidelines" />
+              </AbsoluteLayout>
+
+               <ScrollView>
+                  <WrapLayout id="socialRepeaterId" width="100%" height="100%">
+                      
+                      <Repeater items="{{ socialTiles }}">
+                        <Repeater.itemTemplate orientation="horizontal">
+
+                            <StackLayout class="front-social" width="40%"
+                                  style="background-image: url('https://scontent.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/15275709_1624813344481733_1733577976101994496_n.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+                                  <StackLayout class="social-grid-bkg"></StackLayout>
+                                  <StackLayout>
+                                      <Image src="{{network === 'twitter' ? '~/images/slide4/icon_twitter.png' : '~/images/slide4/icon_instagram.png'}}" class="social-icon-grid-middle" />
+                                      <StackLayout class="{{network === 'twitter' ? 'twitter-color' : 'instagram-color'}}"></StackLayout>
+                                  </StackLayout>
+                             </StackLayout>
+
+                        </Repeater.itemTemplate>
+                    </Repeater>
+
+                  </WrapLayout>
+              </ScrollView>
+
+        </StackLayout>
+     
+    </drawer:rad-side-drawer.mainContent>
+
+  </drawer:rad-side-drawer>
+
+</page>
