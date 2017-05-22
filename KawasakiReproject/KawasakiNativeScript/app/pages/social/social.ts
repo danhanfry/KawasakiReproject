@@ -17,7 +17,7 @@ class SocialPage extends BasePage {
         page.bindingContext = vm;
     }
 
-    socialFeedRetrieval = ():void => {
+    private socialFeedRetrieval = ():void => {
 
 
         let myLayout = page.getViewById("socialRepeaterId");

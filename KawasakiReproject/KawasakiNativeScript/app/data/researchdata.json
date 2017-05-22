@@ -1,0 +1,54 @@
+﻿{
+	"ResearchPage": [
+		{
+			"Id": "researchOne",
+			"Title": "RESEARCH",
+			"Links": [
+				{
+					"Title": "Compare Vehicles",
+					"Href": "https://www.kawasaki.com/ShoppingTools/Compare?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-COMPARE"
+				},
+				{
+					"Title": "View Awards & Reviews",
+					"Href": "https://www.kawasaki.com/shoppingtools/awards/motorcycle?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-AWARDS"
+				},
+				{
+					"Title": "Request a Test Ride",
+					"Href": "https://www.kawasaki.com/ShoppingTools/SelectDealer/MOTORCYCLE?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-TESTRIDE"
+				}
+			]
+		},
+		{
+			"Id": "researchTwo",
+			"Title": "SHOP",
+			"Links": [
+				{
+					"Title": "Locate a Dealer",
+					"Href": "https://www.kawasaki.com/ShoppingTools/DealerLocator?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-LOCATE"
+				},
+				{
+					"Title": "See Dealer Inventory",
+					"Href": "https://www.kawasaki.com/shoppingtools/ViewInventory/2016-Ninja-650-ABS?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-INVENTORY"
+				},
+				{
+					"Title": "Request a Quote",
+					"Href": "https://www.kawasaki.com/ShoppingTools/RequestQuote/2016-Ninja-650-ABS?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-QUOTE"
+				}
+			]
+		},
+		{
+			"Id": "researchThree",
+			"Title": "FINANCE",
+			"Links": [
+				{
+					"Title": "View Current Offers",
+					"Href": "https://www.kawasaki.com/ShoppingTools/CurrentOffer?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-OFFERS"
+				},
+				{
+					"Title": "Estimate Payment",
+					"Href": "https://www.kawasaki.com/shoppingtools/estimatepayment/2016-Ninja-650-ABS?cm_re=NINJA650EXPERIENCE-_-RESEARCHTOOLS-_-ESTIMATE"
+				}
+			]
+		}
+	]
+}

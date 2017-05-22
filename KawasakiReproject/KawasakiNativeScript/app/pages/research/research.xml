@@ -1,0 +1,71 @@
+<page
+  class="page"
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  class="research-section"
+  >
+
+  <page.actionBar>
+    <action-bar title="NativeScript" class="action-bar">
+      <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+        </ios>
+      </action-bar.actionItems>
+    </action-bar>
+  </page.actionBar>
+
+
+  <drawer:rad-side-drawer id="drawer" showOverNavigation="true"> 
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+
+     <drawer:rad-side-drawer.mainContent>
+    
+
+        <StackLayout>
+          
+          <StackLayout>
+              <Image src="~/images/logo_2017.png" id="researchYear" class="research-text-year" />
+              <Image src="~/images/logo_ninja.png" id="researchNinja" class="research-logo" />
+          </StackLayout>
+           <AbsoluteLayout>
+           
+              <Label text="research tools" textWrap="false" top="5" id="researchToolText" class="research-research-txt" />
+              <Label text="in dealerships soon" textWrap="false" top="55" id="researchInDealership" class="research-in-dealership" />
+
+            </AbsoluteLayout>
+
+            <WrapLayout id="toolsRepeaterId" width="100%" height="100%">
+                      
+                <Repeater items="{{ researchToolsData }}">
+                  <Repeater.itemTemplate orientation="horizontal">
+
+                       <StackLayout orientation="horizontal">
+                             <Label text="{{Title}}" textWrap="false" class="research-numbered-header" />
+                             <Repeater items="{{ Links }}">
+                                <Repeater.itemTemplate orientation="horizontal">
+                                    <StackLayout>
+                                          <Label text="{{Title}}" textWrap="false" class="research-numbered-link" />
+                                    </StackLayout>                
+                                </Repeater.itemTemplate>
+                            </Repeater>
+                        </StackLayout>
+                     
+                      
+                  </Repeater.itemTemplate>
+              </Repeater>
+
+            </WrapLayout>
+        </StackLayout>
+
+
+      </drawer:rad-side-drawer.mainContent>
+
+  </drawer:rad-side-drawer>
+
+</page>

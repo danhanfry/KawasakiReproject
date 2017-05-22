@@ -1,0 +1,42 @@
+﻿{
+	"ExploreBikeImgPath": "assets/slide3/bike.png",
+	"ExplorerScrollerImgPath": "assets/green_arrown_down.svg",
+	"Tiles": [
+		{
+			"Id": "stylingId",
+			"Name": "styling",
+			"ImagePath": "assets/slide3/styling.jpg",
+			"TileSize": "large-square"
+		},
+		{
+			"Id": "comfortId",
+			"Name": "comfort",
+			"ImagePath": "assets/slide3/comfort.jpg",
+			"TileSize": "vertical-rect"
+		},
+		{
+			"Id": "convenienceId",
+			"Name": "convenience",
+			"ImagePath": "assets/slide3/convenience.jpg",
+			"TileSize": "small-square"
+		},
+		{
+			"Id": "powerId",
+			"Name": "power",
+			"ImagePath": "assets/slide3/power.jpg",
+			"TileSize": "short-horiz-rect"
+		},
+		{
+			"Id": "handlingId",
+			"Name": "handling",
+			"ImagePath": "assets/slide3/handling.jpg",
+			"TileSize": "small-square"
+		},
+		{
+			"Id": "racingHeritageId",
+			"Name": "racingheritage",
+			"ImagePath": "assets/slide3/heritage.jpg",
+			"TileSize": "horiz-rect"
+		}
+	]
+}
