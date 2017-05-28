@@ -13,7 +13,16 @@
   color: #e4ba4e;
 }
 
+.clearfix {
+  clear: both;
+}
+
 .section-scroller {
   width: 100px;
   height: 100px;
+}
+
+.modal {
+  color: #fff;
+	background-color: rgba(0, 0, 0, 0.9);
 }

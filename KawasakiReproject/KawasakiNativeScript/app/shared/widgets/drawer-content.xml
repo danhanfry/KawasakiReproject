@@ -2,7 +2,9 @@
   <stack-layout>
     <label text="Commercial" tap="navigate" class="{{ selectedPage == 'commercial' ? 'selected' : '' }}" />
     <label text="VTR" tap="navigate" class="{{ selectedPage == 'vtr' ? 'selected' : '' }}" />
-    <label text="Settings" tap="navigate" class="{{ selectedPage == 'settings' ? 'selected' : '' }}" />
+    <label text="Social" tap="navigate" class="{{ selectedPage == 'social' ? 'selected' : '' }}" />
+    <label text="Research" tap="navigate" class="{{ selectedPage == 'research' ? 'selected' : '' }}" />
     <label text="Camera" tap="navigate" class="{{ selectedPage == 'camera' ? 'selected' : '' }}" />
+    <label text="Settings" tap="navigate" class="{{ selectedPage == 'settings' ? 'selected' : '' }}" />
   </stack-layout>
 </grid-layout>

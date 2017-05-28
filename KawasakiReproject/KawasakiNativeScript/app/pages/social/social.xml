@@ -43,7 +43,7 @@
                         <Repeater.itemTemplate orientation="horizontal">
 
                             <StackLayout class="front-social" width="40%"
-                                  style="background-image: url('https://scontent.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/15275709_1624813344481733_1733577976101994496_n.jpg'); background-repeat: no-repeat; background-size: cover;">
+                                  style="background-image: url('https://scontent.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/15275709_1624813344481733_1733577976101994496_n.jpg');">
 
                                   <StackLayout class="social-grid-bkg"></StackLayout>
                                   <StackLayout>

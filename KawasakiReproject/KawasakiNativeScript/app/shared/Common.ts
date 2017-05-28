@@ -1,11 +1,18 @@
-
-export class Common {    
+export class Common 
+{    
     
-    spreadfasterNormalizer = (result:Array<any>):Array<any> => {
-             var normalized = [];
-
+    public static spreadfasterNormalizer = (result:any):Array<any> => {
+            var normalized = [];
+			var currentColumn = 0;
+			var currentRow = -1;
 			for (var i = 0; i < result.length; i++) {
 				var entity = result[i];
+				
+				
+				var resultsMod = i % 2;
+				currentRow = resultsMod === 0 ? (currentRow + 1) : currentRow;
+				currentColumn =resultsMod;
+
 				try {
 					var caption = "";
 					var name = "";
@@ -24,7 +31,9 @@ export class Common {
 							caption: caption,
 							user: name,
 							imageUrl: fullSizeUrl,
-							thumbUrl: thumbUrl
+							thumbUrl: thumbUrl,
+							columnPosition: currentColumn,
+							rowPosition: currentRow
 						});
 					}
 					else if (entity.network == "instagram") {
@@ -77,7 +86,9 @@ export class Common {
 							caption: caption,
 							user: name,
 							imageUrl: fullSizeUrl,
-							thumbUrl: thumbUrl
+							thumbUrl: thumbUrl,
+							columnPosition: currentColumn,
+							rowPosition: currentRow
 						});
 					}
 					else if (entity.network == "twitter") {
@@ -95,7 +106,9 @@ export class Common {
 								caption: caption,
 								user: name,
 								imageUrl: fullSizeUrl,
-								thumbUrl: thumbUrl
+								thumbUrl: thumbUrl,
+								columnPosition: currentColumn,
+								rowPosition: currentRow
 							});
 						}
 					}

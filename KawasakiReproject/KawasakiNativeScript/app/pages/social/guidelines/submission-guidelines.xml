@@ -1,0 +1,47 @@
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:lv="nativescript-telerik-ui/listview"
+    shownModally="onShownModally" 
+    loaded="onLoaded">
+  <StackLayout class="modal">
+      <Image src="~/images/close_green_btn.png" class="close-guide-modal" tap="closeGuidelineModal" />
+      <StackLayout>
+          <Label text="Submission Guidelines" textWrap="true" class="guidelines-header" />
+      </StackLayout>
+      <StackLayout class="modal-guidelines-info">
+          <StackLayout class="guidelines-blurb-container">
+              <Label text="We can’t wait to see all the ways you represent #NINJALIFE. In order to feature your submission on our website, we ask that you please follow our submission guidelines." 
+                      textWrap="true" class="guidelines-blurb" />
+          </StackLayout>
+          <StackLayout class="guidelines-rules clearfix">
+
+
+
+
+              <!--<lv:RadListView id="rulesListViewId" items="{{ socialRulesArray }}" class="list-group">
+ 
+                  <lv:RadListView.listViewLayout>
+                      <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+                  </lv:RadListView.listViewLayout>
+                  <lv:RadListView.itemTemplate>
+                      <StackLayout orientation="vertical">
+
+                          <Label text="{{ $value }}" textWrap="true" class="list-group-item-text" />
+
+                      </StackLayout>
+                  </lv:RadListView.itemTemplate>
+              </lv:RadListView>-->
+
+
+
+
+
+
+          </StackLayout>
+      </StackLayout>
+      <StackLayout>
+          <Label text="By submitting a photo you agree that you own all copyright in and to the photo submitted; you have authorization from all individual(s) featured in your photo to allow you to submit a photo bearing their name, image and likeness; and all photos submitted become the property of Kawasaki Motors Corp., U.S.A., and may be used by KMC in any and all forms of media, for any lawful purpose, without further permission or compensation." 
+                  textWrap="true" class="guidelines-disclaimer" />
+      </StackLayout>
+  </StackLayout>
+</Page>

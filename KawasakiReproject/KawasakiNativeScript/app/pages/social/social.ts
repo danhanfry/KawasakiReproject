@@ -17,6 +17,15 @@ class SocialPage extends BasePage {
         page.bindingContext = vm;
     }
 
+    opensubmissionguidelines = ():void => {
+        page.showModal("pages/social/guidelines/submission-guidelines", "context", function () {}, true);
+    }
+
+    gotoslidethree = () => {
+        vm.set("selectedPage", "settings");
+        topmost().navigate("pages/settings/settings");
+    }
+
     private socialFeedRetrieval = ():void => {
 
 
@@ -30,11 +39,6 @@ class SocialPage extends BasePage {
                 socialTiles: allSocial
             };
         });
-    }
-
-    gotoslidethree = () => {
-        vm.set("selectedPage", "settings");
-        topmost().navigate("pages/settings/settings");
     }
 
 }
