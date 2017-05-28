@@ -40,17 +40,22 @@
 
             </AbsoluteLayout>
 
-            <WrapLayout id="toolsRepeaterId" width="100%" height="100%">
+            <WrapLayout id="toolsRepeaterId" width="100%" height="100%" class="footer-tiles-container">
                       
                 <Repeater items="{{ researchToolsData }}">
                   <Repeater.itemTemplate orientation="horizontal">
 
                        <StackLayout orientation="horizontal">
-                             <Label text="{{Title}}" textWrap="false" class="research-numbered-header" />
+                             <StackLayout class="research-numbered-header">
+                                <StackLayout class="research-numbered"></StackLayout>
+                                <StackLayout class="research-numbered-txt">
+                                  <Label text="{{Title}}" textWrap="false" />
+                                </StackLayout>
+                              </StackLayout>
                              <Repeater items="{{ Links }}">
                                 <Repeater.itemTemplate orientation="horizontal">
-                                    <StackLayout>
-                                          <Label text="{{Title}}" textWrap="false" class="research-numbered-link" />
+                                    <StackLayout class="research-numbered-link">
+                                          <Label text="{{Title}}" textWrap="false" data-href="{{Href}}" tap="openLinkToBrowser" class="research-like-link" />
                                     </StackLayout>                
                                 </Repeater.itemTemplate>
                             </Repeater>

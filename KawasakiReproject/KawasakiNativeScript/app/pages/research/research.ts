@@ -4,6 +4,7 @@ import {Observable, EventData} from "data/observable";
 import { Page } from "ui/page";
 import {Image} from "ui/image";
 import {topmost} from "ui/frame";
+import * as utilities from "utils/utils";
 
 import {IResearchPage, IResearchLink, IResearchPageLink} from "../../models/IKawiInterfaces";
 
@@ -17,6 +18,11 @@ class ResearchPage extends BasePage {
         page = <Page>args.object;  
         this.getResearchToolData();   
         page.bindingContext = vm;
+    }
+
+    openLinkToBrowser = (args):void => {
+        var currentResearchLink = args.object;
+        utilities.openUrl(currentResearchLink["data-href"]);
     }
 
     private getResearchToolData = ():void => {

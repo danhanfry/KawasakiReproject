@@ -42,11 +42,40 @@
   letter-spacing: 0.08vw;
 }
 
+.footer-tiles-container {
+  margin-top: 5%;
+}
+
+.research-numbered {
+  border-width: 1;
+  border-color: #66cc33;
+}
+
 .research-numbered-header {
   color: #fff;
+  width: 40%;
+  font-size: 20vw;
+  height: 110vh;
+  border-right-width:1;
+  border-right-color:#39393c;
+  margin-left: 7%;
+}
+
+.research-numbered-txt {
+  padding-top: 5%;
 }
 
 .research-numbered-link {
 	color: #b0b0b0;
-	padding-left: 30px;
+	padding-left: 100px;
+  padding-top: 3%;
+  margin-top: 2.5%;
+  background-image: ~/images/slide5/minus.png;
+  background-repeat: no-repeat;
+  background-position: 30px 30px;
+  background-size: 40 20;
+}
+
+.research-like-link {
+  text-decoration: underline;
 }
