@@ -26,3 +26,34 @@
   color: #fff;
 	background-color: rgba(0, 0, 0, 0.9);
 }
+
+.close-modal-icon {
+	width: 100px;
+  height: 100px;
+}
+
+/**/
+.spec-details-text-container {
+  width: 100%;
+}
+
+.spec-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.spec-details-text-container {
+  width: 80%;
+  padding: 5%;
+}
+
+.spec-label {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.padding-table-cell {
+  font-size: 20vw;
+}

@@ -1,0 +1,13 @@
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:lv="nativescript-telerik-ui/listview"
+    shownModally="onShownModally">
+  <StackLayout class="modal">
+    <Image src="~/images/close_green_btn.png" class="close-modal-icon" tap="closeGuidelineModal" />
+    <StackLayout id="scrollModalId" orientation="vertical" class="non-spec-container" top="200">
+        
+            
+
+    </StackLayout>
+  </StackLayout>
+</Page>

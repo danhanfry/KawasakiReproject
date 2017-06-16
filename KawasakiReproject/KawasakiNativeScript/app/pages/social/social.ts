@@ -33,7 +33,7 @@ class SocialPage extends BasePage {
 
         fetch("http://app.feedspear.com/Campaign/16/Feed").then(response => { return response.json(); }).then(function (r) {
 
-            var allSocial = Common.spreadfasterNormalizer(r).slice(0, 5);
+            var allSocial = Common.spreadfasterNormalizer(r).slice(0, 2);
 
             myLayout.bindingContext = {
                 socialTiles: allSocial

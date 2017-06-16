@@ -19,16 +19,10 @@ Full credit to TJ Van Toll for the [original JavaScript version](https://github.
 ![](http://i.imgur.com/6Kha8WY.png)
 
 
-
-
-
-
-
-
 nativescript package used:
 
-nativescript-template-drawer
+tns plugin add nativescript-camera 
+npm install nativescript-camera --save
 
-tns plugin add nativescript-camera npm install nativescript-camera --save
-
-tns plugin add nativescript-permissions tns plugin add nativescript-geolocation
+tns plugin add nativescript-permissions 
+tns plugin add nativescript-geolocation

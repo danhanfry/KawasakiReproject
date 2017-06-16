@@ -1,42 +1,46 @@
 ﻿{
-	"ExploreBikeImgPath": "assets/slide3/bike.png",
-	"ExplorerScrollerImgPath": "assets/green_arrown_down.svg",
 	"Tiles": [
 		{
 			"Id": "stylingId",
 			"Name": "styling",
-			"ImagePath": "assets/slide3/styling.jpg",
-			"TileSize": "large-square"
+			"ImagePath": "~/images/slide3/styling.jpg",
+			"TileSize": "large-square",
+			"ClassName": "styling-tile"
 		},
 		{
 			"Id": "comfortId",
 			"Name": "comfort",
-			"ImagePath": "assets/slide3/comfort.jpg",
-			"TileSize": "vertical-rect"
+			"ImagePath": "~/images/slide3/comfort.jpg",
+			"TileSize": "vertical-rect",
+			"ClassName": "comfort-tile"
 		},
 		{
 			"Id": "convenienceId",
 			"Name": "convenience",
-			"ImagePath": "assets/slide3/convenience.jpg",
-			"TileSize": "small-square"
+			"ImagePath": "~/images/slide3/convenience.jpg",
+			"TileSize": "small-square",
+			"ClassName": "convenience-tile"
 		},
 		{
 			"Id": "powerId",
 			"Name": "power",
-			"ImagePath": "assets/slide3/power.jpg",
-			"TileSize": "short-horiz-rect"
+			"ImagePath": "~/images/slide3/power.jpg",
+			"TileSize": "short-horiz-rect",
+			"ClassName": "power-tile"
 		},
 		{
 			"Id": "handlingId",
 			"Name": "handling",
-			"ImagePath": "assets/slide3/handling.jpg",
-			"TileSize": "small-square"
+			"ImagePath": "~/images/slide3/handling.jpg",
+			"TileSize": "small-square",
+			"ClassName": "handling-tile"
 		},
 		{
 			"Id": "racingHeritageId",
 			"Name": "racingheritage",
-			"ImagePath": "assets/slide3/heritage.jpg",
-			"TileSize": "horiz-rect"
+			"ImagePath": "~/images/slide3/heritage.jpg",
+			"TileSize": "horiz-rect",
+			"ClassName": "heritage-tile"
 		}
 	]
 }

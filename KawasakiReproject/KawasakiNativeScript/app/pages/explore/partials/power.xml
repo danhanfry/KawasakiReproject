@@ -1,0 +1,5 @@
+<StackLayout>
+    <Label text="PERSONA 5." textWrap="true" margin="30,0,10,0"/>
+    <Label text="HIGH THERE" textWrap="true" margin="10,0,0,0"/>
+
+</StackLayout>

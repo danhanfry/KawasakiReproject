@@ -1,0 +1,65 @@
+<page
+  class="page"
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+  xmlns:widgets="shared/widgets"
+  loaded="loaded"
+  class="explore-section"
+  >
+
+  <page.actionBar>
+    <action-bar title="NativeScript" class="action-bar">
+      <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+      <action-bar.actionItems>
+        <ios>
+          <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+        </ios>
+      </action-bar.actionItems>
+    </action-bar>
+  </page.actionBar>
+
+
+  <drawer:rad-side-drawer id="drawer" showOverNavigation="true"> 
+    <drawer:rad-side-drawer.drawerContent>
+      <widgets:drawer-content />
+    </drawer:rad-side-drawer.drawerContent>
+
+     <drawer:rad-side-drawer.mainContent>
+    
+
+        <StackLayout>
+          
+          <AbsoluteLayout>
+
+              <Image src="~/images/slide3/ninja-650-logo-mobile.png" top="60" id="ninjaLogoExploreId" class="spec-ninja-logo" />
+              <Label text="explore ninja 650" textWrap="true" top="70" class="non-explore-ninja" />
+
+              <Image src="~/images/slide3/bike.png" top="150" class="spec-ninja-bike" />
+
+          </AbsoluteLayout>
+
+          <ScrollView orientation="vertical" class="non-spec-container" top="200">
+
+              <GridLayout id="exploreRepeaterId" rows="auto auto auto auto auto auto">
+                  
+                  <Repeater items="{{ exploreTiles }}">
+                    <Repeater.itemTemplate orientation="horizontal">
+
+                        <Image id="{{Id}}" data-name="{{Name}}" src="{{ImagePath}}" class="{{'non-tech-image ' + ClassName}}" tap="openexploretiles" />
+
+                    </Repeater.itemTemplate>
+                </Repeater>
+
+              </GridLayout>
+
+          </ScrollView>
+
+          
+        </StackLayout>
+
+
+      </drawer:rad-side-drawer.mainContent>
+
+  </drawer:rad-side-drawer>
+
+</page>

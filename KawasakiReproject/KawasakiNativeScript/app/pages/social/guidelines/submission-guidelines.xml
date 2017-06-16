@@ -4,7 +4,7 @@
     shownModally="onShownModally" 
     loaded="onLoaded">
   <StackLayout class="modal">
-      <Image src="~/images/close_green_btn.png" class="close-guide-modal" tap="closeGuidelineModal" />
+      <Image src="~/images/close_green_btn.png" class="close-modal-icon" tap="closeGuidelineModal" />
       <StackLayout>
           <Label text="Submission Guidelines" textWrap="true" class="guidelines-header" />
       </StackLayout>

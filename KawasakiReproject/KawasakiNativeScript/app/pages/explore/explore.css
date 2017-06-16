@@ -1,0 +1,59 @@
+.explore-section {
+  background-color: #fff;
+}
+
+.spec-ninja-logo {
+  width: 100%;
+}
+
+.non-explore-ninja{
+  font-size: 30vw;
+  letter-spacing: 0.1vw;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+  width: 100%;
+}
+
+.spec-ninja-bike{
+  width: 100%;
+  opacity: 0.5;
+}
+
+.non-tech-image {
+  border-width:1;
+  border-color:#D8D8D8;
+  width: 100%;
+}
+
+.non-spec-container {
+  margin-top: -600px;
+}
+
+
+/*explore spec modal*/
+
+.spec-details-text-container {
+  width: 100%;
+}
+
+.spec-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.spec-details-text-container {
+  width: 80%;
+  padding: 5%;
+}
+
+.spec-label {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.padding-table-cell {
+  font-size: 20vw;
+}
