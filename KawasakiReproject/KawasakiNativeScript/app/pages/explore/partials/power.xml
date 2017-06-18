@@ -1,5 +1,30 @@
-<StackLayout>
-    <Label text="PERSONA 5." textWrap="true" margin="30,0,10,0"/>
-    <Label text="HIGH THERE" textWrap="true" margin="10,0,0,0"/>
+<StackLayout class="explore-modal-spec-details-container">
+
+    <StackLayout class="explore-modal-spec-title-container">
+        <Label text="Power" textWrap="false" class="explore-modal-spec-title"/>
+    </StackLayout>
+
+    <StackLayout class="explore-modal-image power-modal-mobile"></StackLayout>
+
+    <StackLayout class="explore-modal-spec-details-text-container">
+
+        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+            <Label text="649cc Parallel-Twin Engine" textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+            <Label text="A 649cc parallel-twin engine turns out smooth and responsive power. Abundant low-to mid-range torque produces strong acceleration." textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+            <Label text="New Assist & Slipper Clutch" textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+            <Label text="The assist & slipper clutch contributes to lighter clutch pull at the lever (assist) and minimizes rear wheel chatter during downshifts for smoother deceleration (slipper)." textWrap="true" />
+        </StackLayout>
+
+    </StackLayout>
+    
 
 </StackLayout>

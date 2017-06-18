@@ -5,6 +5,10 @@
     border-bottom-color:#66cc33;
 }
 
+.guidelines-container {
+	margin-top: 5%;
+}
+
 .modal-guidelines-info {
 	width: 100%;
 	margin: 2% 0 2% 0;
@@ -21,6 +25,18 @@
 	line-height: 40;
 	text-align: center;
 	letter-spacing: 0.1%;
+}
+
+.guidelines-list-container {
+	padding-left: 20%;
+	height: 230vh;
+	border-width: 1;
+	border-color: #66cc33;
+}
+
+.guidelines-listing {
+	padding-top: 10%;
+	padding-bottom: 10%;
 }
 
 .guidelines-disclaimer {

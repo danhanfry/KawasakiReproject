@@ -1,5 +1,30 @@
-<StackLayout>
-    <Label text="PERSONA 5." textWrap="true" margin="30,0,10,0"/>
-    <Label text="HIGH THERE" textWrap="true" margin="10,0,0,0"/>
+<StackLayout class="explore-modal-spec-details-container">
+
+    <StackLayout class="explore-modal-spec-title-container">
+        <Label text="convenience" textWrap="false" class="explore-modal-spec-title"/>
+    </StackLayout>
+
+    <StackLayout class="explore-modal-image convenience-modal-mobile"></StackLayout>
+
+    <StackLayout class="explore-modal-spec-details-text-container">
+
+        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+            <Label text="New Windscreen" textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+            <Label text="A new sporty windscreen offers a wide range of wind protection and is adjustable over three positions that cover a total range of 2.4 inches." textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+            <Label text="New Digital Meter" textWrap="true" />
+        </StackLayout>
+
+         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+            <Label text="Digital multi-function meter adds a gear position indicator and offers excellent visibility. Its sophisticated design features a large analog tachometer alongside a multi-function LCD screen." textWrap="true" />
+        </StackLayout>
+
+    </StackLayout>
+    
 
 </StackLayout>
