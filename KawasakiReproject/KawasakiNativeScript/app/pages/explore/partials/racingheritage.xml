@@ -6,17 +6,19 @@
 
     <StackLayout class="explore-modal-image heritage-modal-mobile"></StackLayout>
 
-    <StackLayout class="explore-modal-spec-details-text-container">
+    <ScrollView class="explore-modal-spec-details-text-container">
 
-        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="AMA Pro Flat Track" textWrap="true" />
+        <StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="AMA Pro Flat Track" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="For the 2016 season, three-time champion Bryan Smith aims to continue his championship-winning ways aboard the Villa-Esparza/Crosley Radio Kawasaki powered by the same 649cc parallel-twin engine used in the Ninja® 650." textWrap="true" />
+            </StackLayout>
         </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="For the 2016 season, three-time champion Bryan Smith aims to continue his championship-winning ways aboard the Villa-Esparza/Crosley Radio Kawasaki powered by the same 649cc parallel-twin engine used in the Ninja® 650." textWrap="true" />
-        </StackLayout>
-
-    </StackLayout>
+    </ScrollView>
     
 
 </StackLayout>

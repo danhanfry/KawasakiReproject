@@ -6,41 +6,45 @@
 
     <StackLayout class="explore-modal-image comfort-modal-mobile"></StackLayout>
 
-    <StackLayout class="explore-modal-spec-details-text-container">
+    <ScrollView class="explore-modal-spec-details-text-container">
 
-        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="Ride Position" textWrap="true" />
-        </StackLayout>
+        <StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="An upright riding position offers relaxed, sporty ergonomics allowing riders to fully capitalize on the sporty street riding potential of the Ninja® 650 sportbike." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="Ride Position" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Seat Height" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="An upright riding position offers relaxed, sporty ergonomics allowing riders to fully capitalize on the sporty street riding potential of the Ninja® 650 sportbike." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Reduced seat height along with the bike’s slim overall design makes it easy to keep both feet firmly planted on the ground when stopped. It accommodates a wide range of rider sizes and promotes confidence when riding." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Seat Height" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Handlebars" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Reduced seat height along with the bike’s slim overall design makes it easy to keep both feet firmly planted on the ground when stopped. It accommodates a wide range of rider sizes and promotes confidence when riding." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Clip-on style handlebars promote an aggressive Ninja sportbike image while complementing the ergonomics of the upright seating position of the Ninja sportbike." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Handlebars" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Footpeg Position" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Clip-on style handlebars promote an aggressive Ninja sportbike image while complementing the ergonomics of the upright seating position of the Ninja sportbike." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Footpegs have been repositioned for improved ergonomics. This positioning offers a more relaxed and comfortable ride position." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Footpeg Position" textWrap="true" />
+            </StackLayout>
 
-    </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Footpegs have been repositioned for improved ergonomics. This positioning offers a more relaxed and comfortable ride position." textWrap="true" />
+            </StackLayout>
+
+         </StackLayout>
+
+    </ScrollView>
     
 
 </StackLayout>

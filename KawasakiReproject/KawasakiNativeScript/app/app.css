@@ -51,8 +51,14 @@
 }
 
 .explore-modal-spec-details-text-container {
-  width: 80%;
+  width: 90%;
   padding: 15%;
+  margin-top: 5%;
+  height: 220vh;
+  border-top-width: 1;
+	border-top-color: #66cc33;
+  border-bottom-width: 1;
+  border-bottom-color: #66cc33;
 }
 
 .explore-modal-spec-label {
@@ -60,6 +66,7 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 15vw;
+  padding-top: 10%;
 }
 
 .explore-modal-padding-table-cell {

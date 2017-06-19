@@ -6,49 +6,52 @@
 
     <StackLayout class="explore-modal-image styling-modal-mobile"></StackLayout>
 
-    <StackLayout class="explore-modal-spec-details-text-container">
+    <ScrollView class="explore-modal-spec-details-text-container">
 
-        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Sporty Front Cowling" textWrap="true" />
+        <StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Sporty Front Cowling" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The front cowling gives the Ninja® 650 motorcycle an aggressive look, while also providing extra wind protection." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Aggressive Bodywork" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The sharp, modern angles of the bodywork give the Ninja 650 a sleek, sporty look and an aerodynamic shape." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Low Profile Headlights" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The low profile headlights are as stylish as they are practical, giving the Ninja 650 a striking appearance and a commanding view of the road ahead." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Clip-on Style Handlebars" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The new clip-on style handlebars closely resemble the supersport line of motorcycles, providing a sporty cockpit and an aggressive riding position." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New X-Pattern LED Taillight" textWrap="true" />
+            </StackLayout>
+
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The X-Pattern LED taillight increases visibility and improves overall appearance—helping you look good while also being seen." textWrap="true" />
+            </StackLayout>
+
         </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The front cowling gives the Ninja® 650 motorcycle an aggressive look, while also providing extra wind protection." textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Aggressive Bodywork" textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The sharp, modern angles of the bodywork give the Ninja 650 a sleek, sporty look and an aerodynamic shape." textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Low Profile Headlights" textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The low profile headlights are as stylish as they are practical, giving the Ninja 650 a striking appearance and a commanding view of the road ahead." textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Clip-on Style Handlebars" textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The new clip-on style handlebars closely resemble the supersport line of motorcycles, providing a sporty cockpit and an aggressive riding position." textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New X-Pattern LED Taillight" textWrap="true" />
-        </StackLayout>
-
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The X-Pattern LED taillight increases visibility and improves overall appearance—helping you look good while also being seen." textWrap="true" />
-        </StackLayout>
-
-    </StackLayout>
+    </ScrollView>
     
 
 </StackLayout>

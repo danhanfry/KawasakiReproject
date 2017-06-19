@@ -6,65 +6,69 @@
 
     <StackLayout class="explore-modal-image handling-modal-mobile"></StackLayout>
 
-    <StackLayout class="explore-modal-spec-details-text-container">
+    <ScrollView class="explore-modal-spec-details-text-container">
 
-        <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Chassis" textWrap="true" />
-        </StackLayout>
+        <StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="New chassis with a trellis frame is lighter and slimmer with improved rigidity. The result is light and nimble handling and a more direct connection to the road." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Chassis" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Overall Weight" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="New chassis with a trellis frame is lighter and slimmer with improved rigidity. The result is light and nimble handling and a more direct connection to the road." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The 2017 Ninja® 650 sportbike weighs a significant 42 lbs. less than the previous model. This results in light handling and easy maneuverability." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Overall Weight" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Horizontal Back-Link Rear Suspension" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The 2017 Ninja® 650 sportbike weighs a significant 42 lbs. less than the previous model. This results in light handling and easy maneuverability." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The horizontal back-link rear suspension derived from World Superbike Championship Ninja® technology contributes to improved traction, response and ride comfort. A balance of sporty performance and everyday comfort is achieved." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Horizontal Back-Link Rear Suspension" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New 5-Spoke Wheels" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The horizontal back-link rear suspension derived from World Superbike Championship Ninja® technology contributes to improved traction, response and ride comfort. A balance of sporty performance and everyday comfort is achieved." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Rigid lightweight wheels contribute to nimble handling and sporty styling." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New 5-Spoke Wheels" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="Under-Engine Exhaust" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Rigid lightweight wheels contribute to nimble handling and sporty styling." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Placement of the exhaust under the engine contributes to lower weight centralization for nimble handling." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="Under-Engine Exhaust" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Nissin® Brake Calipers" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Placement of the exhaust under the engine contributes to lower weight centralization for nimble handling." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="Lightweight Nissin brake calipers contribute to strong and responsive stopping power." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Nissin® Brake Calipers" textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
-            <Label text="New Gull-Arm Design Swingarm" textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="Lightweight Nissin brake calipers contribute to strong and responsive stopping power." textWrap="true" />
+            </StackLayout>
 
-         <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
-            <Label text="The new gull-arm design swingarm provides a lower center of gravity and makes room for the under-engine exhaust, resulting in nimble handling and increased maneuverability." textWrap="true" />
-        </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell">
+                <Label text="New Gull-Arm Design Swingarm" textWrap="true" />
+            </StackLayout>
 
-    </StackLayout>
+            <StackLayout class="explore-modal-spec-label explore-modal-padding-table-cell explore-modal-padding-table-cell-details">
+                <Label text="The new gull-arm design swingarm provides a lower center of gravity and makes room for the under-engine exhaust, resulting in nimble handling and increased maneuverability." textWrap="true" />
+            </StackLayout>
+
+         </StackLayout>
+
+    </ScrollView>
     
 
 </StackLayout>
