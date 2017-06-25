@@ -26,3 +26,5 @@ npm install nativescript-camera --save
 
 tns plugin add nativescript-permissions 
 tns plugin add nativescript-geolocation
+
+tns plugin add nativescript-videoplayer

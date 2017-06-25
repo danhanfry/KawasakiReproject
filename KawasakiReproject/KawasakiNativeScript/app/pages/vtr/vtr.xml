@@ -3,6 +3,7 @@
   xmlns="http://schemas.nativescript.org/tns.xsd"
   xmlns:drawer="nativescript-telerik-ui/sidedrawer"
   xmlns:widgets="shared/widgets"
+  xmlns:VideoPlayer="nativescript-videoplayer"
   loaded="loaded"
   class="vtr-section"
   >
@@ -28,6 +29,12 @@
     
 
         <StackLayout>
+
+         <!--<VideoPlayer:Video id="nativeVideoPlayer"
+            controls="true"
+            loop="true" autoplay="false" height="180" 
+            src="https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" />-->
+
           <Label text="experience the 2017 ninja 650." textWrap="true" class="testvr-experience" />
 
           <Label text="take a virtual test ride." textWrap="true" class="testvr-testride" />
