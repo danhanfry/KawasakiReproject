@@ -1,0 +1,11 @@
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    shownModally="onShownModally">
+    
+    <StackLayout class="modal">
+        <Image src="~/images/close_green_btn.png" class="close-modal-icon" tap="closeGuidelineModal" />
+        <GridLayout class="">
+            <WebView id="vtrWebViewId" src="http://kawasaki.com/ninja650experience/vtr/index.html?videoId=0" />
+        </GridLayout>
+    </StackLayout>
+</Page>

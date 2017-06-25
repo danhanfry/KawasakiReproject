@@ -39,13 +39,13 @@
 
           <WrapLayout orientation="horizontal" class="vtr-selection-container">
 
-              <StackLayout class="vr-test-ride-selection-container" style="margin-right: 1.8%;">
+              <StackLayout class="vr-test-ride-selection-container" style="margin-right: 1.8%;" tap="vtrinteractive">
                   <StackLayout class="vr-video-green-line"></StackLayout>
                   <Image src="~/images/slide2/play-vtr.png" class="vtr-test-ride-play-img" />
                   <Label text="INTERACTIVE RIDE" textWrap="true" class="vr-test-ride-selection-txt" />
               </StackLayout>
 
-                <StackLayout class="vr-test-ride-selection-container">
+                <StackLayout class="vr-test-ride-selection-container" tap="vtrfreeride">
                     <StackLayout class="vr-video-green-line"></StackLayout>
                     <Image src="~/images/slide2/play-vtr.png" class="vtr-test-ride-play-img" />
                     <Label text="FREE RIDE" textWrap="true" class="vr-test-ride-selection-txt" />
